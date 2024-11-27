@@ -1,0 +1,4 @@
+Espresso Moka
+An interactive fiction by Roberto Ceccarelli
+Release 1 / Inform 7 v10.2.0 / D
+copyright © 2025 Roberto Ceccarelli
