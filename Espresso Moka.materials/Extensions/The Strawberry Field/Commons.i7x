@@ -1,8 +1,8 @@
-Version 1 of Commons by The Strawberry Field begins here.
+Version 1.1 of Commons by The Strawberry Field begins here.
 
-Book 1.1 - Typoghraphy
+Book Typoghraphy
 
-Chapter 1.1.1 - Shortenings
+Chapter Shortenings
 
 To say /n: say line break.
 To say /nn: say no line break.
@@ -19,7 +19,7 @@ To say /ss: say "[/i]'".
 To say /ss1: say "[unicode 8212] [/i]'".
 To say /se: say "[/r][unicode 8212] ".
 
-Book 1.2 - Rules
+Book Rules
 
 Rule for clarifying the parser's choice of something:
 	do nothing instead.
@@ -29,14 +29,14 @@ After reading a command:
 		say "The game does not include references to sex.";
 		reject the player's command. 
 	
+Chapter Extended properties
 
-Chapter 1.2.1 - Aliases
+A thing has some text called scent-description
+
+Chapter Aliases
 
 Understand "look around" as looking.  
 Understand "climb on [something]" as climbing.
-Understand "go [down]stairs" as going.  Understand "go [down] stairs" as going.  
-Understand "go [up]stairs" as going.  Understand "go [up] stairs" as going.  
-Understand "downstairs" as down.  Understand "upstairs" as up.
 Understand "check out [something]" as examining.
 Understand "sit down on/-- [something]" as entering.
 
@@ -46,7 +46,8 @@ Understand "use [a wearable thing]" as wearing.
 Understand "use [a closed openable container]" as opening. 
 Understand "use [an open openable container]" as closing.
 
-Understand "use [something preferably held] on [a locked lockable thing]" as unlocking it with (with nouns reversed). Understand "use [something preferably held] on [an unlocked lockable thing]" as locking it with (with nouns reversed).
+Understand "use [something preferably held] on [a locked lockable thing]" as unlocking it with (with nouns reversed). 
+Understand "use [something preferably held] on [an unlocked lockable thing]" as locking it with (with nouns reversed).
 
 Understand "use [a switched off device]" as switching on.
 
@@ -63,14 +64,14 @@ Understand "vomit" or "throw up" or "puke" or "barf" as a mistake ("[We] may fee
 Understand "man" or "gentleman" or "guy" or "dude" or "boy" as a man. 
 Understand "girl" or "gal" or "woman" or "lady" as a woman.
 
-Chapter 1.2.2 - Blocking take all
+Chapter Blocking take all
 
 Rule for deciding whether all includes a thing when taking: it does not.
 Rule for deciding whether all includes a thing when removing from: it does not.
 Rule for printing a parser error when the latest parser error is the nothing to do error:
 	say “Don't be a hoarder, just take what you plan to use.”.
 	
-Chapter 1.2.3  - Special actions
+Chapter Special actions
 
 Dancing is an action applying to nothing.
 Understand "Dance" as dancing.
@@ -84,15 +85,15 @@ Singing is an action applying to nothing.
 Understand "Sing" as singing.
 Report singing: say "[We] [are] not particularly in tune.".
 Check singing:
-	If the location of the player contains people which are not the player, say "Someone could not like it." instead.
+	if the location of the player contains people which are not the player, say "Someone could not like it." instead.
 	
-Chapter 1.2.4 - Special says
+Chapter Special says
 
 To say times of (N - a number): say " for the [ordinal of N] time".
 To say other times of (N - a number):
 	if N is greater than 1, say times of N.
 	
-Chapter 1.2.5 - Sanity check
+Chapter Sanity check
 
 The sanity-check rules are a rulebook.
 
@@ -101,7 +102,7 @@ This is the sanity-check stage rule:
 
 The sanity-check stage rule is listed before the before stage rule  in the action-processing rules.
 
-Section 1.2.5.1 - Basic sanity-check rules
+Section Basic sanity-check rules
 
 Sanity-check inserting something (called the holder) into something which is enclosed by the holder:
 	say "[We] can't put [the holder] into [themselves]." instead.
@@ -133,7 +134,7 @@ Sanity-check closing a person:
 Sanity-check searching the player:
 	try taking inventory instead.
 
-Chapter 1.2.6 - Go back
+Chapter Go back
 
 Understand "go back" as retreating. 
 Understand "back" or "return" or "retreat" as retreating.
@@ -167,7 +168,7 @@ Sanity-check switching on or switching off an r-abstract thing:
 		make no decision;
 	say "[The noun] [aren't] literally a projection; [they] [are] more of a concept created by the group mind of this language community. Sort of. [We] think. At any rate, [they] [don't] switch on and off." instead.
 
-Chapter 1.2.8 - Verbs
+Chapter Verbs
 
 To add is a verb.
 To admit is a verb.
@@ -276,24 +277,7 @@ To wish is a verb.
 To withdraw is a verb.
 To wrap is a verb.
 
-Book 1.3 - Disambiguation
-
-To decide whether (N - an object) fits the parse list:
-	(- (FindInParseList({N})) -)
-
-Include (-
-[ FindInParseList obj i k marker;
-	marker = 0;
-	for (i=1 : i<=number_of_classes : i++) {
-	while (((match_classes-->marker) ~= i) && ((match_classes-->marker) ~= -i)) marker++;
-	k = match_list-->marker;
-	if (k==obj) rtrue;
-	}
-	rfalse;
-];
--)
-
-Book 1.4 - Owner
+Book Owner
 
 A thing has an object called owner. The owner is usually nothing.
 
@@ -325,7 +309,7 @@ Carry out going by name:
     try going aim;
     if the location is not the noun, say "You'll have to stop here."
 
-Book 2.1 - Administrivia
+Book Administrivia
 
 Figure cover is the file "Cover.jpg".
 
@@ -333,33 +317,52 @@ To waiting space key:
 	say "[paragraph break]Please press SPACE to continue.";
 	wait for the SPACE key;
 	say /n.
-	
-Chapter 2.1.1 - about
 
-Asking-about is an action applying to nothing.
-Understand "about the/this/-- story/game/program/adventure/--" as asking-about.
+Chapter Help 
+
+Requesting help is an action out of world.
+Understand "help me/-- please/--" as requesting help. 
+Understand the command "hint/advise/suggest/tip" as "help".
+Understand "ask for help/hint/hints/suggestion/suggestions/advise" as requesting help.
+Understand "get help/hint/hints/suggestion/suggestions/advise" as requesting help.
+Understand "request help/hint/hints/suggestion/suggestions/advise" as requesting help.
+Report requesting help:
+	say "Look carefully around you."
+
+Chapter Info
+
+Requesting info is an action out of world.
+Understand "about the/this/-- story/game/--" as requesting info.
 Understand the command "info" as "about".
+Report requesting info:
+	say "[banner text][/n][/i][story description][/r][/p]Type [/b]credits[/r] or [/b]license[/r] for more info.".
+	
+Chapter Credits
 
-Carry out asking-about:
-	say "[banner text]";
-	display the Figure cover;
-	say "[/i](AI generated image)[/r]";
-	waiting space key;
-	say "[story description]";
-	say "[/p]Type [/b]credits[/r] or [/b]license[/r] for more info.";
-	waiting space key.
+Table of credited peoples
+Name (text)	Reason (text)
+""	""
 
-Chapter 2.1.2 - license
+Requesting credits is an action out of world.
+Understand "credits list/--" as requesting credits.
+Understand the command "acknowledgment/acknowledgments/acknowledgement/acknowledgements/thanksgiving" as "credits".
+Report requesting credits:
+	say "This program make use of the following extensions: [/n][the complete list of extension credits]";
+	say "Thanks are also due to the following people: [/n]";
+	repeat through the Table of credited peoples:
+		unless name entry is empty, say "[name entry] [reason entry][/n]";
+	say "[/p]Type [/b]license[/r] or [/b]about[/r] for more info.".
+	
+Chapter License
 
-Asking-license is an action applying to nothing.
-Understand "license note/--" as asking-license.
-Understand the command "copyright" as "license".
-Understand the command "legal" as "license".
-Understand the command "licence" as "license".
-
-Carry out asking-license:
+Requesting license is an action out of world.
+Understand "license note/--" as requesting license.
+Understand the command "copyright/legal/licence" as "license".
+Report requesting license:
 	say "[story title] is copyright (c) [story creation year] [story author].";
 	say "Released under Creative Commons BY-NC-SA 4.0 license. [/p]";
+	say "[/i]You are free to:[/r] [/n][/b]Share[/r] - copy and redistribute the material in any medium or format[/n][/b]Adapt[/r] - remix, transform, and build upon the material[/n]The licensor cannot revoke these freedoms as long as you follow the license terms. [/p]";
+	say "[/i]Under the following terms:[/r] [/n][/b]Attribution[/r] - You must give appropriate credit , provide a link to the license, and indicate if changes were made . You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. [/n][/b]NonCommercial[/r] - You may not use the material for commercial purposes. [/n][/b]ShareAlike[/r] - If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original. [/n][/b]No additional restrictions[/r] - You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits. [/p]";
 	say "[/i]Limitation of Liability[/r][/n]";
 	say "To the extent possible, in no event will the Licensor be liable to You on
 any legal theory (including, without limitation, negligence) or otherwise
@@ -367,85 +370,17 @@ for any direct, special, indirect, incidental, consequential, punitive,
 exemplary, or other losses, costs, expenses, or damages arising out of this
 Public License or use of the Licensed Material, even if the Licensor has
 been advised of the possibility of such losses, costs, expenses, or
-damages.";
-	waiting space key;
+damages. [/p]";
 	say "[/i]Disclaimer for the Fiction[/r][/n]";
 	say "This is a work of fiction. Unless otherwise indicated, all the names,
 characters, businesses, places, events and incidents in this book are
 either the product of the author’s imagination or used in a fictitious
 manner. Any resemblance to actual persons, living or dead, or actual
-events is purely coincidental.";
-	say "[/p]Type [/b]credits[/r] or [/b]about[/r] for more info.";
-	waiting space key.
+events is purely coincidental."
 
-Chapter 2.1.3 - credits	
+Book Notes
 
-Asking-credits is an action applying to nothing.
-Understand "credits list/--" as asking-credits.
-Understand the command "acknowledgment/acknowledgments/acknowledgement/acknowledgements" as "credits".
-Understand the command "thanksgiving" as "credits".
+Understand "* [text]" as a mistake ("Noted.").		
 
-Table of credited peoples
-Name (text)	Reason (text)
-""	""
 
-Carry out asking-credits:
-	say "This program make use of the following extensions: [/n][the complete list of extension credits][/n]";
-	say "Thanks are also due to the following people: [/n]";
-	repeat through the Table of credited peoples:
-		unless name entry is empty, say "[name entry] [reason entry][/n]";
-	say "[/p]Type [/b]license[/r] or [/b]about[/r] for more info.";
-	waiting space key.
-		
-Chapter 2.1.4 - Minimal help
-
-Section 2.1.4.1 - Actions
-
-Asking help is an action applying to nothing.
-Understand "help me/-- please/--" as asking help.
-Understand the command "hint" as "help".
-Understand the command "advise" as "help".
-Understand the command "suggest" as "help".
-Understand the command "tip" as "help".
-Understand "help/hint/hints/suggestion/suggestions/info/tip/advise/game" or "this game/story" as "[help]".
-Understand "ask for help/hint/hints/suggestion/suggestions/advise" as asking help.
-Understand "get help/hint/hints/suggestion/suggestions/advise" as asking help.
-Understand "request help/hint/hints/suggestion/suggestions/advise" as asking help.
-
-Asking help from is an action applying to one thing.
-Understand "ask for help/hint/hints/suggestion/suggestions/advise from [something]" as asking help from.
-Understand "get help/hint/hints/suggestion/suggestions/advise from [something]" as asking help from.
-Understand "request help/hint/hints/suggestion/suggestions/advise from [something]" as asking help from.
-Understand "ask [something] for help/hint/hints/suggestion/suggestions/advise" as asking help from.
-
-Check asking help from:
-	unless the noun is a person, say "I don't think it can help you." instead.
-Carry out asking help from:
-	try the noun asking help.
-
-Response of someone when asked about "[help]":
-	try the noun asking help.
-
-Section 2.1.4.2 - Texts
-	
-Table of help hints
-Tip (text)
-"First of all look carefully at anything around"
-
-To say help intro: say "It is not my job to help the player, but I can give you some advice".
-
-To say combined help hints:
-	let last row be the number of rows in the Table of help hints;
-	repeat with N running from 1 to the number of rows in the Table of help hints:
-		say tip in row N of the Table of help hints;
-		if N is less than last row, say "; ".
-		
-Carry out an actor asking help:
-	if the actor is the player:
-		say "[first time]I am sorry to hear you are stuck. [/n][only][help intro].";
-	otherwise:
-		say "[/ss][help intro].' [/se][the actor] [say]. [/n]";
-
-Persuasion rule for asking a person to try asking help: persuasion succeeds.
-	
 Commons ends here.
