@@ -186,6 +186,7 @@ To caress is a verb.
 To cease is a verb. 
 To challenge is a verb.
 To claim is a verb.
+To clap is a verb.
 To clutch is a verb.
 To cock is a verb. 
 To collect is a verb.

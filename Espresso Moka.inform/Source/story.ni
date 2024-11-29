@@ -5,6 +5,7 @@ Volume Configuration
 Book Includes
 
 Include Basic Screen Effects by Emily Short.
+Include Glulx Text Effects (for Glulx only) by Emily Short.
 Include Assorted Text Generation by Emily Short.
 Include Large Game Speedup by Nathanael Nerode.
 Include Conversation Package by Eric Eve.
@@ -21,6 +22,24 @@ The story creation year is 2025.
 The story headline is "Making good coffee seems easy.".
 The story description is "Sembra facile fare un buon caffè."
 
+Book Styles
+
+Table of User Styles (continued)
+style name	color	italic	font weight	background color
+all-styles	"#101010"	false	regular-weight	"#f8f8e0"
+italic-style	--	true	regular-weight	--
+bold-style	--	false	bold-weight	--
+special-style-1	"#FF0000"	false	regular-weight	--
+note-style	"#0000A0"	true	bold-weight	--
+
+To say heart: 
+	say "[special-style-1][unicode 9829] [/r]".
+
+Volume Startup
+
+When play begins:
+	now Monica is in the street.
+	
 Volume World
 
 The Street is a room.
@@ -86,6 +105,9 @@ The scent-description of Monica is "the bouquet perfume you gave her for her bir
 Understand "Mo" or "my/your/-- love/girl/girlfriend" as Monica.
 Monica is proper-named.
 
+Rule for printing a locale paragraph about Monica (this is the Monica next to you rule):
+	say "[Monica] [are] next to you."
+
 Chapter Monica initial dressing
 
 The pair of jeans is a cloth. The description is "A pair of slightly frayed skinny jeans."
@@ -97,3 +119,120 @@ The shiny black handbag is a monica-bag. The description is "A shiny black handb
 Understand "bag" as a monica-bag.
 
 Monica wears the pair of jeans, the striped camisole,  the pair of shimmering gold sneakers and the shiny black handbag.
+
+Section Monica dressing rules
+
+To say do-not-touch: say "[Monica] [slap] your hand and [scold] you: [/ss]Don't touch!'[/r]".
+Instead of opening a monica-bag, say "[do-not-touch]".
+Instead of taking a monica-bag, say "[do-not-touch]".
+Instead of searching a monica-bag, say "[do-not-touch]".
+
+Persuasion rule for asking Monica to try dropping a monica-bag:
+	say "[regarding the actor][They] [look] at you angrily and [clutch] [their] [noun].";
+	persuasion fails.
+Persuasion rule for asking Monica to try opening a monica-bag:
+	say "[/ss]This is mine and I do what I want with it.' [/se][regarding the actor][they] [shut] you up.";
+	persuasion fails.
+Persuasion rule for asking Monica to try getting off a cloth:
+	say "[/ss]Aren't you ashamed to ask me this?' [/se][regarding the actor][they] [ask] you angrily.";
+	persuasion fails.
+Instead of taking a cloth which is worn by Monica, say "[/ss]Hey, what are you trying to do?' [/se][Monica] [shriek].".
+Persuasion rule for asking Monica to try giving a cloth to someone: 
+	say "[/ss]No way!' [/se][regarding the actor][they] [reply]."; 
+	persuasion fails.
+	
+Chapter Activities
+
+Section Kisses
+
+Understand the command "kiss" as something new.
+Understand "kiss [something]" as kissing.
+Kisses-count is a number that varies. Kisses-count is 0.
+Kisses-limit is always six.
+Instead of kissing something:
+	if the noun is Monica:
+		increase kisses-count by one;
+		if kisses-count is greater than kisses-limit, say no more kisses instead;
+		say "[heart][/ss][one of]Oh dear[or]I love you[at random]!' [/se][regarding the noun][they] [whisper] sweetly in your ear.";
+		if kisses-count is three, say narrator love kissing;
+		stop the action;
+	if the noun is a female person, say "[/ss]I'm here to be kissed!' [/se][Monica] [scold] [us]." instead;
+	if the noun is a male person, say "[/ss]Do you like men now?' [/se]amazed [Monica] [ask] [us]." instead;
+	say "[/ss]Hold the kisses for me!' [/se][Monica] [scold] [us].".
+
+Persuasion rule for asking Monica to try kissing something:
+	if the noun is the player:
+		increase kisses-count by one;
+		if kisses-count is greater than kisses-limit:
+			say no more kisses;
+			persuasion fails;
+		say "[heart][/ss][one of]Oh dear[or]I love you[or]Here, my love[at random]!' [/se][regarding the actor][they] [say] and [place] her lips on yours. [/n][We] greatly [appreciate] this kiss.";
+		if kisses-count is three, say narrator love kissing;
+		persuasion fails;
+	if the noun is a person:
+		increase kisses-count by one;
+		if kisses-count is greater than kisses-limit, persuasion fails;
+		say "[heart][/ss]My lips are only for you!' [/se][regarding the actor][they] [say] and [kiss] you instead. [/n][We] greatly [appreciate] this.";
+		if kisses-count is three, say narrator love kissing;
+		persuasion fails;
+	if the noun is the narrator:
+		say "Unfortunately, the rules of the game do not allow it, but I have to admit that I would have loved to do it.";
+		persuasion fails;
+	say "[/ss]I don't think so.' [/se][Monica] [answer].";
+	persuasion fails;
+
+To say narrator love kissing:
+	say "This kissing scene is starting to feel pretty enjoyable...";
+	say "[/ss]Don't get your hopes up!' [/se]the actress who plays [Monica] [say] to the narrator [/ss1]They are just stage kisses.' [/r][/n]";
+	say "Ok, Ok, I'll try to remain professional.".
+	
+To say no more kisses:
+	say "[/ss]Ciccio, we have already kissed so many times.' [/se][Monica] [remind] [/ss1]I love kissing you, but now we have to get on with the game.' [/r][/n]".
+	
+Section Singing and dancing
+
+Persuasion rule for asking Monica to try singing: 
+	say "[/ss][one of]Why do you want me to sing if you know I'm out of tune?' [or]No, I don't sing, I'm ashamed.' [at random][/se][regarding the actor][they] [reply].";
+	persuasion fails.
+
+Persuasion rule for asking Monica to try dancing: persuasion succeeds.
+Report Monica dancing:
+	say "[heart][The actor]  [do] a twirl. [/n]";
+	say "[We] [clap] and [kiss] [regarding the actor][them].".
+	
+Section Follow the player
+
+After going:
+	now Monica is in the location of the player.
+
+Chapter Answers
+
+Response of Monica when asked-or-told about yourself:
+	say "[/ss]But what are these questions?' [/se][Monica] [reply], rather annoyed [/ss1]I remind you that you are really annoying when you stare at those computer games or think about your photos.'[/r][/n]Then [they] [add] [/ss1]Instead, try to be nice to your Mo, who loves you so much.' [/r][/n]".
+
+Response of Monica when asked-or-told about Monica or asked-or-told about "her/herself":
+	say "[/ss]As Mary Poppins: I'm pratically perfect!' [/se][Monica] [shut] [we] down."
+
+Book Narrator
+
+The narrator is a backdrop.
+The narrator is everywhere.
+Understand "storyteller/teller" as the narrator.
+
+Understand "narrator/storyteller/teller/master" as "[narrator]".
+Asking narrator for is an action applying to one thing.
+Understand "ask the/-- [narrator] for [anything]" as asking narrator for.
+Carry out asking narrator for:
+	try saying hello to the narrator.
+	
+Asking narrator about is an action applying to one thing.
+Understand "ask the/-- [narrator] about [anything]" as asking narrator about.
+Carry out asking narrator about:
+	try saying hello to the narrator.
+
+Quizzing narrator about is an action applying to one topic.
+Understand "ask the/-- [narrator] about [text]" as quizzing narrator about.
+Carry out quizzing narrator about:
+	try saying hello to the narrator.
+
+	
