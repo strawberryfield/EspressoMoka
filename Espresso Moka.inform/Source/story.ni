@@ -19,14 +19,20 @@ Use brief room descriptions.
 
 The release number is 1.
 The story creation year is 2025.
-The story headline is "Making good coffee seems easy.".
+The story headline is "Making good coffee seems easy".
 The story description is "Sembra facile fare un buon caffè."
+
+Chapter release
+
+Release along with cover art ("Francesco and Monica prepare an espresso moka").
+Release along with the library card.
+Release along with a "TSF" website and an interpreter.
 
 Book Styles
 
 Table of User Styles (continued)
 style name	color	italic	font weight	background color
-all-styles	"#101010"	false	regular-weight	"#f8f8e0"
+all-styles	"#101010"	false	regular-weight	"#dbd9cd"
 italic-style	--	true	regular-weight	--
 bold-style	--	false	bold-weight	--
 special-style-1	"#FF0000"	false	regular-weight	--
