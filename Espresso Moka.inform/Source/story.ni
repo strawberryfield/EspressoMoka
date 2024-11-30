@@ -15,13 +15,19 @@ Include People by The Strawberry Field.
 
 Book Settings
 
-Use brief room descriptions.
-
 The release number is 1.
 The story creation year is 2025.
-The story headline is "Making good coffee seems easy".
-The story description is "Sembra facile fare un buon caffè."
+The story genre is "Tutorial".
+The story headline is "An everyday puzzle".
+The story description is "'Making good coffee seems easy!' So went the ad for a well-known brand of coffee maker.
 
+Francesco and Monica want to try making coffee with a moka like their mothers did. They find it easier to insert a capsule and press a button, but..."
+
+Chapter Banner
+
+After printing the banner text:
+	say "Released under Creative Commons BY-NC-SA license[/n]".
+	
 Chapter release
 
 Release along with cover art ("Francesco and Monica prepare an espresso moka").
@@ -31,12 +37,13 @@ Release along with a "TSF" website and an interpreter.
 Book Styles
 
 Table of User Styles (continued)
-style name	color	italic	font weight	background color
-all-styles	"#101010"	false	regular-weight	"#dbd9cd"
-italic-style	--	true	regular-weight	--
-bold-style	--	false	bold-weight	--
-special-style-1	"#FF0000"	false	regular-weight	--
-note-style	"#0000A0"	true	bold-weight	--
+style name	color	italic	font weight	background color	relative size
+all-styles	"#101010"	false	regular-weight	"#dbd9cd"	0
+header-style	--	true	bold-weight	--	3
+italic-style	--	true	regular-weight	--	--
+bold-style	--	false	bold-weight	--	--
+special-style-1	"#FF0000"	false	regular-weight	--	--
+note-style	"#0000A0"	true	bold-weight	--	--
 
 To say heart: 
 	say "[special-style-1][unicode 9829] [/r]".
@@ -44,11 +51,54 @@ To say heart:
 Volume Startup
 
 When play begins:
-	now Monica is in the street.
+	now Monica is in the street-1;
+	now the former direction is north; 
+	say "It is Saturday afternoon. [/n]Francesco and Monica are walking down the main street of their town. [/n]Monica is very interested in the shop windows displaying clothes and accessories, shoes, bags... [/n]Francesco follows her with a bored look, unable to escape this routine. ";
+	say "[/p][/b]«The Strawberry Field»[/r] [/i]presents[/r][/p]".
 	
 Volume World
 
-The Street is a room.
+Book Street
+
+A street-room is a kind of room.
+Rule for printing the name of a street-room:
+	say "On the street".
+The street is a region.
+
+Chapter Street 1
+
+The street-1 is a street-room.
+The description is "Description".
+The street-1 is in the street.
+
+Chapter Street 2
+
+The street-2 is a street-room.
+The description is "Description".
+The street-2 is north of the street-1.
+The street-2 is in the street.
+
+Chapter Street 3
+
+The street-3 is a street-room.
+The description is "Description".
+The street-3 is north of the street-2.
+The street-3 is in the street.
+
+Chapter Coffee shop
+
+The Coffee Shop is a room.
+The printed name is "In the coffee shop".
+The Coffee Shop is inside from street-3.
+
+Chapter Clothing Store
+
+The Clothing Store is a room.
+The Clothing Store is inside from street-2
+
+Book Kitchen
+
+The Kitchen is a room.
 
 Volume Characters
 
@@ -209,7 +259,8 @@ Report Monica dancing:
 Section Follow the player
 
 After going:
-	now Monica is in the location of the player.
+	now Monica is in the location of the player;
+	continue the action.
 
 Chapter Answers
 

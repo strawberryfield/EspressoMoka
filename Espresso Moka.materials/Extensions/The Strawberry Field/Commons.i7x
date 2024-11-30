@@ -29,9 +29,45 @@ After reading a command:
 		say "The game does not include references to sex.";
 		reject the player's command. 
 	
-Chapter Extended properties
+Chapter Smell and Taste
 
-A thing has some text called scent-description
+Section Smelling
+
+A thing has some text called the scent-description.
+
+The scent-description of a person is usually "deodorant".
+
+Instead of smelling something:
+	if the scent-description of the noun is "":
+		if the noun is r-abstract:
+			say "There's hardly any odour to [the noun].";
+		else:
+			say "[regarding the noun][They] [smell] as I would have expected.";
+	otherwise:
+		say "[regarding the noun][They] [smell] like [scent-description of the noun].[paragraph break]".
+
+Section Tasting
+
+A thing has some text called the flavor-description.
+
+Instead of tasting something:
+	if the flavor-description of the noun is "":
+		if the noun is r-abstract:
+			say "There's not enough there to provide much flavour.";
+		else:
+			say "[regarding the noun][They] [taste] as I would have expected.";
+	otherwise:
+		say "[flavor-description of the noun].[paragraph break]".
+
+Instead of tasting something which is not edible:
+	if the noun is a person:
+		say "That would be unpleasantly intimate.";
+	otherwise:
+		say "[one of]I have an aversion to licking things that aren't meant for human consumption.[or]Doesn't that seem kind of germy?[or]Ew.[at random]".
+
+Understand "bite [someone]" as attacking.
+
+Understand "bite [something]" as tasting.
 
 Chapter Aliases
 
@@ -71,7 +107,7 @@ Rule for deciding whether all includes a thing when removing from: it does not.
 Rule for printing a parser error when the latest parser error is the nothing to do error:
 	say “Don't be a hoarder, just take what you plan to use.”.
 	
-Chapter Special actions
+Chapter Dancing and singing
 
 Dancing is an action applying to nothing.
 Understand "Dance" as dancing.
@@ -152,7 +188,39 @@ Carry out retreating:
 	say "(heading [new direction])[line break]";
 	try going the new direction.
 
-Chapter 1.2.7 - Concreteness
+Chapter Go forward
+
+Going forward is an action applying to nothing.
+Understand "go forward/ahead/straight" as going forward.
+Understand "forward" or "ahead" or "straight" as going forward.
+Carry out going forward:
+	try going the former direction.
+
+Rule for supplying a missing noun while an actor going (this is the custom vaguely going rule):
+	say "(heading [former direction])[command clarification break]";
+	now the noun is the former direction.
+
+The custom vaguely going rule is listed instead of the block vaguely going rule in the for supplying a missing noun rulebook.
+
+Chapter Go to named room
+
+Understand "[any room]" as going by name. 
+Understand "go to/into/-- [any room]" as going by name.
+Understand "enter in/into/-- [any room]" as going by name.
+
+Going by name is an action applying to one thing.
+Check going by name:
+    if the noun is the location, say "You're already in [the location]." instead;
+    if the noun is not adjacent and the noun is unvisited, say "There isn't any [noun] nearby." instead. 
+
+Carry out going by name:
+    let aim be the best route from the location to the noun, using doors;
+    if aim is not a direction, say "You can't think how to get there from here." instead;
+    say "(heading [aim])[command clarification break]";
+    try going aim;
+    if the location is not the noun, say "You'll have to stop here."
+	
+Chapter Concreteness
 
 A thing can be r-concrete or r-abstract. A thing is usually r-concrete.
 
@@ -168,7 +236,7 @@ Sanity-check switching on or switching off an r-abstract thing:
 		make no decision;
 	say "[The noun] [aren't] literally a projection; [they] [are] more of a concept created by the group mind of this language community. Sort of. [We] think. At any rate, [they] [don't] switch on and off." instead.
 
-Chapter Verbs
+Book Verbs
 
 To add is a verb.
 To admit is a verb.
@@ -293,29 +361,12 @@ Does the player mean putting an owned thing on: it is unlikely.
 Does the player mean eating an owned thing: it is unlikely.
 Does the player mean drinking an owned thing: it is unlikely.
 
-Book 1.5 - go to named room
-
-Understand "[any room]" as going by name. 
-Understand "go to/into/-- [any room]" as going by name.
-
-Going by name is an action applying to one thing.
-Check going by name:
-    if the noun is the location, say "You're already in [the location]." instead;
-    if the noun is not adjacent and the noun is unvisited, say "There isn't any [noun] nearby." instead. 
-
-Carry out going by name:
-    let aim be the best route from the location to the noun, using doors;
-    if aim is not a direction, say "You can't think how to get there from here." instead;
-    say "(heading [aim])[command clarification break]";
-    try going aim;
-    if the location is not the noun, say "You'll have to stop here."
-
 Book Administrivia
 
 Figure cover is the file "Cover.jpg".
 
 To waiting space key:
-	say "[paragraph break]Please press SPACE to continue.";
+	say "[/p]Please press SPACE to continue.";
 	wait for the SPACE key;
 	say /n.
 
@@ -336,7 +387,9 @@ Requesting info is an action out of world.
 Understand "about the/this/-- story/game/--" as requesting info.
 Understand the command "info" as "about".
 Report requesting info:
-	say "[banner text][/n][/i][story description][/r][/p]Type [/b]credits[/r] or [/b]license[/r] for more info.".
+	say "[banner text]";
+	display the Figure cover;
+	say "[/i][story description][/r][/p]Type [/b]credits[/r] or [/b]license[/r] for more info.".
 	
 Chapter Credits
 
