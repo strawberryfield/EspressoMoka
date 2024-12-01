@@ -29,6 +29,17 @@ After reading a command:
 		say "The game does not include references to sex.";
 		reject the player's command. 
 	
+Chapter Movements
+
+Escaping is an action applying to nothing.
+Understand the command "out" as something new.
+Understand "escape" or "away" or "out" or "go away" as escaping.
+Carry out escaping:
+	if the player is enclosed by a container or the player is enclosed by a supporter:
+		try exiting;
+	otherwise:
+		try going outside.
+	
 Chapter Smell and Taste
 
 Section Smelling

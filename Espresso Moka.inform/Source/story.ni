@@ -51,6 +51,7 @@ To say heart:
 Volume Startup
 
 When play begins:
+	now the player is in the street-1;
 	now Monica is in the street-1;
 	now the former direction is north; 
 	say "It is Saturday afternoon. [/n]Francesco and Monica are walking down the main street of their town. [/n]Monica is very interested in the shop windows displaying clothes and accessories, shoes, bags... [/n]Francesco follows her with a bored look, unable to escape this routine. ";
@@ -63,8 +64,32 @@ Book Street
 A street-room is a kind of room.
 Rule for printing the name of a street-room:
 	say "On the street".
+
 The street is a region.
 
+To say be more specific:
+	say "You can't go in between directions, just say ".
+Instead of going northeast when the player is in the street:
+	say "[be more specific]north or east."
+Instead of going southeast when the player is in the street:
+	say "[be more specific]south or east."
+	
+To say nothing west:
+	say "There is nothing of interest to the west, do you want to go ".
+Instead of going northwest when the player is in the street:
+	say "[nothing west]north?";
+	if the player consents, try going north.
+Instead of going southwest when the player is in the street:
+	say "[nothing west]south?";
+	if the player consents, try going south.
+
+Instead of going up when the player is in the street:
+	say "Keep your feet on the ground!".
+Instead of going down when the player is in the street:
+	say "There's no point in going under the road, there's no way you can get there anyway."
+Instead of going outside when the player is in the street:
+	say "[/ss]Don't try to escape!' [/se][Monica] [exclaim]."
+			
 Chapter Street 1
 
 The street-1 is a street-room.
@@ -99,6 +124,29 @@ The Clothing Store is inside from street-2
 Book Kitchen
 
 The Kitchen is a room.
+
+Book Backdrops
+
+Chapter Sky
+
+The sky is a backdrop. 
+The description is "The sky is clear, just a few harmless clouds."
+The sky is in the street.
+Understand "top/overhead" as the sky.
+
+Chapter Ground
+
+The ground is a backdrop.
+The description is "[if the location of the player is the kitchen]The floor is covered with pinkish streaked stoneware tiles[otherwise if the location of the player is the coffee shop]The floor is covered with white tiles[otherwise]The road is paved with porphyry cobblestones, which are called 'sanpietrini' for short.[end if]."
+The ground is everywhere.
+Understand "terrain/land/soil/floor" as the ground.
+
+Chapter Ceiling
+
+The ceiling is a backdrop.
+The description is "A white ceiling."
+The ceiling is in the coffee shop and in the kitchen.
+Understand "roof/top/overhead" as the ceiling.
 
 Volume Characters
 
