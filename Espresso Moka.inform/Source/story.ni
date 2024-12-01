@@ -23,6 +23,8 @@ The story description is "'Making good coffee seems easy!' So went the ad for a 
 
 Francesco and Monica want to try making coffee with a moka like their mothers did. They find it easier to insert a capsule and press a button, but..."
 
+Use brief room descriptions.
+
 Chapter Banner
 
 After printing the banner text:
@@ -51,7 +53,6 @@ To say heart:
 Volume Startup
 
 When play begins:
-	now the player is in the street-1;
 	now Monica is in the street-1;
 	now the former direction is north; 
 	say "It is Saturday afternoon. [/n]Francesco and Monica are walking down the main street of their town. [/n]Monica is very interested in the shop windows displaying clothes and accessories, shoes, bags... [/n]Francesco follows her with a bored look, unable to escape this routine. ";
@@ -66,6 +67,8 @@ Rule for printing the name of a street-room:
 	say "On the street".
 
 The street is a region.
+
+Chapter Movements
 
 To say be more specific:
 	say "You can't go in between directions, just say ".
@@ -93,8 +96,12 @@ Instead of going outside when the player is in the street:
 Chapter Street 1
 
 The street-1 is a street-room.
-The description is "Description".
+The description is "You have left the central square behind you (to the south) and are now heading north along the main road of the town. [/n]On the west side of the street are the windows of a large building, and on the east side a large window of a clothes store.".
 The street-1 is in the street.
+
+The clothes store window is in the street-1. It is scenery.
+The description is "A large window displaying women's clothing. You are not interested."
+Understand "clothes/garments/dressing/-- store/shop window/--" or "garments/dressing" as the clothes store window.
 
 Chapter Street 2
 
@@ -147,6 +154,19 @@ The ceiling is a backdrop.
 The description is "A white ceiling."
 The ceiling is in the coffee shop and in the kitchen.
 Understand "roof/top/overhead" as the ceiling.
+
+Chapter Large building windows
+
+The large building windows is a backdrop.
+The large building windows are in the street.
+
+Chapter Main road
+
+The main road is a backdrop.
+The main road is in the street.
+Understand "main/-- street" as the main road.
+Instead of examining the main road:
+	try looking.
 
 Volume Characters
 
