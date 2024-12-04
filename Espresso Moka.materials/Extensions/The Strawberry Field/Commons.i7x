@@ -1,5 +1,7 @@
 Version 1.1 of Commons by The Strawberry Field begins here.
 
+Include Lexicography by Zed Lopez.
+
 Book Typoghraphy
 
 Chapter Shortenings
@@ -383,6 +385,9 @@ To waiting space key:
 
 Chapter Help 
 
+To say verbs command:
+	say "type [/b]verbs[/r] or [/b]commands[/r] for a list of available commands."
+	 
 Requesting help is an action out of world.
 Understand "help me/-- please/--" as requesting help. 
 Understand the command "hint/advise/suggest/tip" as "help".
@@ -390,7 +395,8 @@ Understand "ask for help/hint/hints/suggestion/suggestions/advise" as requesting
 Understand "get help/hint/hints/suggestion/suggestions/advise" as requesting help.
 Understand "request help/hint/hints/suggestion/suggestions/advise" as requesting help.
 Report requesting help:
-	say "Look carefully around you."
+	say "Look carefully around you. [/p]";
+	say verbs command.
 
 Chapter Info
 
@@ -412,7 +418,7 @@ Requesting credits is an action out of world.
 Understand "credits list/--" as requesting credits.
 Understand the command "acknowledgment/acknowledgments/acknowledgement/acknowledgements/thanksgiving" as "credits".
 Report requesting credits:
-	say "This program make use of the following extensions: [/n][the complete list of extension credits]";
+	say "This program make use of the following extensions: [/n][the complete list of extension credits][/n]";
 	say "Thanks are also due to the following people: [/n]";
 	repeat through the Table of credited peoples:
 		unless name entry is empty, say "[name entry] [reason entry][/n]";
@@ -447,5 +453,29 @@ Book Notes
 
 Understand "* [text]" as a mistake ("Noted.").		
 
+Book Reflection
+
+Listing verbs is an action out of world.
+Understand "verbs" or "commands" as listing verbs.
+
+Report listing verbs:
+	repeat with v running through the dictionary entries:
+		unless v is verb-entry, next;
+		if v is meta-entry, next;
+		let cmd-alias be the command verb of v;
+		let cte be the command table entry for cmd-alias;
+		let cmd-action be the action name for cte;
+		if "[cmd-action]" exactly matches the text "", next;
+		say "[v] [italic type]";
+		unless "[v]" exactly matches the text "[cmd-alias]", say "(same as [/r][cmd-alias][/i]) ";
+		say "- [cmd-action][roman type][line break]".
+
+Book xyzzy
+
+Understand "xyzzy" or "say xyzzy" or "cast xyzzy" as casting xyzzy.
+
+Casting xyzzy is an action applying to nothing.
+Report casting xyzzy:
+	say "Nothing happens."
 
 Commons ends here.
