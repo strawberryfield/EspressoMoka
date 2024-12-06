@@ -102,6 +102,12 @@ Chapter Street 1
 The street-1 is a street-room.
 The description is "[We] have left the central square behind you (to the south) and are now heading north along the main road of the town. [/n]On the west side of the street are the windows of a large building, and on the east side a large window of a clothes store[if unvisited]. [/p]While [Monica] carefully examines the shop window, you, not interested, remember that the capsules for your coffee machine at home are running out. [/n][/ss]Mo, we must remember to buy coffee capsules: they are running out.' [/se][we] [say]. [/n][/ss]Sure Ciccio: the shop is just ahead.' [/se][regarding Monica][they] [reply][end if].".
 The street-1 is in the street.
+	
+The clothes store window is in the street-1. It is scenery.
+The description is "A large window displaying women's clothing. You are not interested."
+Understand "clothes/garments/dressing/-- store/shop window/--" or "garments/dressing" as the clothes store window.
+
+Section  Movements
 
 To say no door to enter:
 	say "There is no door to enter the building."
@@ -111,17 +117,42 @@ Instead of going inside when the player is in the street-1:
 	say "If you try to do so, you will hit your nose against the glass."
 Instead of going south when the player is in the street-1:
 	say "[/ss]We've just arrived, so we're not going home yet.' [/se][Monica] [say] firmly."
-	
-The clothes store window is in the street-1. It is scenery.
-The description is "A large window displaying women's clothing. You are not interested."
-Understand "clothes/garments/dressing/-- store/shop window/--" or "garments/dressing" as the clothes store window.
 
 Chapter Street 2
 
 The street-2 is a street-room.
-The description is "Description".
+The description is "On the west side of the street is the large wooden front door of the building. [/n]On the east side is the entrance to the clothes store.".
 The street-2 is north of the street-1.
 The street-2 is in the street.
+
+Section  Movements
+
+Instead of going west when the player is in the street-2:
+	try opening the wooden front door.
+Instead of going inside when the player is in the street-2:
+	say "[heart][/ss]Oh dear, you know I love shopping!' [/se][Monica] [exclaim]."
+Instead of going south when the player is in the street-2:
+	say "[/ss]But where are you going?' [/se][Monica] [ask] [/ss1]The coffee shop is on the other direction.' [/r][/n]"
+
+Section Clothes store
+
+The clothes store entrance is in the street-2. It is scenery.
+The description is "On one side of the window is a glass door. [/n]Through the glass you can see men's clothing, including the baggy shorts you always wear on your mountain hikes."
+Understand "clothes/garments/dressing/-- store/shop window/door/entrance/--" or "garments/dressing/window/door" as the clothes store entrance.
+
+Does the player mean examining the clothes store entrance: it is likely.
+
+Instead of entering the clothes store entrance:
+	try going inside.
+
+Section Building door
+
+The wooden front door is in the street-2. It is scenery.
+The description is "A large wooden door. It is closed."
+Understand "large/-- building/house wooden/-- front/-- door/entrance" or "wooden/-- front/-- door/entrance of the/-- large/-- building/house" as the wooden front door.
+
+Instead of opening the wooden front door:
+	say "([the noun])[/n]It is locked. [/n]Only the tenants have the key to open it. In any case, there is nothing of interest inside."
 
 Chapter Street 3
 
