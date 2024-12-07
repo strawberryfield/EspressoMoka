@@ -60,7 +60,7 @@
      can change that, but don't touch the position or margin. */
   position: absolute;
   margin: 0px;
-  background: white;
+  background: transparent;
 }
 
 .BufferWindow {

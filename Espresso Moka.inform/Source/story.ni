@@ -118,15 +118,10 @@ The description is "On the west side of the street is the large wooden front doo
 The street-2 is north of the street-1.
 The street-2 is in the street.
 
-Section  Movements
-
-Instead of going west when the player is in the street-2: try opening the wooden front door.
-Instead of going inside when the player is in the street-2:
-	say "[heart][/ss]Oh dear, you know I love shopping!' [/se][Monica] [exclaim]."
-Instead of going south when the player is in the street-2:
-	say "[/ss]But where are you going?' [/se][Monica] [ask] [/ss1]The coffee shop is on the other direction.' [/r][/n]"
-
 Section Clothes store
+
+The Clothing Store is a room.
+The Clothing Store is inside from street-2
 
 The clothes store entrance is in the street-2. It is scenery.
 The description is "On one side of the window is a glass door. [/n]Through the glass you can see men's clothing, including the baggy shorts you always wear on your mountain hikes."
@@ -138,6 +133,22 @@ Does the player mean opening the clothes store entrance: it is likely.
 Instead of opening the clothes store entrance: try going inside.
 Instead of entering the clothes store entrance: try going inside.
 
+Section Shopper
+
+The white shopper is container. It is open, not openable, not lockable.
+The description is "A white paper shopper."
+Instead of opening the white shopper: say "It's already open."
+
+The pair of beige shorts is a cloth. The description is "A pair of beige shorts with lots of pockets: two on the back, two on the front and two on the legs.".
+Understand "pants" as the pair of beige shorts.
+A pocket is a kind of container.
+A pocket is always open. A pocket is always not openable.
+Instead of searching a pocket: try examining the noun.
+The left back pocket, the right back pocket, the left front pocket, the right front pocket, the left leg pocket, the right leg pocket are pockets.
+The left back pocket, the right back pocket, the left front pocket, the right front pocket, the left leg pocket, the right leg pocket are parts of the pair of beige shorts.
+
+The pair of beige shorts is in the white shopper.
+
 Section Building door
 
 The wooden front door is in the street-2. It is scenery.
@@ -147,14 +158,41 @@ Understand "large/-- building/house wooden/-- front/-- door/entrance" or "wooden
 Instead of opening the wooden front door:
 	say "([the noun])[command clarification break]It is locked. [/n]Only the tenants have the key to open it. In any case, there is nothing of interest inside."
 
+Section  Movements
+
+Instead of going west when the player is in the street-2: try opening the wooden front door.
+Instead of going inside when the player is in the street-2:
+	unless the clothing store is visited:
+		say "[heart][/ss]Oh dear, you know I love shopping!' [/se][Monica] [exclaim].";
+		say "[/p][note style]A few minutes later. [/r][/p]";
+		say "[We] and [Monica] exit from the shop. [/n]You are carrying a shopper.";
+		now the clothing store is visited;
+		now the player carries the white shopper;
+	otherwise:
+		say "[/ss]We have already bought the shorts,' [/se][Monica] [say] [/ss1]let's go ahead, we have to buy coffee.' [/r][/n]".
+	
+Instead of going south when the player is in the street-2:
+	say "[/ss]But where are you going?' [/se][Monica] [ask] [/ss1]The coffee shop is on the other direction.' [/r][/n]"
+
 Chapter Street 3
 
 The street-3 is a street-room.
-The description is "Description".
+The description is "On the west side of the street the large building continues, and on the east side there is the coffee shop. [if unvisited][/p][/ss]Well, we arrived at Marco's.' [/se][we] [say]. [/n][/ss]Did you see? He replaced the shop window.' [/se][Monica] points out. [/n][/ss]Yes, Marco knows how to attract his female customers.' [/se][we] [reply] with a smile.[end if]".
 The street-3 is north of the street-2.
 The street-3 is in the street.
 
+After going to the street-3 for the first time: 
+	Monica likes mokas in 1 turn from now;
+	continue the action.
+At the time when Monica likes mokas:
+	say "[/ss] [heart]Those colourful mokas are really pretty.' [/se][Monica] [say] sweetly."
+	
+Section Movements
+
 Instead of going west when the player is in the street-3: say no door to enter.
+To say shop is here: say "[/ss]But where are you going?' [/se][Monica] [ask] [/ss1]The coffee shop is here!' [/r][/n]".
+Instead of going south when the player is in the street-3: say shop is here.
+Instead of going north when the player is in the street-3: say shop is here.
 	
 Chapter Coffee shop
 
@@ -162,10 +200,14 @@ The Coffee Shop is a room.
 The printed name is "In the coffee shop".
 The Coffee Shop is inside from street-3.
 
-Chapter Clothing Store
+Section Shop window
 
-The Clothing Store is a room.
-The Clothing Store is inside from street-2
+The coffee shop window is in the street-3. It is scenery.
+The description is "Through the glass you can see a wooden shelf on which coloured mokas are placed.".
+Understand "coffee/capsules/-- store/shop window/door/entrance/--" or "window/door" as the coffee shop window.
+
+Instead of opening the coffee shop window: try going inside.
+Instead of entering the coffee shop window: try going inside.
 
 Book Kitchen
 
@@ -267,8 +309,7 @@ The scent-description of Monica is "the bouquet perfume you gave her for her bir
 Understand "Mo" or "my/your/-- love/girl/girlfriend" as Monica.
 Monica is proper-named.
 
-Rule for printing a locale paragraph about Monica (this is the Monica next to you rule):
-	say "[Monica] [are] next to you."
+Rule for printing a locale paragraph about Monica (this is the Monica next to you rule): now Monica is mentioned.
 	
 Chapter Monica initial dressing
 
@@ -375,7 +416,11 @@ Response of Monica when asked-or-told about yourself:
 	say "[/ss]But what are these questions?' [/se][Monica] [reply], rather annoyed [/ss1]I remind you that you are really annoying when you stare at those computer games or think about your photos.'[/r][/n]Then [they] [add] [/ss1]Instead, try to be nice to your Mo, who loves you so much.' [/r][/n]".
 
 Response of Monica when asked-or-told about Monica or asked-or-told about "her/herself":
-	say "[/ss]As Mary Poppins: I'm pratically perfect!' [/se][Monica] [shut] [we] down."
+	say "[/ss]As Mary Poppins: I'm pratically perfect!' [/se][Monica] [shut] [us] down."
+
+Book Marco
+
+Marco is a man in the coffee shop.
 
 Book Narrator
 

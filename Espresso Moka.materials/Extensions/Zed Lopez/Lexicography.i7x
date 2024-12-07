@@ -81,16 +81,6 @@ A command-table-entry is a kind of value. command-table-entry #0 specifies a com
 To decide what command-table-entry is the command table entry of/for (d - command-verb): (- (VM_CommandTableAddress({d})+1) -)
 
 Include (-
-[ ShowGrammarLines address lines;
-lines = address->0;
-address++;
-while (lines > 0) {
-  address = UnpackGrammarLine(address);
-  DebugGrammarLine();
-  print "^";
-  lines--;
-}
-];
 
 [ actionNameOf c d;
  @aloads c 0 d;
@@ -102,8 +92,6 @@ while (lines > 0) {
 To decide what action name is the action name of/for (c - command-table-entry): (- actionNameOf({c}) -)
 
 To decide what K is a/an/-- (unknown - a value) cast as a/an/-- (name of kind of value K): (- {unknown} -).
-
-To show grammar lines of/for/-- (c - command-table-entry): (- ShowGrammarLines({c}); -)
 
 Verb-to-dict relates various command-verbs to various dictionary-entries.
 The verb to enverbenate means the verb-to-dict relation.
