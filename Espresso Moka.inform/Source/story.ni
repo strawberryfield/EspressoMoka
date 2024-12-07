@@ -48,8 +48,7 @@ bold-style	--	false	bold-weight	--	--
 special-style-1	"#FF0000"	false	regular-weight	--	--
 note-style	"#0000A0"	true	bold-weight	--	--
 
-To say heart: 
-	say "[special-style-1][unicode 9829] [/r]".
+To say heart: say "[special-style-1][unicode 9829] [/r]".
 
 Volume Startup
 
@@ -64,19 +63,15 @@ Volume World
 Book Street
 
 A street-room is a kind of room.
-Rule for printing the name of a street-room:
-	say "On the street".
+Rule for printing the name of a street-room: say "On the street".
 
 The street is a region.
 
 Chapter Movements
 
-To say be more specific:
-	say "You can't go in between directions, just say ".
-Instead of going northeast when the player is in the street:
-	say "[be more specific]north or east."
-Instead of going southeast when the player is in the street:
-	say "[be more specific]south or east."
+To say be more specific: say "You can't go in between directions, just say ".
+Instead of going northeast when the player is in the street: say "[be more specific]north or east."
+Instead of going southeast when the player is in the street: say "[be more specific]south or east."
 	
 To say nothing west:
 	say "There is nothing of interest to the west, do you want to go ".
@@ -94,8 +89,7 @@ Instead of going down when the player is in the street:
 Instead of going outside when the player is in the street:
 	say "[/ss]Don't try to escape!' [/se][Monica] [exclaim]."
 
-Instead of going east when the player is in the street:
-	try going inside.
+Instead of going east when the player is in the street: try going inside.
 				
 Chapter Street 1
 
@@ -109,26 +103,24 @@ Understand "clothes/garments/dressing/-- store/shop window/--" or "garments/dres
 
 Section  Movements
 
-To say no door to enter:
-	say "There is no door to enter the building."
-Instead of going west when the player is in the street-1:
-	say no door to enter.
+To say no door to enter: say "There is no door to enter the building."
+Instead of going west when the player is in the street-1: say no door to enter.
 Instead of going inside when the player is in the street-1:
 	say "If you try to do so, you will hit your nose against the glass."
 Instead of going south when the player is in the street-1:
-	say "[/ss]We've just arrived, so we're not going home yet.' [/se][Monica] [say] firmly."
+	say "[/ss]We've just arrived, so we're not going home yet.' [/se][Monica] [say] firmly.";
+	say "[/ss]Besides,' [/se][regarding Monica][they] [add] [/ss1]you said it yourself, we have to buy coffee capsules.' [/r][/n]".
 
 Chapter Street 2
 
 The street-2 is a street-room.
-The description is "On the west side of the street is the large wooden front door of the building. [/n]On the east side is the entrance to the clothes store.".
+The description is "On the west side of the street is the large wooden front door of the building. [/n]On the east side is the entrance to the clothes store. [if unvisited][/p][/ss]Hey look!' [/se][Monica] [claim] [our] attention [/ss1]There are the shorts you love, the ones that drove so many people crazy with their pockets in the other game.' [/r][/n][/ss]It's better not to mention it,' [/se][we] [suggest] [/ss1]I don't want players to run away thinking they have to search all the pockets for the wallet.' [/r][/n]You both start to laugh.[end if]".
 The street-2 is north of the street-1.
 The street-2 is in the street.
 
 Section  Movements
 
-Instead of going west when the player is in the street-2:
-	try opening the wooden front door.
+Instead of going west when the player is in the street-2: try opening the wooden front door.
 Instead of going inside when the player is in the street-2:
 	say "[heart][/ss]Oh dear, you know I love shopping!' [/se][Monica] [exclaim]."
 Instead of going south when the player is in the street-2:
@@ -141,9 +133,10 @@ The description is "On one side of the window is a glass door. [/n]Through the g
 Understand "clothes/garments/dressing/-- store/shop window/door/entrance/--" or "garments/dressing/window/door" as the clothes store entrance.
 
 Does the player mean examining the clothes store entrance: it is likely.
+Does the player mean opening the clothes store entrance: it is likely.
 
-Instead of entering the clothes store entrance:
-	try going inside.
+Instead of opening the clothes store entrance: try going inside.
+Instead of entering the clothes store entrance: try going inside.
 
 Section Building door
 
@@ -152,7 +145,7 @@ The description is "A large wooden door. It is closed."
 Understand "large/-- building/house wooden/-- front/-- door/entrance" or "wooden/-- front/-- door/entrance of the/-- large/-- building/house" as the wooden front door.
 
 Instead of opening the wooden front door:
-	say "([the noun])[/n]It is locked. [/n]Only the tenants have the key to open it. In any case, there is nothing of interest inside."
+	say "([the noun])[command clarification break]It is locked. [/n]Only the tenants have the key to open it. In any case, there is nothing of interest inside."
 
 Chapter Street 3
 
@@ -161,8 +154,7 @@ The description is "Description".
 The street-3 is north of the street-2.
 The street-3 is in the street.
 
-Instead of going west when the player is in the street-3:
-	say no door to enter.
+Instead of going west when the player is in the street-3: say no door to enter.
 	
 Chapter Coffee shop
 
@@ -212,8 +204,7 @@ Chapter Main road
 The main road is a backdrop.
 The main road is in the street.
 Understand "main/-- street" as the main road.
-Instead of examining the main road:
-	try looking.
+Instead of examining the main road: try looking.
 
 Volume Characters
 
@@ -267,7 +258,7 @@ Understand "passport/document" as the identity card.
 
 Book Girlfriend
 
-Monica is a woman.
+Monica is a woman. 
 The description is "Tall, slim ".
 Hair are "lots of slightly reddish, frizzy".
 Eyes are "sparkling green".
@@ -278,7 +269,7 @@ Monica is proper-named.
 
 Rule for printing a locale paragraph about Monica (this is the Monica next to you rule):
 	say "[Monica] [are] next to you."
-
+	
 Chapter Monica initial dressing
 
 The pair of jeans is a cloth. The description is "A pair of slightly frayed skinny jeans."
@@ -286,7 +277,8 @@ The striped camisole is a cloth. The description is "A camisole with red and whi
 The pair of shimmering gold sneakers is a cloth. 
 
 A monica-bag is a kind of container. It is closed, openable and wearable.
-The shiny black handbag is a monica-bag. The description is "A shiny black handbag with a long golden chain strap. [if open]It's open. [end if]".
+The shiny black handbag is a monica-bag. 
+The description is "A shiny black handbag with a long golden chain strap. [if open]It's open. [end if]".
 Understand "bag" as a monica-bag.
 
 Monica wears the pair of jeans, the striped camisole,  the pair of shimmering gold sneakers and the shiny black handbag.
@@ -394,17 +386,14 @@ Understand "storyteller/teller" as the narrator.
 Understand "narrator/storyteller/teller/master" as "[narrator]".
 Asking narrator for is an action applying to one thing.
 Understand "ask the/-- [narrator] for [anything]" as asking narrator for.
-Carry out asking narrator for:
-	try saying hello to the narrator.
+Carry out asking narrator for: try saying hello to the narrator.
 	
 Asking narrator about is an action applying to one thing.
 Understand "ask the/-- [narrator] about [anything]" as asking narrator about.
-Carry out asking narrator about:
-	try saying hello to the narrator.
+Carry out asking narrator about: try saying hello to the narrator.
 
 Quizzing narrator about is an action applying to one topic.
 Understand "ask the/-- [narrator] about [text]" as quizzing narrator about.
-Carry out quizzing narrator about:
-	try saying hello to the narrator.
+Carry out quizzing narrator about: try saying hello to the narrator.
 
 	
