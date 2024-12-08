@@ -42,11 +42,11 @@ Book Styles
 Table of User Styles (continued)
 style name	color	italic	font weight	background color	relative size
 all-styles	"#101010"	false	regular-weight	"#dbd9cd"	0
-header-style	--	true	bold-weight	--	3
+header-style	"#605000"	true	bold-weight	--	3
 italic-style	--	true	regular-weight	--	--
 bold-style	--	false	bold-weight	--	--
-special-style-1	"#FF0000"	false	regular-weight	--	--
-note-style	"#0000A0"	true	bold-weight	--	--
+special-style-1	"#FF0000"	false	regular-weight	--	2
+note-style	"#605000"	true	bold-weight	--	1
 
 To say heart: say "[special-style-1][unicode 9829] [/r]".
 
@@ -120,8 +120,8 @@ The street-2 is in the street.
 
 Section Clothes store
 
-The Clothing Store is a room.
-The Clothing Store is inside from street-2
+The Clothing-Store is a room.
+The Clothing-Store is inside from street-2
 
 The clothes store entrance is in the street-2. It is scenery.
 The description is "On one side of the window is a glass door. [/n]Through the glass you can see men's clothing, including the baggy shorts you always wear on your mountain hikes."
@@ -162,11 +162,11 @@ Section  Movements
 
 Instead of going west when the player is in the street-2: try opening the wooden front door.
 Instead of going inside when the player is in the street-2:
-	unless the clothing store is visited:
+	unless the clothing-store is visited:
 		say "[heart][/ss]Oh dear, you know I love shopping!' [/se][Monica] [exclaim].";
 		say "[/p][note style]A few minutes later. [/r][/p]";
 		say "[We] and [Monica] exit from the shop. [/n]You are carrying a shopper.";
-		now the clothing store is visited;
+		now the clothing-store is visited;
 		now the player carries the white shopper;
 	otherwise:
 		say "[/ss]We have already bought the shorts,' [/se][Monica] [say] [/ss1]let's go ahead, we have to buy coffee.' [/r][/n]".
@@ -185,7 +185,8 @@ After going to the street-3 for the first time:
 	Monica likes mokas in 1 turn from now;
 	continue the action.
 At the time when Monica likes mokas:
-	say "[/ss] [heart]Those colourful mokas are really pretty.' [/se][Monica] [say] sweetly."
+	say "[heart][/ss]Those colourful mokas are really pretty.' [/se][Monica] [say] [us] sweetly.";
+	say "[/ss]I just told you that Marco is clever.' [/se][we] [reply][if the location of the player is the coffee-shop] in [Monica]'s ear[end if]."
 	
 Section Movements
 
@@ -196,19 +197,89 @@ Instead of going north when the player is in the street-3: say shop is here.
 	
 Chapter Coffee shop
 
-The Coffee Shop is a room.
+The Coffee-Shop is a room.
 The printed name is "In the coffee shop".
-The Coffee Shop is inside from street-3.
+The description is "The essential-style shop is lined with shelves. [/n]Behind the counter is the espresso machine shelving, on one side the capsules shelving and on the opposite side the roasted coffee shelving. [/n]Next to the shop window is a small open shelf with moka pots on display."
+The Coffee-Shop is inside from street-3.
 
+Section Movements
+
+After going to the coffee-shop for the first time: 
+	Marco welcomes you in 0 turns from now;
+	continue the action.
+At the time when Marco welcomes you:	
+	say "[/ss]Good evening [Monica] and Francesco!' [/se][Marco] [welcome] you.";
+	say "[/ss]Hi [Marco]!' [/se][Monica] [answer] [regarding Marco][them].".
+	
+Instead of going nowhere when the player is in the coffee-shop: 
+	say "If you really want to go somewhere else the only way is out."
+	
 Section Shop window
 
 The coffee shop window is in the street-3. It is scenery.
-The description is "Through the glass you can see a wooden shelf on which coloured mokas are placed.".
+The description is "Through the glass you can see a wooden shelf on which colored mokas are placed.".
 Understand "coffee/capsules/-- store/shop window/door/entrance/--" or "window/door" as the coffee shop window.
 
 Instead of opening the coffee shop window: try going inside.
 Instead of entering the coffee shop window: try going inside.
 
+Section Shelves
+
+A shelf-item is a kind of supporter. It is scenery.
+
+The espresso machine shelving is a shelf-item in the coffee-shop.
+The description is "On the shelves behind the counter are several espresso machines.".
+Understand "espresso/coffee/-- machine/machines shelf/shelves/shelving/shelvings" as the espresso machine shelving.
+
+The capsules shelving is a shelf-item in the coffee-shop.
+The description is "On the shelves to the left are many small, colorful boxes with different qualities of coffee. [/n]Your favourites are in white boxes with gold decorations.".
+Understand "capsules/cartridges/capsule/cartridge shelf/shelves/shelving/shelvings" as the capsules shelving.
+
+The roasted coffee shelving is a shelf-item in the coffee-shop.
+The description is "On the shelves to the righ are foil packets and aluminium cans. [/n]They were the ones your mothers used (and still use) to make coffee in a moka pot.".
+Understand "roasted/ground coffee/-- shelf/shelves/shelving/shelvings" as the roasted coffee shelving.
+
+The shelves are scenery in the coffee-shop.
+Understand "shelvings/furniture" as the shelves.
+Instead of examining the shelves:
+	repeat with item running through shelf-items:
+		try examining the item.
+
+Section Mokas
+
+The moka pot open shelf is a shelf-item in the coffee-shop.
+The description is "Near the window is a white wooden shelf; on it are [mokas list] moka pot."
+Understand "moka/mokas pot/pots/-- shelf/shelves/shelving/shelvings" as the moka pot open shelf.
+Instead of examining the moka pot open shelf: say "[description][/n]".
+	
+A moka-item is a kind of thing.
+A moka-item has some text called color.
+The description of a moka-item is usually "A [color of the noun] moka pot for two cups." 
+
+The natural aluminium moka is a moka-item on the moka pot open shelf.
+The color is "traditional natural aluminium".
+
+The tricolor moka is a moka-item on the moka pot open shelf.
+The color is "green-white-red (as the italian flag)".
+
+The black moka is a moka-item on the moka pot open shelf.
+The color is "black".
+
+The red moka is a moka-item on the moka pot open shelf.
+The color is "red".
+
+The pink moka is a moka-item on the moka pot open shelf.
+The color is "pink".
+
+The stylish moka is a moka-item on the moka pot open shelf.
+The color is "multi-colored checkered".
+
+To say mokas list:
+	let L be a list of texts;
+	repeat with item running through moka-items on the moka pot open shelf:
+		add "a [the color of the item]" to L;
+	say L.	
+	
 Book Kitchen
 
 The Kitchen is a room.
@@ -225,7 +296,7 @@ Understand "top/overhead" as the sky.
 Chapter Ground
 
 The ground is a backdrop.
-The description is "[if the location of the player is the kitchen]The floor is covered with pinkish streaked stoneware tiles[otherwise if the location of the player is the coffee shop]The floor is covered with white tiles[otherwise]The road is paved with porphyry cobblestones, which are called 'sanpietrini' for short.[end if]."
+The description is "[if the location of the player is the kitchen]The floor is covered with pinkish streaked stoneware tiles[otherwise if the location of the player is the coffee-shop]The floor is covered with white tiles[otherwise]The road is paved with porphyry cobblestones, which are called 'sanpietrini' for short.[end if]."
 The ground is everywhere.
 Understand "terrain/land/soil/floor" as the ground.
 
@@ -233,7 +304,7 @@ Chapter Ceiling
 
 The ceiling is a backdrop.
 The description is "A white ceiling."
-The ceiling is in the coffee shop and in the kitchen.
+The ceiling is in the coffee-shop and in the kitchen.
 Understand "roof/top/overhead" as the ceiling.
 
 Chapter Large building windows
@@ -252,8 +323,9 @@ Volume Characters
 
 Book Player
 
-The description of the player is "A young man, about 30 years old, ".
+The description of the player is "A guy, about 30 years old, ".
 Hair of the player are "blond".
+Eyes of the player are "blue".
 Notes of the player are "You work as a software engineer, enjoy photography and love hiking in the mountains. [/n]In love with your girlfriend, very beautiful, but also shrewish when something doesn't go her way. In the end you always please her and she appreciates it. [/n]Monica sometimes calls you Ciccio".
 The player is male.
 The printed name of the player is "Francesco".
@@ -420,7 +492,15 @@ Response of Monica when asked-or-told about Monica or asked-or-told about "her/h
 
 Book Marco
 
-Marco is a man in the coffee shop.
+Marco is a man in the coffee-shop.
+The description is "A man aged about 45 with a slightly heavyset build, ".
+Hair are "short brown".
+Eyes are "brown".
+Notes are "You are not his friends, but you know each other because you are his regular customers. And by now he knows your taste in coffee".
+Marco is proper-named.
+Understand "shop/store/-- salesperson/salesman/teller/cashier/assistant/attendant/manager" as Marco.
+
+Rule for printing a locale paragraph about Marco:  say "[Marco] [are] managing the shop."
 
 Book Narrator
 

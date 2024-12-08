@@ -354,6 +354,7 @@ To type is a verb.
 To urge is a verb.
 To walk is a verb.
 To wear is a verb.
+To welcome is a verb.
 To whisper is a verb.
 To wish is a verb. 
 To withdraw is a verb.
