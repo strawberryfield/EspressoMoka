@@ -202,6 +202,10 @@ The printed name is "In the coffee shop".
 The description is "The essential-style shop is lined with shelves. [/n]Behind the counter is the espresso machine shelving, on one side the capsules shelving and on the opposite side the roasted coffee shelving. [/n]Next to the shop window is a small open shelf with moka pots on display."
 The Coffee-Shop is inside from street-3.
 
+Instead of taking when the player is in the coffee-shop:
+	if the noun is a shelf-item, say "It is well secured to the wall." instead;
+	say "Perhaps it would be best to ask [Marco] for it."
+	
 Section Movements
 
 After going to the coffee-shop for the first time: 
@@ -214,15 +218,6 @@ At the time when Marco welcomes you:
 Instead of going nowhere when the player is in the coffee-shop: 
 	say "If you really want to go somewhere else the only way is out."
 	
-Section Shop window
-
-The coffee shop window is in the street-3. It is scenery.
-The description is "Through the glass you can see a wooden shelf on which colored mokas are placed.".
-Understand "coffee/capsules/-- store/shop window/door/entrance/--" or "window/door" as the coffee shop window.
-
-Instead of opening the coffee shop window: try going inside.
-Instead of entering the coffee shop window: try going inside.
-
 Section Shelves
 
 A shelf-item is a kind of supporter. It is scenery.
@@ -286,6 +281,8 @@ The Kitchen is a room.
 
 Book Backdrops
 
+Instead of taking a backdrop, say "Perhaps it would be helpful to consider what could be done about it." 
+
 Chapter Sky
 
 The sky is a backdrop. 
@@ -318,6 +315,18 @@ The main road is a backdrop.
 The main road is in the street.
 Understand "main/-- street" as the main road.
 Instead of examining the main road: try looking.
+
+Chapter Coffee shop window
+
+The coffee shop window is a backdrop.
+It is in the street-3 and in the coffee-shop.
+The description is "Through the glass you can see a wooden shelf on which colored mokas are placed.".
+Understand "coffee/capsules/-- store/shop window/door/entrance/--" or "window/door" as the coffee shop window.
+
+Instead of opening the coffee shop window when the player is in the street-3: try going inside.
+Instead of entering the coffee shop window when the player is in the street-3: try going inside.
+Instead of opening the coffee shop window when the player is in the coffee-shop: try going outside.
+Instead of entering the coffee shop window when the player is in the coffee-shop: try going outside.
 
 Volume Characters
 
