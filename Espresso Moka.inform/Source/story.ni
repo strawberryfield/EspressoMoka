@@ -121,7 +121,8 @@ The street-2 is in the street.
 Section Clothes store
 
 The Clothing-Store is a room.
-The Clothing-Store is inside from street-2
+The Clothing-Store is inside from street-2.
+Understand "cloth/clothes/clothing/-- store/shop" as the clothing-store.
 
 The clothes store entrance is in the street-2. It is scenery.
 The description is "On one side of the window is a glass door. [/n]Through the glass you can see men's clothing, including the baggy shorts you always wear on your mountain hikes."
@@ -222,9 +223,9 @@ Section Shelves
 
 A shelf-item is a kind of supporter. It is scenery.
 
-The espresso machine shelving is a shelf-item in the coffee-shop.
+The espresso machines shelving is a shelf-item in the coffee-shop.
 The description is "On the shelves behind the counter are several espresso machines.".
-Understand "espresso/coffee/-- machine/machines shelf/shelves/shelving/shelvings" as the espresso machine shelving.
+Understand "espresso/coffee/-- machine/machines shelf/shelves/shelving/shelvings" as the espresso machines shelving.
 
 The capsules shelving is a shelf-item in the coffee-shop.
 The description is "On the shelves to the left are many small, colorful boxes with different qualities of coffee. [/n]Your favourites are in white boxes with gold decorations.".
@@ -242,36 +243,39 @@ Instead of examining the shelves:
 
 Section Mokas
 
-The moka pot open shelf is a shelf-item in the coffee-shop.
-The description is "Near the window is a white wooden shelf; on it are [mokas list] moka pot."
-Understand "moka/mokas pot/pots/-- shelf/shelves/shelving/shelvings" as the moka pot open shelf.
-Instead of examining the moka pot open shelf: say "[description][/n]".
+The moka pots open shelf is a shelf-item.
+The description is "the window is a white wooden shelf; on it are [mokas list] moka pot."
+Understand "moka/mokas pot/pots/-- shelf/shelves/shelving/shelvings" or "mokas/pots" or "moka pots" as the moka pots open shelf.
+Instead of examining the moka pots open shelf: 
+	if the player is in the street-3, say "Inside";
+	otherwise say "Near";
+	say " [description][/n]".
 	
 A moka-item is a kind of thing.
 A moka-item has some text called color.
 The description of a moka-item is usually "A [color of the noun] moka pot for two cups." 
 
-The natural aluminium moka is a moka-item on the moka pot open shelf.
+The natural aluminium moka is a moka-item on the moka pots open shelf.
 The color is "traditional natural aluminium".
 
-The tricolor moka is a moka-item on the moka pot open shelf.
+The tricolor moka is a moka-item on the moka pots open shelf.
 The color is "green-white-red (as the italian flag)".
 
-The black moka is a moka-item on the moka pot open shelf.
+The black moka is a moka-item on the moka pots open shelf.
 The color is "black".
 
-The red moka is a moka-item on the moka pot open shelf.
+The red moka is a moka-item on the moka pots open shelf.
 The color is "red".
 
-The pink moka is a moka-item on the moka pot open shelf.
+The pink moka is a moka-item on the moka pots open shelf.
 The color is "pink".
 
-The stylish moka is a moka-item on the moka pot open shelf.
+The stylish moka is a moka-item on the moka pots open shelf.
 The color is "multi-colored checkered".
 
 To say mokas list:
 	let L be a list of texts;
-	repeat with item running through moka-items on the moka pot open shelf:
+	repeat with item running through moka-items on the moka pots open shelf:
 		add "a [the color of the item]" to L;
 	say L.	
 	
@@ -281,7 +285,7 @@ The Kitchen is a room.
 
 Book Backdrops
 
-Instead of taking a backdrop, say "Perhaps it would be helpful to consider what could be done about it." 
+Instead of taking a backdrop, say "Perhaps it would be helpful to consider what could be done with it." 
 
 Chapter Sky
 
@@ -322,6 +326,17 @@ The coffee shop window is a backdrop.
 It is in the street-3 and in the coffee-shop.
 The description is "Through the glass you can see a wooden shelf on which colored mokas are placed.".
 Understand "coffee/capsules/-- store/shop window/door/entrance/--" or "window/door" as the coffee shop window.
+
+Section mokas shelf
+
+The moka pots open shelf is part of the coffee shop window.
+
+To say behind the window: say "It's inside the window."
+Instead of taking a moka-item when the player is in street-3, say behind the window.
+Instead of touching a moka-item when the player is in street-3, say behind the window.
+Instead of smelling a moka-item when the player is in street-3, say behind the window.
+
+Section movements
 
 Instead of opening the coffee shop window when the player is in the street-3: try going inside.
 Instead of entering the coffee shop window when the player is in the street-3: try going inside.

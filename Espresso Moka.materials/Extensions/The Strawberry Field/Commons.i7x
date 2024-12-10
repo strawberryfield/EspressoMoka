@@ -135,7 +135,14 @@ Understand "Sing" as singing.
 Report singing: say "[We] [are] not particularly in tune.".
 Check singing:
 	if the location of the player contains people which are not the player, say "Someone could not like it." instead.
-	
+
+Chapter Stealing
+
+Stealing is an action applying to one thing.
+Understand "steal [something]" as stealing.
+Carry out stealing: say "Naughty, don't do that!".
+Understand the command "stole" as "steal".
+
 Chapter Special says
 
 To say times of (N - a number): say " for the [ordinal of N] time".
@@ -198,7 +205,7 @@ Retreating is an action applying to nothing.
 
 Carry out retreating:
 	let new direction be the opposite of the former direction;
-	say "(heading [new direction])[line break]";
+	say "(heading [new direction])[command clarification break]";
 	try going the new direction.
 
 Chapter Go forward
@@ -207,6 +214,7 @@ Going forward is an action applying to nothing.
 Understand "go forward/ahead/straight" as going forward.
 Understand "forward" or "ahead" or "straight" as going forward.
 Carry out going forward:
+	say "(heading [former direction])[command clarification break]";
 	try going the former direction.
 
 Rule for supplying a missing noun while an actor going (this is the custom vaguely going rule):
