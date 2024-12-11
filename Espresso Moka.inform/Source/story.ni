@@ -363,6 +363,9 @@ The black t-shirt is a cloth. The description is "A black T-shirt with a surfer 
 Understand "black/-- shirt" as black t-shirt.
 
 The pair of beige pants is a cloth. The description is "A pair of cotton beige pants.".
+Understand "beige/-- trousers/trouser/pant" as the pair of beige pants.
+The left pants pocket and the right pants pocket are pockets.
+The left pants pocket and the right pants pocket are parts of the pair of beige pants.
 
 The pair of blue sneakers is a cloth.
 
@@ -370,7 +373,7 @@ The player wears the black t-shirt, the pair of beige pants and the pair of blue
 
 Chapter Wallet
 
-The wallet is a closed openable container.
+The wallet is a closed openable container in the right pants pocket.
 The description is "A grey canvas wallet. It's a gift from Mo.".
 Check the player opening the wallet:
 	if the player is not carrying the noun:
@@ -378,7 +381,7 @@ Check the player opening the wallet:
 		if the player is not carrying the noun, stop the action. 
 	
 An unuseful card is a kind of thing.	
-The driving license, the credit card, the debit card and  the supermarket fidelity card are unuseful cards.
+The driving license, the identity card and  the supermarket fidelity card are unuseful cards.
 Instead of examining the driving license, say "Your pink driving license.".
 Instead of taking an unuseful card, say "Right now [the noun] is of no use to you.".
 Instead of examining an unuseful card, say "Examining [the noun] now is a waste of time.".
@@ -387,12 +390,10 @@ The driving license, the credit card, the debit card, the identity card, the sup
 The description of the photo is "A photo of [Monica] you took last year at Lake Misurina with the Three Peaks of Lavaredo in the background.".		
 
 Some money are in the wallet. The description of money is "It's only banknotes, coins annoy you.".
-Instead of taking money, say "There is nothing to pay.".
+Instead of taking money, say "It's better to use a payment card.".
 
-The identity card is in the wallet.
-Understand "id card/document/--" or "your id/identity/-- card/document/documents" as the identity card.
-The description is "A card folded into a booklet with your photo (slightly old) and your personal information.".
-Understand "passport/document" as the identity card.
+Understand "id card/document/--" or "your id/identity/-- card/document/documents" or "passport/document" as the identity card.
+Instead of examining the identity card, say "A card folded into a booklet with your photo (slightly old) and your personal information.".
 
 Book Girlfriend
 
