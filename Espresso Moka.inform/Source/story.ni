@@ -204,9 +204,52 @@ The description is "The essential-style shop is lined with shelves. [/n]Behind t
 The Coffee-Shop is inside from street-3.
 
 Instead of taking when the player is in the coffee-shop:
-	if the noun is a shelf-item, say "It is well secured to the wall." instead;
+	if the noun is a shelf-item, say "It is well secured." instead;
 	say "Perhaps it would be best to ask [Marco] for it."
-	
+
+Section Selling
+
+A thing can be sellable or unsellable. A thing is usually unsellable.
+A thing can be payed or unpayed. A thing is usually unpayed.
+
+Coffee-type is a kind of value.
+The coffee-types are soft, classic, arabica and strong.
+
+A coffee-item is a kind of thing. 
+A coffee-item is sellable.
+A coffee-item has a coffee-type.
+A coffee-item has a table name called quality-list.
+A coffee-item has a text called package-type.
+
+The coffee capsules box is a coffee-item in the coffee-shop. It is scenery.
+The quality-list of the coffee capsules box is table of capsules qualities.
+Coffee-type of the coffee capsules box is arabica.
+Package-type of the coffee capsules box is "box".
+
+Instead of examining a coffee-item:
+	choose the row with coffee-type of coffee-type of the noun in the quality-list of the noun;
+	say "A [packaging-color entry] [package-type] [packaging-details entry].".
+
+To say brief description of (item - coffee-item):
+	choose the row with coffee-type of coffee-type of the item in the quality-list of the item;
+	say "a [packaging-color entry] [package-type of the item]".
+		 
+Does the player mean taking the coffee capsules box: it is likely.
+
+Instead of taking something sellable which is on the counter:
+	if the noun is payed, continue the action;
+	otherwise say "Just to let you know, you still haven't paid it.";
+
+Section Coffee qualities
+
+Table of capsules qualities
+Coffee-type	Packaging-color	Packaging-details	Flavour
+arabica	"white"	"with golden text"	"delicate with floreal notes"
+soft	"gray"	"with red text"	"sweeter than the other blends"
+classic	"dark blue"	"with white text"	"corposo"
+strong	"black"	"with golden text"	""
+
+
 Section Movements
 
 After going to the coffee-shop for the first time: 
@@ -241,6 +284,26 @@ Instead of examining the shelves:
 	repeat with item running through shelf-items:
 		try examining the item.
 
+Section  Counter
+
+The counter is a shelf-item in the coffee-shop.
+The description is "A pale, square-shaped wooden counter. [/n]On the front is a picture of jute sacks and unroasted coffee beans.".
+
+A store-equipment is a kind of thing.
+
+The cash register is a store-equipment. It is on the counter.
+The description is "An ordinary red cash register."
+
+The POS terminal is a store-equipment. It is on the counter.
+The description is "A white device with a large display."
+The display is part of the POS terminal.
+The description is "It's off."
+
+The store-equipments are fixed in place.
+
+Instead of taking a store-equipment, say "There is no reason to take it."
+	
+
 Section Mokas
 
 The moka pots open shelf is a shelf-item.
@@ -251,7 +314,8 @@ Instead of examining the moka pots open shelf:
 	otherwise say "Near";
 	say " [description][/n]".
 	
-A moka-item is a kind of thing.
+A moka-item is a kind of thing. 
+A moka-item is sellable.
 A moka-item has some text called color.
 The description of a moka-item is usually "A [color of the noun] moka pot for two cups." 
 
@@ -546,4 +610,68 @@ Quizzing narrator about is an action applying to one topic.
 Understand "ask the/-- [narrator] about [text]" as quizzing narrator about.
 Carry out quizzing narrator about: try saying hello to the narrator.
 
+Volume Conversations
+
+Book Coffee shop
+
+Chapter Welcome
+
+Welcome-completed is a truth state that varies.
+
+Instead of hailing while the location is the coffee-shop:
+	try saying hello to Marco.
+Instead of saying hello to Marco:
+	now the current interlocutor is Marco;
+	say "[/ss]Hi [Marco]!' [/se][we] [say].";
+	now welcome-completed is true.
+
+Chapter Capsules
+
+Capsules-requested is a truth state that varies.	
+Does the player mean requesting for the coffee capsules box: it is likely.
+Does the player mean implicit-requesting the coffee capsules box: it is likely.
+
+Response of Marco when asked for the coffee capsules box:
+	if capsules-requested is true, say "[/ss]But you already asked for them,' [/se][Monica] [remember] [us] [/ss1]don't be silly.' [/r][/n]" instead;
+	if welcome-completed is false, try saying hello to Marco;
+	say "[/ss]We're here because we're running low on coffee capsules.' [/se][we] [explain] to [Marco].";
+	say "[/ss]Well,' [/se][regarding Marco][they] [reply] [/ss1]the usual ones?' [/r][/n]";
+	unless the player consents:
+		initiate a conversation with Marco at capsules-offer-node;
+	otherwise:
+		Marco takes the capsules box.
+
+To Marco takes the capsules box:
+	say "[Marco] [take] [brief description of the coffee capsules box] from the shelf and [put] it on the counter.";	
+	say "[/ss]Here are your capsules.' [/se][regarding Marco][they] [state].";
+	now the coffee capsules box is on the counter;
+	now the coffee capsules box is not scenery;
+	now capsules-requested is true.
+
+Chapter Coffee Qualities
+
+To Marco explains flavour of (f - some text):
+	say "[/ss]It's flavour is [f].' [/se][Marco] [explain]."
+
+The capsules-offer-node is a convnode.
+Node-introduction for capsules-offer-node:
+	say "[/ss]Do you want to try something different?' [/se][Marco] [ask] [us], then [add]: [/n]";
+	say "[/ss]You usually buy a pure arabica blend, but I can also offer you a classic, a soft or a strong blend instead.' [/r][/n]".
+Node-termination for capsules-offer-node:
+	Marco takes the capsules box.
+	
+Understand "classic/standard/normal/ordinary blend/coffee/--" as "[classic blend]".
+Response for Marco when asked-or-told about "[classic blend]":
+	Marco explains flavour of flavour corresponding to a coffee-type of classic in the table of capsules qualities.
+
+Understand "pure/100%/-- arabica blend/coffee/--" as "[arabica blend]".
+Response for Marco when asked-or-told about "[arabica blend]":
+	Marco explains flavour of flavour corresponding to a coffee-type of arabica in the table of capsules qualities.
+	
+Response for capsules-offer-node when asked for "[classic blend]":
+	now the coffee-type of the coffee capsules box is classic;
+	say leavenode.
+
+	
+Book Kitchen
 	
