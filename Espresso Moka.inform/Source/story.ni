@@ -213,7 +213,7 @@ A thing can be sellable or unsellable. A thing is usually unsellable.
 A thing can be payed or unpayed. A thing is usually unpayed.
 
 Coffee-type is a kind of value.
-The coffee-types are soft, classic, arabica and strong.
+The coffee-types are soft, classic, strong, arabica, vanilla, and monocolture.
 
 A coffee-item is a kind of thing. 
 A coffee-item is sellable.
@@ -222,17 +222,17 @@ A coffee-item has a table name called quality-list.
 A coffee-item has a text called package-type.
 
 The coffee capsules box is a coffee-item in the coffee-shop. It is scenery.
+Understand "blue/gray/white/black coffee/-- capsules/-- box" as the coffee capsules box.
 The quality-list of the coffee capsules box is table of capsules qualities.
 Coffee-type of the coffee capsules box is arabica.
-Package-type of the coffee capsules box is "box".
 
 Instead of examining a coffee-item:
 	choose the row with coffee-type of coffee-type of the noun in the quality-list of the noun;
-	say "A [packaging-color entry] [package-type] [packaging-details entry].".
+	say "A [packaging-color entry] [packaging-type entry] [packaging-details entry].".
 
 To say brief description of (item - coffee-item):
 	choose the row with coffee-type of coffee-type of the item in the quality-list of the item;
-	say "a [packaging-color entry] [package-type of the item]".
+	say "a [packaging-color entry] [packaging-type entry]".
 		 
 Does the player mean taking the coffee capsules box: it is likely.
 
@@ -242,13 +242,24 @@ Instead of taking something sellable which is on the counter:
 
 Section Coffee qualities
 
-Table of capsules qualities
-Coffee-type	Packaging-color	Packaging-details	Flavour
-arabica	"white"	"with golden text"	"delicate with floreal notes"
-soft	"gray"	"with red text"	"sweeter than the other blends"
-classic	"dark blue"	"with white text"	"corposo"
-strong	"black"	"with golden text"	""
+Table of coffee qualities
+Coffee-type	Flavour
+arabica	"delicate with floreal notes"
+soft	"sweeter than the other blends"
+classic	"corposo"
+strong	""
+vanilla	""
+monocolture	""
 
+Section Capsules qualities
+
+Table of capsules qualities
+Coffee-type	Packaging-color	Packaging-type	Packaging-details	
+arabica	"white"	"box"	"with golden text"
+soft	"gray"	"box"	"with red text"
+classic	"dark blue"	"box"	"with white text"
+strong	"black"	"box"	"with golden text"
+vanilla	"yellow"	"box"	"with brown text"
 
 Section Movements
 
@@ -646,31 +657,86 @@ To Marco takes the capsules box:
 	say "[/ss]Here are your capsules.' [/se][regarding Marco][they] [state].";
 	now the coffee capsules box is on the counter;
 	now the coffee capsules box is not scenery;
-	now capsules-requested is true.
+	now capsules-requested is true;
+	if moka-requested is false, now next-node is moka-request-node.
 
+To Marco takes the box of (t - coffee-type):
+	now the coffee-type of the coffee capsules box is t;
+	Marco takes the capsules box;
+	say leavenode.
+	
 Chapter Coffee Qualities
 
-To Marco explains flavour of (f - some text):
-	say "[/ss]It's flavour is [f].' [/se][Marco] [explain]."
+To Marco explains flavour of (f - coffee-type):
+	say "[/ss]It's flavour is [flavour corresponding to a coffee-type of f in the table of coffee qualities].' [/se][Marco] [explain]."
 
-The capsules-offer-node is a convnode.
+The capsules-offer-node is a closed, not auto-suggesting convnode.
 Node-introduction for capsules-offer-node:
 	say "[/ss]Do you want to try something different?' [/se][Marco] [ask] [us], then [add]: [/n]";
 	say "[/ss]You usually buy a pure arabica blend, but I can also offer you a classic, a soft or a strong blend instead.' [/r][/n]".
-Node-termination for capsules-offer-node:
-	Marco takes the capsules box.
+
+Section Classic
 	
 Understand "classic/standard/normal/ordinary blend/coffee/--" as "[classic blend]".
 Response for Marco when asked-or-told about "[classic blend]":
-	Marco explains flavour of flavour corresponding to a coffee-type of classic in the table of capsules qualities.
+	Marco explains flavour of classic.
+Response for capsules-offer-node when asked-or-told about "[classic blend]":
+	Marco explains flavour of classic.
+
+Response for capsules-offer-node when asked for "[classic blend]":
+	Marco takes the box of classic.
+
+Section Arabica 
 
 Understand "pure/100%/-- arabica blend/coffee/--" as "[arabica blend]".
 Response for Marco when asked-or-told about "[arabica blend]":
-	Marco explains flavour of flavour corresponding to a coffee-type of arabica in the table of capsules qualities.
+	Marco explains flavour of arabica.
+Response for Marco when asked-or-told about "[arabica blend]":
+	Marco explains flavour of arabica.
 	
 Response for capsules-offer-node when asked for "[classic blend]":
-	now the coffee-type of the coffee capsules box is classic;
-	say leavenode.
+	Marco takes the box of arabica.
+
+Section Strong 
+
+Understand "strong/intense blend/coffee/--" as "[strong blend]".
+Response for Marco when asked-or-told about "[strong blend]":
+	Marco explains flavour of strong.
+Response for Marco when asked-or-told about "[strong blend]":
+	Marco explains flavour of strong.
+	
+Response for capsules-offer-node when asked for "[strong blend]":
+	Marco takes the box of strong.
+
+Section Soft 
+
+Understand "strong/intense blend/coffee/--" as "[soft blend]".
+Response for Marco when asked-or-told about "[soft blend]":
+	Marco explains flavour of soft.
+Response for Marco when asked-or-told about "[soft blend]":
+	Marco explains flavour of soft.
+	
+Response for capsules-offer-node when asked for "[soft blend]":
+	Marco takes the box of soft.
+	
+Chapter Mokas
+
+Moka-requested is a truth states that varies.
+The moka-request-node is a closed, not auto-suggesting convnode.
+Node-introduction for moka-request-node:
+	say "[/ss]I would like to make coffee with a moka, the way our mothers used to do it.' [/se][Monica] [say], then [ask] [/ss1]Should we buy one of those colored ones?' [/r][/n]";
+	if the player consents:
+		say "[/ss]That's fine,' [/se][we] [answer] [/ss1]as long as you don't use it once and then abandon it.' [/r][/n]";
+		say "[heart][/ss]Promise!' [/se][regarding Monica][they] [state] excited.";
+	otherwise:
+		say "[/ss]No!' [/se][we] [answer] annoyed [/ss1]It ends up the same as always: you use it once and then it becomes one of your ciaffi!' [/r][/p]";
+		say "While Monica tries to soften you up with cuddles and eye candy, I try to explain what [/i]ciaffi[/r] are.";
+		say "The [/i]ciaffi[/r] are obviously useless objects, perhaps sometimes humorous, but currently taking up space and gathering dust.";
+		say "[/n][/ss]All right,' [/se][we] [say] at last, with a disconsolate air [/ss1]so you won't sulk for a week.' [/r][/n]";
+	say "[/ss]Well miss [Monica],' [/se][Marco] [ask] [/ss1]which color do you prefer?' [/r][/n]";
+	say "[/ss]I let Fancesco choose, [/se][Monica] [reply] looking at [us] [/ss1]after all he is the art director.' [/r][/n]";
+	say "[We] [smile].";
+	now moka-requested is true.
 
 	
 Book Kitchen
