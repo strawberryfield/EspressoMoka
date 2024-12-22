@@ -281,6 +281,7 @@ To cock is a verb.
 To collect is a verb.
 To come is a verb.
 To comment is a verb.
+To complain is a verb.
 To confirm is a verb.
 To continue is a verb.
 To cook is a verb.
