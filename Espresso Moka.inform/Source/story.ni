@@ -136,9 +136,13 @@ Instead of entering the clothes store entrance: try going inside.
 
 Section Shopper
 
-The white shopper is container. It is open, not openable, not lockable.
+A shopper-item is a kind of container.
+A shopper-item is open, not openable, not lockable.
+Instead of opening the shopper-item: say "It's already open."
+
+The white shopper is a shopper-item.
 The description is "A white paper shopper."
-Instead of opening the white shopper: say "It's already open."
+
 
 The pair of beige shorts is a cloth. The description is "A pair of beige shorts with lots of pockets: two on the back, two on the front and two on the legs.".
 Understand "pants" as the pair of beige shorts.
@@ -210,7 +214,11 @@ Instead of taking when the player is in the coffee-shop:
 Section Selling
 
 A thing can be sellable or unsellable. A thing is usually unsellable.
-A thing can be payed or unpayed. A thing is usually unpayed.
+A thing can be paid or unpaid. A thing is usually unpaid.
+A thing has a real number called price. The price of a thing is usually 0.
+
+The brown shopper is shopper-item. It is sellable.
+The description is "A raw paper shopper."
 
 Coffee-type is a kind of value.
 The coffee-types are soft, classic, strong, arabica, vanilla, and monocolture.
@@ -241,11 +249,14 @@ Instead of examining a coffee-item:
 To say brief description of (item - coffee-item):
 	choose the row with coffee-type of coffee-type of the item in the quality-list of the item;
 	say "a [packaging-color entry] [packaging-type entry]".
-		 
+
+To decide which real number is cost of (item - coffee-item):	 
+	decide on the price corresponding to a coffee-type of coffee-type of the item in the quality-list of the item.
+	
 Does the player mean taking the coffee capsules box: it is likely.
 
 Instead of taking something sellable which is on the counter:
-	if the noun is payed, continue the action;
+	if the noun is paid, continue the action;
 	otherwise say "Just to let you know, you still haven't paid it.";
 
 Section Coffee qualities
@@ -262,22 +273,22 @@ monocolture	""
 Section Roasted qualities
 
 Table of roasted qualities
-Coffee-type	Packaging-color	Packaging-type	Packaging-details	
-arabica	"golden"	"foil packet"	"with gray and red text"
-soft	"pink and blue"	"foil packet"	"with white text"
-classic	"aluminium"	"tin"	"with red text"
-strong	"red"	"foil packet"	"with white text"
-monocolture	"white"	"tin"	"with a drawing of a man with a moustache"
+Coffee-type	Price	Packaging-color	Packaging-type	Packaging-details	
+arabica	4.99	"golden"	"foil packet"	"with gray and red text"
+soft	3.99	"pink and blue"	"foil packet"	"with white text"
+classic	4.50	"aluminium"	"tin"	"with red text"
+strong	3.99	"red"	"foil packet"	"with white text"
+monocolture	5.50	"white"	"tin"	"with a drawing of a man with a moustache"
 
 Section Capsules qualities
 
 Table of capsules qualities
-Coffee-type	Packaging-color	Packaging-type	Packaging-details	
-arabica	"white"	"box"	"with golden text"
-soft	"gray"	"box"	"with red text"
-classic	"dark blue"	"box"	"with white text"
-strong	"black"	"box"	"with golden text"
-vanilla	"yellow"	"box"	"with brown text"
+Coffee-type	Price	Packaging-color	Packaging-type	Packaging-details	
+arabica	4.20	"white"	"box"	"with golden text"
+soft	3.50	"gray"	"box"	"with red text"
+classic	3.50	"dark blue"	"box"	"with white text"
+strong	3.50	"black"	"box"	"with golden text"
+vanilla	3.89	"yellow"	"box"	"with brown text"
 
 Section Movements
 
@@ -347,10 +358,12 @@ Instead of examining the moka pots open shelf:
 A moka-item is a kind of thing. 
 A moka-item is sellable.
 A moka-item has some text called color.
+The price of a moka-item is usually 18.90.
 The description of a moka-item is usually "A [color of the noun] moka pot for two cups." 
 
 The natural aluminium moka is a moka-item on the moka pots open shelf.
 The color is "traditional natural aluminium".
+The price is 16.90.
 
 The tricolor moka is a moka-item on the moka pots open shelf.
 The color is "green-white-red (as the italian flag)".
@@ -366,6 +379,7 @@ The color is "pink".
 
 The stylish moka is a moka-item on the moka pots open shelf.
 The color is "multi-colored checkered".
+The price is 20.90.
 
 To say mokas list:
 	let L be a list of texts;
@@ -666,24 +680,19 @@ Response of Marco when asked for the coffee capsules box:
 	if capsules-requested is true, say "[/ss]But you already asked for them,' [/se][Monica] [remember] [us] [/ss1]don't be silly.' [/r][/n]" instead;
 	if welcome-completed is false, try saying hello to Marco;
 	say "[/ss]We're here because we're running low on coffee capsules.' [/se][we] [explain] to [Marco].";
-	say "[/ss]Well,' [/se][regarding Marco][they] [reply] [/ss1]the usual ones?' [/r][/p]";
-	unless the player consents:
-		initiate a conversation with Marco at capsules-offer-node;
-	otherwise:
-		Marco takes the capsules box;
-		if moka-requested is false, initiate a conversation with Marco at moka-request-node.
+	initiate a conversation with Marco at capsules-offer-node.
 
-To Marco takes the capsules box:
+To Marco takes the box of (t - coffee-type):
+	now the coffee-type of the coffee capsules box is t;
 	say "[Marco] [take] [brief description of the coffee capsules box] from the shelf and [put] it on the counter.";	
 	say "[/ss]Here are your capsules.' [/se][regarding Marco][they] [state].";
 	now the coffee capsules box is on the counter;
 	now the coffee capsules box is not scenery;
-	now capsules-requested is true.
-
-To Marco takes the box of (t - coffee-type):
-	now the coffee-type of the coffee capsules box is t;
-	Marco takes the capsules box;
+	now the price of the coffee capsules box is the cost of the coffee capsules box;
+	now capsules-requested is true;
 	if moka-requested is false, now next-node is moka-request-node;
+	otherwise:
+		now next-node is payment-node;
 	say leavenode.
 	
 Chapter Coffee Qualities
@@ -693,8 +702,12 @@ To Marco explains flavour of (f - coffee-type):
 
 The capsules-offer-node is a closed, not auto-suggesting convnode.
 Node-introduction for capsules-offer-node:
-	say "[/ss]Do you want to try something different?' [/se][Marco] [ask] [us], then [add]: [/n]";
-	say "[/ss]You usually buy a pure arabica blend, but I can also offer you a classic, a light or a strong blend instead.' [/r][/n]".
+	say "[/ss]Well,' [/se][Marco] [ask] [/ss1]the usual ones?' [/r][/p]";
+	if the player consents:
+		Marco takes the box of arabica;
+	otherwise:
+		say "[/ss]Do you want to try something different?' [/se][Marco] [ask] [us], then [add]: [/n]";
+		say "[/ss]You usually buy a pure arabica blend, but I can also offer you a classic, a light or a strong blend instead.' [/r][/n]".
 
 Section Classic
 	
@@ -757,15 +770,21 @@ Node-introduction for moka-request-node:
 		say "[/n][/ss]All right,' [/se][we] [say] at last, with a disconsolate air [/ss1]so you won't sulk for a week.' [/r][/n]";
 	say "[/n][/ss]Well miss [Monica],' [/se][Marco] [ask] [/ss1]which color do you prefer?' [/r][/n]";
 	say "[/ss]I let Fancesco choose,' [/se][Monica] [reply] looking at [us] [/ss1]after all he is the art director.' [/r][/n]";
-	say "[We] [smile].";
+	say "[We] [smile].".
+
+To Marco takes (m - moka-item):
+	if m is the natural aluminium moka:
+		say "[/ss]Ciccio, but that's the usual moka.' [/se][Monica] [complain] [/ss1]Let's get a colored one.' [/r][/n]" instead;
+	say "[Marco] [take] [the m] and [place] it on the counter.";
+	now m is on the counter;
 	now moka-requested is true.
 
 Response for moka-request-node when asked for a moka-item:
-	if the second noun is the natural aluminium moka:
-		say "[/ss]Ciccio, but that's the usual moka.' [/se][Monica] [complain] [/ss1]Let's get a colored one.' [/r][/n]" instead;
-	say "[Marco] [take] [the second noun] and [place] it on the counter.";
-	now the second noun is on the counter;
-	say leavenode.
+	Marco takes the second noun;
+	if the second noun is on the counter, say leavenode.
+Response for Marco when asked for a moka-item:
+	Marco takes the second noun;
+	if the second noun is on the counter, initiate a conversation with Marco at roasted-coffee-node.
 	
 Default ask-for response for moka-request-node:
 	say "[/ss]Actually, you have to choose a moka.' [/se][Monica] [remember] [us]."
@@ -789,6 +808,15 @@ To Marco takes the package of (t - coffee-type):
 	say "[/ss]Here is your coffee.' [/se][regarding Marco][they] [state].";
 	now the roasted coffee jar is on the counter;
 	now the roasted coffee jar is not scenery;
+	now the price of the roasted coffee jar is the cost of the roasted coffee jar;
+	if capsules-requested is true:
+		now next-node is payment-node;
+	otherwise:
+		say "[/ss]Do you also need capsules for your espresso machine?' [/se][Marco] [ask].";
+		if the player consents:
+			now next-node is capsules-offer-node;
+		otherwise:
+			now next-node is payment-node;
 	say leavenode.
 	
 Section Classic
@@ -822,7 +850,40 @@ Response for roasted-coffee-node when asked-or-told about "[soft blend]":
 	
 Response for roasted-coffee-node when asked for "[soft blend]":
 	Marco takes the package of soft.
+
+Chapter Payment
+
+Payment-done is a truth state that varies.
+The payment-node is a closed, not  auto-suggesting convnode.
+Node-introduction for the payment-node:
+	say "[/ss]Anything else?' [/se][Marco] [ask].[/n]";
+	unless the player consents:
+		say "[/ss]No, thank you, that's all we need.' [/se][Monica] [correct] [us].";	
+	let L be the list of sellable things on the counter;
+	say "[Marco] [take] a brown shopper from the counter, then [they] [put] [L with definite articles] inside.";
+	now the brown shopper is on the counter;
+	repeat with I running through L:
+		now I is in the brown shopper;
+	say "Then [regarding Marco][they] [type] on the cash register and [state] [/ss]The total amount is [total price of things in the brown shopper in euro].' [/r][/n]".	
 	
-				
+Section Pay action
+
+Understand the command "pay" as something new.
+Paying is an action applying to nothing.
+Understand "pay the/-- coffee/moka/total/amount/--" as paying.
+
+Check paying:
+	unless the location of the player is the coffee-shop, say "There is nothing to pay here." instead;
+	if the payment-done is true, say "You have already paid." instead;
+	unless the current node is payment-node, say "It's not time to pay yet." instead.
+	
+Carry out paying:
+	now the brown shopper is paid;
+	repeat with item running through the things in the brown shopper:
+		now the item is paid.
+		
+Report paying:
+	say "You swipe your card at the POS and after a few moments a receipt will be printed out."
+	
 Book Kitchen
 	

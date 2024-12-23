@@ -286,6 +286,7 @@ To confirm is a verb.
 To continue is a verb.
 To cook is a verb.
 To copy is a verb.
+To correct is a verb.
 To cry is a verb.
 To draw is a verb.
 To drink is a verb.
@@ -487,5 +488,23 @@ Understand "xyzzy" or "say xyzzy" or "cast xyzzy" as casting xyzzy.
 Casting xyzzy is an action applying to nothing.
 Report casting xyzzy:
 	say "Nothing happens."
+	
+Book Prices
 
+To decide which real number is integer part of (r - real number):
+	if r is greater than zero, decide on floor of r;
+	otherwise:
+		decide on ceiling of r.
+		
+To decide which real number is decimal part of (r - real number):
+	decide on r minus integer part of r.
+	
+To decide which real number is centimes of (r - real number):
+	decide on ceiling of (100 times decimal part of r) .
+	
+To say (r - real number) in euro:
+	let E be the integer part of r;
+	let C be the centimes of r;
+	say "[E to the nearest whole number in words] euro[if C is greater than zero] and [C to the nearest whole number in words] centime[s][end if]".
+			
 Commons ends here.
