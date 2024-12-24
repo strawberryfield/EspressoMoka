@@ -19,7 +19,7 @@ Book Settings
 The release number is 1.
 The story creation year is 2025.
 The story genre is "Tutorial".
-The story headline is "An everyday puzzle".
+The story headline is "An everyday life puzzle".
 The story description is "'Making good coffee seems easy!' So went the ad for a well-known brand of coffee maker.
 
 Francesco and Monica want to try making coffee with a moka like their mothers did. They find it easier to insert a capsule and press a button, but..."
@@ -207,7 +207,8 @@ The printed name is "In the coffee shop".
 The description is "The essential-style shop is lined with shelves. [/n]Behind the counter is the espresso machine shelving, on one side the capsules shelving and on the opposite side the roasted coffee shelving. [/n]Next to the shop window is a small open shelf with moka pots on display."
 The Coffee-Shop is inside from street-3.
 
-Instead of taking when the player is in the coffee-shop:
+Instead of taking something not paid when the player is in the coffee-shop:
+	if the noun is enclosed by the player, continue the action;
 	if the noun is a shelf-item, say "It is well secured." instead;
 	say "Perhaps it would be best to ask [Marco] for it."
 
@@ -253,22 +254,25 @@ To say brief description of (item - coffee-item):
 To decide which real number is cost of (item - coffee-item):	 
 	decide on the price corresponding to a coffee-type of coffee-type of the item in the quality-list of the item.
 	
-Does the player mean taking the coffee capsules box: it is likely.
+Does the player mean taking the coffee capsules box: it is very likely.
 
-Instead of taking something sellable which is on the counter:
+Before taking something sellable which is on the counter:
 	if the noun is paid, continue the action;
-	otherwise say "Just to let you know, you still haven't paid it.";
+	say "Just to let you know, you still haven't paid it." instead.
 
+Before taking something which is in the brown shopper when the player is in the coffee-shop:
+	say "You will do it when you get home." instead.
+	
 Section Coffee qualities
 
 Table of coffee qualities
-Coffee-type	Flavour
-arabica	"delicate with floreal notes"
-soft	"sweeter than the other blends"
-classic	"corposo"
-strong	""
-vanilla	""
-monocolture	""
+Coffee-type	Flavour	Intro
+arabica	"an unique combination of finest Arabica beans; perfect symphony of aromas with fruity and floral notes."	"You should be familiar with it"
+soft	"a blend of fine natural and washed Arabica and high quality Robusta, it's slow, gentle roasting give it a smooth taste."	"This is for those who like delicate flavours"
+classic	"a unique blend of Robusta and Arabica beans; an aromatic, smooth, well-rounded flavour, balanced between dried fruits and soft chocolate."	"I like it best at breakfast"
+strong	"a coffee with an intense aftertaste and notes of cocoa and wood."	"For those who like strong and definite flavours"
+vanilla	"a blonde roast notes of sweet vanilla and biscuit."	"It's pretty far from my taste"
+monocolture	"a mono-origin of fine Brazilian Arabica, a balanced aroma with chocolate, dried fruit and honey notes."	"Ah, the conquering moustache, a product of cult"
 
 Section Roasted qualities
 
@@ -494,8 +498,9 @@ Instead of examining the driving license, say "Your pink driving license.".
 Instead of taking an unuseful card, say "Right now [the noun] is of no use to you.".
 Instead of examining an unuseful card, say "Examining [the noun] now is a waste of time.".
 
-The driving license, the credit card, the debit card, the identity card, the supermarket fidelity card, the photo are in the wallet.
+The driving license, the credit card, the identity card, the supermarket fidelity card, the photo are in the wallet.
 The description of the photo is "A photo of [Monica] you took last year at Lake Misurina with the Three Peaks of Lavaredo in the background.".		
+The description of the credit card is "A red plastic card."
 
 Some money are in the wallet. The description of money is "It's only banknotes, coins annoy you.".
 Instead of taking money, say "It's better to use a payment card.".
@@ -698,8 +703,15 @@ To Marco takes the box of (t - coffee-type):
 Chapter Coffee Qualities
 
 To Marco explains flavour of (f - coffee-type):
-	say "[/ss]It's flavour is [flavour corresponding to a coffee-type of f in the table of coffee qualities].' [/se][Marco] [explain]."
+	choose the row with coffee-type of f in the table of coffee qualities;
+	say "[/ss][Intro entry]:' [/se][Marco] [one of][answer][or][reply][or][say][at random] then [one of][explain][or][add][at random] [/ss1][flavour entry]' [/r][/n]".
 
+To Marco state the coffee price of (f - coffee-type):
+	say "[/ss][one of]Now at[or]Its price is[at random] [price corresponding to a coffee-type of f in the table of roasted qualities in euro].' [/r][/n]".
+	
+To Marco state the capsules price of (f - coffee-type):
+	say "[/ss][one of]Now at[or]Its price is[at random] [price corresponding to a coffee-type of f in the table of capsules qualities in euro].' [/r][/n]".
+	
 The capsules-offer-node is a closed, not auto-suggesting convnode.
 Node-introduction for capsules-offer-node:
 	say "[/ss]Well,' [/se][Marco] [ask] [/ss1]the usual ones?' [/r][/p]";
@@ -715,7 +727,8 @@ Understand "classic/standard/normal/ordinary blend/coffee/--" as "[classic blend
 Response for Marco when asked-or-told about "[classic blend]":
 	Marco explains flavour of classic.
 Response for capsules-offer-node when asked-or-told about "[classic blend]":
-	Marco explains flavour of classic.
+	Marco explains flavour of classic;
+	Marco state the capsules price of classic.
 
 Response for capsules-offer-node when asked for "[classic blend]":
 	Marco takes the box of classic.
@@ -726,7 +739,8 @@ Understand "pure/100%/-- arabica blend/coffee/--" as "[arabica blend]".
 Response for Marco when asked-or-told about "[arabica blend]":
 	Marco explains flavour of arabica.
 Response for capsules-offer-node when asked-or-told about "[arabica blend]":
-	Marco explains flavour of arabica.
+	Marco explains flavour of arabica;
+	Marco state the capsules price of arabica.
 	
 Response for capsules-offer-node when asked for "[classic blend]":
 	Marco takes the box of arabica.
@@ -737,7 +751,8 @@ Understand "strong/intense blend/coffee/--" as "[strong blend]".
 Response for Marco when asked-or-told about "[strong blend]":
 	Marco explains flavour of strong.
 Response for capsules-offer-node when asked-or-told about "[strong blend]":
-	Marco explains flavour of strong.
+	Marco explains flavour of strong;
+	Marco state the capsules price of strong.	
 	
 Response for capsules-offer-node when asked for "[strong blend]":
 	Marco takes the box of strong.
@@ -748,10 +763,37 @@ Understand "light/soft/mild blend/coffee/--" as "[soft blend]".
 Response for Marco when asked-or-told about "[soft blend]":
 	Marco explains flavour of soft.
 Response for capsules-offer-node when asked-or-told about "[soft blend]":
-	Marco explains flavour of soft.
+	Marco explains flavour of soft;
+	Marco state the capsules price of soft.
 	
 Response for capsules-offer-node when asked for "[soft blend]":
 	Marco takes the box of soft.
+	
+Section Vanilla
+
+Understand "vanilla/sweet/flavoured/flavored blend/coffee/--" as "[vanilla blend]".
+Response for Marco when asked-or-told about "[vanilla blend]":
+	Marco explains flavour of vanilla.
+Response for capsules-offer-node when asked-or-told about "[vanilla blend]":
+	Marco explains flavour of vanilla;
+	Marco state the capsules price of vanilla.
+	
+Response for capsules-offer-node when asked for "[vanilla blend]":
+	Marco takes the box of vanilla.
+
+Section Monocolture
+
+To say unavailable in capsules: say "[/ss]Unfortunately, it is not available in capsules.' [/se][regarding Marco][they] [remark]."
+	
+Understand "monocolture/mono-origin/moustache/brazilian/paulista blend/coffee/--" as "[paulista]".
+Response for Marco when asked-or-told about "[paulista]":
+	Marco explains flavour of monocolture.
+Response for capsules-offer-node when asked-or-told about "[paulista]":
+	Marco explains flavour of monocolture;
+	say unavailable in capsules.
+
+Response for capsules-offer-node when asked for "[paulista]":
+	say unavailable in capsules.
 	
 Chapter Mokas
 
@@ -822,7 +864,8 @@ To Marco takes the package of (t - coffee-type):
 Section Classic
 	
 Response for roasted-coffee-node when asked-or-told about "[classic blend]":
-	Marco explains flavour of classic.
+	Marco explains flavour of classic;
+	Marco state the coffee price of classic.
 
 Response for roasted-coffee-node when asked for "[classic blend]":
 	Marco takes the package of classic.
@@ -830,7 +873,8 @@ Response for roasted-coffee-node when asked for "[classic blend]":
 Section Arabica 
 
 Response for roasted-coffee-node when asked-or-told about "[arabica blend]":
-	Marco explains flavour of arabica.
+	Marco explains flavour of arabica;
+	Marco state the coffee price of arabica.
 	
 Response for roasted-coffee-node when asked for "[arabica blend]":
 	Marco takes the package of arabica.
@@ -838,7 +882,8 @@ Response for roasted-coffee-node when asked for "[arabica blend]":
 Section Strong 
 
 Response for roasted-coffee-node when asked-or-told about "[strong blend]":
-	Marco explains flavour of strong.
+	Marco explains flavour of strong;
+	Marco state the coffee price of strong.
 	
 Response for capsules-offer-node when asked for "[strong blend]":
 	Marco takes the package of strong.
@@ -846,10 +891,32 @@ Response for capsules-offer-node when asked for "[strong blend]":
 Section Soft 
 
 Response for roasted-coffee-node when asked-or-told about "[soft blend]":
-	Marco explains flavour of soft.
+	Marco explains flavour of soft;
+	Marco state the coffee price of soft.
 	
 Response for roasted-coffee-node when asked for "[soft blend]":
 	Marco takes the package of soft.
+
+Section Vanilla
+
+To say available in capsules: say "[/ss]Unfortunately, it is available only in capsules.' [/se][regarding Marco][they] [remark]."
+
+Response for roasted-coffee-node when asked-or-told about "[vanilla blend]":
+	Marco explains flavour of soft;
+	say available in capsules.
+	
+Response for roasted-coffee-node when asked for "[soft blend]":
+	say available in capsules.
+
+Section Monocolture
+
+Response for roasted-coffee-node when asked-or-told about "[paulista]":
+	Marco explains flavour of monocolture;
+	Marco state the coffee price of monocolture.
+	
+Response for roasted-coffee-node when asked for "[paulista]":
+	Marco takes the package of monocolture.
+
 
 Chapter Payment
 
@@ -870,20 +937,36 @@ Section Pay action
 
 Understand the command "pay" as something new.
 Paying is an action applying to nothing.
-Understand "pay the/-- coffee/moka/total/amount/--" as paying.
+Understand "pay the/-- coffee/moka/total/amount/bill/--" as paying.
 
 Check paying:
 	unless the location of the player is the coffee-shop, say "There is nothing to pay here." instead;
 	if the payment-done is true, say "You have already paid." instead;
-	unless the current node is payment-node, say "It's not time to pay yet." instead.
-	
+	unless the current node is payment-node, say "It's not time to pay yet." instead;
+	unless the player carries the credit card:
+		unless the player carries the wallet:
+			carry out the implicitly taking activity with the wallet;
+		if the wallet is closed:
+			try opening the wallet;
+		carry out the implicitly taking activity with the credit card.
+				
 Carry out paying:
 	now the brown shopper is paid;
 	repeat with item running through the things in the brown shopper:
-		now the item is paid.
+		now the item is paid;
+	now payment-done is true;
+	say leavenode;
+	Monica takes the shopper in 1 turn from now.
 		
 Report paying:
 	say "You swipe your card at the POS and after a few moments a receipt will be printed out."
-	
+
+Section Post-pay activities
+
+At the time when Monica takes the shopper:
+	if the brown shopper is on the counter:
+		say "[/ss]I'll take this one.' [/se][Monica] [say] pointing at the shopper.";
+		now Monica carries the brown shopper.	
+		
 Book Kitchen
 	

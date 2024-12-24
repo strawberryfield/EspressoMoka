@@ -108,7 +108,7 @@ Rule for inventory listing the contents of a container (called the item) (this i
 		otherwise:
 			say ". [We] also [have]" (B);
 		now content-listing is true;
-		say " [a list of listed when carried things in the item] in " (C);
+		say " [list of listed when carried things in the item] in " (C);
 		now content-listing is false;
 		now articulating is true;
 		if the item is specially-inventoried, say "[item]" (D);

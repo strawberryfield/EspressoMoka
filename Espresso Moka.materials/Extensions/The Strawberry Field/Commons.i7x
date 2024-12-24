@@ -505,6 +505,6 @@ To decide which real number is centimes of (r - real number):
 To say (r - real number) in euro:
 	let E be the integer part of r;
 	let C be the centimes of r;
-	say "[E to the nearest whole number in words] euro[if C is greater than zero] and [C to the nearest whole number in words] centime[s][end if]".
+	say "[E to the nearest whole number in words] euro[if C is greater than zero] and [C to the nearest whole number in words] cent[s][end if]".
 			
 Commons ends here.
