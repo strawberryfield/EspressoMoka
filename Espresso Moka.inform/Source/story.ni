@@ -67,6 +67,14 @@ Rule for printing the name of a street-room: say "On the street".
 
 The street is a region.
 
+Chapter Dropping
+
+Instead of dropping something:
+	say "Don't throw anything on the ground."
+Instead of dropping a shopper-item:
+	say "[/ss]I know you hate shoppers,' [/se][Monica] [say] taking [the noun] [/ss1]I'll take it.' [/r][/n]";
+	now Monica carries the noun.
+
 Chapter Movements
 
 To say be more specific: say "You can't go in between directions, just say ".
@@ -114,7 +122,7 @@ Instead of going south when the player is in the street-1:
 Chapter Street 2
 
 The street-2 is a street-room.
-The description is "On the west side of the street is the large wooden front door of the building. [/n]On the east side is the entrance to the clothes store. [if unvisited][/p][/ss]Hey look!' [/se][Monica] [claim] [our] attention [/ss1]There are the shorts you love, the ones that drove so many people crazy with their pockets in the other game.' [/r][/n][/ss]It's better not to mention it,' [/se][we] [suggest] [/ss1]I don't want players to run away thinking they have to search all the pockets for the wallet.' [/r][/n]You both start to laugh.[end if]".
+The description is "On the west side of the street is the large wooden front door of the building. [/n]On the east side is the entrance to the clothes store. [if unvisited][/p][/ss]Hey look!' [/se][Monica] [claim] [our] attention [/ss1]There are the shorts you love, the ones that drove so many people crazy with their pockets in your last game.' [/r][/n][/ss]It's better not to mention it,' [/se][we] [suggest] [/ss1]I don't want players to run away thinking they have to search all the pockets for the wallet.' [/r][/n]You both start to laugh.[end if]".
 The street-2 is north of the street-1.
 The street-2 is in the street.
 
@@ -500,13 +508,27 @@ Instead of examining an unuseful card, say "Examining [the noun] now is a waste 
 
 The driving license, the credit card, the identity card, the supermarket fidelity card, the photo are in the wallet.
 The description of the photo is "A photo of [Monica] you took last year at Lake Misurina with the Three Peaks of Lavaredo in the background.".		
-The description of the credit card is "A red plastic card."
 
+The description of the credit card is "A red plastic card."
+Understand "payment card" as the credit card.
 Some money are in the wallet. The description of money is "It's only banknotes, coins annoy you.".
 Instead of taking money, say "It's better to use a payment card.".
 
 Understand "id card/document/--" or "your id/identity/-- card/document/documents" or "passport/document" as the identity card.
 Instead of examining the identity card, say "A card folded into a booklet with your photo (slightly old) and your personal information.".
+
+Does the player mean inserting the wallet into the left pants pocket: it is likely.
+Before inserting the wallet into a pocket:
+	if the noun is open, try closing the noun.
+
+Putting back is an action applying to one thing.
+Understand "put [something preferably held] back/away" as putting back.
+Understand "put back/away [something preferably held]" as putting back.
+Check putting back:
+	unless the noun is the credit card or the noun is the wallet, say "I don't know where to put it." instead.
+Carry out putting back:
+	if the noun is the credit card, try inserting the noun into the wallet;
+	if the noun is the wallet, try inserting the noun into the left pants pocket.
 
 Book Girlfriend
 
@@ -959,7 +981,8 @@ Carry out paying:
 	Monica takes the shopper in 1 turn from now.
 		
 Report paying:
-	say "You swipe your card at the POS and after a few moments a receipt will be printed out."
+	say "You swipe your card at the POS and after a few moments a receipt will be printed out.";
+	say "[/ss]All right, thank you.' [/se][Marco] [confirm]."
 
 Section Post-pay activities
 
@@ -967,6 +990,39 @@ At the time when Monica takes the shopper:
 	if the brown shopper is on the counter:
 		say "[/ss]I'll take this one.' [/se][Monica] [say] pointing at the shopper.";
 		now Monica carries the brown shopper.	
+
+Section Exit
+
+Before going from the coffee-shop:
+	unless the brown shopper is enclosed by the coffee-shop, say "[/ss]But where are you going?' [/se][Monica] [draw] [our] attention [/ss1]We have not yet completed our purchases.' [/r][/n]" instead;
+	if payment-done is false, say "[/ss][Marco] waits to be paid.' [/se][Monica] [remember] [us]." instead;
+	if the brown shopper is on the counter, say "[/ss]You are forgetting the things you have bought.' [/se][Marco] [remember]." instead;
+	if the player carries the credit card or the player carries the wallet:
+		say "[/ss]It's OK that we're in a hurry to try our new moka,' [/se][Monica] [say] [/ss1]but you'd better put your ";
+		if the player carries the credit card:
+			say "credit card";
+			if the player carries the wallet, say " and ";
+		if the player carries the wallet, say "wallet";
+		say " back.' [/r][/n]";
+		stop the action;
+	if bye-done is false, greet Marco;
+	say "[We] and [Monica] [leave] the shop and quickly go home.";
+	say "[/p][note style]About half an hour later. [/r][/p]";
+	now the brown shopper is nowhere;
+	now the wallet is nowhere;
+	now Monica is in the kitchen;
+	now the player is in the kitchen;
+	stop the action.
 		
+Bye-done is a truth state that varies.	
+To greet Marco:
+	say "[/ss]Bye Marco!' [/se][we] [greet], then [Monica] [add] [/ss1]Bye-bye!' [/r][/n]";
+	say "[/ss]Let me know how the moka works.' [/se][Marco] [reply] [/ss1]See you soon and thanks again.' [/r][/n]";
+	now bye-done is true.
+
+Instead of leavetaking:
+	if bye-done is true, say "You have already said goodbye." instead;
+	greet Marco.
+			
 Book Kitchen
 	
