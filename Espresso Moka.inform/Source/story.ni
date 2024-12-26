@@ -390,7 +390,8 @@ The pink moka is a moka-item on the moka pots open shelf.
 The color is "pink".
 
 The stylish moka is a moka-item on the moka pots open shelf.
-The color is "multi-colored checkered".
+Understand "stylish/-- multi-colored/multicolor/multicoloed/multi-color checkered/-- moka/--" or "stylish/-- checkered moka/--" as the stylish moka.
+The color is "stylish multi-colored checkered".
 The price is 20.90.
 
 To say mokas list:
@@ -402,6 +403,14 @@ To say mokas list:
 Book Kitchen
 
 The Kitchen is a room.
+The description is "The room is painted light yellow with the furniture and equipment on one side. [/n]A photograph hangs on the opposite wall and a window lights up the room."
+
+The photograph is a scenery in the kitchen.
+The description is "The photo shows [us] and [Monica] standing close together on a sandy beach beside a scenic lake surrounded by tall trees and mountains. The lake's clear blue water extends into the distance, reflecting the surrounding landscape and sky. [/n][We] took this photo on one of your mountain walks."
+
+The table is a supporter in the kitchen. It is fixed in place.
+Rule for writing a paragraph about the table:
+	say "In the middle of the room is a table surronded by chairs[if a thing is on the table]. [/n]On the table [is-are a list of things on the table][end if]. [/n]".
 
 Book Backdrops
 
@@ -1008,7 +1017,8 @@ Before going from the coffee-shop:
 	if bye-done is false, greet Marco;
 	say "[We] and [Monica] [leave] the shop and quickly go home.";
 	say "[/p][note style]About half an hour later. [/r][/p]";
-	now the brown shopper is nowhere;
+	now the white shopper is nowhere;
+	now the brown shopper is on the table;
 	now the wallet is nowhere;
 	now Monica is in the kitchen;
 	now the player is in the kitchen;
