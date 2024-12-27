@@ -409,8 +409,13 @@ The photograph is a scenery in the kitchen.
 The description is "The photo shows [us] and [Monica] standing close together on a sandy beach beside a scenic lake surrounded by tall trees and mountains. The lake's clear blue water extends into the distance, reflecting the surrounding landscape and sky. [/n][We] took this photo on one of your mountain walks."
 
 The table is a supporter in the kitchen. It is fixed in place.
+The description is "A light-coloured wooden top with metal support."
 Rule for writing a paragraph about the table:
 	say "In the middle of the room is a table surronded by chairs[if a thing is on the table]. [/n]On the table [is-are a list of things on the table][end if]. [/n]".
+	
+The chair is a supporter in the kitchen. It is fixed in place. It is enterable.
+The description is "Metal-framed chair with yellow plastic seat and back."
+Understand "chairs" as the chair. 
 
 Book Backdrops
 
