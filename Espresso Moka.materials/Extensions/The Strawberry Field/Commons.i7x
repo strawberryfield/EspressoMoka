@@ -484,6 +484,10 @@ Report listing verbs:
 Book xyzzy
 
 Understand "xyzzy" or "say xyzzy" or "cast xyzzy" as casting xyzzy.
+Understand "abracadabra" or "say abracadabra" or "cast abracadabra" as casting xyzzy.
+Understand "sim sala bim" or "say sim sala bim" or "cast sim sala bim" as casting xyzzy.
+Understand "simsalabim" or "say simsalabim" or "cast simsalabim" as casting xyzzy.
+Understand "alakazam" or "say alakazam" or "cast alakazam" as casting xyzzy.
 
 Casting xyzzy is an action applying to nothing.
 Report casting xyzzy:

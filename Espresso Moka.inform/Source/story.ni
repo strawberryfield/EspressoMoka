@@ -7,12 +7,12 @@ Book Includes
 Include Basic Screen Effects by Emily Short.
 Include Glulx Text Effects (for Glulx only) by Emily Short.
 Include Assorted Text Generation by Emily Short.
+Include Automated Drawers by Emily Short.
 Include Large Game Speedup by Nathanael Nerode.
 Include Conversation Package by Eric Eve.
 Include Customized Trinity Inventory by The Strawberry Field.
 Include Commons by The Strawberry Field.
 Include People by The Strawberry Field.
-
 
 Book Settings
 
@@ -208,7 +208,7 @@ To say shop is here: say "[/ss]But where are you going?' [/se][Monica] [ask] [/s
 Instead of going south when the player is in the street-3: say shop is here.
 Instead of going north when the player is in the street-3: say shop is here.
 	
-Chapter Coffee shop
+Book Coffee shop
 
 The Coffee-Shop is a room.
 The printed name is "In the coffee shop".
@@ -220,7 +220,7 @@ Instead of taking something not paid when the player is in the coffee-shop:
 	if the noun is a shelf-item, say "It is well secured." instead;
 	say "Perhaps it would be best to ask [Marco] for it."
 
-Section Selling
+Chapter Selling
 
 A thing can be sellable or unsellable. A thing is usually unsellable.
 A thing can be paid or unpaid. A thing is usually unpaid.
@@ -231,6 +231,8 @@ The description is "A raw paper shopper."
 
 Coffee-type is a kind of value.
 The coffee-types are soft, classic, strong, arabica, vanilla, and monocolture.
+
+Section Coffee items
 
 A coffee-item is a kind of thing. 
 A coffee-item is sellable.
@@ -270,6 +272,8 @@ Before taking something sellable which is on the counter:
 
 Before taking something which is in the brown shopper when the player is in the coffee-shop:
 	say "You will do it when you get home." instead.
+
+Chapter Tables 
 	
 Section Coffee qualities
 
@@ -302,7 +306,7 @@ classic	3.50	"dark blue"	"box"	"with white text"
 strong	3.50	"black"	"box"	"with golden text"
 vanilla	3.89	"yellow"	"box"	"with brown text"
 
-Section Movements
+Chapter Movements
 
 After going to the coffee-shop for the first time: 
 	Marco welcomes you in 0 turns from now;
@@ -315,7 +319,7 @@ At the time when Marco welcomes you:
 Instead of going nowhere when the player is in the coffee-shop: 
 	say "If you really want to go somewhere else the only way is out."
 	
-Section Shelves
+Chapter Shelves
 
 A shelf-item is a kind of supporter. It is scenery.
 
@@ -337,7 +341,7 @@ Instead of examining the shelves:
 	repeat with item running through shelf-items:
 		try examining the item.
 
-Section  Counter
+Chapter Counter
 
 The counter is a shelf-item in the coffee-shop.
 The description is "A pale, square-shaped wooden counter. [/n]On the front is a picture of jute sacks and unroasted coffee beans.".
@@ -355,9 +359,8 @@ The description is "It's off."
 The store-equipments are fixed in place.
 
 Instead of taking a store-equipment, say "There is no reason to take it."
-	
 
-Section Mokas
+Chapter Mokas
 
 The moka pots open shelf is a shelf-item.
 The description is "the window is a white wooden shelf; on it are [mokas list] moka pot."
@@ -403,19 +406,145 @@ To say mokas list:
 Book Kitchen
 
 The Kitchen is a room.
-The description is "The room is painted light yellow with the furniture and equipment on one side. [/n]A photograph hangs on the opposite wall and a window lights up the room."
+The description is "The room is painted light yellow with the furniture and the appliances on one side. [/n]A photograph hangs on the opposite wall and a window lights up the room."
 
 The photograph is a scenery in the kitchen.
 The description is "The photo shows [us] and [Monica] standing close together on a sandy beach beside a scenic lake surrounded by tall trees and mountains. The lake's clear blue water extends into the distance, reflecting the surrounding landscape and sky. [/n][We] took this photo on one of your mountain walks."
+
+Chapter Table and chairs
 
 The table is a supporter in the kitchen. It is fixed in place.
 The description is "A light-coloured wooden top with metal support."
 Rule for writing a paragraph about the table:
 	say "In the middle of the room is a table surronded by chairs[if a thing is on the table]. [/n]On the table [is-are a list of things on the table][end if]. [/n]".
 	
-The chair is a supporter in the kitchen. It is fixed in place. It is enterable.
+The chair is a supporter in the kitchen. It is scenery. It is enterable.
 The description is "Metal-framed chair with yellow plastic seat and back."
 Understand "chairs" as the chair. 
+
+Chapter Furniture
+
+The furniture is a scenery in the kitchen.
+The description is "It is made up of a worktop into which the sink and the hob are inserted; under the hob there is the oven and above it the extractor hood. [/n]To one side of the worktop is the fridge. [/n]There are two cabinets to the left and right of the hood. [status of cabinets][/run]"
+
+Some appliances are scenery in the kitchen.
+Instead of examining appliances:
+	say "They are incorporated in the furniture. [/n][/run]";
+	try examining the furniture.
+	
+Understand "lock [something]" as locking keylessly.
+Locking keylessly is an action applying to one thing.
+Understand "unlock [something]" as unlocking keylessly.
+Unlocking keylessly is an action applying to one thing.
+
+An unuseful-appliance is a kind of container.
+An unuseful-appliance is closed.
+Instead of opening an unuseful-appliance: say "There is nothing to take or put in [the noun]."
+Instead of closing an unuseful-appliance: say "It's already closed."
+Instead of locking keylessly an unuseful-appliance: say "There is no way to lock it."
+Instead of unlocking keylessly an unuseful-appliance: say "It doesn't have a lock."
+
+Section Worktop
+
+The worktop is a supporter. It is part of the furniture.
+The description is "A pink marble surface with scattered darker colored dots."
+Understand "plane" as the worktop.
+
+Section Oven
+
+The oven is an unuseful-appliance. It is part of the furniture.
+The description is "A classic electric oven with a satin inox steel door and a large glass window in the centre.".
+Understand "stove" as the oven.
+Instead of switching on the oven: say "You don't have to cook anything in the oven."
+Instead of switching off the oven: say "It's already off."
+
+Section Fridge
+
+The fridge is an unuseful-appliance. It is part of the furniture.
+The description is "A spacious fridge with a rounded shape, painted light grey with metallic highlights. [/n]There are some magnets on the door."
+Understand "refrigerator" as the fridge.
+Instead of switching on the fridge: say "It's always on."
+Instead of switching off the fridge: say "If you turn it off, you will spoil all the food in it."
+Some magnets are part of the fridge. 
+The description is "They are the colourful souvenirs of your travels."
+Instead of taking magnets: say "[/ss]I don't understand why you want to remove them.' [/se][Monica] [say] in amazement."
+Understand "magnet" as magnets.
+
+Section Sink
+
+The sink is part of the furniture.
+
+Section Hob
+
+The hob is a supporter. It is part of the furniture.
+
+Section Hood
+
+The extractor hood is device. It is part of the furniture.
+The description is "A stainless steel hood with a high-tech design."
+
+Section Furniture content
+
+An unuseful-item is a kind of thing.
+Instead of taking an unuseful-item: say "You don't need it."
+
+Some cookware is an unuseful-item. The description is "Miscellaneous pots, pans and lids."
+
+Some dishcloths are an unuseful-item.
+
+Some cutlery are unuseful-item. The description is "Miscellaneous knives, forks, spoons and kitchenware."
+The teaspoon is a thing. The description is "An ordinary teaspoon".
+The pair of scissors is a thing. The description is "Multifunctional kitchen scissors."
+
+Section Cabinets
+
+A cabinet-item is a kind of container. 
+A cabinet-item is openable and not lockable.
+A cabinet-item is usually closed.
+Instead of locking keylessly a cabinet-item: say "There is no way to lock it."
+Instead of unlocking keylessly a cabinet-item: say "It doesn't have a lock."
+The description of a cabinet-item is "[if closed]A light cream-yellow lacquered wooden door[otherwise]A white wooden cabinet with shelves[end if]."
+The left cabinet is a cabinet-item. It is part of the furniture.
+The right cabinet is a cabinet-item. It is part of the furniture.
+
+Understand "left/leftmost/first/-- cupboard/cabinet/locker" as the left cabinet.
+Understand "right/rightmost/last cupboard/cabinet/locker" as the right cabinet.
+Does the player mean examining the left cabinet: it is likely.
+Does the player mean opening the left cabinet: it is likely.
+
+To say status of cabinets:
+	let O be the number of open cabinet-item;
+	let C be the number of closed cabinet-item;
+	let N be indexed text;
+	if O is greater than C and C is greater than zero:
+		let N be "[selection of cabinet-items conforming to the description closed cabinet-items is-are] closed, and [if O is less than 4]the other [O in words][otherwise]the rest[end if] open."; 
+	otherwise:
+		let N be "[selection of cabinet-items conforming to the description open cabinet-items is-are] open."; 
+	say "[N in sentence case]".
+
+Section Drawers
+
+Three vertical drawers are part of the furniture.
+The list total drawers rule response (A) is "Under the plane are also three drawers in a vertical column. ".
+
+When play begins:
+	let D be a random bottom drawer;
+	now cookware is in D;
+	let D be a random middle drawer;
+	now dishcloths are in D;
+	let D be a random top drawer;
+	now cutlery is in D;
+	now the teaspoon is in D;
+	now the pair of scissors is in D.
+	
+
+Chapter Espresso machine
+
+The espresso machine is on the worktop. It is fixed in place.
+
+Chapter Movements
+
+Instead of going nowhere from the kitchen: say "No need to go anywhere else."
 
 Book Backdrops
 
