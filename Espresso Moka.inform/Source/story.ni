@@ -1226,5 +1226,17 @@ Book Kitchen
 
 At the time when start the kitchen intro:
 	say "[/ss]Well, we are finally home.' [/se][we] [say] [/ss1]It is the right time for tea.' [/r][/n]";
-	say "[/ss]But no, let's try the new moka now.' [/se][Monica] [reply] [/ss1]Will you take care of it?' [/r][/p]".
+	say "[/ss]But no, let's try the new moka now.' [/se][Monica] [reply] [/ss1]Will you take care of it?' [/r][/p]";
+	if the player consents:
+		say "[heart][/ss]Oh, you are so kind!' [/se][regarding Monica][they] [exclaim] [/ss1]Thank you so much.' [/r][/n]Then [they] [add]";
+	otherwise:
+		say "[/ss]So we have a problem:'  [/se][regarding Monica][they] [say]";	
+	say " [/ss1]I wouldn't know exactly how to do it, I used to watch my mother prepare it, but I couldn't repeat the process.' [/r][/n]";
+	if the coffee capsules box is in the brown shopper:
+		say "[/n][/ss]Beh, let's put these in their place in the meantime.' [/se][Monica] [suggest] taking the capsules box.";
+		now Monica carries the coffee capsules box;
+		try Monica opening the right cabinet;
+		try Monica inserting the coffee capsules box into the right cabinet;
+		try Monica closing the right cabinet.
+
 	

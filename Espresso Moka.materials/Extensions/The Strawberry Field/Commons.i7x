@@ -26,9 +26,10 @@ Rule for clarifying the parser's choice of something:
 	do nothing instead.
 	
 After reading a command:
-	if the player's command includes "sex" or the player's command includes "fuck":
-		say "The game does not include references to sex.";
-		reject the player's command. 
+	repeat with word running through {"sex","fuck","shag","bang","dick","penis","pussy","cunt","vagina","ass"}:
+		if the player's command matches the text word:
+			say "The game does not include references to sex.";
+			reject the player's command. 
 	
 Chapter Movements
 
