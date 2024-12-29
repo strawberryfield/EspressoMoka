@@ -411,12 +411,15 @@ The description is "The room is painted light yellow with the furniture and the 
 The photograph is a scenery in the kitchen.
 The description is "The photo shows [us] and [Monica] standing close together on a sandy beach beside a scenic lake surrounded by tall trees and mountains. The lake's clear blue water extends into the distance, reflecting the surrounding landscape and sky. [/n][We] took this photo on one of your mountain walks."
 
+The kitchen window is a scenery in the kitchen.
+The description is  "A large window that lights up the room."
+
 Chapter Table and chairs
 
 The table is a supporter in the kitchen. It is fixed in place.
 The description is "A light-coloured wooden top with metal support."
 Rule for writing a paragraph about the table:
-	say "In the middle of the room is a table surronded by chairs[if a thing is on the table]. [/n]On the table [is-are a list of things on the table][end if]. [/n]".
+	say "In the middle of the room is a table surrounded by chairs[if a thing is on the table]. [/n]On the table [is-are a list of things on the table][end if]. [/n]".
 	
 The chair is a supporter in the kitchen. It is scenery. It is enterable.
 The description is "Metal-framed chair with yellow plastic seat and back."
@@ -448,7 +451,7 @@ Section Worktop
 
 The worktop is a supporter. It is part of the furniture.
 The description is "A pink marble surface with scattered darker colored dots."
-Understand "plane" as the worktop.
+Understand "plane/marble/countertop" as the worktop.
 
 Section Oven
 
@@ -473,10 +476,25 @@ Understand "magnet" as magnets.
 Section Sink
 
 The sink is part of the furniture.
+The description is "Stainless steel sink."
 
 Section Hob
 
 The hob is a supporter. It is part of the furniture.
+The description is "A stainless steel gas powered hob."
+Understand "burner/flame/flames" as the hob.
+
+The hob-switch is a device. It is part of the hob.
+After switching on the hob-switch: say "[We] [light] the flame."
+After switching off the hob-switch: say "[We] [extinguish] the flame."
+Understand "extinguish [something]" as switching off.
+
+Before putting something on the hob:
+	unless the noun is a moka-item, say "[/ss]Don't be silly.' [/se][Monica] [suggest] [/ss1]You shouldn't put [the noun] on the hob.' [/r][/n]" instead.
+Instead of switching on the hob: try switching on the hob-switch.
+Instead of switching off the hob: try switching off the hob-switch.
+	
+Understand the command "fire" as "switch".
 
 Section Hood
 
@@ -495,6 +513,19 @@ Some dishcloths are an unuseful-item.
 Some cutlery are unuseful-item. The description is "Miscellaneous knives, forks, spoons and kitchenware."
 The teaspoon is a thing. The description is "An ordinary teaspoon".
 The pair of scissors is a thing. The description is "Multifunctional kitchen scissors."
+
+Some crockery are an unuseful-item. 
+Crockery is in the left cabinet.
+The description is "Miscellaneous plates, glasses and other tableware."
+Understand "tableware/glasses/glass/plate/plates/dish/dishes" as crockery.
+A coffeecup is a kind of thing.
+Two coffeecups are in the left cabinet. 
+The description is "A white coffeecup with three coffee grains drawed on it."
+
+Some food is an unuseful-item.
+Food is in the right cabinet.
+The description is "Boxes of macaroni, jars of preserves, spices and other foodstuffs."
+Understand "macaroni/preserve/preserves/spice/spices" as food.
 
 Section Cabinets
 
@@ -542,10 +573,23 @@ Chapter Espresso machine
 
 The espresso machine is on the worktop. It is fixed in place.
 
-Chapter Movements
+Chapter Actions
 
 Instead of going nowhere from the kitchen: say "No need to go anywhere else."
 
+Section Empty shopper
+
+A thing can be from shopper.
+Carry out taking something when the noun is in the brown shopper: now the noun is from shopper.
+After taking something from shopper:
+	now the noun is not from shopper;
+	if the brown shopper is empty, Monica puts the shopper away in 0 turns from now;
+	continue the action.
+
+At the time when Monica puts the shopper away:
+	say "[Monica] [take] the shopper, [fold] it and [put] it away.";
+	now the brown shopper is nowhere.
+	
 Book Backdrops
 
 Instead of taking a backdrop, say "Perhaps it would be helpful to consider what could be done with it." 
@@ -570,6 +614,13 @@ The ceiling is a backdrop.
 The description is "A white ceiling."
 The ceiling is in the coffee-shop and in the kitchen.
 Understand "roof/top/overhead" as the ceiling.
+
+Chapter Walls
+
+The wall is a backdrop.
+The wall is in the coffee-shop and in the kitchen.
+Understand "walls" as the wall.
+Instead of examining the wall: try looking.
 
 Chapter Large building windows
 
@@ -858,6 +909,7 @@ To Marco takes the box of (t - coffee-type):
 	say "[/ss]Here are your capsules.' [/se][regarding Marco][they] [state].";
 	now the coffee capsules box is on the counter;
 	now the coffee capsules box is not scenery;
+	now the coffee capsules box is not fixed in place;
 	now the price of the coffee capsules box is the cost of the coffee capsules box;
 	now capsules-requested is true;
 	if moka-requested is false, now next-node is moka-request-node;
@@ -1015,6 +1067,7 @@ To Marco takes the package of (t - coffee-type):
 	say "[/ss]Here is your coffee.' [/se][regarding Marco][they] [state].";
 	now the roasted coffee jar is on the counter;
 	now the roasted coffee jar is not scenery;
+	now the roasted coffee jar is not fixed in place;
 	now the price of the roasted coffee jar is the cost of the roasted coffee jar;
 	if capsules-requested is true:
 		now next-node is payment-node;
@@ -1156,6 +1209,7 @@ Before going from the coffee-shop:
 	now the wallet is nowhere;
 	now Monica is in the kitchen;
 	now the player is in the kitchen;
+	start the kitchen intro in 0 turns from now;
 	stop the action.
 		
 Bye-done is a truth state that varies.	
@@ -1169,4 +1223,8 @@ Instead of leavetaking:
 	greet Marco.
 			
 Book Kitchen
+
+At the time when start the kitchen intro:
+	say "[/ss]Well, we are finally home.' [/se][we] [say] [/ss1]It is the right time for tea.' [/r][/n]";
+	say "[/ss]But no, let's try the new moka now.' [/se][Monica] [reply] [/ss1]Will you take care of it?' [/r][/p]".
 	

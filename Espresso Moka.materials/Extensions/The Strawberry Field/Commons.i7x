@@ -16,7 +16,6 @@ To say /r: say roman type.
 To say /f: say fixed letter spacing.
 To say --: say unicode 8212.
 
-To say /s (t - text): say "[/i]'[t]'[/r]".
 To say /ss: say "[/i]'".
 To say /ss1: say "[unicode 8212] [/i]'".
 To say /se: say "[/r][unicode 8212] ".
@@ -293,6 +292,7 @@ To drink is a verb.
 To decide is a verb. 
 To exclaim is a verb. 
 To explain is a verb.
+To extinguish is a verb.
 To feature is a verb. 
 To flee is a verb. 
 To flicker is a verb. 
@@ -310,6 +310,7 @@ To land is a verb.
 To leak is a verb. 
 To leap is a verb. 
 To leave is a verb.
+To light is a verb.
 To love is a verb.
 To make is a verb. 
 To meet is a verb. 
