@@ -13,6 +13,7 @@ Include Conversation Package by Eric Eve.
 Include Customized Trinity Inventory by The Strawberry Field.
 Include Commons by The Strawberry Field.
 Include People by The Strawberry Field.
+Include Contexts by The Strawberry Field.
 
 Book Settings
 
@@ -22,7 +23,7 @@ The story genre is "Tutorial".
 The story headline is "An everyday life puzzle".
 The story description is "'Making good coffee seems easy!' So went the ad for a well-known brand of coffee maker.
 
-Francesco and Monica want to try making coffee with a moka like their mothers did. They find it easier to insert a capsule and press a button, but..."
+Francesco and Monica are keen to try making coffee with a moka, just like their mums did. They admit that capsules are so much easier to use, but..."
 
 Use brief room descriptions.
 
@@ -196,6 +197,7 @@ The street-3 is in the street.
 
 After going to the street-3 for the first time: 
 	Monica likes mokas in 1 turn from now;
+	now current context is street3-help;
 	continue the action.
 At the time when Monica likes mokas:
 	say "[heart][/ss]Those colourful mokas are really pretty.' [/se][Monica] [say] [us] sweetly.";
@@ -1221,7 +1223,7 @@ To greet Marco:
 Instead of leavetaking:
 	if bye-done is true, say "You have already said goodbye." instead;
 	greet Marco.
-			
+		
 Book Kitchen
 
 At the time when start the kitchen intro:
@@ -1238,5 +1240,11 @@ At the time when start the kitchen intro:
 		try Monica opening the right cabinet;
 		try Monica inserting the coffee capsules box into the right cabinet;
 		try Monica closing the right cabinet.
+
+Volume Help
+
+Table of help topics (continued)
+Context	Text
+Street3-help	"You pointed out to Monica that the coffee capsules are running out."
 
 	
