@@ -24,7 +24,7 @@ Rule for clarifying the parser's choice of something:
 	do nothing instead.
 	
 After reading a command:
-	repeat with word running through {"sex","fuck","shag","bang","dick","penis","pussy","cunt","vagina","ass"}:
+	repeat with word running through {"sex","fuck","shag ","bang ","dick ","penis","pussy","cunt ","vagina","ass "}:
 		if the player's command matches the text word:
 			say "The game does not include references to sex.";
 			reject the player's command. 

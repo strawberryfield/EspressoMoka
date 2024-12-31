@@ -234,6 +234,13 @@ The description is "A raw paper shopper."
 Coffee-type is a kind of value.
 The coffee-types are soft, classic, strong, arabica, vanilla, and monocolture.
 
+Does the player mean buying the coffee capsules box: it is likely.
+Does the player mean buying the natural aluminium moka: it is likely.
+Instead of buying: 
+	if the location of the player is the coffee-shop, try requesting the current interlocutor for the noun;
+	otherwise say "[We] [aren't] in a shop."
+Understand the command "order" as "buy".
+	
 Section Coffee items
 
 A coffee-item is a kind of thing. 
@@ -888,10 +895,26 @@ Welcome-completed is a truth state that varies.
 Instead of hailing while the location is the coffee-shop:
 	try saying hello to Marco.
 Instead of saying hello to Marco:
+	greet-in Marco;
+	try implicit-requesting the coffee capsules box.
+To greet-in Marco:
 	now the current interlocutor is Marco;
 	now welcome-completed is true;
-	say "[/ss]Hi [Marco]!' [/se][we] [say].";
-	try implicit-requesting the coffee capsules box.
+	say "[/ss]Hi [Marco]!' [/se][we] [say]."
+		
+Section Choices
+
+A choice-convnode is a kind of convnode.
+A choice-convnode is closed and not auto-suggesting.
+Default response for a choice-convnode:
+	say "[/ss]Don't change the topic.' [/se][Monica] [say] [us] [/ss1]All you have to do is choose between the alternatives suggested.' [/r][/n]".
+
+Understand the command "answer" as something new.
+Understand the command "say" as something new.
+Responding is an action applying to one topic.
+Understand “answer [text]" as responding.
+Understand the command "say" as "answer".	
+Instead of responding: try imploring the current interlocutor for it.
 	
 Chapter Capsules
 
@@ -901,7 +924,7 @@ Does the player mean implicit-requesting the coffee capsules box: it is likely.
 
 Response of Marco when asked for the coffee capsules box:
 	if capsules-requested is true, say "[/ss]But you already asked for them,' [/se][Monica] [remember] [us] [/ss1]don't be silly.' [/r][/n]" instead;
-	if welcome-completed is false, try saying hello to Marco;
+	if welcome-completed is false, greet-in Marco;
 	say "[/ss]We're here because we're running low on coffee capsules.' [/se][we] [explain] to [Marco].";
 	initiate a conversation with Marco at capsules-offer-node.
 
@@ -918,7 +941,7 @@ To Marco takes the box of (t - coffee-type):
 	otherwise:
 		now next-node is payment-node;
 	say leavenode.
-	
+
 Chapter Coffee Qualities
 
 To Marco explains flavour of (f - coffee-type):
@@ -931,7 +954,7 @@ To Marco state the coffee price of (f - coffee-type):
 To Marco state the capsules price of (f - coffee-type):
 	say "[/ss][one of]Now at[or]Its price is[at random] [price corresponding to a coffee-type of f in the table of capsules qualities in euro].' [/r][/n]".
 	
-The capsules-offer-node is a closed, not auto-suggesting convnode.
+The capsules-offer-node is a choice-convnode.
 Node-introduction for capsules-offer-node:
 	say "[/ss]Well,' [/se][Marco] [ask] [/ss1]the usual ones?' [/r][/p]";
 	if the player consents:
@@ -939,7 +962,7 @@ Node-introduction for capsules-offer-node:
 	otherwise:
 		say "[/ss]Do you want to try something different?' [/se][Marco] [ask] [us], then [add]: [/n]";
 		say "[/ss]You usually buy a pure arabica blend, but I can also offer you a classic, a light or a strong blend instead.' [/r][/n]".
-
+		
 Section Classic
 	
 Understand "classic/standard/normal/ordinary blend/coffee/--" as "[classic blend]".
@@ -949,8 +972,8 @@ Response for capsules-offer-node when asked-or-told about "[classic blend]":
 	Marco explains flavour of classic;
 	Marco state the capsules price of classic.
 
-Response for capsules-offer-node when asked for "[classic blend]":
-	Marco takes the box of classic.
+Response for capsules-offer-node when asked for "[classic blend]": Marco takes the box of classic.
+Response for capsules-offer-node when answered that "[classic blend]": Marco takes the box of classic.
 
 Section Arabica 
 
@@ -961,7 +984,7 @@ Response for capsules-offer-node when asked-or-told about "[arabica blend]":
 	Marco explains flavour of arabica;
 	Marco state the capsules price of arabica.
 	
-Response for capsules-offer-node when asked for "[classic blend]":
+Response for capsules-offer-node when asked for "[arabica blend]":
 	Marco takes the box of arabica.
 
 Section Strong 
@@ -1017,7 +1040,7 @@ Response for capsules-offer-node when asked for "[paulista]":
 Chapter Mokas
 
 Moka-requested is a truth states that varies.
-The moka-request-node is a closed, not auto-suggesting convnode.
+The moka-request-node is a choice-convnode.
 Next-node is roasted-coffee-node.
 Node-introduction for moka-request-node:
 	say "[/ss]I would like to make coffee with a moka, the way our mothers used to do it.' [/se][Monica] [say], then [ask] [/ss1]Should we buy one of those colored ones?' [/r][/p]";
@@ -1052,7 +1075,7 @@ Default ask-for response for moka-request-node:
 
 Chapter Roasted coffee
 
-The roasted-coffee-node is a closed not auto-suggesting convnode.
+The roasted-coffee-node is a choice-convnode.
 Node-introduction for roasted-coffee-node:
 	say "[/ss]You need coffee for this one, too. Don't you?' [/se][Marco] [ask].[/n]";
 	unless the player consents:
@@ -1144,8 +1167,7 @@ Payment-done is a truth state that varies.
 The payment-node is a closed, not  auto-suggesting convnode.
 Node-introduction for the payment-node:
 	say "[/ss]Anything else?' [/se][Marco] [ask].[/n]";
-	unless the player consents:
-		say "[/ss]No, thank you, that's all we need.' [/se][Monica] [correct] [us].";	
+	if the player consents, say "[/ss]No, thank you, that's all we need.' [/se][Monica] [correct] [us].";	
 	let L be the list of sellable things on the counter;
 	say "[Marco] [take] a brown shopper from the counter, then [they] [put] [L with definite articles] inside.";
 	now the brown shopper is on the counter;
