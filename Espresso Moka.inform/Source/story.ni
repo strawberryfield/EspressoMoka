@@ -239,6 +239,13 @@ Does the player mean buying the natural aluminium moka: it is likely.
 Instead of buying: 
 	if the location of the player is the coffee-shop, try requesting the current interlocutor for the noun;
 	otherwise say "[We] [aren't] in a shop."
+
+Topic-buying is an action applying to a topic.	
+Understand "buy [text]" as topic-buying.
+Instead of topic-buying: 
+	if the location of the player is the coffee-shop, try imploring the current interlocutor for the topic understood;
+	otherwise say "[We] [aren't] in a shop."
+
 Understand the command "order" as "buy".
 	
 Section Coffee items
@@ -378,14 +385,36 @@ Instead of examining the moka pots open shelf:
 	if the player is in the street-3, say "Inside";
 	otherwise say "Near";
 	say " [description][/n]".
+
+Section Moka machinery
 	
 A moka-item is a kind of thing. 
 A moka-item is sellable.
 A moka-item has some text called color.
 The price of a moka-item is usually 18.90.
-The description of a moka-item is usually "A [color of the noun] moka pot for two cups." 
+The description of a moka-item is usually "A [color of the noun] moka pot for two cups[if the noun is on the moka pots open shelf]. [/n]A tag indicates the price of [price of the noun in euro][end if]." 
+
+The coffee powder is a thing.
+
+A moka-component is a kind of container.
+A moka-component is open, not openable, not lockable.
+
+The moka pot is a moka-component.
+The description is "The upper part of the moka in which the extracted coffee is collected."
+Instead of inserting something into the moka pot:
+	say "This container must be left empty: it will be filled by the extracted coffee."
+
+The moka boiler is a moka-component.
+The description is "The lower part of the moka, the water container."
+
+The coffee funnel filter is a moka-component in the moka boiler.
+The description is "An aluminium funnel with a filter on which to put the coffee powder. It fits over the boiler."
+
+
+Section Available mokas
 
 The natural aluminium moka is a moka-item on the moka pots open shelf.
+Understand "traditional/classic natural/-- aluminiun/-- moka/--" as natural aluminium moka.
 The color is "traditional natural aluminium".
 The price is 16.90.
 
@@ -394,6 +423,8 @@ The color is "green-white-red (as the italian flag)".
 
 The black moka is a moka-item on the moka pots open shelf.
 The color is "black".
+Does the player mean buying the black moka: it is likely.
+Does the player mean implicit-requesting the black moka: it is likely.
 
 The red moka is a moka-item on the moka pots open shelf.
 The color is "red".
@@ -931,7 +962,7 @@ Response of Marco when asked for the coffee capsules box:
 To Marco takes the box of (t - coffee-type):
 	now the coffee-type of the coffee capsules box is t;
 	say "[Marco] [take] [brief description of the coffee capsules box] from the shelf and [put] it on the counter.";	
-	say "[/ss]Here are your capsules.' [/se][regarding Marco][they] [state].";
+	say "[/ss]Here are your capsules.' [/se][regarding Marco][they] [state].[/n]";
 	now the coffee capsules box is on the counter;
 	now the coffee capsules box is not scenery;
 	now the coffee capsules box is not fixed in place;
@@ -940,7 +971,7 @@ To Marco takes the box of (t - coffee-type):
 	if moka-requested is false, now next-node is moka-request-node;
 	otherwise:
 		now next-node is payment-node;
-	say leavenode.
+	initiate a conversation with Marco at next-node, immediately.
 
 Chapter Coffee Qualities
 
@@ -956,6 +987,7 @@ To Marco state the capsules price of (f - coffee-type):
 	
 The capsules-offer-node is a choice-convnode.
 Node-introduction for capsules-offer-node:
+	now current context is coffee-choice-help;
 	say "[/ss]Well,' [/se][Marco] [ask] [/ss1]the usual ones?' [/r][/p]";
 	if the player consents:
 		Marco takes the box of arabica;
@@ -1043,6 +1075,7 @@ Moka-requested is a truth states that varies.
 The moka-request-node is a choice-convnode.
 Next-node is roasted-coffee-node.
 Node-introduction for moka-request-node:
+	now current context is Moka-choice-help;
 	say "[/ss]I would like to make coffee with a moka, the way our mothers used to do it.' [/se][Monica] [say], then [ask] [/ss1]Should we buy one of those colored ones?' [/r][/p]";
 	if the player consents:
 		say "[/ss]That's fine,' [/se][we] [answer] [/ss1]as long as you don't use it once and then abandon it.' [/r][/n]";
@@ -1077,6 +1110,7 @@ Chapter Roasted coffee
 
 The roasted-coffee-node is a choice-convnode.
 Node-introduction for roasted-coffee-node:
+	now current context is coffee-choice-help;
 	say "[/ss]You need coffee for this one, too. Don't you?' [/se][Marco] [ask].[/n]";
 	unless the player consents:
 		say "[/ss]As we've never had a moka, we don't have its coffee either.' [/se][Monica] [reply] annoyed [/ss1]Were you planning to open the capsules and use those?' [/r][/p]";
@@ -1145,10 +1179,10 @@ Section Vanilla
 To say available in capsules: say "[/ss]Unfortunately, it is available only in capsules.' [/se][regarding Marco][they] [remark]."
 
 Response for roasted-coffee-node when asked-or-told about "[vanilla blend]":
-	Marco explains flavour of soft;
+	Marco explains flavour of vanilla;
 	say available in capsules.
 	
-Response for roasted-coffee-node when asked for "[soft blend]":
+Response for roasted-coffee-node when asked for "[vanilla blend]":
 	say available in capsules.
 
 Section Monocolture
@@ -1166,6 +1200,7 @@ Chapter Payment
 Payment-done is a truth state that varies.
 The payment-node is a closed, not  auto-suggesting convnode.
 Node-introduction for the payment-node:
+	now current context is payment-help;
 	say "[/ss]Anything else?' [/se][Marco] [ask].[/n]";
 	if the player consents, say "[/ss]No, thank you, that's all we need.' [/se][Monica] [correct] [us].";	
 	let L be the list of sellable things on the counter;
@@ -1198,6 +1233,7 @@ Carry out paying:
 		now the item is paid;
 	now payment-done is true;
 	say leavenode;
+	now current context is leave-shop-help;
 	Monica takes the shopper in 1 turn from now.
 		
 Report paying:
@@ -1212,6 +1248,8 @@ At the time when Monica takes the shopper:
 		now Monica carries the brown shopper.	
 
 Section Exit
+
+The current moka is a moka-item that varies.
 
 Before going from the coffee-shop:
 	unless the brown shopper is enclosed by the coffee-shop, say "[/ss]But where are you going?' [/se][Monica] [draw] [our] attention [/ss1]We have not yet completed our purchases.' [/r][/n]" instead;
@@ -1230,9 +1268,11 @@ Before going from the coffee-shop:
 	say "[/p][note style]About half an hour later. [/r][/p]";
 	now the white shopper is nowhere;
 	now the brown shopper is on the table;
+	now the current moka is a random moka-item in the brown shopper;
 	now the wallet is nowhere;
 	now Monica is in the kitchen;
 	now the player is in the kitchen;
+	now the current context is kitchen-help;
 	start the kitchen intro in 0 turns from now;
 	stop the action.
 		
@@ -1248,25 +1288,40 @@ Instead of leavetaking:
 		
 Book Kitchen
 
+To say Monica do not make coffee:
+	say " [/ss1]I wouldn't know exactly how to do it, I used to watch my mother prepare it, but I couldn't repeat the process.' [/r][/n]".
+	
 At the time when start the kitchen intro:
 	say "[/ss]Well, we are finally home.' [/se][we] [say] [/ss1]It is the right time for tea.' [/r][/n]";
 	say "[/ss]But no, let's try the new moka now.' [/se][Monica] [reply] [/ss1]Will you take care of it?' [/r][/p]";
 	if the player consents:
-		say "[heart][/ss]Oh, you are so kind!' [/se][regarding Monica][they] [exclaim] [/ss1]Thank you so much.' [/r][/n]Then [they] [add]";
+		say "[heart][/ss]Oh, you are so kind!' [/se][regarding Monica][they] [exclaim] [/ss1]Thank you so much.' [/r][/n]Then [they] [add][Monica do not make coffee]";
 	otherwise:
-		say "[/ss]So we have a problem:'  [/se][regarding Monica][they] [say]";	
-	say " [/ss1]I wouldn't know exactly how to do it, I used to watch my mother prepare it, but I couldn't repeat the process.' [/r][/n]";
+		say "[/ss]So we have a problem:'  [/se][regarding Monica][they] [say][Monica do not make coffee]";	
+		say "[heart][heart][heart][/ss]I need your help!' [/se][Monica] [look] at [us] sweetly [/ss1]You can do that, can't you?' [/r][/p]";
+		if the player consents:
+			say "[/ss]I'm not sure I can, but as usual it's up to me to sort out the mess you've made.' [/se][we] [answer]  in resignation.";
+		otherwise:
+			say "[/ss]As it was meant to be.' [/se][we] [answer] rather annoyed [/ss1]You don't know how to use it, I don't either: it ends up taking up space and dust.' [/r][/n]";
+			say "[heart][/ss]Come on, let's try it together!' [/se][Monica] [suggest].";
+		try Monica putting the current moka on the table;	
+		say "[/ss]Let's start by opening the moka pot.' [/se][regarding Monica][they] [suggest].[/n]";
 	if the coffee capsules box is in the brown shopper:
-		say "[/n][/ss]Beh, let's put these in their place in the meantime.' [/se][Monica] [suggest] taking the capsules box.";
+		say "[/ss]Beh, let's put these in their place in the meantime.' [/se][Monica] [say] taking the capsules box.";
 		now Monica carries the coffee capsules box;
-		try Monica opening the right cabinet;
+		try silently Monica opening the right cabinet;
 		try Monica inserting the coffee capsules box into the right cabinet;
-		try Monica closing the right cabinet.
+		try silently Monica closing the right cabinet.
 
 Volume Help
 
 Table of help topics (continued)
 Context	Text
 Street3-help	"You pointed out to Monica that the coffee capsules are running out."
+Payment-help	"It's time to swipe your credit card."
+leave-shop-help	"There is no longer any reason to stay in the shop."
+Kitchen-help	"You are anxious to get your new moka up and running."
+Coffee-choice-help	"[Marco] is waiting for you to say which type of coffee you prefer."
+Moka-choice-help	"Looking at the mokas shelf you can see which colors are available."
 
 	
