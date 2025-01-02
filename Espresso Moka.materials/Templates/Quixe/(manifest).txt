@@ -120,3 +120,4 @@ glkote.css
 waiting.gif
 resourcemap.js
 background.jpg
+esploso.jpg

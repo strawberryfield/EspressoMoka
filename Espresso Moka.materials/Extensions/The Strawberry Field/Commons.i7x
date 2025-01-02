@@ -340,6 +340,7 @@ To revolve is a verb.
 To scold is a verb.
 To scrabble is a verb. 
 To scramble is a verb. 
+To screw is a verb.
 To send is a verb.
 To shake is a verb. 
 To shatter is a verb. 

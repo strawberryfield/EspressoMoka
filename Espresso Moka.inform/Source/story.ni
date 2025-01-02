@@ -209,7 +209,90 @@ Instead of going west when the player is in the street-3: say no door to enter.
 To say shop is here: say "[/ss]But where are you going?' [/se][Monica] [ask] [/ss1]The coffee shop is here!' [/r][/n]".
 Instead of going south when the player is in the street-3: say shop is here.
 Instead of going north when the player is in the street-3: say shop is here.
+
+Book Moka machinery
+
+A thing can be sellable or unsellable. A thing is usually unsellable.
+A thing can be paid or unpaid. A thing is usually unpaid.
+A thing has a real number called price. The price of a thing is usually 0.
 	
+A moka-item is a kind of thing. 
+A moka-item is sellable.
+A moka-item has some text called color.
+A moka-item can be hot or cold. It is usually cold.
+The price of a moka-item is usually 18.90.
+The description of a moka-item is usually "A [color of the noun] moka pot for two cups[if the noun is on the moka pots open shelf]. [/n]A tag indicates the price of [price of the noun in euro][end if]." 
+The current moka is a moka-item that varies.
+
+The coffee powder is a thing.
+
+Chapter Components 
+
+A moka-component is a kind of container.
+A moka-component is open, not openable, not lockable.
+A moka-component can be filled. A moka-component usually is not filled.
+
+The moka pot is a moka-component.
+The description is "The upper part of the moka in which the extracted coffee is collected."
+Instead of inserting something into the moka pot:
+	say "This container must be left empty: it will be filled by the extracted coffee."
+
+The moka boiler is a moka-component.
+The description is "The lower part of the moka, the water container."
+
+The coffee funnel filter is a moka-component in the moka boiler.
+The description is "An aluminium funnel with a filter on which to put the coffee powder. It fits over the boiler."
+
+Chapter Open
+
+Instead of opening a moka-item:
+	unless the player carries the noun:
+		say "(first taking [the noun])[command clarification break]";
+		silently try taking the noun;
+	unless the player carries the noun, stop the action instead;
+	if the noun is hot, say "It [are] hot!" instead;
+	now the noun is nowhere;
+	now the current moka is the noun;
+	now the player carries the moka pot;
+	now the player carries the moka boiler;
+	say "[We] un[screw] the moka and thus separate the boiler from the pot."
+
+Understand the command "unscrew" as something new.
+Unscrewing is an action applying to one thing.
+Understand "unscrew [something]" as unscrewing.
+Understand the command "disassembly" as "unscrew".
+Instead of unscrewing:
+	if the noun is a person, try turning the noun instead;
+	try opening the noun.
+	
+Chapter Close
+
+Instead of closing a moka-component:
+	unless the coffee funnel filter is in the moka boiler, say "You must first insert the filter into the boiler." instead;
+	unless the player carries the moka boiler:
+		say "(first taking [the moka boiler])[command clarification break]";
+		silently try taking the moka boiler;
+	unless the player carries the moka boiler, stop the action instead;
+	unless the player carries the moka pot:
+		say "(first taking [the moka pot])[command clarification break]";
+		silently try taking the moka pot;
+	unless the player carries the moka pot, stop the action instead;
+	now the moka boiler is nowhere;
+	now the moka pot is nowhere;
+	now the player carries the current moka;
+	say "You have reassembled [the current moka].".
+	
+Understand the command "screw" as something new.
+Screwing is an action applying to one thing.
+Understand "screw [something]" as screwing.	
+Instead of screwing:
+	if the noun is a person, try turning the noun instead;
+	try closing the noun.
+Understand the command "assembly" or "reassembly" as "screw".
+
+Does the player mean closing the moka pot: it is likely.
+Does the player mean screwing the moka pot: it is likely.
+
 Book Coffee shop
 
 The Coffee-Shop is a room.
@@ -223,10 +306,6 @@ Instead of taking something not paid when the player is in the coffee-shop:
 	say "Perhaps it would be best to ask [Marco] for it."
 
 Chapter Selling
-
-A thing can be sellable or unsellable. A thing is usually unsellable.
-A thing can be paid or unpaid. A thing is usually unpaid.
-A thing has a real number called price. The price of a thing is usually 0.
 
 The brown shopper is shopper-item. It is sellable.
 The description is "A raw paper shopper."
@@ -385,31 +464,6 @@ Instead of examining the moka pots open shelf:
 	if the player is in the street-3, say "Inside";
 	otherwise say "Near";
 	say " [description][/n]".
-
-Section Moka machinery
-	
-A moka-item is a kind of thing. 
-A moka-item is sellable.
-A moka-item has some text called color.
-The price of a moka-item is usually 18.90.
-The description of a moka-item is usually "A [color of the noun] moka pot for two cups[if the noun is on the moka pots open shelf]. [/n]A tag indicates the price of [price of the noun in euro][end if]." 
-
-The coffee powder is a thing.
-
-A moka-component is a kind of container.
-A moka-component is open, not openable, not lockable.
-
-The moka pot is a moka-component.
-The description is "The upper part of the moka in which the extracted coffee is collected."
-Instead of inserting something into the moka pot:
-	say "This container must be left empty: it will be filled by the extracted coffee."
-
-The moka boiler is a moka-component.
-The description is "The lower part of the moka, the water container."
-
-The coffee funnel filter is a moka-component in the moka boiler.
-The description is "An aluminium funnel with a filter on which to put the coffee powder. It fits over the boiler."
-
 
 Section Available mokas
 
@@ -1249,8 +1303,6 @@ At the time when Monica takes the shopper:
 
 Section Exit
 
-The current moka is a moka-item that varies.
-
 Before going from the coffee-shop:
 	unless the brown shopper is enclosed by the coffee-shop, say "[/ss]But where are you going?' [/se][Monica] [draw] [our] attention [/ss1]We have not yet completed our purchases.' [/r][/n]" instead;
 	if payment-done is false, say "[/ss][Marco] waits to be paid.' [/se][Monica] [remember] [us]." instead;
@@ -1306,6 +1358,7 @@ At the time when start the kitchen intro:
 			say "[heart][/ss]Come on, let's try it together!' [/se][Monica] [suggest].";
 		try Monica putting the current moka on the table;	
 		say "[/ss]Let's start by opening the moka pot.' [/se][regarding Monica][they] [suggest].[/n]";
+	now the current context is moka-open-help;
 	if the coffee capsules box is in the brown shopper:
 		say "[/ss]Beh, let's put these in their place in the meantime.' [/se][Monica] [say] taking the capsules box.";
 		now Monica carries the coffee capsules box;
@@ -1315,6 +1368,19 @@ At the time when start the kitchen intro:
 
 Volume Help
 
+Section Images
+
+Figure esploso is the file "esploso.jpg".
+
+Section Complex says
+
+To say Moka open help:
+	say "Why not open the moka and see what it looks like?";
+	display the figure esploso;
+	say "[/i](main components of a moka)[/r][/n]".
+
+Section Contexts
+	
 Table of help topics (continued)
 Context	Text
 Street3-help	"You pointed out to Monica that the coffee capsules are running out."
@@ -1323,5 +1389,6 @@ leave-shop-help	"There is no longer any reason to stay in the shop."
 Kitchen-help	"You are anxious to get your new moka up and running."
 Coffee-choice-help	"[Marco] is waiting for you to say which type of coffee you prefer."
 Moka-choice-help	"Looking at the mokas shelf you can see which colors are available."
+Moka-open-help	"[Moka open help]"
 
 	
