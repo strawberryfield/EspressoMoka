@@ -220,6 +220,9 @@ A moka-item is a kind of thing.
 A moka-item is sellable.
 A moka-item has some text called color.
 A moka-item can be hot or cold. It is usually cold.
+A moka-item can be already opened.
+A moka-item can be washed.
+
 The price of a moka-item is usually 18.90.
 The description of a moka-item is usually "A [color of the noun] moka pot for two cups[if the noun is on the moka pots open shelf]. [/n]A tag indicates the price of [price of the noun in euro][end if]." 
 The current moka is a moka-item that varies.
@@ -245,30 +248,48 @@ The description is "An aluminium funnel with a filter on which to put the coffee
 
 Chapter Open
 
-Instead of opening a moka-item:
-	unless the player carries the noun:
-		say "(first taking [the noun])[command clarification break]";
-		silently try taking the noun;
-	unless the player carries the noun, stop the action instead;
-	if the noun is hot, say "It [are] hot!" instead;
-	now the noun is nowhere;
-	now the current moka is the noun;
-	now the player carries the moka pot;
-	now the player carries the moka boiler;
-	say "[We] un[screw] the moka and thus separate the boiler from the pot."
-
 Understand the command "unscrew" as something new.
 Unscrewing is an action applying to one thing.
 Understand "unscrew [something]" as unscrewing.
 Understand the command "disassembly" as "unscrew".
-Instead of unscrewing:
-	if the noun is a person, try turning the noun instead;
-	try opening the noun.
+
+Check unscrewing:
+	unless the noun is a moka-item, try opening the noun;
+	unless the player carries the noun:
+		say "(first taking [the noun])[command clarification break]";
+		silently try taking the noun;
+	unless the player carries the noun, stop the action instead;
+	if the noun is hot, say "It [are] hot!" instead.
+Carry out unscrewing:
+	now the noun is nowhere;
+	now the noun is already opened;
+	now the current moka is the noun;
+	now the player carries the moka pot;
+	now the player carries the moka boiler.
+Report unscrewing:
+	say "[We] un[screw] the moka and thus separate the boiler from the pot."
+			
+Instead of opening a moka-item:
+	try unscrewing the noun.
+	
+Instead of opening a moka-component:
+	say "It is not something to be opened."
+	
+Section Filter
+
+Instead of taking off the coffee funnel filter:
+	try taking the noun.
 	
 Chapter Close
 
-Instead of closing a moka-component:
-	unless the coffee funnel filter is in the moka boiler, say "You must first insert the filter into the boiler." instead;
+Understand the command "screw" as something new.
+Screwing is an action applying to one thing.
+Understand "screw [something]" as screwing.	
+Understand the command "assembly" or "reassembly" as "screw".
+
+Check screwing:
+	unless the noun is a moka-component, try closing the noun; 
+	unless the coffee funnel filter is in the moka boiler, say "[We] must first insert the filter into the boiler." instead;
 	unless the player carries the moka boiler:
 		say "(first taking [the moka boiler])[command clarification break]";
 		silently try taking the moka boiler;
@@ -276,22 +297,37 @@ Instead of closing a moka-component:
 	unless the player carries the moka pot:
 		say "(first taking [the moka pot])[command clarification break]";
 		silently try taking the moka pot;
-	unless the player carries the moka pot, stop the action instead;
+	unless the player carries the moka pot, stop the action instead. 
+Carry out screwing:	
 	now the moka boiler is nowhere;
 	now the moka pot is nowhere;
-	now the player carries the current moka;
-	say "You have reassembled [the current moka].".
+	now the player carries the current moka.
+Report screwing:
+	say "[We] [have] reassembled [the current moka].".
 	
-Understand the command "screw" as something new.
-Screwing is an action applying to one thing.
-Understand "screw [something]" as screwing.	
-Instead of screwing:
-	if the noun is a person, try turning the noun instead;
+Instead of closing a moka-component:
+	try screwing the noun.
+	
+Instead of closing a moka-item:
+	say "It [are] already closed."
+Instead of screwing a moka-item:
 	try closing the noun.
-Understand the command "assembly" or "reassembly" as "screw".
 
 Does the player mean closing the moka pot: it is likely.
 Does the player mean screwing the moka pot: it is likely.
+
+Chapter Wash
+
+Understand the command "wash" as "rub".
+Does the player mean rubbing the moka pot: it is likely.
+
+Instead of rubbing a moka-item:
+	say "The important thing is to wash the inside, not the outside."
+	
+Before rubbing a moka-component:
+	if the current moka is washed:
+		say "It has already been washed, there is no need to do it again." instead;
+	if the coffee funnel filter is in the moka boiler, say "[We] must first remove the filter from the boiler." instead.
 
 Book Coffee shop
 
@@ -674,8 +710,8 @@ Instead of going nowhere from the kitchen: say "No need to go anywhere else."
 Section Empty shopper
 
 A thing can be from shopper.
-Carry out taking something when the noun is in the brown shopper: now the noun is from shopper.
-After taking something from shopper:
+Carry out an actor taking something when the noun is in the brown shopper: now the noun is from shopper.
+After an actor taking something from shopper:
 	now the noun is not from shopper;
 	if the brown shopper is empty, Monica puts the shopper away in 0 turns from now;
 	continue the action.
@@ -1342,17 +1378,21 @@ Book Kitchen
 
 To say Monica do not make coffee:
 	say " [/ss1]I wouldn't know exactly how to do it, I used to watch my mother prepare it, but I couldn't repeat the process.' [/r][/n]".
+
+Player knows how to do is a truth state that varies.
 	
 At the time when start the kitchen intro:
 	say "[/ss]Well, we are finally home.' [/se][we] [say] [/ss1]It is the right time for tea.' [/r][/n]";
 	say "[/ss]But no, let's try the new moka now.' [/se][Monica] [reply] [/ss1]Will you take care of it?' [/r][/p]";
 	if the player consents:
 		say "[heart][/ss]Oh, you are so kind!' [/se][regarding Monica][they] [exclaim] [/ss1]Thank you so much.' [/r][/n]Then [they] [add][Monica do not make coffee]";
+		now player knows how to do is true;
 	otherwise:
 		say "[/ss]So we have a problem:'  [/se][regarding Monica][they] [say][Monica do not make coffee]";	
 		say "[heart][heart][heart][/ss]I need your help!' [/se][Monica] [look] at [us] sweetly [/ss1]You can do that, can't you?' [/r][/p]";
 		if the player consents:
 			say "[/ss]I'm not sure I can, but as usual it's up to me to sort out the mess you've made.' [/se][we] [answer]  in resignation.";
+			now player knows how to do is true;
 		otherwise:
 			say "[/ss]As it was meant to be.' [/se][we] [answer] rather annoyed [/ss1]You don't know how to use it, I don't either: it ends up taking up space and dust.' [/r][/n]";
 			say "[heart][/ss]Come on, let's try it together!' [/se][Monica] [suggest].";
@@ -1364,8 +1404,45 @@ At the time when start the kitchen intro:
 		now Monica carries the coffee capsules box;
 		try silently Monica opening the right cabinet;
 		try Monica inserting the coffee capsules box into the right cabinet;
-		try silently Monica closing the right cabinet.
+		try silently Monica closing the right cabinet;
+		Monica take out the jar in 1 turn from now.
 
+Chapter First opening
+
+At the time when Monica take out the jar:
+	if the roasted coffee jar is in the brown shopper:
+		try silently Monica taking the roasted coffee jar;
+		now the roasted coffee jar is on the table;
+		say "[Monica] [take] the [roasted coffee jar] from the shopper and [put] it on the table.";
+	Monica urges opening moka in 1 turn from now.
+	
+At the time when Monica urges opening moka:
+	unless the current moka is already opened:
+		say "[/ss]In the meantime, open the moka so we can wash it.' [/se][Monica] [suggest]."
+
+Chapter Washing
+
+After unscrewing a moka-item for the first time:
+	Monica urges washing in 0 turns from now;
+	now current context is moka-wash-help;
+	continue the action.
+	
+At the time when Monica urges washing:
+	say "[/ss]Since you have opened it,' [/se][Monica] [advise] [/ss1]give it a good wash.' [/r][/n]".
+	
+After rubbing a moka-component:
+	now the current moka is washed;
+	say "The moka has been cleaned.";
+	now the current context is moka-fill-help;
+	Monica says bravo in 0 turns from now.
+	
+At the time when Monica says bravo:
+	if the player knows how to do is true:
+		say "[heart][/ss]You are so kind to make coffee for me.' [/se][Monica] [thank] [us].";
+	otherwise:
+		say "[/ss]So far, it's been straightforward, but now we're hit with a bit of a challenge.' [/se][we] [say] [/ss1]Any ideas on what to do next?' [/r][/n]";
+		say "[heart][/ss]You are so clever!' [/se][Monica] [encourage] [us] [/ss1]I'm sure you'll find the perfect way to handle water and coffee powder.' [/r][/n]".
+			
 Volume Help
 
 Section Images
@@ -1390,5 +1467,7 @@ Kitchen-help	"You are anxious to get your new moka up and running."
 Coffee-choice-help	"[Marco] is waiting for you to say which type of coffee you prefer."
 Moka-choice-help	"Looking at the mokas shelf you can see which colors are available."
 Moka-open-help	"[Moka open help]"
+Moka-wash-help	"All food and drink preparation utensils must be washed before use."
+Moka-fill-help	"In order to make coffee, the moka needs to be filled with water and coffee powder."
 
 	

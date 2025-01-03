@@ -259,6 +259,7 @@ Book Verbs
 
 To add is a verb.
 To admit is a verb.
+To advise is a verb.
 To answer is a verb.
 To appreciate is a verb.
 To approach is a verb.
@@ -289,6 +290,7 @@ To cry is a verb.
 To draw is a verb.
 To drink is a verb.
 To decide is a verb. 
+To encourage is a verb.
 To exclaim is a verb. 
 To explain is a verb.
 To extinguish is a verb.
@@ -360,6 +362,7 @@ To state is a verb.
 To stir is a verb.
 To strike is a verb. 
 To suggest is a verb.
+To thank is a verb.
 To throw is a verb.
 To type is a verb.
 To urge is a verb.
