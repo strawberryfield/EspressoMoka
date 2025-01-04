@@ -13,6 +13,7 @@ Include Conversation Package by Eric Eve.
 Include Customized Trinity Inventory by The Strawberry Field.
 Include Commons by The Strawberry Field.
 Include People by The Strawberry Field.
+Include Written papers by The Strawberry Field.
 Include Contexts by The Strawberry Field.
 
 Book Settings
@@ -265,7 +266,8 @@ Carry out unscrewing:
 	now the noun is already opened;
 	now the current moka is the noun;
 	now the player carries the moka pot;
-	now the player carries the moka boiler.
+	now the player carries the moka boiler;
+	set pronouns from the moka pot.
 Report unscrewing:
 	say "[We] un[screw] the moka and thus separate the boiler from the pot."
 			
@@ -301,7 +303,8 @@ Check screwing:
 Carry out screwing:	
 	now the moka boiler is nowhere;
 	now the moka pot is nowhere;
-	now the player carries the current moka.
+	now the player carries the current moka;
+	set pronouns from the current moka.
 Report screwing:
 	say "[We] [have] reassembled [the current moka].".
 	
@@ -328,6 +331,36 @@ Before rubbing a moka-component:
 	if the current moka is washed:
 		say "It has already been washed, there is no need to do it again." instead;
 	if the coffee funnel filter is in the moka boiler, say "[We] must first remove the filter from the boiler." instead.
+	
+Chapter Guide
+
+The written paper sheet is a paper-item in the coffee funnel filter.
+Understand "readme" as the written paper sheet.
+The written paper sheet is folded.
+The folded appearance is "A folded sheet of paper with the words ‘READ ME FIRST!’ clearly visible."
+
+Section Front
+
+Understand "English/Eng/Inglese" as "[english-lang]".
+Understand "Italiano/Ita/Italian" as "[italiano-lang]".
+
+Table of front guide contents
+paper-topic (a topic)	read	title	text
+"[english-lang]"	false	"English"	"Thanks for purchasing this moka"
+"[italiano-lang]"	false	"Italiano"	"Complimenti per aver acquistato questa moka"
+
+The arguments of the written paper sheet's front side are the table of front guide contents.
+The description of the written paper sheet's front side is "In addition to the words ‘READ ME FIRST!’ which can be read even when folded, there are blocks of text in two languages: [list of topics of the noun]."
+
+Section Back
+
+Table of back guide contents
+paper-topic (a topic)	read	title	text
+"[english-lang]"	false	"Usage tips and security informations"	""
+"[italiano-lang]"	false	"Consigli per l'uso e informazioni per la sicurezza"	""
+
+The arguments of the written paper sheet's back side are the table of back guide contents.
+
 
 Book Coffee shop
 
@@ -1470,4 +1503,5 @@ Moka-open-help	"[Moka open help]"
 Moka-wash-help	"All food and drink preparation utensils must be washed before use."
 Moka-fill-help	"In order to make coffee, the moka needs to be filled with water and coffee powder."
 
-	
+
+[----]
