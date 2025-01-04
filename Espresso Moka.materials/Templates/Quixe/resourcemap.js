@@ -16,7 +16,7 @@ StaticImageInfo = {
 ,
 4: {
   "image": 4,
-  "url": "esploso.jpg",
+  "url": "interpreter/esploso.jpg",
   "width": 360,
   "height": 360
 }

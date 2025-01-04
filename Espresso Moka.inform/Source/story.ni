@@ -242,6 +242,7 @@ Instead of inserting something into the moka pot:
 	say "This container must be left empty: it will be filled by the extracted coffee."
 
 The moka boiler is a moka-component.
+Understand "moka/-- heater" as the moka boiler.
 The description is "The lower part of the moka, the water container."
 
 The coffee funnel filter is a moka-component in the moka boiler.
@@ -335,7 +336,7 @@ Before rubbing a moka-component:
 Chapter Guide
 
 The written paper sheet is a paper-item in the coffee funnel filter.
-Understand "readme" as the written paper sheet.
+Understand "readme/guide/booklet" as the written paper sheet.
 The written paper sheet is folded.
 The folded appearance is "A folded sheet of paper with the words ‘READ ME FIRST!’ clearly visible."
 
@@ -344,22 +345,56 @@ Section Front
 Understand "English/Eng/Inglese" as "[english-lang]".
 Understand "Italiano/Ita/Italian" as "[italiano-lang]".
 
+To say intro-eng:
+	say "Thanks for purchasing this moka.[/n]A moka is the best friend of those who love a good Italian coffee. And its charm shows no sign of going out of fashion.[/n]Moka still remains the queen of Italian kitchens today. For its practicality and manageability, no doubt, but also for its peculiar identity. Not to mention the taste: that of the coffee dispensed and also that of its preparation, a set of gestures that grow into a real ritual.[/n]Our mokas are designed to last and produce the best quality espresso coffee.[/n]To get the most out of your moka, please read the tips and warnings on the back of this sheet."
+	
+To say intro-ita:
+	say "Complimenti per aver acquistato questa moka.[/n]La moka è la migliore amica di chi ama un buon caffè italiano. E il suo fascino non accenna a passare di moda.[/n]La moka rimane ancora oggi la regina delle cucine italiane. Per la sua praticità e maneggevolezza, senza dubbio, ma anche per la sua peculiare identità. Per non parlare del gusto: quello del caffè erogato e anche quello della sua preparazione, un insieme di gesti che si trasformano in un vero e proprio rito.[/n]Le nostre moka sono progettate per durare nel tempo e produrre caffè espresso di ottima qualità.[/n]Per ottenere il massimo dalla tua moka leggi i consigli e le avvertenze sul retro di questo foglio."
+	
 Table of front guide contents
 paper-topic (a topic)	read	title	text
-"[english-lang]"	false	"English"	"Thanks for purchasing this moka"
-"[italiano-lang]"	false	"Italiano"	"Complimenti per aver acquistato questa moka"
+"[english-lang]"	false	"English"	"[intro-eng]"
+"[italiano-lang]"	false	"Italiano"	"[intro-ita]"
 
 The arguments of the written paper sheet's front side are the table of front guide contents.
 The description of the written paper sheet's front side is "In addition to the words ‘READ ME FIRST!’ which can be read even when folded, there are blocks of text in two languages: [list of topics of the noun]."
 
 Section Back
 
+To say tips-eng:
+	say "WARNINGS[/n]Read the instructions carefully as they contain important information about safety, use and maintenance of the product. [/n]IMPORTANT: READ THIS MANUAL THOROUGHLY AND KEEP IT WITH CARE FOR FUTURE REFERENCE.";
+	say "These instructions are an integral part of the product and, throughout the entire life of the product, must be kept and be available. The documentation should be given to the subsequent owners of the product.";
+	say "When using the coffee maker for the first time, wash thoroughly with water. [/n]Hand wash only without using detergents and abrasive sponges to preserve its features over the time.";
+	say "Never use the coffee maker without water in the heater. [/n]Never use other liquids in the heater, the coffee maker is intended to be used with water only. [/n]The coffee maker is designed to be used only with water
+and ground coffee for moka for household use.";
+	say "Never press coffee into the funnel.";
+	say "Make at least 3 cups of coffee, discarding them; do not drink the first 3 dispensing operations of coffee
+as they are necessary for enhancing the aroma of coffee at best."
+	
+To say tips-ita:
+	say "AVVERTENZE D’USO[/n]Leggere attentamente le avvertenze contenute nelle presenti istruzioni in quanto forniscono importanti indicazioni riguardanti la sicurezza, l’uso e la manutenzione del prodotto. [/n]IMPORTANTE: LEGGERE ATTENTAMENTE PRIMA DI OGNI UTILIZZO, CONSERVARE CON CURA QUESTO LIBRETTO PER OGNI ULTERIORE CONSULTAZIONE.";
+	say "Le presenti istruzioni vanno considerate come parte integrante del prodotto e, per l’intera durata del prodotto, devono essere conservate ed essere disponibili. La documentazione deve essere consegnata a tutti i successivi proprietari del prodotto.";
+	say "La prima volta che usate la caffettiera, lavare bene, solo con acqua. [/n]Lavare solo a mano, senza utilizzo di detergenti e spugne abrasive, per mantenere inalterate le sue qualità nel tempo.";
+	say "Non utilizzare la caffettiera senza acqua nella caldaia. [/n]Non utilizzare altri liquidi nella caldaia: la
+caffettiera deve funzionare solo con acqua. [/n]La presente caffettiera è destinata a essere utilizzata esclusivamente
+solo con acqua e caffè macinato per moka per uso domestico.";
+	say "Non pressare mai il caffè nell’imbuto.";
+	say "Fare almeno 3 caffè a perdere; non consumare le prime 3 erogazioni di caffè in quanto necessarie per esaltare al meglio l’aroma del caffè."
+	
+To say picture of the parts:
+	display the figure esploso;
+	say "[/f](main components of a moka)[/r][/n]".
+
+Understand "picture/figure/photo/draw of/-- moka/maker/-- parts/components/--" or "coffee/-- maker/moka/-- parts/components picture/figure/photo/draw/--" as "[parts-picture]".
+		
 Table of back guide contents
 paper-topic (a topic)	read	title	text
-"[english-lang]"	false	"Usage tips and security informations"	""
-"[italiano-lang]"	false	"Consigli per l'uso e informazioni per la sicurezza"	""
+"[english-lang]"	false	"English"	"[tips-eng]"
+"[italiano-lang]"	false	"Italiano"	"[tips-ita]"
+"[parts-picture]"	false	"Picture of parts"	"[picture of the parts]"
 
 The arguments of the written paper sheet's back side are the table of back guide contents.
+The description of the written paper sheet's back side is "The content is divided into three sections:  [list of topics of the noun]."
 
 
 Book Coffee shop
