@@ -171,7 +171,7 @@ The description is "A large wooden door. It is closed."
 Understand "large/-- building/house wooden/-- front/-- door/entrance" or "wooden/-- front/-- door/entrance of the/-- large/-- building/house" as the wooden front door.
 
 Instead of opening the wooden front door:
-	say "([the noun])[command clarification break]It is locked. [/n]Only the tenants have the key to open it. In any case, there is nothing of interest inside."
+	say "([the noun])[/ccb]It is locked. [/n]Only the tenants have the key to open it. In any case, there is nothing of interest inside."
 
 Section  Movements
 
@@ -241,12 +241,17 @@ The description is "The upper part of the moka in which the extracted coffee is 
 Instead of inserting something into the moka pot:
 	say "This container must be left empty: it will be filled by the extracted coffee."
 
-The moka boiler is a moka-component.
-Understand "moka/-- heater" as the moka boiler.
-The description is "The lower part of the moka, the water container."
+The moka heater is a moka-component.
+Understand "moka/-- boiler" or "moka/-- water container"as the moka heater.
+Instead of inserting something into the moka heater:
+	if the noun is the coffee funnel filter, continue the action;
+	otherwise say "The heater is the water container."
+The description is "The lower part of the moka, the water container[if filled]. [/n]Actually it contains some water[end if]."
 
-The coffee funnel filter is a moka-component in the moka boiler.
-The description is "An aluminium funnel with a filter on which to put the coffee powder. It fits over the boiler."
+The coffee funnel filter is a moka-component in the moka heater.
+Instead of inserting something into the coffee funnel filter:
+	say "This is the powder container".
+The description is "An aluminium funnel with a filter on which to put the coffee powder. It fits over the heater[if filled]. [/n]It is currently full of coffee powder[end if]."
 
 Chapter Open
 
@@ -257,20 +262,17 @@ Understand the command "disassembly" as "unscrew".
 
 Check unscrewing:
 	unless the noun is a moka-item, try opening the noun;
-	unless the player carries the noun:
-		say "(first taking [the noun])[command clarification break]";
-		silently try taking the noun;
-	unless the player carries the noun, stop the action instead;
+	if the player cannot carry the noun, stop the action instead;
 	if the noun is hot, say "It [are] hot!" instead.
 Carry out unscrewing:
 	now the noun is nowhere;
 	now the noun is already opened;
 	now the current moka is the noun;
 	now the player carries the moka pot;
-	now the player carries the moka boiler;
+	now the player carries the moka heater;
 	set pronouns from the moka pot.
 Report unscrewing:
-	say "[We] un[screw] the moka and thus separate the boiler from the pot."
+	say "[We] un[screw] the moka and thus separate the heater from the pot."
 			
 Instead of opening a moka-item:
 	try unscrewing the noun.
@@ -292,17 +294,11 @@ Understand the command "assembly" or "reassembly" as "screw".
 
 Check screwing:
 	unless the noun is a moka-component, try closing the noun; 
-	unless the coffee funnel filter is in the moka boiler, say "[We] must first insert the filter into the boiler." instead;
-	unless the player carries the moka boiler:
-		say "(first taking [the moka boiler])[command clarification break]";
-		silently try taking the moka boiler;
-	unless the player carries the moka boiler, stop the action instead;
-	unless the player carries the moka pot:
-		say "(first taking [the moka pot])[command clarification break]";
-		silently try taking the moka pot;
-	unless the player carries the moka pot, stop the action instead. 
+	unless the coffee funnel filter is in the moka heater, say "[We] must first insert the filter into the heater." instead;
+	if the player cannot carry the moka heater, stop the action instead;
+	if the player cannot carry the moka pot, stop the action instead. 
 Carry out screwing:	
-	now the moka boiler is nowhere;
+	now the moka heater is nowhere;
 	now the moka pot is nowhere;
 	now the player carries the current moka;
 	set pronouns from the current moka.
@@ -325,13 +321,51 @@ Chapter Wash
 Understand the command "wash" as "rub".
 Does the player mean rubbing the moka pot: it is likely.
 
-Instead of rubbing a moka-item:
-	say "The important thing is to wash the inside, not the outside."
+To say already washed: say "It has already been washed, there is no need to do it again. [/n]".
+
+Instead of rubbing:
+	unless the noun is a moka-component, say "[The noun] [don't] need cleaning." instead;
+	continue the action.
 	
+Instead of rubbing a moka-item:
+	if the current moka is washed, say already washed instead;
+	say "The important thing is to wash the inside, not the outside."
+
 Before rubbing a moka-component:
-	if the current moka is washed:
-		say "It has already been washed, there is no need to do it again." instead;
-	if the coffee funnel filter is in the moka boiler, say "[We] must first remove the filter from the boiler." instead.
+	if the current moka is washed, say already washed instead;
+	if the coffee funnel filter is in the moka heater, say "[We] must first remove the filter from the heater." instead;
+	unless the coffee funnel filter is empty, say "It's not advisable to wash the funnel while it contains [the list of things in the coffee funnel filter]." instead;
+	if the number of things which are not moka-components carried by the player is greater than 0, say "[/ss]You can't wash the moka while also holding [the list of things which are not moka-components carried by the player].' [/se][Monica] [state]." instead;
+	if the player cannot carry the moka pot, stop the action instead;
+	if the player cannot carry the moka heater, stop the action instead;
+	if the player cannot carry the coffee funnel filter, stop the action.
+
+After rubbing a moka-component:
+	now the current moka is washed;
+	say "[We] [go] to the sink and thoroughly wash all the parts of the moka."
+	
+Chapter Filling
+
+Filling is an action applying to one thing.
+Understand "fill [something] up/--" as filling.
+Understand the command "refill" as "fill".
+
+Check filling:
+	if the noun is a moka-item, say "Oh, that would be too easy!" instead;
+	unless the noun is a moka-component, say "It's not something to fill." instead;
+	unless the current moka is washed, say "[/ss]You should always wash new things for the kitchen before using them.' [/se][Monica] [remember] [us]." instead;
+	if the noun is the moka pot, say "[/ss]Come on now, don't be silly.' [/se][Monica] [comment] [/ss1]I also know that's where the coffee collects and you don't have to fill it up.' [/r][/n]" instead;
+	if the noun is filled, say "[The noun] already [contain] the [if the noun is the moka heater]water[otherwise]coffee powder[end if]." instead;
+	unless the noun is empty, say "It is best to remove [the list of things in the noun] first.";
+	if the player cannot carry the moka heater, stop the action;
+	if the noun is the coffee funnel filter:
+		unless the moka heater is filled, say "[/ss]You might want to put the water in first.' [/se][Monica] [suggest]." instead.
+
+Carry out filling:
+	now the noun is filled.
+	
+Report filling:
+	say "Now [the noun] is filled with [if the noun is the moka heater]some water[otherwise]the coffee powder[end if]."		
 	
 Chapter Guide
 
@@ -865,7 +899,7 @@ Eyes of the player are "blue".
 Notes of the player are "You work as a software engineer, enjoy photography and love hiking in the mountains. [/n]In love with your girlfriend, very beautiful, but also shrewish when something doesn't go her way. In the end you always please her and she appreciates it. [/n]Monica sometimes calls you Ciccio".
 The player is male.
 The printed name of the player is "Francesco".
-The carrying capacity of the player is 3.
+The carrying capacity of the player is 10.
 The scent-description of the player is "the aftershave [/i]'for the man who never has to ask'[/r] that [Monica] gave [us]".
 Understand "Ciccio/Francesco/me/myself/you/yourself" or "the/-- player/protagonist" as yourself.
 
@@ -1510,6 +1544,8 @@ At the time when Monica says bravo:
 	otherwise:
 		say "[/ss]So far, it's been straightforward, but now we're hit with a bit of a challenge.' [/se][we] [say] [/ss1]Any ideas on what to do next?' [/r][/n]";
 		say "[heart][/ss]You are so clever!' [/se][Monica] [encourage] [us] [/ss1]I'm sure you'll find the perfect way to handle water and coffee powder.' [/r][/n]".
+
+
 			
 Volume Help
 

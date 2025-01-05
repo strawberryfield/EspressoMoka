@@ -8,6 +8,7 @@ To say /n: say line break.
 To say /nn: say no line break.
 To say /p: say paragraph break.
 To say /run: say run paragraph on.
+To say /ccb: say command clarification break.
 To say /b: say bold type.
 To say /i: say italic type.
 To say /r: say roman type.
@@ -24,7 +25,7 @@ Rule for clarifying the parser's choice of something:
 	do nothing instead.
 	
 After reading a command:
-	repeat with word running through {"sex","fuck","shag ","bang ","dick ","penis","pussy","cunt ","vagina","ass "}:
+	repeat with word running through {"sex","fuck","shag ","bang ","dick ","penis","pussy","cunt ","vagina"}:
 		if the player's command matches the text word:
 			say "The game does not include references to sex.";
 			reject the player's command. 
@@ -55,7 +56,7 @@ Instead of smelling something:
 		else:
 			say "[regarding the noun][They] [smell] as I would have expected.";
 	otherwise:
-		say "[regarding the noun][They] [smell] like [scent-description of the noun].[paragraph break]".
+		say "[regarding the noun][They] [smell] like [scent-description of the noun]. [/p]".
 
 Section Tasting
 
@@ -68,7 +69,7 @@ Instead of tasting something:
 		else:
 			say "[regarding the noun][They] [taste] as I would have expected.";
 	otherwise:
-		say "[flavor-description of the noun].[paragraph break]".
+		say "[flavor-description of the noun]. [/p]".
 
 Instead of tasting something which is not edible:
 	if the noun is a person:
@@ -203,7 +204,7 @@ Retreating is an action applying to nothing.
 
 Carry out retreating:
 	let new direction be the opposite of the former direction;
-	say "(heading [new direction])[command clarification break]";
+	say "(heading [new direction])[/ccb]";
 	try going the new direction.
 
 Chapter Go forward
@@ -212,11 +213,11 @@ Going forward is an action applying to nothing.
 Understand "go forward/ahead/straight" as going forward.
 Understand "forward" or "ahead" or "straight" as going forward.
 Carry out going forward:
-	say "(heading [former direction])[command clarification break]";
+	say "(heading [former direction])[/ccb]";
 	try going the former direction.
 
 Rule for supplying a missing noun while an actor going (this is the custom vaguely going rule):
-	say "(heading [former direction])[command clarification break]";
+	say "(heading [former direction])[/ccb]";
 	now the noun is the former direction.
 
 The custom vaguely going rule is listed instead of the block vaguely going rule in the for supplying a missing noun rulebook.
@@ -235,9 +236,18 @@ Check going by name:
 Carry out going by name:
     let aim be the best route from the location to the noun, using doors;
     if aim is not a direction, say "You can't think how to get there from here." instead;
-    say "(heading [aim])[command clarification break]";
+    say "(heading [aim])[/ccb]";
     try going aim;
     if the location is not the noun, say "You'll have to stop here."
+	
+Chapter Implicit taking
+
+To decide if the player cannot carry (X - a thing) :
+	unless the player carries X:
+		say "(first taking [the X])[/ccb]";
+		silently try taking X;
+	unless the player carries X, decide yes;
+	decide no.
 	
 Chapter Concreteness
 

@@ -1,5 +1,7 @@
 Version 2 of Written papers by The Strawberry Field begins here.
 
+Include Commons by The Strawberry Field
+
 Chapter Definitions
 
 A paper-item is a kind of thing.
@@ -23,10 +25,7 @@ Understand "fold [something]" as folding.
 Check folding:
 	unless the noun is a paper-item, say "Can't fold [the noun]." instead;
 	if the noun is folded, say "It's already folded." instead;
-	unless the player carries the noun:
-		say "(first taking [the noun])[command clarification break]";
-		silently try taking the noun;
-		unless the player carries the noun, stop the action.
+	if the player cannot carry the noun, stop the action.
 Carry out folding:
 	now the noun is folded.
 Report folding:
@@ -40,10 +39,7 @@ Understand "unfold [something]" as unfolding.
 Check unfolding:
 	unless the noun is a paper-item, say "Can't unfold [the noun]." instead;
 	if the noun is unfolded, say "It's already unfolded." instead;
-	unless the player carries the noun:
-		say "(first taking [the noun])[command clarification break]";
-		silently try taking the noun;
-		unless the player carries the noun, stop the action.
+	if the player cannot carry the noun, stop the action.
 Carry out unfolding:
 	now the noun is unfolded.
 Report unfolding:
