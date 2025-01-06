@@ -244,9 +244,8 @@ Chapter Implicit taking
 
 To decide if the player cannot carry (X - a thing) :
 	unless the player carries X:
-		say "(first taking [the X])[/ccb]";
-		silently try taking X;
-	unless the player carries X, decide yes;
+		carry out the implicitly taking activity with X;
+		unless the player carries X, decide yes;
 	decide no.
 	
 Chapter Concreteness

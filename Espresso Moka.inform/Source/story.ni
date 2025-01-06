@@ -919,12 +919,10 @@ The player wears the black t-shirt, the pair of beige pants and the pair of blue
 
 Chapter Wallet
 
-The wallet is a closed openable container in the right pants pocket.
+The wallet is a closed openable container in the left pants pocket.
 The description is "A grey canvas wallet. It's a gift from Mo.".
 Check the player opening the wallet:
-	if the player is not carrying the noun:
-		carry out the implicitly taking activity with the noun;
-		if the player is not carrying the noun, stop the action. 
+	if the player cannot carry the noun, stop the action.
 	
 An unuseful card is a kind of thing.	
 The driving license, the identity card and  the supermarket fidelity card are unuseful cards.
@@ -947,6 +945,10 @@ Does the player mean inserting the wallet into the left pants pocket: it is like
 Before inserting the wallet into a pocket:
 	if the noun is open, try closing the noun.
 
+Before inserting something into the wallet:
+	if the player cannot carry the wallet, stop the action;
+	if the wallet is closed, try opening the wallet.
+	
 Putting back is an action applying to one thing.
 Understand "put [something preferably held] back/away" as putting back.
 Understand "put back/away [something preferably held]" as putting back.
@@ -956,6 +958,10 @@ Carry out putting back:
 	if the noun is the credit card, try inserting the noun into the wallet;
 	if the noun is the wallet, try inserting the noun into the left pants pocket.
 
+After putting back the credit card:
+	say "Do you want to put your wallet away too?";
+	if the player consents, try putting back the wallet.
+	
 Book Girlfriend
 
 Monica is a woman. 
@@ -1406,7 +1412,7 @@ Section Pay action
 
 Understand the command "pay" as something new.
 Paying is an action applying to nothing.
-Understand "pay the/-- coffee/moka/total/amount/bill/--" as paying.
+Understand "pay the/-- coffee/moka/total/amount/bill/--" or "pay to/-- the/-- Marco/seller" as paying.
 
 Check paying:
 	unless the location of the player is the coffee-shop, say "There is nothing to pay here." instead;
