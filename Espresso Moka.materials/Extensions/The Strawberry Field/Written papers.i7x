@@ -23,7 +23,7 @@ Folding is an action applying to one thing.
 Understand "fold [something]" as folding.
 
 Check folding:
-	unless the noun is a paper-item, say "Can't fold [the noun]." instead;
+	unless the noun is a paper-item, say "[We] [can't fold] [the noun]." instead;
 	if the noun is folded, say "It's already folded." instead;
 	if the player cannot carry the noun, stop the action.
 Carry out folding:
@@ -37,7 +37,7 @@ Unfolding is an action applying to one thing.
 Understand "unfold [something]" as unfolding.
 
 Check unfolding:
-	unless the noun is a paper-item, say "Can't unfold [the noun]." instead;
+	unless the noun is a paper-item, say "[We] [can't unfold] [the noun]." instead;
 	if the noun is unfolded, say "It's already unfolded." instead;
 	if the player cannot carry the noun, stop the action.
 Carry out unfolding:
@@ -129,6 +129,6 @@ Before examining as a paper when the current paper is nothing (this is the readi
 		now the current paper is a random visible paper-item;
 	if np is greater than one, say specify what to read instead;
 	if np is one, now the current paper is a random paper-item carried by the player;
-	say "(looking at [the current paper])[command clarification break]".
+	say "(looking at [the current paper])[/ccb]".
 	
 Written papers ends here.

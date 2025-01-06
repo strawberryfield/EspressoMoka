@@ -485,7 +485,16 @@ The roasted coffee jar is a coffee-item in the coffee-shop. It is scenery.
 Understand "roasted/ground/-- coffee/-- foil/-- tin/can/jar/packet/package" as the roasted coffee jar.
 The quality-list of  the roasted coffee jar is table of roasted qualities.
 Coffee-type of the roasted coffee jar is classic.
+Rule for printing the name of the roasted coffee jar:
+	say "ground coffee ";
+	choose the row with coffee-type of coffee-type of the roasted coffee jar in the quality-list of the roasted coffee jar;
+	say "[Packaging-type entry]".
 
+To decide if the coffee jar is a tin:
+	choose the row with coffee-type of coffee-type of the noun in the quality-list of the noun;
+	if the packaging-type entry is "tin", decide yes;
+	decide no.
+	
 Instead of examining a coffee-item:
 	choose the row with coffee-type of coffee-type of the noun in the quality-list of the noun;
 	say "A [packaging-color entry] [packaging-type entry] [packaging-details entry].".
@@ -923,7 +932,14 @@ The wallet is a closed openable container in the left pants pocket.
 The description is "A grey canvas wallet. It's a gift from Mo.".
 Check the player opening the wallet:
 	if the player cannot carry the noun, stop the action.
-	
+
+Instead of unfolding the wallet:
+	try opening the noun.
+Instead of folding the wallet:
+	try closing the noun.
+
+Section Content
+			
 An unuseful card is a kind of thing.	
 The driving license, the identity card and  the supermarket fidelity card are unuseful cards.
 Instead of examining the driving license, say "Your pink driving license.".
@@ -940,6 +956,8 @@ Instead of taking money, say "It's better to use a payment card.".
 
 Understand "id card/document/--" or "your id/identity/-- card/document/documents" or "passport/document" as the identity card.
 Instead of examining the identity card, say "A card folded into a booklet with your photo (slightly old) and your personal information.".
+
+Section Handling
 
 Does the player mean inserting the wallet into the left pants pocket: it is likely.
 Before inserting the wallet into a pocket:

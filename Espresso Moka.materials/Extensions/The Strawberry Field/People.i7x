@@ -1,5 +1,7 @@
 Version 1 of People by The Strawberry Field begins here.
 
+Include Commons by The Strawberry Field.
+
 Volume Generic people
 
 To say man:
