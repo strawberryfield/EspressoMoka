@@ -467,19 +467,25 @@ Understand the command "order" as "buy".
 	
 Section Coffee items
 
-A coffee-item is a kind of thing. 
+A coffee-item is a kind of container. 
+A coffee-item is closed, openable and not lockable.
 A coffee-item is sellable.
 A coffee-item has a coffee-type.
 A coffee-item has a table name called quality-list.
 
 Does the player mean examining a coffee-item: it is likely.
 Does the player mean taking a coffee-item: it is likely.
+Instead of opening a coffee-item when the location of the player is the coffee-shop:
+	say "[/ss]Ciccio, what's the rush?' [/se][Monica] [ask] [/ss1]We'll do it at home.' [/r][/n]".
+Does the player mean opening a coffee-item: it is likely.
 
 The coffee capsules box is a coffee-item in the coffee-shop. It is scenery.
 Understand "blue/gray/white/black coffee/-- capsules/-- box" as the coffee capsules box.
 The quality-list of the coffee capsules box is table of capsules qualities.
 Coffee-type of the coffee capsules box is arabica.
 Does the player mean examining the coffee capsules box: it is very likely.
+Instead of opening the coffee capsules box:
+	say "Capsules are not needed for the moka."
 
 The roasted coffee jar is a coffee-item in the coffee-shop. It is scenery.
 Understand "roasted/ground/-- coffee/-- foil/-- tin/can/jar/packet/package" as the roasted coffee jar.
@@ -611,6 +617,8 @@ Instead of examining the moka pots open shelf:
 	if the player is in the street-3, say "Inside";
 	otherwise say "Near";
 	say " [description][/n]".
+
+Does the player mean doing something with a moka-item enclosed by the counter: it is likely.
 
 Section Available mokas
 
@@ -1569,7 +1577,20 @@ At the time when Monica says bravo:
 		say "[/ss]So far, it's been straightforward, but now we're hit with a bit of a challenge.' [/se][we] [say] [/ss1]Any ideas on what to do next?' [/r][/n]";
 		say "[heart][/ss]You are so clever!' [/se][Monica] [encourage] [us] [/ss1]I'm sure you'll find the perfect way to handle water and coffee powder.' [/r][/n]".
 
+Chapter Coffee jar
 
+Instead of opening the roasted coffee jar when the location of the player is the kitchen:
+	if the noun is open, say "It's already open." instead;
+	if the player cannot carry the noun, stop the action instead;
+	if the coffee jar is a tin, continue the action instead;
+	unless the player carries the pair of scissors, say "[/ss]The scissors are in the top drawer.' [/se][Monica] [suggest]." instead;
+	continue the action.
+	
+Before closing the roasted coffee jar when the location of the player is the kitchen:
+	unless the coffee jar is a tin:
+		say "[/ss]No, you can't close it properly.' [/se][Monica] [state] [/ss1]Mum always asks if I need her empty coffee tins, so tomorrow I'll get one so we don't waste this good aroma.' [/r][/n]";
+		say "[heart][/ss]Good idea, Mo!' [/se][we] [appreciate] the solution.";
+		stop the action.
 			
 Volume Help
 
