@@ -359,7 +359,11 @@ Check filling:
 	unless the noun is empty, say "It is best to remove [the list of things in the noun] first.";
 	if the player cannot carry the moka heater, stop the action;
 	if the noun is the coffee funnel filter:
-		unless the moka heater is filled, say "[/ss]You might want to put the water in first.' [/se][Monica] [suggest]." instead.
+		unless the moka heater is filled, say "[/ss]You might want to put the water in first.' [/se][Monica] [suggest]." instead;
+		unless the noun is in the moka heater, say "[/ss]I would put the filter in the heater before filling it,' [/se][Monica] [advise] [/ss1]because when it is full it is difficult to handle without spilling all the dust.' [/r][/n]" instead;
+		unless the player carries the roasted coffee jar, say "[/ss]But what are you going to fill it with?' [/se][Monica] [ask] [/ss1]I think you should take the [roasted coffee jar].' [/r][/n]" instead;
+		unless the roasted coffee jar is open, say "It is difficult to take the powder from a closed [roasted coffee jar]." instead;
+		unless the player carries the teaspoon, say "[/ss]You'd better help yourself with a teaspoon.' [/se][Monica] [suggest][if the teaspoon is in a top drawer] [/ss1]You will find it in the top drawer.' [/r][otherwise]. [end if][/n]" instead.
 
 Carry out filling:
 	now the noun is filled.
