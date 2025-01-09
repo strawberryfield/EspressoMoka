@@ -763,6 +763,14 @@ Some cutlery are unuseful-item. The description is "Miscellaneous knives, forks,
 The teaspoon is a thing. The description is "An ordinary teaspoon".
 The pair of scissors is a thing. The description is "Multifunctional kitchen scissors."
 
+Before inserting the teaspoon into a container:
+	unless the second noun is a top drawer, say "[/ss]Don't mess up the kitchen,' [/se][Monica] [scold] [us] [/ss1]the cutlery drawer is the first.' [/r][/n]" instead.
+Before putting back the teaspoon: try inserting the noun into a random top drawer instead.
+
+Before inserting the pair of scissors into a container:
+	unless the second noun is a top drawer, say "[/ss]Don't mess up the kitchen,' [/se][Monica] [scold] [us] [/ss1]the scissors have to be in the top drawer.' [/r][/n]" instead.
+Before putting back the pair of scissors: try inserting the noun into a random top drawer instead.
+	
 Some crockery are an unuseful-item. 
 Crockery is in the left cabinet.
 The description is "Miscellaneous plates, glasses and other tableware."
@@ -816,7 +824,6 @@ When play begins:
 	now cutlery is in D;
 	now the teaspoon is in D;
 	now the pair of scissors is in D.
-	
 
 Chapter Espresso machine
 
@@ -1583,7 +1590,12 @@ Instead of opening the roasted coffee jar when the location of the player is the
 	if the noun is open, say "It's already open." instead;
 	if the player cannot carry the noun, stop the action instead;
 	if the coffee jar is a tin, continue the action instead;
-	unless the player carries the pair of scissors, say "[/ss]The scissors are in the top drawer.' [/se][Monica] [suggest]." instead;
+	unless the player carries the pair of scissors:
+		if the pair of scissors is in a top drawer:
+			say "[/ss]The scissors are in the top drawer.' [/se][Monica] [suggest].";
+		otherwise:
+			say "[/ss]You need a pair of scissors to open it.' [/se][Monica] [say].";
+		stop the action;
 	continue the action.
 	
 Before closing the roasted coffee jar when the location of the player is the kitchen:
