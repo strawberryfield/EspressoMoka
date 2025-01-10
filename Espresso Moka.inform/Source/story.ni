@@ -342,6 +342,7 @@ Before rubbing a moka-component:
 
 After rubbing a moka-component:
 	now the current moka is washed;
+	set pronouns from the moka heater;
 	say "[We] [go] to the sink and thoroughly wash all the parts of the moka."
 	
 Chapter Filling
@@ -360,7 +361,7 @@ Check filling:
 	if the player cannot carry the moka heater, stop the action;
 	if the noun is the coffee funnel filter:
 		unless the moka heater is filled, say "[/ss]You might want to put the water in first.' [/se][Monica] [suggest]." instead;
-		unless the noun is in the moka heater, say "[/ss]I would put the filter in the heater before filling it,' [/se][Monica] [advise] [/ss1]because when it is full it is difficult to handle without spilling all the dust.' [/r][/n]" instead;
+		unless the noun is in the moka heater, say "[/ss]I would put the filter in the heater before filling it,' [/se][Monica] [advise] [/ss1]because when it is full it is difficult to handle without spilling all the powder.' [/r][/n]" instead;
 		unless the player carries the roasted coffee jar, say "[/ss]But what are you going to fill it with?' [/se][Monica] [ask] [/ss1]I think you should take the [roasted coffee jar].' [/r][/n]" instead;
 		unless the roasted coffee jar is open, say "It is difficult to take the powder from a closed [roasted coffee jar]." instead;
 		unless the player carries the teaspoon, say "[/ss]You'd better help yourself with a teaspoon.' [/se][Monica] [suggest][if the teaspoon is in a top drawer] [/ss1]You will find it in the top drawer.' [/r][otherwise]. [end if][/n]" instead.
@@ -1608,6 +1609,16 @@ Before closing the roasted coffee jar when the location of the player is the kit
 		say "[heart][/ss]Good idea, Mo!' [/se][we] [appreciate] the solution.";
 		stop the action.
 			
+Chapter filling
+
+After filling the coffee funnel filter:
+	Monica congrats in 0 turns from now;
+	now the current context is moka-onfire-help;
+	continue the action.
+	
+At the time when Monica congrats:
+	say "[heart][/ss]But you have done a very good job.' [/se][Monica] [congratulate] [us] [/ss1]Come on, close it up so that we can put it on the fire.' [/r][/n]".
+	
 Volume Help
 
 Section Images
@@ -1634,6 +1645,7 @@ Moka-choice-help	"Looking at the mokas shelf you can see which colors are availa
 Moka-open-help	"[Moka open help]"
 Moka-wash-help	"All food and drink preparation utensils must be washed before use."
 Moka-fill-help	"In order to make coffee, the moka needs to be filled with water and coffee powder."
+Moka-onfire-help	"The moka, filled and closed, must be placed on the hob for the coffee to come out."
 
 
 [----]
