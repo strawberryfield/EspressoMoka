@@ -339,7 +339,8 @@ damages. [/p]";
 characters, businesses, places, events and incidents in this book are
 either the product of the author’s imagination or used in a fictitious
 manner. Any resemblance to actual persons, living or dead, or actual
-events is purely coincidental."
+events is purely coincidental.";
+	say "[/p]Type [/b]credits[/r] or [/b]about[/r] for more info.".
 
 Book Notes
 

@@ -35,9 +35,10 @@ After printing the banner text:
 	
 Chapter release
 
-Release along with cover art ("Francesco and Monica prepare an espresso moka").
+Release along with cover art ("Francesco and Monica prepare an espresso with a moka").
 Release along with the library card.
 Release along with a "TSF" website and an interpreter.
+Release along with a file of "Quickstart guide" called "quickstart.pdf".
 
 Book Styles
 
@@ -1523,7 +1524,7 @@ Instead of leavetaking:
 Book Kitchen
 
 To say Monica do not make coffee:
-	say " [/ss1]I wouldn't know exactly how to do it, I used to watch my mother prepare it, but I couldn't repeat the process.' [/r][/n]".
+	say " [/ss1]I wouldn't know exactly how to do it, I used to watch my mother prepare the coffee, but I couldn't repeat the process.' [/r][/n]".
 
 Player knows how to do is a truth state that varies.
 	
@@ -1538,12 +1539,16 @@ At the time when start the kitchen intro:
 		say "[heart][heart][heart][/ss]I need your help!' [/se][Monica] [look] at [us] sweetly [/ss1]You can do that, can't you?' [/r][/p]";
 		if the player consents:
 			say "[/ss]I'm not sure I can, but as usual it's up to me to sort out the mess you've made.' [/se][we] [answer]  in resignation.";
+			say "[heart][/ss]Oh, my hero!' [/r][/n]";
 			now player knows how to do is true;
 		otherwise:
-			say "[/ss]As it was meant to be.' [/se][we] [answer] rather annoyed [/ss1]You don't know how to use it, I don't either: it ends up taking up space and dust.' [/r][/n]";
-			say "[heart][/ss]Come on, let's try it together!' [/se][Monica] [suggest].";
+			say "[/ss]As it was meant to be.' [/se][we] [answer] rather annoyed [/ss1]You don't know how to use that damn moka, I don't either: it ends up taking up space and dust.' [/r][/n]";
+			say "[heart][/ss]Come on, let's try it together!' [/se][Monica] [suggest], then [add] [/ss1]You’ve stared down mad scientists thousands of meters deep beneath alien seas, used the last of your strength to perform rituals of banishment abjuring abhorrent gods, and now you're afraid of a moka?'";
+			say "[/ss]I know you're not going to lie, you read that somewhere, right?' [/se][we] [ask].";
+			say "[Monica] [confirm] with a smile.";
 		try Monica putting the current moka on the table;	
-		say "[/ss]Let's start by opening the moka pot.' [/se][regarding Monica][they] [suggest].[/n]";
+		say "[/ss]Let's start by opening it.' [/se][regarding Monica][they] [suggest] pointing at the moka.[/n]";
+		set pronouns from the current moka;
 	now the current context is moka-open-help;
 	if the coffee capsules box is in the brown shopper:
 		say "[/ss]Beh, let's put these in their place in the meantime.' [/se][Monica] [say] taking the capsules box.";
@@ -1621,6 +1626,8 @@ At the time when Monica congrats:
 	
 Volume Help
 
+Book help
+
 Section Images
 
 Figure esploso is the file "esploso.jpg".
@@ -1647,5 +1654,14 @@ Moka-wash-help	"All food and drink preparation utensils must be washed before us
 Moka-fill-help	"In order to make coffee, the moka needs to be filled with water and coffee powder."
 Moka-onfire-help	"The moka, filled and closed, must be placed on the hob for the coffee to come out."
 
+Book Credits
+
+Table of credited peoples (continued)
+Name (text)	Reason (text)
+"Bing Image Creator"	"used to generate the cover art"
+"Mike Russo"	"for inspiring the mad scientist gag"
+"The Bialetti website"	"for the informations about the coffee makers"
+"The Lavazza website"	"for the descriptions of the coffee qualities"
+"The Ikea website"	"for inspiring the kitchen furniture"
 
 [----]
