@@ -39,6 +39,7 @@ Release along with cover art ("Francesco and Monica prepare an espresso with a m
 Release along with the library card.
 Release along with a "TSF" website and an interpreter.
 Release along with a file of "Quickstart guide" called "quickstart.pdf".
+Release along with a file of "User manual" called "booklet.pdf".
 
 Book Styles
 
