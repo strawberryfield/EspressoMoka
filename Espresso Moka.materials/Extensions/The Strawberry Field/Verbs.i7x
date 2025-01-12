@@ -102,12 +102,14 @@ To smile is a verb.
 To spread is a verb.
 To stand is a verb.
 To stare is a verb. 
+To start is a verb.
 To state is a verb.
 To stir is a verb.
 To strike is a verb. 
 To suggest is a verb.
 To thank is a verb.
 To throw is a verb.
+To try is a verb.
 To type is a verb.
 To unfold is a verb.
 To urge is a verb.

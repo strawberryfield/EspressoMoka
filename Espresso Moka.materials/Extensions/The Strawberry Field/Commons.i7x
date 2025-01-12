@@ -21,6 +21,8 @@ To say /ss: say "[/i]'".
 To say /ss1: say "[unicode 8212] [/i]'".
 To say /se: say "[/r][unicode 8212] ".
 
+To say /warning: say "[unicode 9888] ".
+
 Book Rules
 
 Rule for clarifying the parser's choice of something:

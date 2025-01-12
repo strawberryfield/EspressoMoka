@@ -15,6 +15,8 @@ Understand the folded property as describing a paper-item.
 
 A paper-item has some text called folded appearance.
 
+Does the player mean doing something with a paper-item: it is likely.
+
 Chapter Folding
 
 Section Folding

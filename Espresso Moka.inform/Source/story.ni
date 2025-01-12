@@ -374,6 +374,14 @@ Carry out filling:
 Report filling:
 	say "Now [the noun] is filled with [if the noun is the moka heater]some water[otherwise]the coffee powder[end if]."		
 	
+Chapter Cooking
+
+Instead of putting a moka-item on the hob when the moka heater is not filled:
+	say "[heart][/ss]Oh my God!' [/se][Monica] [exclaim] visibly concerned [/ss1]It's really dangerous to put the moka on the stove without water: my mum used to tell me about a friend of hers who had it burst and even made a hole in the ceiling.' [/r][/n]".
+	
+Instead of putting a moka-item on the hob when the moka heater is filled and the coffee funnel filter is not filled:
+	say "[/ss]Without the powder, it's really hard to get the coffee to taste anything at all.' [/se][Monica] [remind]."
+	
 Chapter Guide
 
 The written paper sheet is a paper-item in the coffee funnel filter.
@@ -527,6 +535,7 @@ Before taking something sellable which is on the counter:
 
 Before taking something which is in the brown shopper when the player is in the coffee-shop:
 	say "You will do it when you get home." instead.
+	
 
 Chapter Tables 
 	
@@ -738,7 +747,7 @@ Section Hob
 
 The hob is a supporter. It is part of the furniture.
 The description is "A stainless steel gas powered hob."
-Understand "burner/flame/flames" as the hob.
+Understand "burner/flame/flames/fire" as the hob.
 
 The hob-switch is a device. It is part of the hob.
 After switching on the hob-switch: say "[We] [light] the flame."
@@ -751,6 +760,11 @@ Instead of switching on the hob: try switching on the hob-switch.
 Instead of switching off the hob: try switching off the hob-switch.
 	
 Understand the command "fire" as "switch".
+Understand the command "light" as something new.
+Understand "light on/-- [something]" as switching on.
+Understand "light off [something]" as switching off.
+
+Instead of switching on the hob-switch when the hob is empty: say "[/warning]Lighting the hob without anything on top is pointless and could even be dangerous."
 
 Section Hood
 
@@ -763,12 +777,13 @@ An unuseful-item is a kind of thing.
 Instead of taking an unuseful-item: say "You don't need it."
 
 Some cookware is an unuseful-item. The description is "Miscellaneous pots, pans and lids."
-
 Some dishcloths are an unuseful-item.
-
 Some cutlery are unuseful-item. The description is "Miscellaneous knives, forks, spoons and kitchenware."
-The teaspoon is a thing. The description is "An ordinary teaspoon".
-The pair of scissors is a thing. The description is "Multifunctional kitchen scissors."
+
+An useful-item is a kind of thing.
+The teaspoon is an useful-item. The description is "An ordinary teaspoon".
+Understand "little/small/-- spoon" as the teaspoon.
+The pair of scissors is an useful-item. The description is "Multifunctional kitchen scissors."
 
 Before inserting the teaspoon into a container:
 	unless the second noun is a top drawer, say "[/ss]Don't mess up the kitchen,' [/se][Monica] [scold] [us] [/ss1]the cutlery drawer is the first.' [/r][/n]" instead.
@@ -777,6 +792,18 @@ Before putting back the teaspoon: try inserting the noun into a random top drawe
 Before inserting the pair of scissors into a container:
 	unless the second noun is a top drawer, say "[/ss]Don't mess up the kitchen,' [/se][Monica] [scold] [us] [/ss1]the scissors have to be in the top drawer.' [/r][/n]" instead.
 Before putting back the pair of scissors: try inserting the noun into a random top drawer instead.
+
+Instead of inserting a moka-item into a container:
+	say "[/ss]And hey, no cheating!' [/se][Monica] [scold] [us]."
+
+Before inserting a moka-component into a container:
+	unless the noun is the coffee funnel filter and the second noun is the moka heater:
+		say "[We] will never be able to make coffee if [we] hide [the noun]." instead.
+			
+Instead of cutting:
+	unless the player carries the pair of scissors, say "[We] [have] nothing with [us] that can cut." instead;
+	if the noun is the roasted coffee jar, try opening the noun instead;
+	continue the action.
 	
 Some crockery are an unuseful-item. 
 Crockery is in the left cabinet.
@@ -806,6 +833,8 @@ Understand "left/leftmost/first/-- cupboard/cabinet/locker" as the left cabinet.
 Understand "right/rightmost/last cupboard/cabinet/locker" as the right cabinet.
 Does the player mean examining the left cabinet: it is likely.
 Does the player mean opening the left cabinet: it is likely.
+Does the player mean inserting something into a cabinet-item: it is likely.
+Does the player mean removing something from a cabinet-item: it is likely.
 
 To say status of cabinets:
 	let O be the number of open cabinet-item;
@@ -1609,9 +1638,9 @@ Instead of opening the roasted coffee jar when the location of the player is the
 		stop the action;
 	continue the action.
 	
-Before closing the roasted coffee jar when the location of the player is the kitchen:
+Before an actor closing the roasted coffee jar when the location of the player is the kitchen:
 	unless the coffee jar is a tin:
-		say "[/ss]No, you can't close it properly.' [/se][Monica] [state] [/ss1]Mum always asks if I need her empty coffee tins, so tomorrow I'll get one so we don't waste this good aroma.' [/r][/n]";
+		say "[unless the actor is the player][Monica] would like to close the [roasted coffee jar], but...[end if][/ss]No, it can't close properly.' [/se][Monica] [state] [/ss1]Mum always asks if I need her empty coffee tins, so tomorrow I'll get one so we don't waste this good aroma.' [/r][/n]";
 		say "[heart][/ss]Good idea, Mo!' [/se][we] [appreciate] the solution.";
 		stop the action.
 			
@@ -1623,8 +1652,62 @@ After filling the coffee funnel filter:
 	continue the action.
 	
 At the time when Monica congrats:
-	say "[heart][/ss]But you have done a very good job.' [/se][Monica] [congratulate] [us] [/ss1]Come on, close it up so that we can put it on the fire.' [/r][/n]".
+	say "[heart][/ss]You have done a very good job.' [/se][Monica] [congratulate] [us] [/ss1]Come on, close it up so that we can put it on the fire.' [/r][/n]";
+	if player knows how to do is true:
+		say "[heart][/ss]What one wouldn't do for a girl like you!' [/se][we] [reply].";
+		say "[/ss]Then there would also be a need to put back [if the player carries the roasted coffee jar]the [roasted coffee jar] and [end if][the list of useful-items not enclosed by a top drawer].' [/se][Monica] [remind] then [ask] [/ss1]Will you take care of this?' [/r][/p]";
+		if the player consents:
+			say "[heart][/ss]How kind you are today!' [/r][/n]";
+			Monica force rearranging in 4 turns from now;
+		otherwise:
+			say "[/ss]Don't worry, I'll take care of this job.' [/r][/n]";
+			Monica rearranges the kitchen, annoyed;
+	otherwise:
+		say "[/ss]You always fool me.' [/se][we] [reply].";
+		say "[/ss]It may not have been as exciting as being at the controls of a spaceship, but there will be plenty of satisfaction in the end.' [/se][regarding Monica][they] [try] to encourage [us].";
+		say "[/ss]Won't it end up like that game where we had breakfast and everyone was waiting to go for a walk in the mountains with us?' [/r][/n]";
+		say "[heart][/ss]Instead, we screwed them all.' [/se][Monica] [start] laughing [/ss1]There are a few things that need tidying up, shall I do it?' [/r][/p]";
+		if the player consents:
+			say "[/ss]Okay, okay, you have already done a lot for me.' [/se][regarding Monica][they] [reply]."; 
+			Monica rearranges the kitchen;
+		otherwise:
+			Monica force rearranging in 4 turns from now.
+
+Section rearranging
+
+To Monica gets (T - a thing):
+	if the player carries T:
+		say "[Monica] [get] the [T] from your hands.";
+	otherwise:	
+		say "[Monica] [take] the [T]."
+		
+To Monica rearranges the kitchen, annoyed:
+	let L be a list of things;
+	unless the pair of scissors is enclosed by a top drawer:
+		Monica gets the pair of scissors;
+		add the pair of scissors to L;
+	unless the teaspoon is enclosed by a top drawer:
+		Monica gets the teaspoon;
+		add the teaspoon to L;
+	unless the roasted coffee jar is in the right cabinet: 
+		Monica gets the roasted coffee jar;
+		try Monica closing the roasted coffee jar;
+		say "Then [regarding Monica][they] [put] it in the right cabinet.";
+		now the roasted coffee jar is in the right cabinet;
+		if the right cabinet is open, try Monica closing the right cabinet;
+	unless L is empty:
+		if annoyed:
+			say "[/ss]I know it's my turn to tidy up the kitchen in the end.' [/se][Monica] [say] putting back [L with definite articles] into the top drawer.";
+		otherwise:
+			say "At the end [Monica] [put] back [L with definite articles] into the top drawer.";
+		repeat with item running through L:
+			now item is in a random top drawer;
+		if the top drawer is open, try Monica closing a random top drawer.		
+		
+At the time when Monica force rearranging:
+	Monica rearranges the kitchen, annoyed.
 	
+		
 Volume Help
 
 Book help
