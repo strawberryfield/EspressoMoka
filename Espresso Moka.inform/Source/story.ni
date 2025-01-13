@@ -832,8 +832,10 @@ The right cabinet is a cabinet-item. It is part of the furniture.
 Understand "left/leftmost/first/-- cupboard/cabinet/locker" as the left cabinet.
 Understand "right/rightmost/last cupboard/cabinet/locker" as the right cabinet.
 Does the player mean examining the left cabinet: it is likely.
-Does the player mean opening the left cabinet: it is likely.
+Does the player mean opening a cabinet-item: it is likely.
+Does the player mean opening the right cabinet: it is very likely.
 Does the player mean inserting something into a cabinet-item: it is likely.
+Does the player mean inserting something into an open cabinet-item: it is very likely.
 Does the player mean removing something from a cabinet-item: it is likely.
 
 To say status of cabinets:
@@ -1637,11 +1639,15 @@ Instead of opening the roasted coffee jar when the location of the player is the
 			say "[/ss]You need a pair of scissors to open it.' [/se][Monica] [say].";
 		stop the action;
 	continue the action.
-	
+
+To say tin needed:
+	say " [/ss1]Mum always asks if I need her empty coffee tins, so tomorrow I'll get one so we don't waste this good aroma.' [/r][/n]";
+	say "[heart][/ss]Good idea, Mo!' [/se][we] [appreciate] the solution.".
+
 Before an actor closing the roasted coffee jar when the location of the player is the kitchen:
 	unless the coffee jar is a tin:
-		say "[unless the actor is the player][Monica] would like to close the [roasted coffee jar], but...[end if][/ss]No, it can't close properly.' [/se][Monica] [state] [/ss1]Mum always asks if I need her empty coffee tins, so tomorrow I'll get one so we don't waste this good aroma.' [/r][/n]";
-		say "[heart][/ss]Good idea, Mo!' [/se][we] [appreciate] the solution.";
+		say "[unless the actor is the player][Monica] would like to close the [roasted coffee jar], but...[end if][/ss]No, it can't close properly.' [/se][Monica] [state]";
+		say tin needed;
 		stop the action.
 			
 Chapter filling
@@ -1706,7 +1712,19 @@ To Monica rearranges the kitchen, annoyed:
 		
 At the time when Monica force rearranging:
 	Monica rearranges the kitchen, annoyed.
-	
+
+Next attempt to store coffee jar is a truth state that varies.
+Before inserting the roasted coffee jar into a container:
+	if the second noun is a moka-component, say "Of course capsules are more convenient to use." instead;
+	unless the second noun is the right cabinet, say "[/ss]Put it there along with the capsules.' [/se][Monica] [say] pointing at the right cabinet." instead;
+	if the noun is open:
+		if the coffee jar is a tin:
+			say "[/ss]It's better if you close it, or the aroma will vanish.' [/se][Monica] [suggest]." instead;
+		otherwise:
+			if next attempt to store coffee jar is false:
+				now next attempt to store coffee jar is true;
+				say "[/ss]Unfortunately, we can't close it properly.' [/se][Monica] [regret]";
+				say tin needed.		 	
 		
 Volume Help
 

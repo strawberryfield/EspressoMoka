@@ -75,6 +75,7 @@ To recoalesce is a verb.
 To recoil is a verb. 
 To reform is a verb. 
 To regard is a verb. 
+To regret is a verb.
 To remark is a verb. 
 To remember is a verb.
 To remind is a verb.
