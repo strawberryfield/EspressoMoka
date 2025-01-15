@@ -750,8 +750,8 @@ The description is "A stainless steel gas powered hob."
 Understand "burner/flame/flames/fire" as the hob.
 
 The hob-switch is a device. It is part of the hob.
-After switching on the hob-switch: say "[We] [light] the flame."
-After switching off the hob-switch: say "[We] [extinguish] the flame."
+Report switching on the hob-switch: say "[We] [light] the flame." instead.
+Report switching off the hob-switch: say "[We] [extinguish] the flame." instead.
 Understand "extinguish [something]" as switching off.
 
 Before putting something on the hob:
@@ -1725,6 +1725,17 @@ Before inserting the roasted coffee jar into a container:
 				now next attempt to store coffee jar is true;
 				say "[/ss]Unfortunately, we can't close it properly.' [/se][Monica] [regret]";
 				say tin needed.		 	
+
+Chapter cooking	
+
+After switching on the hob-switch:
+	the coffee starts to exit in 2 turns from now;
+	now the current moka is hot;
+	now the current context is coffee-wait-help;
+	continue the action.
+	
+At the time when the coffee starts to exit:
+	say "The room fills with the rich, inviting scent of coffee; [we] [can] hear the coffee bubbling up in the moka pot."
 		
 Volume Help
 
@@ -1755,6 +1766,7 @@ Moka-open-help	"[Moka open help]"
 Moka-wash-help	"All food and drink preparation utensils must be washed before use."
 Moka-fill-help	"In order to make coffee, the moka needs to be filled with water and coffee powder."
 Moka-onfire-help	"The moka, filled and closed, must be placed on the hob for the coffee to come out."
+Coffee-wait-help	"Now, all we have to do is wait for the coffee to rise."
 
 Book Credits
 
