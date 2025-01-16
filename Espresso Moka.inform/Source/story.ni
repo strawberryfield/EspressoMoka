@@ -758,11 +758,20 @@ Before putting something on the hob:
 	unless the noun is a moka-item, say "[/ss]Don't be silly.' [/se][Monica] [suggest] [/ss1]You shouldn't put [the noun] on the hob.' [/r][/n]" instead.
 Instead of switching on the hob: try switching on the hob-switch.
 Instead of switching off the hob: try switching off the hob-switch.
-	
-Understand the command "fire" as "switch".
+
+Before switching off the hob-switch when current context is coffee-wait-help:
+	say "[/ss]What a hurry!' [/se][Monica] [exclaim] [/ss1]The coffee isn't ready yet.' [/r][/n]" instead.
+
+To say switch off needed: say "[/warning]It's better to switch off the hob before."
+Before removing something from the hob when the hob-switch is switched on:
+	say switch off needed instead.
+Before taking a moka-item when the hob-switch is switched on:
+	say switch off needed instead.
+	 	 	
 Understand the command "light" as something new.
 Understand "light on/-- [something]" as switching on.
 Understand "light off [something]" as switching off.
+Understand the command "fire" or "power" as "light".
 
 Instead of switching on the hob-switch when the hob is empty: say "[/warning]Lighting the hob without anything on top is pointless and could even be dangerous."
 
@@ -1729,11 +1738,15 @@ Before inserting the roasted coffee jar into a container:
 Chapter cooking	
 
 After switching on the hob-switch:
-	the coffee starts to exit in 2 turns from now;
+	Monica is excited in 0 turns from now;
 	now the current moka is hot;
 	now the current context is coffee-wait-help;
 	continue the action.
-	
+
+At the time when Monica is excited:
+	say "[heart][/ss]How exciting!' [/se][Monica] [say] [/ss1]Our first coffee made with the moka.' [/r][/n]";
+	the coffee starts to exit in 2 turns from now.
+
 At the time when the coffee starts to exit:
 	say "The room fills with the rich, inviting scent of coffee; [we] [can] hear the coffee bubbling up in the moka pot."
 		
