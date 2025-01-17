@@ -56,7 +56,7 @@ Instead of taking off a cloth:
 	say "This is not the time to undress."
 	
 Persuasion rule for asking someone to try getting off a cloth:
-	say "[/ss]Does this seem like something to ask?' [/se][regarding the actor][they] [ask] you angrily.";
+	say "[/ss]Does this seem like something to ask?' [/se][regarding the actor][they] [ask] [us] angrily.";
 	persuasion fails.
 
 People ends here.

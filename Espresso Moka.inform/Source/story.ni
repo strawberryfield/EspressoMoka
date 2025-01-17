@@ -265,7 +265,7 @@ Understand the command "disassembly" as "unscrew".
 Check unscrewing:
 	unless the noun is a moka-item, try opening the noun;
 	if the player cannot carry the noun, stop the action instead;
-	if the noun is hot, say "It [are] hot!" instead.
+	if the noun is hot, say "[/warning]It [are] hot!" instead.
 Carry out unscrewing:
 	now the noun is nowhere;
 	now the noun is already opened;
@@ -821,6 +821,11 @@ Understand "tableware/glasses/glass/plate/plates/dish/dishes" as crockery.
 A coffeecup is a kind of thing.
 Two coffeecups are in the left cabinet. 
 The description is "A white coffeecup with three coffee grains drawed on it."
+
+To say avoid taking coffeecups:
+	say "It would be better to leave it there."
+Instead of taking a coffeecup: say avoid taking coffeecups.
+Instead of removing a coffeecup from something: say avoid taking coffeecups.	
 
 Some food is an unuseful-item.
 Food is in the right cabinet.
@@ -1745,10 +1750,24 @@ After switching on the hob-switch:
 
 At the time when Monica is excited:
 	say "[heart][/ss]How exciting!' [/se][Monica] [say] [/ss1]Our first coffee made with the moka.' [/r][/n]";
-	the coffee starts to exit in 2 turns from now.
+	Monica takes the coffeecups in 0 turns from now.
 
+At the time when Monica takes the coffeecups:
+	say "[Monica] [take] the two coffeecups from the cabinet and [put] them on the table.";
+	repeat with item running through the coffeecups in the left cabinet:
+		now the item is on the table;
+		now the item is undescribed;
+	the coffee starts to exit in 1 turns from now.
+	
 At the time when the coffee starts to exit:
+	now the current context is coffee-ready-help;
+	Monica switches off the hob in 1 turn from now;
 	say "The room fills with the rich, inviting scent of coffee; [we] [can] hear the coffee bubbling up in the moka pot."
+	
+At the time when Monica switches off the hob:
+	if the hob-switch is switched on:
+		try Monica switching off the hob-switch;
+		say "[/ss]Ciccio, we have to switch off the fire,' [/se][Monica] [remind] [us] [/ss1]otherwise the coffee takes on a burnt taste.' [/r][/n]".
 		
 Volume Help
 
@@ -1780,6 +1799,7 @@ Moka-wash-help	"All food and drink preparation utensils must be washed before us
 Moka-fill-help	"In order to make coffee, the moka needs to be filled with water and coffee powder."
 Moka-onfire-help	"The moka, filled and closed, must be placed on the hob for the coffee to come out."
 Coffee-wait-help	"Now, all we have to do is wait for the coffee to rise."
+Coffee-ready-help	"The coffee is ready! [/n]Just remember to turn off the heat to prevent it from acquiring a burnt taste. [/n]Enjoy!"
 
 Book Credits
 
