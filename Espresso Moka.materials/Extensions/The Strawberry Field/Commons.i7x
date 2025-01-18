@@ -105,7 +105,7 @@ Understand "use [a switched off device]" as switching on.
 
 Understand "use [something]" as using. 
 Using is an action applying to one thing. 
-Carry out using: say "[We] will have to be more specific about your intentions."
+Carry out using: say "[We] will have to be more specific about your intentions with [the noun]."
 
 Understand "use [a door]" as opening. 
 Understand "use [an open door]" as entering.
@@ -142,10 +142,14 @@ Check singing:
 Chapter Stealing
 
 Stealing is an action applying to one thing.
-Understand "steal [something]" as stealing.
-Carry out stealing: say "Naughty, don't do that!".
-Understand the command "stole" as "steal".
-
+Understand "steal all/every/any/-- [something]" as stealing.
+Understand "steal all/everything/anything/--" as stealing.
+Report stealing: 
+	say "[one of]Naughty, don't do that[or]I call the security service[at random]!".
+Understand the command "stole" or "rob" as "steal".
+Rule for supplying a missing noun while stealing (this is the indefinite stealing rule):
+    now the noun is the location. 
+	
 Chapter Special says
 
 To say times of (N - a number): say " for the [ordinal of N] time".

@@ -24,9 +24,15 @@ Context is a kind of value.
 The contexts are defined by the Table of help topics. 
 Current context is a context that varies. Current context is usually generic-help.
 
+To say generic help:
+	say "Look carefully around you.";
+	say "Examine everything. Even if there are many things in the location, try to examine each one, at least once. Be systematic.";
+	say "Notice which objects the game is focussing your attention on, and which seem to be background or scenery.";
+	say "Try to interact with things. Use common sense. If you see a button, push it. If you find a flute, play it. And 'take' anything that you can possibly lift."
+	
 Table of help topics
 Context	Text
-Generic-help	"Look carefully around you."
+Generic-help	"[generic help]"
 
 
 Volume Magic

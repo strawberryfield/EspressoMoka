@@ -526,7 +526,11 @@ To say brief description of (item - coffee-item):
 
 To decide which real number is cost of (item - coffee-item):	 
 	decide on the price corresponding to a coffee-type of coffee-type of the item in the quality-list of the item.
-	
+
+Before inserting something into the roasted coffee jar: say "[We] [don't] want to put it in there.	" instead.
+Before smelling the roasted coffee jar:
+	if the noun is open, try smelling the coffee powder instead.
+
 Does the player mean taking the coffee capsules box: it is very likely.
 
 Before taking something sellable which is on the counter:
@@ -535,7 +539,21 @@ Before taking something sellable which is on the counter:
 
 Before taking something which is in the brown shopper when the player is in the coffee-shop:
 	say "You will do it when you get home." instead.
-	
+
+Section coffee powder
+
+The coffee powder is in the roasted coffee jar.
+The description is "Dark brown coffee powder."
+The flavor-description is "Very bitter".	
+The indefinite article is "some".
+The coffee powder is edible.
+
+Instead of smelling the coffee powder: say "Intense aroma of roasted coffee."
+Instead of eating the coffee powder: say "[We] should not eat it, the only thing [we] can do is have a taste of it."
+
+Does the player mean smelling the coffee powder: it is very likely.
+Does the player mean eating the coffee powder: it is very likely.
+Does the player mean tasting the coffee powder: it is very likely.
 
 Chapter Tables 
 	
@@ -1054,7 +1072,7 @@ The description is "Tall, slim ".
 Hair are "lots of slightly reddish, frizzy".
 Eyes are "sparkling green".
 Notes are "Could you not fall in love with her? [/n]A peppy girl, she won't forgive you anything you do that she doesn't like, but deep down she has her heart beating for you. [/n][We] got used to shortening her name to Mo".
-The scent-description of Monica is "the bouquet perfume you gave her for her birthday. [/n]She loves it and has almost finished it, so you have to find an excuse to give her another."
+The scent-description of Monica is "the bouquet perfume you gave her for her birthday. [/n]She loves it and has almost finished it, so you have to find an excuse to give her another".
 Understand "Mo" or "my/your/-- love/girl/girlfriend" as Monica.
 Monica is proper-named.
 
@@ -1663,7 +1681,18 @@ Before an actor closing the roasted coffee jar when the location of the player i
 		say "[unless the actor is the player][Monica] would like to close the [roasted coffee jar], but...[end if][/ss]No, it can't close properly.' [/se][Monica] [state]";
 		say tin needed;
 		stop the action.
-			
+
+Section Coffee powder
+
+Instead of taking the coffee powder:
+	unless the player carries the teaspoon, say "[We] can't take it with [our] hands." instead;
+	if the player carries the coffee funnel filter or the player carries the moka heater: 
+		say "[We] [are] trying to fill the funnel filter.";
+		try filling the coffee funnel filter instead;
+	say "[/ss]Don't spread it around, then it's my turn to clean up.' [/se][Monica] [scold] [us]."
+
+Instead of removing the coffee powder from something: try taking the noun.
+	 			
 Chapter filling
 
 After filling the coffee funnel filter:
