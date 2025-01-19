@@ -446,7 +446,20 @@ paper-topic (a topic)	read	title	text
 The arguments of the written paper sheet's back side are the table of back guide contents.
 The description of the written paper sheet's back side is "The content is divided into three sections:  [list of topics of the noun]."
 
+Section Instructions read
 
+Instructions-read is a truth state that varies.
+
+After examining as a paper when the current side of the current paper is the written paper sheet's back side:
+	if the topic understood is a paper-topic listed in the arguments of the current side of the current paper:
+		if the "[title entry]" is "English", now instructions-read is true;
+		if the "[title entry]" is "Italiano", Monica asks did you understand in 0 turns from now;
+	continue the action.
+
+At the time when Monica asks did you understand:
+	say "[/ss]You read the text in Italian, but did you understand it?' [/se][Monica] [ask]. [/p]";
+	if the player consents, now instructions-read is true.
+	
 Book Coffee shop
 
 The Coffee-Shop is a room.
@@ -1819,14 +1832,39 @@ Check pouring:
 Report pouring:
 	say "[We] [pour] the hot coffee into [the noun]. A delicate swirling tendril of steam [rise] from it."
 
+Section After pouring
+
 After pouring:
 	the director stops the action in 0 turns from now;
 	continue the action.	
+	
 At the time when the director stops the action:
+	now the printed name of the kitchen is "On the stage";
 	say "[note style]Stop![/r][/n]";
 	say "This is the director's voice, stopping the action.";
-	now the printed name of the kitchen is "On the stage".
-			
+	say "[/ss]Oh my, just as this lovely coffee is ready.' [/se][Monica] [say] [us] in a whisper [/ss1]What do you say we just pretend nothing happened and enjoy it together?' [/r][heart][/p]";
+	if the player consents:
+		say "[/ss]Oh, come on, we've put so much effort in, it would be such a shame to waste it now!' [/se][we] [reply].";
+		say Marco arrives;
+		say "[/ss]Don't drink that coffee!' [/se][regarding Marco][they] [exclaim] then [add] [/ss1]";
+		if instructions-read is true:
+			say "Do you still remember what it said in the instructions for the moka?' [/r][/p]";
+		otherwise:
+			say "If you had read the instructions for the moka pot, the folded sheet that was inside the filter, you would have known that [coffee should be thrown away].' [/r][/n]";
+	otherwise:
+		say "[/ss]Better not, I don't want to get bollocked.' [/se][we] [reply].";
+		say Marco arrives;
+		say "[/ss]By the way,' [/se][regarding Marco][they] [say] [/ss1]according to the mocha's instructions[if instructions-read is false], which you did not read[end if], [coffee should be thrown away].' [/r][/n]";
+	say "[/n]Then [Marco] [turn] to the director and [ask] [/ss1]I think we can both agree that these guys were pretty good, right?' [/r][/n]";
+	say "[/ss]Absolutely!' [/se]he [reply] [/ss1]And I absolutely love the idea of what you're planning to do with that old moka.' [/r][/n]";
+	say "[/ss][printed name of the player], would you like to help me make some coffee for everyone?' [/se][Marco] [ask] [us].[/n]";
+	
+To say Marco arrives:
+	say "[Marco] [come] from behind the scenes, carrying a large moka that's clearly been used.".
+
+To say coffee should be thrown away:
+	say "the first three dispensing operations of coffee should be thrown away as they are necessary for enhancing the aroma of coffee at best".
+					
 Volume Help
 
 Book help

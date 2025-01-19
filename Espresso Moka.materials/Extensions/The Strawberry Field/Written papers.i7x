@@ -106,6 +106,10 @@ Understand "read [text]" as examining as a paper.
 
 Check examining as a paper:
 	if the current paper is nothing, say "I don't know where you want to read from." instead.
+
+Carry out examining as a paper:
+	if the topic understood is a paper-topic listed in the arguments of the current side of the current paper:
+		now the read entry is true. 
 	
 Report examining as a paper:
 	if the topic understood is a paper-topic listed in the arguments of the current side of the current paper:
@@ -132,5 +136,14 @@ Before examining as a paper when the current paper is nothing (this is the readi
 	if np is greater than one, say specify what to read instead;
 	if np is one, now the current paper is a random paper-item carried by the player;
 	say "(looking at [the current paper])[/ccb]".
+
+Section Is read?
+
+To decide if (T - text) in (PS - a paper side) is read:
+	let TT be the arguments of PS;
+	if there is a paper-topic of "[T]" in TT:
+		decide on the read corresponding to a paper-topic of "[T]" in TT;
+	otherwise: 
+		decide no.
 	
 Written papers ends here.
