@@ -68,6 +68,7 @@ To peer is a verb.
 To ping is a verb. 
 To place is a verb.
 To point is a verb.
+To pour is a verb.
 To pull is a verb.
 To rebuke is a verb.
 To recite is a verb. 
@@ -84,6 +85,7 @@ To report is a verb.
 To rest is a verb. 
 To return is a verb.
 To revolve is a verb. 
+To rise is a verb.
 To scold is a verb.
 To scrabble is a verb. 
 To scramble is a verb. 

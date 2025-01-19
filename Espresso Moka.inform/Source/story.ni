@@ -225,6 +225,7 @@ A moka-item has some text called color.
 A moka-item can be hot or cold. It is usually cold.
 A moka-item can be already opened.
 A moka-item can be washed.
+A moka-item can be with coffee or without coffee. It is usually without coffee.
 
 The price of a moka-item is usually 18.90.
 The description of a moka-item is usually "A [color of the noun] moka pot for two cups[if the noun is on the moka pots open shelf]. [/n]A tag indicates the price of [price of the noun in euro][end if]." 
@@ -690,6 +691,7 @@ Book Kitchen
 
 The Kitchen is a room.
 The description is "The room is painted light yellow with the furniture and the appliances on one side. [/n]A photograph hangs on the opposite wall and a window lights up the room."
+The printed name is "In the kitchen".
 
 The photograph is a scenery in the kitchen.
 The description is "The photo shows [us] and [Monica] standing close together on a sandy beach beside a scenic lake surrounded by tall trees and mountains. The lake's clear blue water extends into the distance, reflecting the surrounding landscape and sky. [/n][We] took this photo on one of your mountain walks."
@@ -1185,6 +1187,14 @@ Response of Monica when asked-or-told about yourself:
 Response of Monica when asked-or-told about Monica or asked-or-told about "her/herself":
 	say "[/ss]As Mary Poppins: I'm pratically perfect!' [/se][Monica] [shut] [us] down."
 
+To say should ask the narrator: say "[/ss]You should definitely ask the narrator directly!' [/se][regarding Monica][they] [answer]."	
+Response of Monica when asked-or-told about "[help]":
+	say should ask the narrator.
+	
+Response of Monica when asked for "[help]":
+	say should ask the narrator.
+	
+
 Book Marco
 
 Marco is a man in the coffee-shop.
@@ -1199,11 +1209,6 @@ Rule for printing a locale paragraph about Marco:  say "[Marco] [are] managing t
 
 Book Narrator
 
-The narrator is a backdrop.
-The narrator is everywhere.
-Understand "storyteller/teller" as the narrator.
-
-Understand "narrator/storyteller/teller/master" as "[narrator]".
 Asking narrator for is an action applying to one thing.
 Understand "ask the/-- [narrator] for [anything]" as asking narrator for.
 Carry out asking narrator for: try saying hello to the narrator.
@@ -1215,6 +1220,7 @@ Carry out asking narrator about: try saying hello to the narrator.
 Quizzing narrator about is an action applying to one topic.
 Understand "ask the/-- [narrator] about [text]" as quizzing narrator about.
 Carry out quizzing narrator about: try saying hello to the narrator.
+
 
 Volume Conversations
 
@@ -1790,6 +1796,7 @@ At the time when Monica takes the coffeecups:
 	
 At the time when the coffee starts to exit:
 	now the current context is coffee-ready-help;
+	now the current moka is with coffee;
 	Monica switches off the hob in 1 turn from now;
 	say "The room fills with the rich, inviting scent of coffee; [we] [can] hear the coffee bubbling up in the moka pot."
 	
@@ -1797,7 +1804,29 @@ At the time when Monica switches off the hob:
 	if the hob-switch is switched on:
 		try Monica switching off the hob-switch;
 		say "[/ss]Ciccio, we have to switch off the fire,' [/se][Monica] [remind] [us] [/ss1]otherwise the coffee takes on a burnt taste.' [/r][/n]".
-		
+
+Chapter Pouring
+
+Pouring is an action applying to one thing.
+Understand "pour the/some/-- coffee/espresso in/into [something]" as pouring.
+Understand "pour the/some/-- coffee/espresso" as pouring.
+Rule for supplying a missing noun when pouring: now the noun is a random coffeecup.
+
+Check pouring:
+	unless the location is the kitchen, say "There [are] no coffee to pour here." instead;
+	if the current moka is without coffee, say "The coffee is not yet ready." instead; 
+	if the player cannot carry the current moka, stop the action.
+Report pouring:
+	say "[We] [pour] the hot coffee into [the noun]. A delicate swirling tendril of steam [rise] from it."
+
+After pouring:
+	the director stops the action in 0 turns from now;
+	continue the action.	
+At the time when the director stops the action:
+	say "[note style]Stop![/r][/n]";
+	say "This is the director's voice, stopping the action.";
+	now the printed name of the kitchen is "On the stage".
+			
 Volume Help
 
 Book help

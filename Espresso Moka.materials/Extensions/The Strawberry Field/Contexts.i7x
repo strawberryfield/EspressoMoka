@@ -11,12 +11,25 @@ To say verbs command:
 Requesting help is an action out of world.
 Understand "help me/-- please/--" as requesting help. 
 Understand the command "hint/advise/suggest/tip" as "help".
-Understand "ask for help/hint/hints/suggestion/suggestions/advise" as requesting help.
-Understand "get help/hint/hints/suggestion/suggestions/advise" as requesting help.
-Understand "request help/hint/hints/suggestion/suggestions/advise" as requesting help.
+Understand "help/hint/hints/suggestion/suggestions/advise" as "[help]".
+Understand "ask for [help]" as requesting help.
+Understand "get [help]" as requesting help.
+Understand "request [help]" as requesting help.
 Report requesting help:
 	say "[text corresponding to a context of current context in the table of help topics][/p]";
 	say verbs command.
+	
+Section Narrator
+
+The narrator is a backdrop.
+The description is "The narrator is omnipresent and invisible."
+The narrator is everywhere.
+
+Understand "narrator/storyteller/teller/master" or "game/-- master" as "[narrator]".
+Understand "[narrator]" as the narrator.
+
+Understand "ask the/-- [narrator] for [help]" as requesting help.	
+Understand "ask [help] to the/-- [narrator]" as requesting help.
 
 Section contexts 
 
