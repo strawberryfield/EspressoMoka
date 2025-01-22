@@ -1849,6 +1849,10 @@ At the time when the director stops the action:
 		say "[/ss]Don't drink that coffee!' [/se][regarding Marco][they] [exclaim] then [add] [/ss1]";
 		if instructions-read is true:
 			say "Do you still remember what it said in the instructions for the moka?' [/r][/p]";
+			if the player consents:
+				say "[/ss]Then you can throw away that coffee, because it's not very good.' [/se][regarding Marco][they] [suggest] [/ss1]Make a few more coffees and throw them away, so that tomorrow morning you will have a good cup of coffee to wake you up.' [/r][/n]";
+			otherwise:
+				say "[/ss]Then I'll remind you.' [/se][regarding Marco][they] [say] [/ss1]It was written that [coffee should be thrown away].' [/r][/n]";
 		otherwise:
 			say "If you had read the instructions for the moka pot, the folded sheet that was inside the filter, you would have known that [coffee should be thrown away].' [/r][/n]";
 	otherwise:
@@ -1858,6 +1862,12 @@ At the time when the director stops the action:
 	say "[/n]Then [Marco] [turn] to the director and [ask] [/ss1]I think we can both agree that these guys were pretty good, right?' [/r][/n]";
 	say "[/ss]Absolutely!' [/se]he [reply] [/ss1]And I absolutely love the idea of what you're planning to do with that old moka.' [/r][/n]";
 	say "[/ss][printed name of the player], would you like to help me make some coffee for everyone?' [/se][Marco] [ask] [us].[/n]";
+	if the player consents:
+		say "[heart][/ss]It's great that we all share the same coffee.' [/se][Monica] [exclaim] then [ask] [Marco] [/ss1]Can I also help?' [/r][/n]";
+		say "[/ss]Oh, yes, we need some cups.' [/se][Marco] [reply] [/ss1]There should be some in the shop setting.' [/r][/n]";
+	otherwise:
+		say "[/ss]Don't worry [Marco], I'll help you.' [/se][Monica] [reply], then [turn] to [us] with a scolding [/ss1]It's nice to share the same coffee all together, I really don't understand why you don't want to help make it.' [/r][/n]";
+		
 	
 To say Marco arrives:
 	say "[Marco] [come] from behind the scenes, carrying a large moka that's clearly been used.".
