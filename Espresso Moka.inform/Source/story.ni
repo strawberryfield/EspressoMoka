@@ -1864,13 +1864,28 @@ At the time when the director stops the action:
 	say "[/ss][printed name of the player], would you like to help me make some coffee for everyone?' [/se][Marco] [ask] [us].[/n]";
 	if the player consents:
 		say "[heart][/ss]It's great that we all share the same coffee.' [/se][Monica] [exclaim] then [ask] [Marco] [/ss1]Can I also help?' [/r][/n]";
-		say "[/ss]Oh, yes, we need some cups.' [/se][Marco] [reply] [/ss1]There should be some in the shop setting.' [/r][/n]";
+		say "[/ss]Oh, yes, we need some cups.' [/se][Marco] [reply] [/ss1]There should be some in the shop scene.' [/r][/n]";
+		say "While [we] and [Marco] manage for the coffee [Monica takes cups]";
+		say "And then our talented Francesco.' [/r][/n]";
 	otherwise:
 		say "[/ss]Don't worry [Marco], I'll help you.' [/se][Monica] [reply], then [turn] to [us] with a scolding [/ss1]It's nice to share the same coffee all together, I really don't understand why you don't want to help make it.' [/r][/n]";
-		
+		say "[/ss]Thank you [Monica].' [/se][Marco] [say] [/ss1]I've got the moka ready, just need to close it and put it on the hob while I go and get some cups.' [/r][/n]";
+		say Marco takes cups;
+		say "And you, Francesco, would you like to have this coffee?' [/r][/p]";
+		if the player consents:
+			say "[/ss]Even if you didn't help us, you deserve it.' [/se][regarding Marco][they] [explain] [/ss1]After all, you did a good job before.' [/r][/n]";
+		otherwise:
+			say "[/ss]It's such a shame, you don't know what you're missing.' [/se][regarding Marco][they] [reply].";
+	say "[/n]Thank you so much for taking part in this game! [/n]If you'd like to play it again by making different choices we are always here for you.";
+	end the story saying "But now I am going to get my coffee as well, before it gets cold."
+
+To say (P - a person) takes cups:
+	say "[P] [go] to the shop scene and [come] back a few minutes later with some coffecups which [they] [put] on the table.";
+	say "[/n]An inviting aroma of coffee begins to invade the kitchen scene; [Marco] [start] pouring coffee for everyone.";
+	say "[/ss]The first one is obviously for Monica.' [/se][regarding Marco][they] [state], then pointing [us] [/ss1]";		
 	
 To say Marco arrives:
-	say "[Marco] [come] from behind the scenes, carrying a large moka that's clearly been used.".
+	say "[Marco] [come] from behind the scenes, carrying a large moka that's clearly been used."
 
 To say coffee should be thrown away:
 	say "the first three dispensing operations of coffee should be thrown away as they are necessary for enhancing the aroma of coffee at best".
