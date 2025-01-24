@@ -1318,8 +1318,7 @@ Node-introduction for capsules-offer-node:
 Section Classic
 	
 Understand "classic/standard/normal/ordinary blend/coffee/--" as "[classic blend]".
-Response for Marco when asked-or-told about "[classic blend]":
-	Marco explains flavour of classic.
+Response for Marco when asked-or-told about "[classic blend]": Marco explains flavour of classic.
 Response for capsules-offer-node when asked-or-told about "[classic blend]":
 	Marco explains flavour of classic;
 	Marco state the capsules price of classic.
@@ -1327,67 +1326,94 @@ Response for capsules-offer-node when asked-or-told about "[classic blend]":
 Response for capsules-offer-node when asked for "[classic blend]": Marco takes the box of classic.
 Response for capsules-offer-node when answered that "[classic blend]": Marco takes the box of classic.
 
+Answering classic is an action applying to nothing.
+Answering classic is making a choice.
+Understand "[classic blend]" as answering classic.
+Carry out answering classic: try answering the current interlocutor that "classic".
+	
+Before making a choice: unless the location is the coffee-shop, say "Sorry, I'm not sure what you mean." instead.
+	
 Section Arabica 
 
 Understand "pure/100%/-- arabica blend/coffee/--" as "[arabica blend]".
-Response for Marco when asked-or-told about "[arabica blend]":
-	Marco explains flavour of arabica.
+Response for Marco when asked-or-told about "[arabica blend]": Marco explains flavour of arabica.
 Response for capsules-offer-node when asked-or-told about "[arabica blend]":
 	Marco explains flavour of arabica;
 	Marco state the capsules price of arabica.
 	
-Response for capsules-offer-node when asked for "[arabica blend]":
-	Marco takes the box of arabica.
+Response for capsules-offer-node when asked for "[arabica blend]": Marco takes the box of arabica.
+Response for capsules-offer-node when answered that "[arabica blend]": Marco takes the box of arabica.
 
+Answering arabica is an action applying to nothing.
+Answering arabica is making a choice.
+Understand "[arabica blend]" as answering arabica.
+Carry out answering arabica: try answering the current interlocutor that "arabica".
+	
 Section Strong 
 
 Understand "strong/intense blend/coffee/--" as "[strong blend]".
-Response for Marco when asked-or-told about "[strong blend]":
-	Marco explains flavour of strong.
+Response for Marco when asked-or-told about "[strong blend]": Marco explains flavour of strong.
 Response for capsules-offer-node when asked-or-told about "[strong blend]":
 	Marco explains flavour of strong;
 	Marco state the capsules price of strong.	
 	
-Response for capsules-offer-node when asked for "[strong blend]":
-	Marco takes the box of strong.
+Response for capsules-offer-node when asked for "[strong blend]": Marco takes the box of strong.
+Response for capsules-offer-node when answered that "[strong blend]": Marco takes the box of strong.
 
+Answering strong is an action applying to nothing.
+Answering strong is making a choice.
+Understand "[strong blend]" as answering strong.
+Carry out answering strong: try answering the current interlocutor that "strong".
+	
 Section Soft 
 
 Understand "light/soft/mild blend/coffee/--" as "[soft blend]".
-Response for Marco when asked-or-told about "[soft blend]":
-	Marco explains flavour of soft.
+Response for Marco when asked-or-told about "[soft blend]": Marco explains flavour of soft.
 Response for capsules-offer-node when asked-or-told about "[soft blend]":
 	Marco explains flavour of soft;
 	Marco state the capsules price of soft.
 	
-Response for capsules-offer-node when asked for "[soft blend]":
-	Marco takes the box of soft.
+Response for capsules-offer-node when asked for "[soft blend]": Marco takes the box of soft.
+Response for capsules-offer-node when answered that "[soft blend]": Marco takes the box of soft.
+	
+Answering soft is an action applying to nothing.
+Answering soft is making a choice.
+Understand "[soft blend]" as answering soft.
+Carry out answering soft: try answering the current interlocutor that "soft".
 	
 Section Vanilla
 
 Understand "vanilla/sweet/flavoured/flavored blend/coffee/--" as "[vanilla blend]".
-Response for Marco when asked-or-told about "[vanilla blend]":
-	Marco explains flavour of vanilla.
+Response for Marco when asked-or-told about "[vanilla blend]": Marco explains flavour of vanilla.
 Response for capsules-offer-node when asked-or-told about "[vanilla blend]":
 	Marco explains flavour of vanilla;
 	Marco state the capsules price of vanilla.
 	
-Response for capsules-offer-node when asked for "[vanilla blend]":
-	Marco takes the box of vanilla.
+Response for capsules-offer-node when asked for "[vanilla blend]": Marco takes the box of vanilla.
+Response for capsules-offer-node when answered that "[vanilla blend]": Marco takes the box of vanilla.
 
+Answering vanilla is an action applying to nothing.
+Answering vanilla is making a choice.
+Understand "[vanilla blend]" as answering vanilla.
+Carry out answering vanilla: try answering the current interlocutor that "vanilla".
+	
 Section Monocolture
 
 To say unavailable in capsules: say "[/ss]Unfortunately, it is not available in capsules.' [/se][regarding Marco][they] [remark]."
 	
 Understand "monocolture/mono-origin/moustache/brazilian/paulista blend/coffee/--" as "[paulista]".
-Response for Marco when asked-or-told about "[paulista]":
-	Marco explains flavour of monocolture.
+Response for Marco when asked-or-told about "[paulista]": Marco explains flavour of monocolture.
 Response for capsules-offer-node when asked-or-told about "[paulista]":
 	Marco explains flavour of monocolture;
 	say unavailable in capsules.
 
-Response for capsules-offer-node when asked for "[paulista]":
-	say unavailable in capsules.
+Response for capsules-offer-node when asked for "[paulista]": say unavailable in capsules.
+Response for capsules-offer-node when answered that "[paulista]": say unavailable in capsules.
+	
+Answering paulista is an action applying to nothing.
+Answering paulista is making a choice.
+Understand "[paulista]" as answering paulista.
+Carry out answering paulista: try answering the current interlocutor that "paulista".
 	
 Chapter Mokas
 
@@ -1464,8 +1490,8 @@ Response for roasted-coffee-node when asked-or-told about "[classic blend]":
 	Marco explains flavour of classic;
 	Marco state the coffee price of classic.
 
-Response for roasted-coffee-node when asked for "[classic blend]":
-	Marco takes the package of classic.
+Response for roasted-coffee-node when asked for "[classic blend]": Marco takes the package of classic.
+Response for roasted-coffee-node when answered that "[classic blend]": Marco takes the package of classic.
 
 Section Arabica 
 
@@ -1473,8 +1499,8 @@ Response for roasted-coffee-node when asked-or-told about "[arabica blend]":
 	Marco explains flavour of arabica;
 	Marco state the coffee price of arabica.
 	
-Response for roasted-coffee-node when asked for "[arabica blend]":
-	Marco takes the package of arabica.
+Response for roasted-coffee-node when asked for "[arabica blend]": Marco takes the package of arabica.
+Response for roasted-coffee-node when answered that "[arabica blend]": Marco takes the package of arabica.
 
 Section Strong 
 
@@ -1482,8 +1508,8 @@ Response for roasted-coffee-node when asked-or-told about "[strong blend]":
 	Marco explains flavour of strong;
 	Marco state the coffee price of strong.
 	
-Response for capsules-offer-node when asked for "[strong blend]":
-	Marco takes the package of strong.
+Response for capsules-offer-node when asked for "[strong blend]": Marco takes the package of strong.
+Response for capsules-offer-node when answered that "[strong blend]": Marco takes the package of strong.
 
 Section Soft 
 
@@ -1491,8 +1517,8 @@ Response for roasted-coffee-node when asked-or-told about "[soft blend]":
 	Marco explains flavour of soft;
 	Marco state the coffee price of soft.
 	
-Response for roasted-coffee-node when asked for "[soft blend]":
-	Marco takes the package of soft.
+Response for roasted-coffee-node when asked for "[soft blend]": Marco takes the package of soft.
+Response for roasted-coffee-node when answered that "[soft blend]": Marco takes the package of soft.
 
 Section Vanilla
 
@@ -1502,8 +1528,8 @@ Response for roasted-coffee-node when asked-or-told about "[vanilla blend]":
 	Marco explains flavour of vanilla;
 	say available in capsules.
 	
-Response for roasted-coffee-node when asked for "[vanilla blend]":
-	say available in capsules.
+Response for roasted-coffee-node when asked for "[vanilla blend]": say available in capsules.
+Response for roasted-coffee-node when answered that "[vanilla blend]": say available in capsules.
 
 Section Monocolture
 
@@ -1511,9 +1537,8 @@ Response for roasted-coffee-node when asked-or-told about "[paulista]":
 	Marco explains flavour of monocolture;
 	Marco state the coffee price of monocolture.
 	
-Response for roasted-coffee-node when asked for "[paulista]":
-	Marco takes the package of monocolture.
-
+Response for roasted-coffee-node when asked for "[paulista]": Marco takes the package of monocolture.
+Response for roasted-coffee-node when answered that "[paulista]": Marco takes the package of monocolture.
 
 Chapter Payment
 
