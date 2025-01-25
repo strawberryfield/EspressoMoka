@@ -1,5 +1,21 @@
 "Espresso Moka" by Roberto Ceccarelli
 
+[
+Espresso Moka © 2025 by Roberto Ceccarelli - The Strawberry Field 
+is licensed under CC BY-NC-SA 4.0. 
+To view a copy of this license, 
+visit https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+Espresso Moka is free software: 
+you can redistribute it and/or modify it
+under the terms of the Creative Commons BY-NC-SA license.
+
+Espresso Moka is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+See the license for more details.
+]
+
 Volume Configuration
 
 Book Includes
