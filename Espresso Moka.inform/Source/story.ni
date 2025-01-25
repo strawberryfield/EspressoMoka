@@ -89,8 +89,7 @@ The street is a region.
 
 Chapter Dropping
 
-Instead of dropping something:
-	say "Don't throw anything on the ground."
+Instead of dropping something: say "Don't throw anything on the ground."
 Instead of dropping a shopper-item:
 	say "[/ss]I know you hate shoppers,' [/se][Monica] [say] taking [the noun] [/ss1]I'll take it.' [/r][/n]";
 	now Monica carries the noun.
@@ -101,8 +100,7 @@ To say be more specific: say "You can't go in between directions, just say ".
 Instead of going northeast when the player is in the street: say "[be more specific]north or east."
 Instead of going southeast when the player is in the street: say "[be more specific]south or east."
 	
-To say nothing west:
-	say "There is nothing of interest to the west, do you want to go ".
+To say nothing west: say "There is nothing of interest to the west, do you want to go ".
 Instead of going northwest when the player is in the street:
 	say "[nothing west]north?[/n]";
 	if the player consents, try going north.
@@ -110,12 +108,9 @@ Instead of going southwest when the player is in the street:
 	say "[nothing west]south?[/n]";
 	if the player consents, try going south.
 
-Instead of going up when the player is in the street:
-	say "Keep your feet on the ground!".
-Instead of going down when the player is in the street:
-	say "There's no point in going under the road, there's no way you can get there anyway."
-Instead of going outside when the player is in the street:
-	say "[/ss]Don't try to escape!' [/se][Monica] [exclaim]."
+Instead of going up when the player is in the street: say "Keep your feet on the ground!".
+Instead of going down when the player is in the street: say "There's no point in going under the road, there's no way you can get there anyway."
+Instead of going outside when the player is in the street: say "[/ss]Don't try to escape!' [/se][Monica] [exclaim]."
 
 Instead of going east when the player is in the street: try going inside.
 				
@@ -133,8 +128,7 @@ Section  Movements
 
 To say no door to enter: say "There is no door to enter the building."
 Instead of going west when the player is in the street-1: say no door to enter.
-Instead of going inside when the player is in the street-1:
-	say "If you try to do so, you will hit your nose against the glass."
+Instead of going inside when the player is in the street-1: say "If you try to do so, you will hit your nose against the glass."
 Instead of going south when the player is in the street-1:
 	say "[/ss]We've just arrived, so we're not going home yet.' [/se][Monica] [say] firmly.";
 	say "[/ss]Besides,' [/se][regarding Monica][they] [add] [/ss1]you said it yourself, we have to buy coffee capsules.' [/r][/n]".
@@ -188,8 +182,7 @@ The wooden front door is in the street-2. It is scenery.
 The description is "A large wooden door. It is closed."
 Understand "large/-- building/house wooden/-- front/-- door/entrance" or "wooden/-- front/-- door/entrance of the/-- large/-- building/house" as the wooden front door.
 
-Instead of opening the wooden front door:
-	say "([the noun])[/ccb]It is locked. [/n]Only the tenants have the key to open it. In any case, there is nothing of interest inside."
+Instead of opening the wooden front door: say "([the noun])[/ccb]It is locked. [/n]Only the tenants have the key to open it. In any case, there is nothing of interest inside."
 
 Section  Movements
 
@@ -204,8 +197,7 @@ Instead of going inside when the player is in the street-2:
 	otherwise:
 		say "[/ss]We have already bought the shorts,' [/se][Monica] [say] [/ss1]let's go ahead, we have to buy coffee.' [/r][/n]".
 	
-Instead of going south when the player is in the street-2:
-	say "[/ss]But where are you going?' [/se][Monica] [ask] [/ss1]The coffee shop is on the other direction.' [/r][/n]"
+Instead of going south when the player is in the street-2: say "[/ss]But where are you going?' [/se][Monica] [ask] [/ss1]The coffee shop is on the other direction.' [/r][/n]"
 
 Chapter Street 3
 
@@ -257,8 +249,7 @@ A moka-component can be filled. A moka-component usually is not filled.
 
 The moka pot is a moka-component.
 The description is "The upper part of the moka in which the extracted coffee is collected."
-Instead of inserting something into the moka pot:
-	say "This container must be left empty: it will be filled by the extracted coffee."
+Instead of inserting something into the moka pot: say "This container must be left empty: it will be filled by the extracted coffee."
 
 The moka heater is a moka-component.
 Understand "moka/-- boiler" or "moka/-- water container"as the moka heater.
@@ -268,8 +259,7 @@ Instead of inserting something into the moka heater:
 The description is "The lower part of the moka, the water container[if filled]. [/n]Actually it contains some water[end if]."
 
 The coffee funnel filter is a moka-component in the moka heater.
-Instead of inserting something into the coffee funnel filter:
-	say "This is the powder container".
+Instead of inserting something into the coffee funnel filter: say "This is the powder container".
 The description is "An aluminium funnel with a filter on which to put the coffee powder. It fits over the heater[if filled]. [/n]It is currently full of coffee powder[end if]."
 
 Chapter Open
@@ -290,19 +280,14 @@ Carry out unscrewing:
 	now the player carries the moka pot;
 	now the player carries the moka heater;
 	set pronouns from the moka pot.
-Report unscrewing:
-	say "[We] un[screw] the moka and thus separate the heater from the pot."
+Report unscrewing: say "[We] un[screw] the moka and thus separate the heater from the pot."
 			
-Instead of opening a moka-item:
-	try unscrewing the noun.
-	
-Instead of opening a moka-component:
-	say "It is not something to be opened."
+Instead of opening a moka-item: try unscrewing the noun.
+Instead of opening a moka-component: say "It is not something to be opened."
 	
 Section Filter
 
-Instead of taking off the coffee funnel filter:
-	try taking the noun.
+Instead of taking off the coffee funnel filter: try taking the noun.
 	
 Chapter Close
 
@@ -321,16 +306,12 @@ Carry out screwing:
 	now the moka pot is nowhere;
 	now the player carries the current moka;
 	set pronouns from the current moka.
-Report screwing:
-	say "[We] [have] reassembled [the current moka].".
+Report screwing: say "[We] [have] reassembled [the current moka].".
 	
-Instead of closing a moka-component:
-	try screwing the noun.
+Instead of closing a moka-component: try screwing the noun.
 	
-Instead of closing a moka-item:
-	say "It [are] already closed."
-Instead of screwing a moka-item:
-	try closing the noun.
+Instead of closing a moka-item: say "It [are] already closed."
+Instead of screwing a moka-item: try closing the noun.
 
 Does the player mean closing the moka pot: it is likely.
 Does the player mean screwing the moka pot: it is likely.
@@ -385,19 +366,15 @@ Check filling:
 		unless the roasted coffee jar is open, say "It is difficult to take the powder from a closed [roasted coffee jar]." instead;
 		unless the player carries the teaspoon, say "[/ss]You'd better help yourself with a teaspoon.' [/se][Monica] [suggest][if the teaspoon is in a top drawer] [/ss1]You will find it in the top drawer.' [/r][otherwise]. [end if][/n]" instead.
 
-Carry out filling:
-	now the noun is filled.
+Carry out filling: now the noun is filled.
 	
-Report filling:
-	say "Now [the noun] is filled with [if the noun is the moka heater]some water[otherwise]the coffee powder[end if]."		
+Report filling: say "Now [the noun] is filled with [if the noun is the moka heater]some water[otherwise]the coffee powder[end if]."		
 	
 Chapter Cooking
 
-Instead of putting a moka-item on the hob when the moka heater is not filled:
-	say "[heart][/ss]Oh my God!' [/se][Monica] [exclaim] visibly concerned [/ss1]It's really dangerous to put the moka on the stove without water: my mum used to tell me about a friend of hers who had it burst and even made a hole in the ceiling.' [/r][/n]".
+Instead of putting a moka-item on the hob when the moka heater is not filled: say "[heart][/ss]Oh my God!' [/se][Monica] [exclaim] visibly concerned [/ss1]It's really dangerous to put the moka on the stove without water: my mum used to tell me about a friend of hers who had it burst and even made a hole in the ceiling.' [/r][/n]".
 	
-Instead of putting a moka-item on the hob when the moka heater is filled and the coffee funnel filter is not filled:
-	say "[/ss]Without the powder, it's really hard to get the coffee to taste anything at all.' [/se][Monica] [remind]."
+Instead of putting a moka-item on the hob when the moka heater is filled and the coffee funnel filter is not filled: say "[/ss]Without the powder, it's really hard to get the coffee to taste anything at all.' [/se][Monica] [remind]."
 	
 Chapter Guide
 
@@ -520,8 +497,7 @@ A coffee-item has a table name called quality-list.
 
 Does the player mean examining a coffee-item: it is likely.
 Does the player mean taking a coffee-item: it is likely.
-Instead of opening a coffee-item when the location of the player is the coffee-shop:
-	say "[/ss]Ciccio, what's the rush?' [/se][Monica] [ask] [/ss1]We'll do it at home.' [/r][/n]".
+Instead of opening a coffee-item when the location of the player is the coffee-shop: say "[/ss]Ciccio, what's the rush?' [/se][Monica] [ask] [/ss1]We'll do it at home.' [/r][/n]".
 Does the player mean opening a coffee-item: it is likely.
 
 The coffee capsules box is a coffee-item in the coffee-shop. It is scenery.
@@ -529,8 +505,7 @@ Understand "blue/gray/white/black coffee/-- capsules/-- box" as the coffee capsu
 The quality-list of the coffee capsules box is table of capsules qualities.
 Coffee-type of the coffee capsules box is arabica.
 Does the player mean examining the coffee capsules box: it is very likely.
-Instead of opening the coffee capsules box:
-	say "Capsules are not needed for the moka."
+Instead of opening the coffee capsules box: say "Capsules are not needed for the moka."
 
 The roasted coffee jar is a coffee-item in the coffee-shop. It is scenery.
 Understand "roasted/ground/-- coffee/-- foil/-- tin/can/jar/packet/package" as the roasted coffee jar.
@@ -558,8 +533,7 @@ To decide which real number is cost of (item - coffee-item):
 	decide on the price corresponding to a coffee-type of coffee-type of the item in the quality-list of the item.
 
 Before inserting something into the roasted coffee jar: say "[We] [don't] want to put it in there.	" instead.
-Before smelling the roasted coffee jar:
-	if the noun is open, try smelling the coffee powder instead.
+Before smelling the roasted coffee jar: if the noun is open, try smelling the coffee powder instead.
 
 Does the player mean taking the coffee capsules box: it is very likely.
 
@@ -567,8 +541,7 @@ Before taking something sellable which is on the counter:
 	if the noun is paid, continue the action;
 	say "Just to let you know, you still haven't paid it." instead.
 
-Before taking something which is in the brown shopper when the player is in the coffee-shop:
-	say "You will do it when you get home." instead.
+Before taking something which is in the brown shopper when the player is in the coffee-shop: say "You will do it when you get home." instead.
 
 Section coffee powder
 
@@ -628,8 +601,7 @@ At the time when Marco welcomes you:
 	say "[/ss]Hi [Marco]!' [/se][Monica] [answer] [regarding Marco][them].";
 	now the current interlocutor is Marco.
 	
-Instead of going nowhere when the player is in the coffee-shop: 
-	say "If you really want to go somewhere else the only way is out."
+Instead of going nowhere when the player is in the coffee-shop: say "If you really want to go somewhere else the only way is out."
 	
 Chapter Shelves
 
@@ -732,8 +704,7 @@ Chapter Table and chairs
 
 The table is a supporter in the kitchen. It is fixed in place.
 The description is "A light-coloured wooden top with metal support."
-Rule for writing a paragraph about the table:
-	say "In the middle of the room is a table surrounded by chairs[if a thing is on the table]. [/n]On the table [is-are a list of things on the table][end if]. [/n]".
+Rule for writing a paragraph about the table: say "In the middle of the room is a table surrounded by chairs[if a thing is on the table]. [/n]On the table [is-are a list of things on the table][end if]. [/n]".
 	
 The chair is a supporter in the kitchen. It is scenery. It is enterable.
 The description is "Metal-framed chair with yellow plastic seat and back."
@@ -803,19 +774,15 @@ Report switching on the hob-switch: say "[We] [light] the flame." instead.
 Report switching off the hob-switch: say "[We] [extinguish] the flame." instead.
 Understand "extinguish [something]" as switching off.
 
-Before putting something on the hob:
-	unless the noun is a moka-item, say "[/ss]Don't be silly.' [/se][Monica] [suggest] [/ss1]You shouldn't put [the noun] on the hob.' [/r][/n]" instead.
+Before putting something on the hob: unless the noun is a moka-item, say "[/ss]Don't be silly.' [/se][Monica] [suggest] [/ss1]You shouldn't put [the noun] on the hob.' [/r][/n]" instead.
 Instead of switching on the hob: try switching on the hob-switch.
 Instead of switching off the hob: try switching off the hob-switch.
 
-Before switching off the hob-switch when current context is coffee-wait-help:
-	say "[/ss]What a hurry!' [/se][Monica] [exclaim] [/ss1]The coffee isn't ready yet.' [/r][/n]" instead.
+Before switching off the hob-switch when current context is coffee-wait-help: say "[/ss]What a hurry!' [/se][Monica] [exclaim] [/ss1]The coffee isn't ready yet.' [/r][/n]" instead.
 
 To say switch off needed: say "[/warning]It's better to switch off the hob before."
-Before removing something from the hob when the hob-switch is switched on:
-	say switch off needed instead.
-Before taking a moka-item when the hob-switch is switched on:
-	say switch off needed instead.
+Before removing something from the hob when the hob-switch is switched on: say switch off needed instead.
+Before taking a moka-item when the hob-switch is switched on: say switch off needed instead.
 	 	 	
 Understand the command "light" as something new.
 Understand "light on/-- [something]" as switching on.
@@ -843,16 +810,14 @@ The teaspoon is an useful-item. The description is "An ordinary teaspoon".
 Understand "little/small/-- spoon" as the teaspoon.
 The pair of scissors is an useful-item. The description is "Multifunctional kitchen scissors."
 
-Before inserting the teaspoon into a container:
-	unless the second noun is a top drawer, say "[/ss]Don't mess up the kitchen,' [/se][Monica] [scold] [us] [/ss1]the cutlery drawer is the first.' [/r][/n]" instead.
+To say do not mess up: say "[/ss]Don't mess up the kitchen,' [/se][Monica] [scold] [us] [/ss1]". 
+Before inserting the teaspoon into a container: unless the second noun is a top drawer, say "[do not mess up]the cutlery drawer is the first.' [/r][/n]" instead.
 Before putting back the teaspoon: try inserting the noun into a random top drawer instead.
 
-Before inserting the pair of scissors into a container:
-	unless the second noun is a top drawer, say "[/ss]Don't mess up the kitchen,' [/se][Monica] [scold] [us] [/ss1]the scissors have to be in the top drawer.' [/r][/n]" instead.
+Before inserting the pair of scissors into a container: unless the second noun is a top drawer, say "[do not mess up]the scissors have to be in the top drawer.' [/r][/n]" instead.
 Before putting back the pair of scissors: try inserting the noun into a random top drawer instead.
 
-Instead of inserting a moka-item into a container:
-	say "[/ss]And hey, no cheating!' [/se][Monica] [scold] [us]."
+Instead of inserting a moka-item into a container: say "[/ss]And hey, no cheating!' [/se][Monica] [scold] [us]."
 
 Before inserting a moka-component into a container:
 	unless the noun is the coffee funnel filter and the second noun is the moka heater:
@@ -871,8 +836,7 @@ A coffeecup is a kind of thing.
 Two coffeecups are in the left cabinet. 
 The description is "A white coffeecup with three coffee grains drawed on it."
 
-To say avoid taking coffeecups:
-	say "It would be better to leave it there."
+To say avoid taking coffeecups: say "It would be better to leave it there."
 Instead of taking a coffeecup: say avoid taking coffeecups.
 Instead of removing a coffeecup from something: say avoid taking coffeecups.	
 
@@ -1046,13 +1010,10 @@ Chapter Wallet
 
 The wallet is a closed openable container in the left pants pocket.
 The description is "A grey canvas wallet. It's a gift from Mo.".
-Check the player opening the wallet:
-	if the player cannot carry the noun, stop the action.
+Check the player opening the wallet: if the player cannot carry the noun, stop the action.
 
-Instead of unfolding the wallet:
-	try opening the noun.
-Instead of folding the wallet:
-	try closing the noun.
+Instead of unfolding the wallet: try opening the noun.
+Instead of folding the wallet: try closing the noun.
 
 Section Content
 			
@@ -1076,8 +1037,7 @@ Instead of examining the identity card, say "A card folded into a booklet with y
 Section Handling
 
 Does the player mean inserting the wallet into the left pants pocket: it is likely.
-Before inserting the wallet into a pocket:
-	if the noun is open, try closing the noun.
+Before inserting the wallet into a pocket: if the noun is open, try closing the noun.
 
 Before inserting something into the wallet:
 	if the player cannot carry the wallet, stop the action;
@@ -1086,8 +1046,7 @@ Before inserting something into the wallet:
 Putting back is an action applying to one thing.
 Understand "put [something preferably held] back/away" as putting back.
 Understand "put back/away [something preferably held]" as putting back.
-Check putting back:
-	unless the noun is the credit card or the noun is the wallet, say "I don't know where to put it." instead.
+Check putting back: unless the noun is the credit card or the noun is the wallet, say "I don't know where to put it." instead.
 Carry out putting back:
 	if the noun is the credit card, try inserting the noun into the wallet;
 	if the noun is the wallet, try inserting the noun into the left pants pocket.
@@ -1188,8 +1147,7 @@ To say narrator love kissing:
 	say "[/ss]Don't get your hopes up!' [/se]the actress who plays [Monica] [say] to the narrator [/ss1]They are just stage kisses.' [/r][/n]";
 	say "Ok, Ok, I'll try to remain professional.".
 	
-To say no more kisses:
-	say "[/ss]Ciccio, we have already kissed so many times.' [/se][Monica] [remind] [/ss1]I love kissing you, but now we have to get on with the game.' [/r][/n]".
+To say no more kisses: say "[/ss]Ciccio, we have already kissed so many times.' [/se][Monica] [remind] [/ss1]I love kissing you, but now we have to get on with the game.' [/r][/n]".
 	
 Section Singing and dancing
 
@@ -1217,12 +1175,8 @@ Response of Monica when asked-or-told about Monica or asked-or-told about "her/h
 	say "[/ss]As Mary Poppins: I'm pratically perfect!' [/se][Monica] [shut] [us] down."
 
 To say should ask the narrator: say "[/ss]You should definitely ask the narrator directly!' [/se][regarding Monica][they] [answer]."	
-Response of Monica when asked-or-told about "[help]":
-	say should ask the narrator.
-	
-Response of Monica when asked for "[help]":
-	say should ask the narrator.
-	
+Response of Monica when asked-or-told about "[help]": say should ask the narrator.
+Response of Monica when asked for "[help]": say should ask the narrator.
 
 Book Marco
 
@@ -1250,7 +1204,6 @@ Quizzing narrator about is an action applying to one topic.
 Understand "ask the/-- [narrator] about [text]" as quizzing narrator about.
 Carry out quizzing narrator about: try saying hello to the narrator.
 
-
 Volume Conversations
 
 Book Coffee shop
@@ -1259,8 +1212,7 @@ Chapter Welcome
 
 Welcome-completed is a truth state that varies.
 
-Instead of hailing while the location is the coffee-shop:
-	try saying hello to Marco.
+Instead of hailing while the location is the coffee-shop: try saying hello to Marco.
 Instead of saying hello to Marco:
 	greet-in Marco;
 	try implicit-requesting the coffee capsules box.
@@ -1273,8 +1225,7 @@ Section Choices
 
 A choice-convnode is a kind of convnode.
 A choice-convnode is closed and not auto-suggesting.
-Default response for a choice-convnode:
-	say "[/ss]Don't change the topic.' [/se][Monica] [say] [us] [/ss1]All you have to do is choose between the alternatives suggested.' [/r][/n]".
+Default response for a choice-convnode: say "[/ss]Don't change the topic.' [/se][Monica] [say] [us] [/ss1]All you have to do is choose between the alternatives suggested.' [/r][/n]".
 
 Understand the command "answer" as something new.
 Understand the command "say" as something new.
@@ -1315,18 +1266,15 @@ To Marco explains flavour of (f - coffee-type):
 	choose the row with coffee-type of f in the table of coffee qualities;
 	say "[/ss][Intro entry]:' [/se][Marco] [one of][answer][or][reply][or][say][at random] then [one of][explain][or][add][at random] [/ss1][flavour entry]' [/r][/n]".
 
-To Marco state the coffee price of (f - coffee-type):
-	say "[/ss][one of]Now at[or]Its price is[at random] [price corresponding to a coffee-type of f in the table of roasted qualities in euro].' [/r][/n]".
+To Marco state the coffee price of (f - coffee-type): say "[/ss][one of]Now at[or]Its price is[at random] [price corresponding to a coffee-type of f in the table of roasted qualities in euro].' [/r][/n]".
 	
-To Marco state the capsules price of (f - coffee-type):
-	say "[/ss][one of]Now at[or]Its price is[at random] [price corresponding to a coffee-type of f in the table of capsules qualities in euro].' [/r][/n]".
+To Marco state the capsules price of (f - coffee-type): say "[/ss][one of]Now at[or]Its price is[at random] [price corresponding to a coffee-type of f in the table of capsules qualities in euro].' [/r][/n]".
 	
 The capsules-offer-node is a choice-convnode.
 Node-introduction for capsules-offer-node:
 	now current context is coffee-choice-help;
 	say "[/ss]Well,' [/se][Marco] [ask] [/ss1]the usual ones?' [/r][/p]";
-	if the player consents:
-		Marco takes the box of arabica;
+	if the player consents, Marco takes the box of arabica;
 	otherwise:
 		say "[/ss]Do you want to try something different?' [/se][Marco] [ask] [us], then [add]: [/n]";
 		say "[/ss]You usually buy a pure arabica blend, but I can also offer you a classic, a light or a strong blend instead.' [/r][/n]".
@@ -1452,8 +1400,7 @@ Node-introduction for moka-request-node:
 	say "[We] [smile].".
 
 To Marco takes (m - moka-item):
-	if m is the natural aluminium moka:
-		say "[/ss]Ciccio, but that's the usual moka.' [/se][Monica] [complain] [/ss1]Let's get a colored one.' [/r][/n]" instead;
+	if m is the natural aluminium moka, say "[/ss]Ciccio, but that's the usual moka.' [/se][Monica] [complain] [/ss1]Let's get a colored one.' [/r][/n]" instead;
 	say "[Marco] [take] [the m] and [place] it on the counter.";
 	now m is on the counter;
 	now moka-requested is true.
@@ -1465,8 +1412,7 @@ Response for Marco when asked for a moka-item:
 	Marco takes the second noun;
 	if the second noun is on the counter, initiate a conversation with Marco at roasted-coffee-node.
 	
-Default ask-for response for moka-request-node:
-	say "[/ss]Actually, you have to choose a moka.' [/se][Monica] [remember] [us]."
+Default ask-for response for moka-request-node: say "[/ss]Actually, you have to choose a moka.' [/se][Monica] [remember] [us]."
 
 Chapter Roasted coffee
 
@@ -1490,14 +1436,11 @@ To Marco takes the package of (t - coffee-type):
 	now the roasted coffee jar is not scenery;
 	now the roasted coffee jar is not fixed in place;
 	now the price of the roasted coffee jar is the cost of the roasted coffee jar;
-	if capsules-requested is true:
-		now next-node is payment-node;
+	if capsules-requested is true, now next-node is payment-node;
 	otherwise:
 		say "[/ss]Do you also need capsules for your espresso machine?' [/se][Marco] [ask].";
-		if the player consents:
-			now next-node is capsules-offer-node;
-		otherwise:
-			now next-node is payment-node;
+		if the player consents, now next-node is capsules-offer-node;
+		otherwise now next-node is payment-node;
 	say leavenode.
 	
 Section Classic
@@ -1558,6 +1501,44 @@ Response for roasted-coffee-node when answered that "[paulista]": Marco takes th
 
 Chapter Payment
 
+Section Receipt
+
+Total amount is a real number that varies.
+
+The receipt is a paper-item.
+Instead of folding the receipt: say "Folding it is useless."
+The description of the receipt's back side is "Continuous repetition of the paper manufacturer's logo and name."
+
+To say receipt header: 
+	say /n;
+	say "MARCO'S COFFEE STORE" centered in 38 characters;
+	say /n;
+	say "25, Central Street - Cesena" centered in 38 characters;
+	say /n;
+	say "P.IVA 03697412581" centered in 38 characters;
+	say "[/p][/n]";
+	say "Commercial document of sale or service[/p]".
+	
+To say receipt footer:
+	say "Electronic payment id: XXA225415-5585[/p][/n]";
+	say "Thank you for your choice."  centered in 38 characters;
+	say /n.
+
+Table of receipt body
+description (text)	price (real number)
+with three blank rows
+
+Instead of examining the receipt's front side:
+	say "[/f][receipt header]";
+	repeat through the table of receipt body:
+		say "[description entry left aligned in 30 characters][price entry right aligned in 8 characters][/n]";
+	say /n;	
+	say "TOTAL AMOUNT EURO" left aligned in 30 characters;
+	say "[total amount right aligned in 8 characters][/p]";
+	say "[receipt footer][/r]".
+
+Section Bill
+	
 Payment-done is a truth state that varies.
 The payment-node is a closed, not  auto-suggesting convnode.
 Node-introduction for the payment-node:
@@ -1567,10 +1548,19 @@ Node-introduction for the payment-node:
 	let L be the list of sellable things on the counter;
 	say "[Marco] [take] a brown shopper from the counter, then [they] [put] [L with definite articles] inside.";
 	now the brown shopper is on the counter;
-	repeat with I running through L:
-		now I is in the brown shopper;
-	say "Then [regarding Marco][they] [type] on the cash register and [state] [/ss]The total amount is [total price of things in the brown shopper in euro].' [/r][/n]".	
-	
+	let R be some text;
+	repeat with item running through L:
+		now item is in the brown shopper;
+		choose a blank row in the table of receipt body;
+		if the item is the coffee capsules box, now description entry is "10 espresso capsules box";
+		otherwise if the item is a moka-item:
+			now description entry is "Two cups [printed name of the item]";
+		otherwise:
+			now description entry is "250gr roasted ground coffee";
+		now the price entry is the price of the item;
+	now the total amount is total price of things in the brown shopper;
+	say "Then [regarding Marco][they] [type] on the cash register and [state] [/ss]The total amount is [total amount in euro].' [/r][/n]".	
+
 Section Pay action
 
 Understand the command "pay" as something new.
@@ -1582,10 +1572,8 @@ Check paying:
 	if the payment-done is true, say "You have already paid." instead;
 	unless the current node is payment-node, say "It's not time to pay yet." instead;
 	unless the player carries the credit card:
-		unless the player carries the wallet:
-			carry out the implicitly taking activity with the wallet;
-		if the wallet is closed:
-			try opening the wallet;
+		unless the player carries the wallet, carry out the implicitly taking activity with the wallet;
+		if the wallet is closed, try opening the wallet;
 		carry out the implicitly taking activity with the credit card.
 				
 Carry out paying:
@@ -1599,8 +1587,14 @@ Carry out paying:
 		
 Report paying:
 	say "You swipe your card at the POS and after a few moments a receipt will be printed out.";
-	say "[/ss]All right, thank you.' [/se][Marco] [confirm]."
-
+	say "[/ss]All right, thank you.' [/se][Marco] [confirm], then [ask] [/ss1]Do I put the receipt in the shopper?' [/r][/p]";
+	if the player consents:
+		say "[Marco] [put] the receipt in the shopper.";
+		now the receipt is in the brown shopper;
+	otherwise:
+		say "[Marco] [give] [us] the receipt.";
+		now the player carries the receipt.
+	
 Section Post-pay activities
 
 At the time when Monica takes the shopper:
@@ -1692,8 +1686,7 @@ At the time when Monica take out the jar:
 	Monica urges opening moka in 1 turn from now.
 	
 At the time when Monica urges opening moka:
-	unless the current moka is already opened:
-		say "[/ss]In the meantime, open the moka so we can wash it.' [/se][Monica] [suggest]."
+	unless the current moka is already opened, say "[/ss]In the meantime, open the moka so we can wash it.' [/se][Monica] [suggest]."
 
 Chapter Washing
 
@@ -1712,8 +1705,7 @@ After rubbing a moka-component:
 	Monica says bravo in 0 turns from now.
 	
 At the time when Monica says bravo:
-	if the player knows how to do is true:
-		say "[heart][/ss]You are so kind to make coffee for me.' [/se][Monica] [thank] [us].";
+	if the player knows how to do is true, say "[heart][/ss]You are so kind to make coffee for me.' [/se][Monica] [thank] [us].";
 	otherwise:
 		say "[/ss]So far, it's been straightforward, but now we're hit with a bit of a challenge.' [/se][we] [say] [/ss1]Any ideas on what to do next?' [/r][/n]";
 		say "[heart][/ss]You are so clever!' [/se][Monica] [encourage] [us] [/ss1]I'm sure you'll find the perfect way to handle water and coffee powder.' [/r][/n]".
@@ -1725,10 +1717,8 @@ Instead of opening the roasted coffee jar when the location of the player is the
 	if the player cannot carry the noun, stop the action instead;
 	if the coffee jar is a tin, continue the action instead;
 	unless the player carries the pair of scissors:
-		if the pair of scissors is in a top drawer:
-			say "[/ss]The scissors are in the top drawer.' [/se][Monica] [suggest].";
-		otherwise:
-			say "[/ss]You need a pair of scissors to open it.' [/se][Monica] [say].";
+		if the pair of scissors is in a top drawer, say "[/ss]The scissors are in the top drawer.' [/se][Monica] [suggest].";
+		otherwise	say "[/ss]You need a pair of scissors to open it.' [/se][Monica] [say].";
 		stop the action;
 	continue the action.
 
@@ -1785,10 +1775,8 @@ At the time when Monica congrats:
 Section rearranging
 
 To Monica gets (T - a thing):
-	if the player carries T:
-		say "[Monica] [get] the [T] from your hands.";
-	otherwise:	
-		say "[Monica] [take] the [T]."
+	if the player carries T, say "[Monica] [get] the [T] from your hands.";
+	otherwise	say "[Monica] [take] the [T]."
 		
 To Monica rearranges the kitchen, annoyed:
 	let L be a list of things;
@@ -1821,13 +1809,11 @@ Before inserting the roasted coffee jar into a container:
 	if the second noun is a moka-component, say "Of course capsules are more convenient to use." instead;
 	unless the second noun is the right cabinet, say "[/ss]Put it there along with the capsules.' [/se][Monica] [say] pointing at the right cabinet." instead;
 	if the noun is open:
-		if the coffee jar is a tin:
-			say "[/ss]It's better if you close it, or the aroma will vanish.' [/se][Monica] [suggest]." instead;
-		otherwise:
-			if next attempt to store coffee jar is false:
-				now next attempt to store coffee jar is true;
-				say "[/ss]Unfortunately, we can't close it properly.' [/se][Monica] [regret]";
-				say tin needed.		 	
+		if the coffee jar is a tin, say "[/ss]It's better if you close it, or the aroma will vanish.' [/se][Monica] [suggest]." instead;
+		otherwise	if next attempt to store coffee jar is false:
+			now next attempt to store coffee jar is true;
+			say "[/ss]Unfortunately, we can't close it properly.' [/se][Monica] [regret]";
+			say tin needed.		 	
 
 Chapter cooking	
 
@@ -1870,8 +1856,7 @@ Check pouring:
 	unless the location is the kitchen, say "There [are] no coffee to pour here." instead;
 	if the current moka is without coffee, say "The coffee is not yet ready." instead; 
 	if the player cannot carry the current moka, stop the action.
-Report pouring:
-	say "[We] [pour] the hot coffee into [the noun]. A delicate swirling tendril of steam [rise] from it."
+Report pouring: say "[We] [pour] the hot coffee into [the noun]. A delicate swirling tendril of steam [rise] from it."
 
 Section After pouring
 

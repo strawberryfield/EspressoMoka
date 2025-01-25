@@ -27,6 +27,7 @@ A front side is a kind of paper-side. A front side is part of every paper-item.
 A back side is a kind of paper-side. A back side is part of every paper-item.
 
 A paper-item can be folded or unfolded.
+A paper-item is usually unfolded.
 Understand the folded property as describing a paper-item.
 
 A paper-item has some text called folded appearance.
