@@ -893,6 +893,8 @@ When play begins:
 Chapter Espresso machine
 
 The espresso machine is on the worktop. It is fixed in place.
+The description is "Your little red and black espresso machine is a must in the morning to get your day off to a good start."
+Instead of doing anything other than examining with the espresso machine: say "I have to remind you that the aim of the game is to make coffee without using this machine."
 
 Chapter Actions
 
@@ -1054,6 +1056,13 @@ Carry out putting back:
 After putting back the credit card:
 	say "Do you want to put your wallet away too?";
 	if the player consents, try putting back the wallet.
+
+To say keep in pocket: say "It is better to keep it in your pocket."	
+Instead of inserting the wallet into something: 
+	unless the second noun is part of the pair of beige pants, say keep in pocket instead;
+	continue the action.
+Instead of putting the wallet on something: say keep in pocket.
+Instead of dropping the wallet: say keep in pocket.
 	
 Book Girlfriend
 
@@ -1608,14 +1617,10 @@ Before going from the coffee-shop:
 	unless the brown shopper is enclosed by the coffee-shop, say "[/ss]But where are you going?' [/se][Monica] [draw] [our] attention [/ss1]We have not yet completed our purchases.' [/r][/n]" instead;
 	if payment-done is false, say "[/ss][Marco] waits to be paid.' [/se][Monica] [remember] [us]." instead;
 	if the brown shopper is on the counter, say "[/ss]You are forgetting the things you have bought.' [/se][Marco] [remember]." instead;
-	if the player carries the credit card or the player carries the wallet:
-		say "[/ss]It's OK that we're in a hurry to try our new moka,' [/se][Monica] [say] [/ss1]but you'd better put your ";
-		if the player carries the credit card:
-			say "credit card";
-			if the player carries the wallet, say " and ";
-		if the player carries the wallet, say "wallet";
-		say " back.' [/r][/n]";
-		stop the action;
+	let L be the list of thing carried by the player;
+	remove the white shopper from L, if present;
+	remove the brown shopper from L, if present;
+	unless L is empty, say "[/ss]It's OK that we're in a hurry to try our new moka,' [/se][Monica] [say] [/ss1]but you'd better put your [L] back.' [/r][/n]" instead;
 	if bye-done is false, greet Marco;
 	say "[We] and [Monica] [leave] the shop and quickly go home.";
 	say "[/p][note style]About half an hour later. [/r][/p]";
@@ -1674,16 +1679,23 @@ At the time when start the kitchen intro:
 		try silently Monica opening the right cabinet;
 		try Monica inserting the coffee capsules box into the right cabinet;
 		try silently Monica closing the right cabinet;
-		Monica take out the jar in 1 turn from now.
+		Monica takes out the jar in 1 turn from now.
 
 Chapter First opening
 
-At the time when Monica take out the jar:
-	if the roasted coffee jar is in the brown shopper:
-		try silently Monica taking the roasted coffee jar;
-		now the roasted coffee jar is on the table;
-		say "[Monica] [take] the [roasted coffee jar] from the shopper and [put] it on the table.";
+To Monica takes (item - a thing) from the shopper:
+	if the item is in the brown shopper:
+		try silently Monica taking the item;
+		now the item is on the table;
+		say "[Monica] [take] the [item] from the shopper and [put] it on the table."
+		
+At the time when Monica takes out the jar:
+	Monica takes the roasted coffee jar from the shopper;
+	Monica takes out the receipt in 2 turns from now;
 	Monica urges opening moka in 1 turn from now.
+
+At the time when Monica takes out the receipt:
+	Monica takes the receipt from the shopper.
 	
 At the time when Monica urges opening moka:
 	unless the current moka is already opened, say "[/ss]In the meantime, open the moka so we can wash it.' [/se][Monica] [suggest]."
