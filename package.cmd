@@ -1,9 +1,9 @@
 rem inform paths
-set INFORM7_PATH=C:\projects\Inform\work\inform\
-set Inform7="%INFORM7_PATH%Inform7\Tangled\Inform7"
-set Inform6="%INFORM7_PATH%Inform6\Tangled\Inform6"
-set InBlorb="%INFORM7_PATH%Inblorb\Tangled\Inblorb"
-set INTERNAL="%INFORM7_PATH%Inform7\Internal"
+set INFORM7_PATH=C:\Program Files\Inform\
+set Inform7="%INFORM7_PATH%Compilers\Inform7"
+set Inform6="%INFORM7_PATH%Compilers\Inform6"
+set InBlorb="%INFORM7_PATH%Compilers\Inblorb"
+set INTERNAL="%INFORM7_PATH%Internal"
 
 set DOC_ROOT=C:
 set DOC_PATH=\Users\rober\Documents\Inform
@@ -41,8 +41,6 @@ echo auxiliary "%HOME_PATH%\LICENSE.txt" "LICENSE" "--" >> %BLURB%
 %InBlorb% %BLURB% "%RELEASE_DIR%%NAME%.gblorb"
 
 rem packaging
-copy /y "%MATERIALS_PATH%\Small Cover.jpg" "%RELEASE_DIR%" 
-
 cd "%MATERIALS_PATH%\release"
 %RAREXE% a -afzip -r -m5 -z..\%COMMENT% "%BIN%" *.*
 popd
