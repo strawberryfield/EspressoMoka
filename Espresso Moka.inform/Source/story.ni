@@ -482,10 +482,11 @@ Instead of buying:
 Topic-buying is an action applying to a topic.	
 Understand "buy [text]" as topic-buying.
 Instead of topic-buying: 
-	if the location of the player is the coffee-shop, try imploring the current interlocutor for the topic understood;
+	if the location of the player is the coffee-shop, try answering the current interlocutor that the topic understood;
 	otherwise say "[We] [aren't] in a shop."
 
 Understand the command "order" as "buy".
+Understand "choose [text]" as topic-buying when the location is the coffee-shop.
 	
 Section Coffee items
 
@@ -1242,6 +1243,9 @@ Responding is an action applying to one topic.
 Understand “answer [text]" as responding.
 Understand the command "say" as "answer".	
 Instead of responding: try imploring the current interlocutor for it.
+
+Instead of buying when the current node is a choice-convnode:
+	if the noun is the natural aluminium moka, try answering the current interlocutor that "classic".
 	
 Chapter Capsules
 
@@ -1287,7 +1291,11 @@ Node-introduction for capsules-offer-node:
 	otherwise:
 		say "[/ss]Do you want to try something different?' [/se][Marco] [ask] [us], then [add]: [/n]";
 		say "[/ss]You usually buy a pure arabica blend, but I can also offer you a classic, a light or a strong blend instead.' [/r][/n]".
-		
+
+To say capsules tip: say "[/ss]If you want to try something different from the Arabica blend,' [/se][Marco] [say] [/ss1]I would recommend the classic blend, which is slightly more bitter. It might be ideal for breakfast.' [/r][/n]".
+Response for capsules-offer-node when asked for "[help]": say capsules tip.
+Report requesting help when the current node is capsules-offer-node: say capsules tip instead.	
+			
 Section Classic
 	
 Understand "classic/standard/normal/ordinary blend/coffee/--" as "[classic blend]".
@@ -1436,6 +1444,10 @@ Node-introduction for roasted-coffee-node:
 			say "[/ss]I have played a few myself, they are nice.' [/se][Marco] [add] [/ss1]As for using the coffee of the capsules in the moka, it is best not to: it is ground differently and could clog the filters.' [/r][/n]";
 		say "[/ss]Let's get serious and listen to what [Marco] proposes.' [/se][Monica] [suggest] [us].[/n]";
 	say "[/ss]I can offer you an Arabica blend, like the ones you usually buy for the machine, a classic blend, ideal for breakfast, or even a light blend or a strong blend.' [/se][Marco] [explain]."
+
+To say roasted coffee tip: say "[/ss]You can choose the Arabica blend you are already familiar with' [/se][Marco] [say] [/ss1]or, especially if you are planning to use the moka for breakfast, you can try the classic blend, which is a little more intense.' [/r][/n]".
+Response for roasted-coffee-node when asked for "[help]": say roasted coffee tip.
+Report requesting help when the current node is roasted-coffee-node: say roasted coffee tip instead.	
 
 To Marco takes the package of (t - coffee-type):
 	now the coffee-type of the roasted coffee jar is t;

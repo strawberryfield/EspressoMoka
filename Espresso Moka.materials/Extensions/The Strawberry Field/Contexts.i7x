@@ -27,7 +27,7 @@ To say verbs command:
 Requesting help is an action out of world.
 Understand "help me/-- please/--" as requesting help. 
 Understand the command "hint/advise/suggest/tip" as "help".
-Understand "help/hint/hints/suggestion/suggestions/advise" as "[help]".
+Understand "help/hint/hints/suggestion/suggestions/advise/tip/tips" as "[help]".
 Understand "ask for [help]" as requesting help.
 Understand "get [help]" as requesting help.
 Understand "request [help]" as requesting help.
