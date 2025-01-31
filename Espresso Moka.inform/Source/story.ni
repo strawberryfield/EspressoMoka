@@ -486,7 +486,6 @@ Instead of topic-buying:
 	otherwise say "[We] [aren't] in a shop."
 
 Understand the command "order" as "buy".
-Understand "choose [text]" as topic-buying when the location is the coffee-shop.
 	
 Section Coffee items
 
@@ -570,7 +569,7 @@ soft	"a blend of fine natural and washed Arabica and high quality Robusta, it's 
 classic	"a unique blend of Robusta and Arabica beans; an aromatic, smooth, well-rounded flavour, balanced between dried fruits and soft chocolate."	"I like it best at breakfast"
 strong	"a coffee with an intense aftertaste and notes of cocoa and wood."	"For those who like strong and definite flavours"
 vanilla	"a blonde roast notes of sweet vanilla and biscuit."	"It's pretty far from my taste"
-monocolture	"a mono-origin of fine Brazilian Arabica, a balanced aroma with chocolate, dried fruit and honey notes."	"Ah, the conquering moustache, a product of cult"
+monocolture	"a mono-origin of fine Brazilian Arabica, a balanced aroma with chocolate, dried fruit and honey notes."	"It is a special coffee that some people really appreciate"
 
 Section Roasted qualities
 
@@ -1235,6 +1234,8 @@ Section Choices
 
 A choice-convnode is a kind of convnode.
 A choice-convnode is closed and not auto-suggesting.
+A coffee-choice-convnode is a kind of choice-convnode.
+
 Default response for a choice-convnode: say "[/ss]Don't change the topic.' [/se][Monica] [say] [us] [/ss1]All you have to do is choose between the alternatives suggested.' [/r][/n]".
 
 Understand the command "answer" as something new.
@@ -1244,8 +1245,11 @@ Understand “answer [text]" as responding.
 Understand the command "say" as "answer".	
 Instead of responding: try imploring the current interlocutor for it.
 
-Instead of buying when the current node is a choice-convnode:
+Instead of buying when the current node is a coffee-choice-convnode:
 	if the noun is the natural aluminium moka, try answering the current interlocutor that "classic".
+
+Understand "choose [text]" as topic-buying when the current node is a coffee-choice-convnode.
+Understand "choose [something]" as buying when the current node is moka-request-node.
 	
 Chapter Capsules
 
@@ -1283,7 +1287,7 @@ To Marco state the coffee price of (f - coffee-type): say "[/ss][one of]Now at[o
 	
 To Marco state the capsules price of (f - coffee-type): say "[/ss][one of]Now at[or]Its price is[at random] [price corresponding to a coffee-type of f in the table of capsules qualities in euro].' [/r][/n]".
 	
-The capsules-offer-node is a choice-convnode.
+The capsules-offer-node is a coffee-choice-convnode.
 Node-introduction for capsules-offer-node:
 	now current context is coffee-choice-help;
 	say "[/ss]Well,' [/se][Marco] [ask] [/ss1]the usual ones?' [/r][/p]";
@@ -1433,7 +1437,7 @@ Default ask-for response for moka-request-node: say "[/ss]Actually, you have to 
 
 Chapter Roasted coffee
 
-The roasted-coffee-node is a choice-convnode.
+The roasted-coffee-node is a coffee-choice-convnode.
 Node-introduction for roasted-coffee-node:
 	now current context is coffee-choice-help;
 	say "[/ss]You need coffee for this one, too. Don't you?' [/se][Marco] [ask].[/n]";
@@ -1443,7 +1447,9 @@ Node-introduction for roasted-coffee-node:
 			say "[/ss]Ciccio!' [/se][Monica] [exclaim] angry [/ss1]Now you have to stop playing those games you always play, what are they called? Interactive Fiction. It's time to get your feet back on the ground!' [/n][/r]";
 			say "[/ss]I have played a few myself, they are nice.' [/se][Marco] [add] [/ss1]As for using the coffee of the capsules in the moka, it is best not to: it is ground differently and could clog the filters.' [/r][/n]";
 		say "[/ss]Let's get serious and listen to what [Marco] proposes.' [/se][Monica] [suggest] [us].[/n]";
-	say "[/ss]I can offer you an Arabica blend, like the ones you usually buy for the machine, a classic blend, ideal for breakfast, or even a light blend or a strong blend.' [/se][Marco] [explain]."
+	say "[/ss]I can offer you an Arabica blend, like the ones you usually buy for the machine, a classic blend, ideal for breakfast, or even a light blend or a strong blend.' [/se][Marco] [explain].";
+	say "[/ss]And what about that cute tin with the man with the moustache?' [/se][Monica] [ask].";
+	say "[/ss]Ah, the conquering moustache!' [/se][Marco] [exclaim] [/ss1]It's a product of cult, a mono-origin of Brazilian Arabica.' [/r][/n]"
 
 To say roasted coffee tip: say "[/ss]You can choose the Arabica blend you are already familiar with' [/se][Marco] [say] [/ss1]or, especially if you are planning to use the moka for breakfast, you can try the classic blend, which is a little more intense.' [/r][/n]".
 Response for roasted-coffee-node when asked for "[help]": say roasted coffee tip.
