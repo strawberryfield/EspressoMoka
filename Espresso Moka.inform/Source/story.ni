@@ -85,6 +85,9 @@ Book Street
 A street-room is a kind of room.
 Rule for printing the name of a street-room: say "On the street".
 
+The sound-description of a street-room is "the sound of people walking and an indistinct chatter; occasionally a bicycle will pass by and ring a bell to make its way".
+The scent-description of a street-room is "any other pedestrianised street in the town, unfortunately sometimes you walk past someone who smells of sweat".
+
 The street is a region.
 
 Chapter Dropping
@@ -144,7 +147,7 @@ Section Clothes store
 
 The Clothing-Store is a room.
 The Clothing-Store is inside from street-2.
-Understand "cloth/clothes/clothing/-- store/shop" as the clothing-store.
+Understand "cloth/clothes/clothing/-- store/shop" as the clothing-store when the location is street-2.
 
 The clothes store entrance is in the street-2. It is scenery.
 The description is "On one side of the window is a glass door. [/n]Through the glass you can see men's clothing, including the baggy shorts you always wear on your mountain hikes."
@@ -162,9 +165,13 @@ A shopper-item is a kind of container.
 A shopper-item is open, not openable, not lockable.
 Instead of opening the shopper-item: say "It's already open."
 
+Scent-description of a shopper-item is "any other paper object".
+Sound-description of a shopper-item is "a creaking sound when you handle it".
+
 The white shopper is a shopper-item.
 The description is "A white paper shopper."
 
+Section Shorts
 
 The pair of beige shorts is a cloth. The description is "A pair of beige shorts with lots of pockets: two on the back, two on the front and two on the legs.".
 Understand "pants" as the pair of beige shorts.
@@ -234,18 +241,30 @@ A moka-item can be hot or cold. It is usually cold.
 A moka-item can be already opened.
 A moka-item can be washed.
 A moka-item can be with coffee or without coffee. It is usually without coffee.
+A moka-item is mute.
+
+The scent-description of a moka-item is "any other aluminium object".
+Instead of smelling a moka-item which is with coffee: say "What an amazing coffee smell!".
 
 The price of a moka-item is usually 18.90.
 The description of a moka-item is usually "A [color of the noun] moka pot for two cups[if the noun is on the moka pots open shelf]. [/n]A tag indicates the price of [price of the noun in euro][end if]." 
 The current moka is a moka-item that varies.
 
-The coffee powder is a thing.
+Chapter Coffee powder
+
+The coffee powder is a thing. 
+It is mute.
+The scent-description of the coffee powder is "the irresistible aroma of roasted coffee"
+
+Instead of eating the coffee powder: say "[We] should not eat it, the most [we] can do is to try to taste it."
+Instead of tasting the coffee powder: say "It is definitely bitter."
 
 Chapter Components 
 
 A moka-component is a kind of container.
 A moka-component is open, not openable, not lockable.
 A moka-component can be filled. A moka-component usually is not filled.
+A moka-component is mute.
 
 The moka pot is a moka-component.
 The description is "The upper part of the moka in which the extracted coffee is collected."
@@ -262,6 +281,22 @@ The coffee funnel filter is a moka-component in the moka heater.
 Instead of inserting something into the coffee funnel filter: say "This is the powder container".
 The description is "An aluminium funnel with a filter on which to put the coffee powder. It fits over the heater[if filled]. [/n]It is currently full of coffee powder[end if]."
 
+Section Smelling
+
+Instead of smelling a moka-component:
+	if the noun is not filled, try smelling the current moka instead; 
+	if the noun is the coffee funnel filter, try smelling the coffee powder instead;
+	unless the coffee funnel filter is in the moka heater, say "Water is known to be odourless." instead;
+	try smelling the coffee powder.
+
+Section Tasting
+
+Instead of tasting a moka-component:
+	if the noun is not filled, say "[/ss]Stop doing stupid things!' [/se][Monica] [exclaim]." instead; 
+	if the noun is the coffee funnel filter, try tasting the coffee powder instead;
+	unless the coffee funnel filter is in the moka heater, say "Water is known to be tasteless." instead;
+	try tasting the coffee powder.
+	
 Chapter Open
 
 Understand the command "unscrew" as something new.
@@ -379,6 +414,8 @@ Instead of putting a moka-item on the hob when the moka heater is filled and the
 Chapter Guide
 
 The written paper sheet is a paper-item in the coffee funnel filter.
+The written paper sheet is mute.
+The scent-description of the written paper sheet is "a printed paper".
 Understand "readme/guide/booklet" as the written paper sheet.
 The written paper sheet is folded.
 The folded appearance is "A folded sheet of paper with the words ‘READ ME FIRST!’ clearly visible."
@@ -458,7 +495,12 @@ Book Coffee shop
 The Coffee-Shop is a room.
 The printed name is "In the coffee shop".
 The description is "The essential-style shop is lined with shelves. [/n]Behind the counter is the espresso machine shelving, on one side the capsules shelving and on the opposite side the roasted coffee shelving. [/n]Next to the shop window is a small open shelf with moka pots on display."
+The scent-description is "Just a faint smell of coffee. [/n]In fact, the different types of packaging are all designed to preserve as much of the coffee's aroma as possible".
+The sound-description is "ambient music at low volume".
 The Coffee-Shop is inside from street-3.
+Understand "coffee/Marco/Marco's/-- store/shop" as the coffee-shop when the location is street-3.
+
+Instead of smelling the coffee-shop: say "[the scent-description of the coffee-shop]."
 
 Instead of taking something not paid when the player is in the coffee-shop:
 	if the noun is enclosed by the player, continue the action;
@@ -486,28 +528,54 @@ Instead of topic-buying:
 	otherwise say "[We] [aren't] in a shop."
 
 Understand the command "order" as "buy".
+
+Before taking something sellable which is on the counter:
+	if the noun is paid, continue the action;
+	say "Just to let you know, you still haven't paid it." instead.
+
+Before taking something which is in the brown shopper when the player is in the coffee-shop: say "You will do it when you get home." instead.
 	
-Section Coffee items
+Chapter Coffee items
 
 A coffee-item is a kind of container. 
-A coffee-item is closed, openable and not lockable.
-A coffee-item is sellable.
-A coffee-item has a coffee-type.
-A coffee-item has a table name called quality-list.
+It is closed, openable and not lockable.
+It is sellable.
+It has a coffee-type.
+It has a table name called quality-list.
 
 Does the player mean examining a coffee-item: it is likely.
 Does the player mean taking a coffee-item: it is likely.
 Instead of opening a coffee-item when the location of the player is the coffee-shop: say "[/ss]Ciccio, what's the rush?' [/se][Monica] [ask] [/ss1]We'll do it at home.' [/r][/n]".
 Does the player mean opening a coffee-item: it is likely.
 
+Instead of examining a coffee-item:
+	choose the row with coffee-type of coffee-type of the noun in the quality-list of the noun;
+	say "A [packaging-color entry] [packaging-type entry] [packaging-details entry].".
+
+To say brief description of (item - coffee-item):
+	choose the row with coffee-type of coffee-type of the item in the quality-list of the item;
+	say "a [packaging-color entry] [packaging-type entry]".
+
+To decide which real number is cost of (item - coffee-item):	 
+	decide on the price corresponding to a coffee-type of coffee-type of the item in the quality-list of the item.
+
+Section Coffee capsules box
+
 The coffee capsules box is a coffee-item in the coffee-shop. It is scenery.
+Scent-description is "an ordinary cardboard box".
+Sound-description is "the capsules move inside when you handle it". 
 Understand "blue/gray/white/black coffee/-- capsules/-- box" as the coffee capsules box.
 The quality-list of the coffee capsules box is table of capsules qualities.
 Coffee-type of the coffee capsules box is arabica.
 Does the player mean examining the coffee capsules box: it is very likely.
 Instead of opening the coffee capsules box: say "Capsules are not needed for the moka."
 
-The roasted coffee jar is a coffee-item in the coffee-shop. It is scenery.
+Does the player mean taking the coffee capsules box: it is very likely.
+
+Section Roasted coffee jar
+
+The roasted coffee jar is a coffee-item in the coffee-shop. 
+It is scenery and mute.
 Understand "roasted/ground/-- coffee/-- foil/-- tin/can/jar/packet/package" as the roasted coffee jar.
 The quality-list of  the roasted coffee jar is table of roasted qualities.
 Coffee-type of the roasted coffee jar is classic.
@@ -521,27 +589,9 @@ To decide if the coffee jar is a tin:
 	if the packaging-type entry is "tin", decide yes;
 	decide no.
 	
-Instead of examining a coffee-item:
-	choose the row with coffee-type of coffee-type of the noun in the quality-list of the noun;
-	say "A [packaging-color entry] [packaging-type entry] [packaging-details entry].".
-
-To say brief description of (item - coffee-item):
-	choose the row with coffee-type of coffee-type of the item in the quality-list of the item;
-	say "a [packaging-color entry] [packaging-type entry]".
-
-To decide which real number is cost of (item - coffee-item):	 
-	decide on the price corresponding to a coffee-type of coffee-type of the item in the quality-list of the item.
-
 Before inserting something into the roasted coffee jar: say "[We] [don't] want to put it in there.	" instead.
 Before smelling the roasted coffee jar: if the noun is open, try smelling the coffee powder instead.
-
-Does the player mean taking the coffee capsules box: it is very likely.
-
-Before taking something sellable which is on the counter:
-	if the noun is paid, continue the action;
-	say "Just to let you know, you still haven't paid it." instead.
-
-Before taking something which is in the brown shopper when the player is in the coffee-shop: say "You will do it when you get home." instead.
+Before tasting the roasted coffee jar: if the noun is open, try tasting the coffee powder instead.
 
 Section coffee powder
 
@@ -605,7 +655,9 @@ Instead of going nowhere when the player is in the coffee-shop: say "If you real
 	
 Chapter Shelves
 
-A shelf-item is a kind of supporter. It is scenery.
+A shelf-item is a kind of supporter. 
+It is scenery and mute.
+Scent-description is "any other piece of furniture".
 
 The espresso machines shelving is a shelf-item in the coffee-shop.
 The description is "On the shelves behind the counter are several espresso machines.".
@@ -640,7 +692,7 @@ The description is "A white device with a large display."
 The display is part of the POS terminal.
 The description is "It's off."
 
-The store-equipments are fixed in place.
+The store-equipments are mute and fixed in place.
 
 Instead of taking a store-equipment, say "There is no reason to take it."
 
@@ -693,20 +745,24 @@ Book Kitchen
 The Kitchen is a room.
 The description is "The room is painted light yellow with the furniture and the appliances on one side. [/n]A photograph hangs on the opposite wall and a window lights up the room."
 The printed name is "In the kitchen".
+The scent-description is "a freshly cleaned room with a floral scented detergent".
 
-The photograph is a scenery in the kitchen.
+The photograph is a scenery in the kitchen. It is mute.
 The description is "The photo shows [us] and [Monica] standing close together on a sandy beach beside a scenic lake surrounded by tall trees and mountains. The lake's clear blue water extends into the distance, reflecting the surrounding landscape and sky. [/n][We] took this photo on one of your mountain walks."
 
 The kitchen window is a scenery in the kitchen.
 The description is  "A large window that lights up the room."
+The sound-description is "only a faint noise when a vehicle passes by".
 
 Chapter Table and chairs
 
-The table is a supporter in the kitchen. It is fixed in place.
+The table is a supporter in the kitchen. 
+It is fixed in place and mute.
 The description is "A light-coloured wooden top with metal support."
 Rule for writing a paragraph about the table: say "In the middle of the room is a table surrounded by chairs[if a thing is on the table]. [/n]On the table [is-are a list of things on the table][end if]. [/n]".
 	
-The chair is a supporter in the kitchen. It is scenery. It is enterable.
+The chair is a supporter in the kitchen. 
+It is scenery, enterable and mute.
 The description is "Metal-framed chair with yellow plastic seat and back."
 Understand "chairs" as the chair. 
 
@@ -726,7 +782,7 @@ Understand "unlock [something]" as unlocking keylessly.
 Unlocking keylessly is an action applying to one thing.
 
 An unuseful-appliance is a kind of container.
-An unuseful-appliance is closed.
+It is closed and mute.
 Instead of opening an unuseful-appliance: say "There is nothing to take or put in [the noun]."
 Instead of closing an unuseful-appliance: say "It's already closed."
 Instead of locking keylessly an unuseful-appliance: say "There is no way to lock it."
@@ -735,6 +791,7 @@ Instead of unlocking keylessly an unuseful-appliance: say "It doesn't have a loc
 Section Worktop
 
 The worktop is a supporter. It is part of the furniture.
+It is mute.
 The description is "A pink marble surface with scattered darker colored dots."
 Understand "plane/marble/countertop" as the worktop.
 
@@ -749,11 +806,12 @@ Instead of switching off the oven: say "It's already off."
 Section Fridge
 
 The fridge is an unuseful-appliance. It is part of the furniture.
+It is sounding. The sound-description is "a slight hum coming from the engine".
 The description is "A spacious fridge with a rounded shape, painted light grey with metallic highlights. [/n]There are some magnets on the door."
 Understand "refrigerator" as the fridge.
 Instead of switching on the fridge: say "It's always on."
 Instead of switching off the fridge: say "If you turn it off, you will spoil all the food in it."
-Some magnets are part of the fridge. 
+Some magnets are part of the fridge. They are mute.
 The description is "They are the colourful souvenirs of your travels."
 Instead of taking magnets: say "[/ss]I don't understand why you want to remove them.' [/se][Monica] [say] in amazement."
 Understand "magnet" as magnets.
@@ -761,6 +819,7 @@ Understand "magnet" as magnets.
 Section Sink
 
 The sink is part of the furniture.
+It is mute.
 The description is "Stainless steel sink."
 
 Section Hob
@@ -774,6 +833,11 @@ Report switching on the hob-switch: say "[We] [light] the flame." instead.
 Report switching off the hob-switch: say "[We] [extinguish] the flame." instead.
 Understand "extinguish [something]" as switching off.
 
+Instead of listening to the hob: if the hob-switch is switched on, say "You can hear the gas coming out and burning."
+Instead of smelling the hob:
+	if the hob-switch is switched on, say "The gas burns properly and there is no particular smell.";
+	otherwise say "It would be a problem if you smelled gas, but fortunately everything is fine."
+	
 Before putting something on the hob: unless the noun is a moka-item, say "[/ss]Don't be silly.' [/se][Monica] [suggest] [/ss1]You shouldn't put [the noun] on the hob.' [/r][/n]" instead.
 Instead of switching on the hob: try switching on the hob-switch.
 Instead of switching off the hob: try switching off the hob-switch.
@@ -795,10 +859,12 @@ Section Hood
 
 The extractor hood is device. It is part of the furniture.
 The description is "A stainless steel hood with a high-tech design."
+The sound-description is "nothing because it's off".
 
 Section Furniture content
 
 An unuseful-item is a kind of thing.
+It is mute.
 Instead of taking an unuseful-item: say "You don't need it."
 
 Some cookware is an unuseful-item. The description is "Miscellaneous pots, pans and lids."
@@ -806,6 +872,7 @@ Some dishcloths are an unuseful-item.
 Some cutlery are unuseful-item. The description is "Miscellaneous knives, forks, spoons and kitchenware."
 
 An useful-item is a kind of thing.
+It is mute.
 The teaspoon is an useful-item. The description is "An ordinary teaspoon".
 Understand "little/small/-- spoon" as the teaspoon.
 The pair of scissors is an useful-item. The description is "Multifunctional kitchen scissors."
@@ -832,7 +899,8 @@ Some crockery are an unuseful-item.
 Crockery is in the left cabinet.
 The description is "Miscellaneous plates, glasses and other tableware."
 Understand "tableware/glasses/glass/plate/plates/dish/dishes" as crockery.
-A coffeecup is a kind of thing.
+A coffeecup is a kind of thing. 
+It is mute.
 Two coffeecups are in the left cabinet. 
 The description is "A white coffeecup with three coffee grains drawed on it."
 
@@ -843,13 +911,17 @@ Instead of removing a coffeecup from something: say avoid taking coffeecups.
 Some food is an unuseful-item.
 Food is in the right cabinet.
 The description is "Boxes of macaroni, jars of preserves, spices and other foodstuffs."
+The scent-description is "only the odor of the packaging".
 Understand "macaroni/preserve/preserves/spice/spices" as food.
+Instead of eating food: say "Food is in its packaging and some needs to be cooked before eating."
+Instead of tasting food: try eating the noun.
 
 Section Cabinets
 
 A cabinet-item is a kind of container. 
-A cabinet-item is openable and not lockable.
-A cabinet-item is usually closed.
+It is openable and not lockable.
+It is usually closed.
+It is mute.
 Instead of locking keylessly a cabinet-item: say "There is no way to lock it."
 Instead of unlocking keylessly a cabinet-item: say "It doesn't have a lock."
 The description of a cabinet-item is "[if closed]A light cream-yellow lacquered wooden door[otherwise]A white wooden cabinet with shelves[end if]."
@@ -916,6 +988,7 @@ At the time when Monica puts the shopper away:
 Book Backdrops
 
 Instead of taking a backdrop, say "Perhaps it would be helpful to consider what could be done with it." 
+A backdrop is usually mute.
 
 Chapter Sky
 
@@ -955,7 +1028,10 @@ Chapter Main road
 The main road is a backdrop.
 The main road is in the street.
 Understand "main/-- street" as the main road.
+
 Instead of examining the main road: try looking.
+Instead of smelling the main road: try smelling the location.
+Instead of listening to the main road: try listening to the location.
 
 Chapter Coffee shop window
 
@@ -1386,7 +1462,7 @@ Section Monocolture
 
 To say unavailable in capsules: say "[/ss]Unfortunately, it is not available in capsules.' [/se][regarding Marco][they] [remark]."
 	
-Understand "monocolture/mono-origin/moustache/brazilian/paulista blend/coffee/--" as "[paulista]".
+Understand "monocolture/mono-origin/moustache/brazilian/paulista/cult blend/coffee/--" or "brazialian arabica" as "[paulista]".
 Response for Marco when asked-or-told about "[paulista]": Marco explains flavour of monocolture.
 Response for capsules-offer-node when asked-or-told about "[paulista]":
 	Marco explains flavour of monocolture;
@@ -1416,6 +1492,7 @@ Node-introduction for moka-request-node:
 		say "While Monica tries to soften you up with cuddles and eye candy, I try to explain what [/i]ciaffi[/r] are.";
 		say "The [/i]ciaffi[/r] are obviously useless objects, perhaps sometimes humorous, but currently taking up space and gathering dust.";
 		say "[/n][/ss]All right,' [/se][we] [say] at last, with a disconsolate air [/ss1]so you won't sulk for a week.' [/r][/n]";
+		say "[/ss]You might think I say this just to make a sale,' [/se][Marco] [explain] [/ss1]but trust me, for breakfast I prefer moka coffee to machine coffee. You've got to try it: I bet you'll change your mind!' [/r][/n]";
 	say "[/n][/ss]Well miss [Monica],' [/se][Marco] [ask] [/ss1]which color do you prefer?' [/r][/n]";
 	say "[/ss]I let Fancesco choose,' [/se][Monica] [reply] looking at [us] [/ss1]after all he is the art director.' [/r][/n]";
 	say "[We] [smile].".
@@ -1444,12 +1521,12 @@ Node-introduction for roasted-coffee-node:
 	unless the player consents:
 		say "[/ss]As we've never had a moka, we don't have its coffee either.' [/se][Monica] [reply] annoyed [/ss1]Were you planning to open the capsules and use those?' [/r][/p]";
 		if the player consents:
-			say "[/ss]Ciccio!' [/se][Monica] [exclaim] angry [/ss1]Now you have to stop playing those games you always play, what are they called? Interactive Fiction. It's time to get your feet back on the ground!' [/n][/r]";
+			say "[/ss]Ciccio!' [/se][Monica] [exclaim] angry [/ss1]Now you have to stop playing those games you always play; what are they called? Interactive Fiction? It's time to get your feet back on the ground!' [/n][/r]";
 			say "[/ss]I have played a few myself, they are nice.' [/se][Marco] [add] [/ss1]As for using the coffee of the capsules in the moka, it is best not to: it is ground differently and could clog the filters.' [/r][/n]";
 		say "[/ss]Let's get serious and listen to what [Marco] proposes.' [/se][Monica] [suggest] [us].[/n]";
 	say "[/ss]I can offer you an Arabica blend, like the ones you usually buy for the machine, a classic blend, ideal for breakfast, or even a light blend or a strong blend.' [/se][Marco] [explain].";
 	say "[/ss]And what about that cute tin with the man with the moustache?' [/se][Monica] [ask].";
-	say "[/ss]Ah, the conquering moustache!' [/se][Marco] [exclaim] [/ss1]It's a product of cult, a mono-origin of Brazilian Arabica.' [/r][/n]"
+	say "[/ss]Ah, the conquering moustache!' [/se][Marco] [exclaim] [/ss1]It's a product of cult, a mono-origin of Brazilian Arabica.' [/r][/n]".
 
 To say roasted coffee tip: say "[/ss]You can choose the Arabica blend you are already familiar with' [/se][Marco] [say] [/ss1]or, especially if you are planning to use the moka for breakfast, you can try the classic blend, which is a little more intense.' [/r][/n]".
 Response for roasted-coffee-node when asked for "[help]": say roasted coffee tip.

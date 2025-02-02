@@ -1,4 +1,4 @@
-Version 250125 of Verbs by The Strawberry Field begins here.
+Version 250201 of Verbs by The Strawberry Field begins here.
 
 [
 Verbs © 2025 by Roberto Ceccarelli - The Strawberry Field 
@@ -118,6 +118,7 @@ To sit is a verb.
 To slap is a verb.
 To slip is a verb. 
 To smile is a verb.
+To sound is a verb.
 To spread is a verb.
 To stand is a verb.
 To stare is a verb. 

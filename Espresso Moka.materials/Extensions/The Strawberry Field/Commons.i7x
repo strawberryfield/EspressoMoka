@@ -56,46 +56,55 @@ Escaping is an action applying to nothing.
 Understand the command "out" as something new.
 Understand "escape" or "away" or "out" or "go away" as escaping.
 Carry out escaping:
-	if the player is enclosed by a container or the player is enclosed by a supporter:
-		try exiting;
-	otherwise:
-		try going outside.
+	if the player is enclosed by a container or the player is enclosed by a supporter, try exiting;
+	otherwise try going outside.
 	
-Chapter Smell and Taste
+Chapter Smell, Taste and Listening
 
 Section Smelling
 
-A thing has some text called the scent-description.
+An object has some text called the scent-description.
 
 The scent-description of a person is usually "deodorant".
 
-Instead of smelling something:
-	if the scent-description of the noun is "":
-		if the noun is r-abstract:
-			say "There's hardly any odour to [the noun].";
-		else:
-			say "[regarding the noun][They] [smell] as I would have expected.";
+Instead of smelling:
+	if the scent-description of the noun is empty:
+		if the noun is r-abstract, say "There's hardly any odour to [the noun].";
+		otherwise say "[one of][We] [don't] smell anything in particular[or][We] [smell] nothing special[or][regarding the noun][They] [smell] as [we] would have expected[at random].";
 	otherwise:
-		say "[regarding the noun][They] [smell] like [scent-description of the noun]. [/p]".
+		say "[regarding the noun][They] [smell] like [scent-description of the noun]."
+
+Section Listening
+
+Understand "listen [something]" as listening to.
+Understand "hear" as listening to.
+
+An object has some text called the sound-description.
+An object can be sounding or mute. An object is usually mute.
+A thing is usually sounding.
+A room is usually sounding.
+
+Instead of listening to:
+	if the noun is the player, say "You are not used to talking to yourself." instead;
+	if the noun is a person, say "[regarding the noun][They] [one of][are] not talking[or][are] silent[or][are] not saying anything[at random]." instead;
+	if the noun is mute, say "[regarding the noun][They] [one of][are] silent[or][do] not produce any sound[or][make] no sound[at random]." instead;
+	if the sound-description of the noun is empty, say "[one of][We] [don't] hear anything in particular[or][We] [hear] nothing special[or][regarding the noun][They] [sound] as [we] would have expected[at random].";
+	otherwise say "[We] [one of][hear][or][listen][at random] [sound-description of the noun]."
 
 Section Tasting
 
 A thing has some text called the flavor-description.
 
-Instead of tasting something:
-	if the flavor-description of the noun is "":
-		if the noun is r-abstract:
-			say "There's not enough there to provide much flavour.";
-		else:
-			say "[regarding the noun][They] [taste] as I would have expected.";
+Instead of tasting:
+	if the flavor-description of the noun is empty:
+		if the noun is r-abstract, say "There's not enough there to provide much flavour.";
+		otherwise say "[regarding the noun][They] [taste] as [we] would have expected.";
 	otherwise:
-		say "[flavor-description of the noun]. [/p]".
+		say "[flavor-description of the noun]."
 
 Instead of tasting something which is not edible:
-	if the noun is a person:
-		say "That would be unpleasantly intimate.";
-	otherwise:
-		say "[one of]I have an aversion to licking things that aren't meant for human consumption.[or]Doesn't that seem kind of germy?[or]Ew.[at random]".
+	if the noun is a person, say "That would be unpleasantly intimate.";
+	otherwise say "[one of]I have an aversion to licking things that aren't meant for human consumption[or]This does not seem appropriate[or]I'm sorry, but this doesn't seem right[at random]."
 
 Understand "bite [someone]" as attacking.
 
@@ -160,8 +169,7 @@ Chapter Stealing
 Stealing is an action applying to one thing.
 Understand "steal all/every/any/-- [something]" as stealing.
 Understand "steal all/everything/anything/--" as stealing.
-Report stealing: 
-	say "[one of]Naughty, don't do that[or]I call the security service[at random]!".
+Report stealing: say "[one of]Naughty, don't do that[or]I call the security service[at random]!".
 Understand the command "stole" or "rob" as "steal".
 Rule for supplying a missing noun while stealing (this is the indefinite stealing rule):
     now the noun is the location. 
@@ -169,8 +177,7 @@ Rule for supplying a missing noun while stealing (this is the indefinite stealin
 Chapter Special says
 
 To say times of (N - a number): say " for the [ordinal of N] time".
-To say other times of (N - a number):
-	if N is greater than 1, say times of N.
+To say other times of (N - a number): if N is greater than 1, say times of N.
 	
 Chapter Sanity check
 
@@ -179,7 +186,7 @@ The sanity-check rules are a rulebook.
 This is the sanity-check stage rule:
 	abide by the sanity-check rules.
 
-The sanity-check stage rule is listed before the before stage rule  in the action-processing rules.
+The sanity-check stage rule is listed before the before stage rule in the action-processing rules.
 
 Section Basic sanity-check rules
 
@@ -221,8 +228,7 @@ Understand "back" or "return" or "retreat" as retreating.
 The former direction is a direction that varies.
 
 Carry out going:
-	if the noun is a direction:
-		now the former direction is the noun.
+	if the noun is a direction, now the former direction is the noun.
 
 Retreating is an action applying to nothing.
 
@@ -274,7 +280,9 @@ To decide if the player cannot carry (X - a thing) :
 	
 Chapter Concreteness
 
-A thing can be r-concrete or r-abstract. A thing is usually r-concrete.
+An object can be r-concrete or r-abstract. 
+A thing is usually r-concrete.
+A room is usually r-concrete.
 
 Sanity-check rubbing or squeezing or touching or waving or pulling or pushing or turning or climbing an r-abstract thing:
 	say "[The noun] [are] not really solid enough to treat that way. Might as well be [one of]dandelion fluff[or]pipe smoke[or]a hologram[or]a 3D image[or]mist[or]a cloud of vapor[at random]." instead.
