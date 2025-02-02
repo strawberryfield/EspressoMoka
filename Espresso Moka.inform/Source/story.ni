@@ -663,12 +663,15 @@ The espresso machines shelving is a shelf-item in the coffee-shop.
 The description is "On the shelves behind the counter are several espresso machines.".
 Understand "espresso/coffee/-- machine/machines shelf/shelves/shelving/shelvings" as the espresso machines shelving.
 
+The big old moka is a moka-item on the espresso machines shelving.
+The description is "A big moka pot, which can make coffee for a dozen people, shows clear signs of having been used for a long time."
+
 The capsules shelving is a shelf-item in the coffee-shop.
 The description is "On the shelves to the left are many small, colorful boxes with different qualities of coffee. [/n]Your favourites are in white boxes with gold decorations.".
 Understand "capsules/cartridges/capsule/cartridge shelf/shelves/shelving/shelvings" as the capsules shelving.
 
 The roasted coffee shelving is a shelf-item in the coffee-shop.
-The description is "On the shelves to the righ are foil packets and aluminium cans. [/n]They were the ones your mothers used (and still use) to make coffee in a moka pot.".
+The description is "On the shelves to the righ are foil packets and aluminium cans. [/n]They are the ones your mothers used (and still use) to make coffee in a moka pot.".
 Understand "roasted/ground coffee/-- shelf/shelves/shelving/shelvings" or "tins/cans/jars/packets/packages shelf/shelves/shelving/shelvings/--" as the roasted coffee shelving.
 
 The shelves are scenery in the coffee-shop.
@@ -1497,7 +1500,10 @@ Node-introduction for moka-request-node:
 	say "[/ss]I let Fancesco choose,' [/se][Monica] [reply] looking at [us] [/ss1]after all he is the art director.' [/r][/n]";
 	say "[We] [smile].".
 
+Section Moka request
+
 To Marco takes (m - moka-item):
+	if m is the big old moka, say "[/ss]I'm sorry,' [/se][Marco] [reply] [/ss1]this one is not for sale. It's from my grandmother and I only use it on the most special of occasions.' [/r][/n]" instead;
 	if m is the natural aluminium moka, say "[/ss]Ciccio, but that's the usual moka.' [/se][Monica] [complain] [/ss1]Let's get a colored one.' [/r][/n]" instead;
 	say "[Marco] [take] [the m] and [place] it on the counter.";
 	now m is on the counter;
