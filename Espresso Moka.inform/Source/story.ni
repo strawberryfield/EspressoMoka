@@ -76,7 +76,8 @@ When play begins:
 	now Monica is in the street-1;
 	now the former direction is north; 
 	say "It is Saturday afternoon. [/n]Francesco and Monica are walking down the main street of their town. [/n]Monica is very interested in the shop windows displaying clothes and accessories, shoes, bags... [/n]Francesco follows her with a bored look, unable to escape this routine. ";
-	say "[/p][/b]«The Strawberry Field»[/r] [/i]presents[/r][/p]".
+	say "[/p][/b]«The Strawberry Field»[/r] [/i]presents[/r]";
+	wait space key.
 	
 Volume World
 
@@ -197,6 +198,7 @@ Instead of going west when the player is in the street-2: try opening the wooden
 Instead of going inside when the player is in the street-2:
 	unless the clothing-store is visited:
 		say "[heart][/ss]Oh dear, you know I love shopping!' [/se][Monica] [exclaim].";
+		wait space key;
 		say "[/p][note style]A few minutes later. [/r][/p]";
 		say "[We] and [Monica] exit from the shop. [/n]You are carrying a shopper.";
 		now the clothing-store is visited;
@@ -444,6 +446,7 @@ Section Back
 To say tips-eng:
 	say "WARNINGS[/n]Read the instructions carefully as they contain important information about safety, use and maintenance of the product. [/n]IMPORTANT: READ THIS MANUAL THOROUGHLY AND KEEP IT WITH CARE FOR FUTURE REFERENCE.";
 	say "These instructions are an integral part of the product and, throughout the entire life of the product, must be kept and be available. The documentation should be given to the subsequent owners of the product.";
+	wait space key;
 	say "When using the coffee maker for the first time, wash thoroughly with water. [/n]Hand wash only without using detergents and abrasive sponges to preserve its features over the time.";
 	say "Never use the coffee maker without water in the heater. [/n]Never use other liquids in the heater, the coffee maker is intended to be used with water only. [/n]The coffee maker is designed to be used only with water
 and ground coffee for moka for household use.";
@@ -454,6 +457,7 @@ as they are necessary for enhancing the aroma of coffee at best."
 To say tips-ita:
 	say "AVVERTENZE D’USO[/n]Leggere attentamente le avvertenze contenute nelle presenti istruzioni in quanto forniscono importanti indicazioni riguardanti la sicurezza, l’uso e la manutenzione del prodotto. [/n]IMPORTANTE: LEGGERE ATTENTAMENTE PRIMA DI OGNI UTILIZZO, CONSERVARE CON CURA QUESTO LIBRETTO PER OGNI ULTERIORE CONSULTAZIONE.";
 	say "Le presenti istruzioni vanno considerate come parte integrante del prodotto e, per l’intera durata del prodotto, devono essere conservate ed essere disponibili. La documentazione deve essere consegnata a tutti i successivi proprietari del prodotto.";
+	wait space key;
 	say "La prima volta che usate la caffettiera, lavare bene, solo con acqua. [/n]Lavare solo a mano, senza utilizzo di detergenti e spugne abrasive, per mantenere inalterate le sue qualità nel tempo.";
 	say "Non utilizzare la caffettiera senza acqua nella caldaia. [/n]Non utilizzare altri liquidi nella caldaia: la
 caffettiera deve funzionare solo con acqua. [/n]La presente caffettiera è destinata a essere utilizzata esclusivamente
@@ -1125,6 +1129,7 @@ Before inserting something into the wallet:
 	if the wallet is closed, try opening the wallet.
 	
 Putting back is an action applying to one thing.
+The putting back action translates into Inter as "PutBack".
 Understand "put [something preferably held] back/away" as putting back.
 Understand "put back/away [something preferably held]" as putting back.
 Check putting back: unless the noun is the credit card or the noun is the wallet, say "I don't know where to put it." instead.
@@ -1494,6 +1499,7 @@ Node-introduction for moka-request-node:
 		say "[/ss]No!' [/se][we] [answer] annoyed [/ss1]It ends up the same as always: you use it once and then it becomes one of your ciaffi!' [/r][/p]";
 		say "While Monica tries to soften you up with cuddles and eye candy, I try to explain what [/i]ciaffi[/r] are.";
 		say "The [/i]ciaffi[/r] are obviously useless objects, perhaps sometimes humorous, but currently taking up space and gathering dust.";
+		wait space key;
 		say "[/n][/ss]All right,' [/se][we] [say] at last, with a disconsolate air [/ss1]so you won't sulk for a week.' [/r][/n]";
 		say "[/ss]You might think I say this just to make a sale,' [/se][Marco] [explain] [/ss1]but trust me, for breakfast I prefer moka coffee to machine coffee. You've got to try it: I bet you'll change your mind!' [/r][/n]";
 	say "[/n][/ss]Well miss [Monica],' [/se][Marco] [ask] [/ss1]which color do you prefer?' [/r][/n]";
@@ -1724,6 +1730,7 @@ Before going from the coffee-shop:
 	unless L is empty, say "[/ss]It's OK that we're in a hurry to try our new moka,' [/se][Monica] [say] [/ss1]but you'd better put your [L] back.' [/r][/n]" instead;
 	if bye-done is false, greet Marco;
 	say "[We] and [Monica] [leave] the shop and quickly go home.";
+	wait space key;
 	say "[/p][note style]About half an hour later. [/r][/p]";
 	now the white shopper is nowhere;
 	now the brown shopper is on the table;
@@ -1978,6 +1985,7 @@ After pouring:
 	continue the action.	
 	
 At the time when the director stops the action:
+	wait space key;
 	now the printed name of the kitchen is "On the stage";
 	say "[note style]Stop![/r][/n]";
 	say "This is the director's voice, stopping the action.";

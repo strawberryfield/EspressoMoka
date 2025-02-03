@@ -315,7 +315,7 @@ Book Administrivia
 
 Figure cover is the file "Cover.jpg".
 
-To waiting space key:
+To wait space key:
 	say "[/p]Please press SPACE to continue.";
 	wait for the SPACE key;
 	say /n.
@@ -355,7 +355,8 @@ Report requesting license:
 	say "[story title] is copyright (c) [story creation year] [story author].";
 	say "Released under Creative Commons BY-NC-SA 4.0 license. [/p]";
 	say "[/i]You are free to:[/r] [/n][/b]Share[/r] - copy and redistribute the material in any medium or format[/n][/b]Adapt[/r] - remix, transform, and build upon the material[/n]The licensor cannot revoke these freedoms as long as you follow the license terms. [/p]";
-	say "[/i]Under the following terms:[/r] [/n][/b]Attribution[/r] - You must give appropriate credit , provide a link to the license, and indicate if changes were made . You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. [/n][/b]NonCommercial[/r] - You may not use the material for commercial purposes. [/n][/b]ShareAlike[/r] - If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original. [/n][/b]No additional restrictions[/r] - You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits. [/p]";
+	say "[/i]Under the following terms:[/r] [/n][/b]Attribution[/r] - You must give appropriate credit , provide a link to the license, and indicate if changes were made . You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. [/n][/b]NonCommercial[/r] - You may not use the material for commercial purposes. [/n][/b]ShareAlike[/r] - If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original. [/n][/b]No additional restrictions[/r] - You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.";
+	wait space key;
 	say "[/i]Limitation of Liability[/r][/n]";
 	say "To the extent possible, in no event will the Licensor be liable to You on
 any legal theory (including, without limitation, negligence) or otherwise
@@ -363,7 +364,8 @@ for any direct, special, indirect, incidental, consequential, punitive,
 exemplary, or other losses, costs, expenses, or damages arising out of this
 Public License or use of the Licensed Material, even if the Licensor has
 been advised of the possibility of such losses, costs, expenses, or
-damages. [/p]";
+damages.";
+	wait space key;
 	say "[/i]Disclaimer for the Fiction[/r][/n]";
 	say "This is a work of fiction. Unless otherwise indicated, all the names,
 characters, businesses, places, events and incidents in this book are
