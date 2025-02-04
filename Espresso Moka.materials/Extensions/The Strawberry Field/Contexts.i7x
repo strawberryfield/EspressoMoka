@@ -21,10 +21,11 @@ Include Commons by The Strawberry Field.
 
 Volume Help
 
-To say verbs command:
-	say "Type [/b]verbs[/r] or [/b]commands[/r] for a list of available commands."
+To say verbs command: say "Type [/b]verbs[/r] or [/b]commands[/r] for a list of available commands."
 	 
 Requesting help is an action out of world.
+The requesting help action translates into Inter as "Help".
+
 Understand "help me/-- please/--" as requesting help. 
 Understand the command "hint/advise/suggest/tip" as "help".
 Understand "help/hint/hints/suggestion/suggestions/advise/tip/tips" as "[help]".
@@ -73,12 +74,14 @@ Understand "simsalabim" or "say simsalabim" or "cast simsalabim" as casting xyzz
 Understand "alakazam" or "say alakazam" or "cast alakazam" as casting xyzzy.
 
 Casting xyzzy is an action applying to nothing.
-Report casting xyzzy:
-	say "Nothing happens."
+The casting xyzzy action translates into Inter as "DoMagic".
+
+Report casting xyzzy: say "Nothing happens."
 
 Volume Reflection
 
 Listing verbs is an action out of world.
+The listing verbs action translates into Inter as "VerbsList".
 Understand "verbs" or "commands" as listing verbs.
 
 Report listing verbs:

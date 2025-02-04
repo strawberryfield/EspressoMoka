@@ -53,6 +53,7 @@ After reading a command:
 Chapter Movements
 
 Escaping is an action applying to nothing.
+The escaping action translates into Inter as "Escape".
 Understand the command "out" as something new.
 Understand "escape" or "away" or "out" or "go away" as escaping.
 Carry out escaping:
@@ -64,6 +65,7 @@ Chapter Smell, Taste and Listening
 Section Smelling
 
 An object has some text called the scent-description.
+The scent-description property translates into Inter as "Scent_Description".
 
 The scent-description of a person is usually "deodorant".
 
@@ -80,6 +82,7 @@ Understand "listen [something]" as listening to.
 Understand "hear" as listening to.
 
 An object has some text called the sound-description.
+The sound-description property translates into Inter as "Sound_Description".
 An object can be sounding or mute. An object is usually mute.
 A thing is usually sounding.
 A room is usually sounding.
@@ -94,6 +97,7 @@ Instead of listening to:
 Section Tasting
 
 A thing has some text called the flavor-description.
+The flavor-description property translates into Inter as "Flavor_description".
 
 Instead of tasting:
 	if the flavor-description of the noun is empty:
@@ -151,6 +155,7 @@ Rule for printing a parser error when the latest parser error is the nothing to 
 Chapter Dancing and singing
 
 Dancing is an action applying to nothing.
+The dancing action translates into Inter as "Dance".
 Understand "Dance" as dancing.
 Report dancing: say "[We] [aren't] a dancer.".
 Check an actor dancing:
@@ -159,6 +164,7 @@ Check an actor dancing:
 		silently try getting off the seat.
  
 Singing is an action applying to nothing.
+The singing action translates into Inter as "Sing".
 Understand "Sing" as singing.
 Report singing: say "[We] [are] not particularly in tune.".
 Check singing:
@@ -167,6 +173,7 @@ Check singing:
 Chapter Stealing
 
 Stealing is an action applying to one thing.
+The stealing action translates into Inter as "Steal".
 Understand "steal all/every/any/-- [something]" as stealing.
 Understand "steal all/everything/anything/--" as stealing.
 Report stealing: say "[one of]Naughty, don't do that[or]I call the security service[at random]!".
@@ -222,6 +229,8 @@ Sanity-check searching the player:
 
 Chapter Go back
 
+Retreating is an action applying to nothing.
+The retreating action translates into Inter as "Retreat".
 Understand "go back" as retreating. 
 Understand "back" or "return" or "retreat" as retreating.
 
@@ -229,8 +238,6 @@ The former direction is a direction that varies.
 
 Carry out going:
 	if the noun is a direction, now the former direction is the noun.
-
-Retreating is an action applying to nothing.
 
 Carry out retreating:
 	let new direction be the opposite of the former direction;
@@ -240,6 +247,7 @@ Carry out retreating:
 Chapter Go forward
 
 Going forward is an action applying to nothing.
+The going forward action translates into Inter as "GoForward".
 Understand "go forward/ahead/straight" as going forward.
 Understand "forward" or "ahead" or "straight" as going forward.
 Carry out going forward:
@@ -254,11 +262,13 @@ The custom vaguely going rule is listed instead of the block vaguely going rule 
 
 Chapter Go to named room
 
+Going by name is an action applying to one thing.
+The going by name action translates into Inter as "GoByName".
+
 Understand "[any room]" as going by name. 
 Understand "go to/into/-- [any room]" as going by name.
 Understand "enter in/into/-- [any room]" as going by name.
 
-Going by name is an action applying to one thing.
 Check going by name:
     if the noun is the location, say "You're already in [the location]." instead;
     if the noun is not adjacent and the noun is unvisited, say "There isn't any [noun] nearby." instead. 
@@ -299,6 +309,7 @@ Sanity-check switching on or switching off an r-abstract thing:
 Book Owner
 
 A thing has an object called owner. The owner is usually nothing.
+The owner property translates into Inter as "Thing_owner".
 
 Definition: a thing is owned unless the owner of it is nothing.
 
@@ -323,8 +334,10 @@ To wait space key:
 Chapter Info
 
 Requesting info is an action out of world.
+The requesting info action translates into Inter as "Info".
 Understand "about the/this/-- story/game/--" as requesting info.
 Understand the command "info" as "about".
+
 Report requesting info:
 	say "[banner text]";
 	display the Figure cover;
@@ -337,6 +350,7 @@ Name (text)	Reason (text)
 ""	""
 
 Requesting credits is an action out of world.
+The requesting credits action translates into Inter as "CreditsList".
 Understand "credits list/--" as requesting credits.
 Understand the command "acknowledgment/acknowledgments/acknowledgement/acknowledgements/thanksgiving" as "credits".
 Report requesting credits:
@@ -349,6 +363,7 @@ Report requesting credits:
 Chapter License
 
 Requesting license is an action out of world.
+The requesting license action translates into Inter as "LicenseInfo".
 Understand "license note/--" as requesting license.
 Understand the command "copyright/legal/licence" as "license".
 Report requesting license:

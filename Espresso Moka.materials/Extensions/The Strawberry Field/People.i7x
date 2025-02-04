@@ -30,9 +30,9 @@ To say Man:
 	
 Book Somatic properties
 
-A person has some text called hair.
-A person has some text called eyes.
-A person has some text called notes.
+A person has some text called hair. The hair property translates into Inter as "Person_hair".
+A person has some text called eyes. The eyes property translates into Inter as "Person_eyes".
+A person has some text called notes. The notes property translates into Inter as "Person_notes".
 
 To say base character description of (p - a person):
 	unless hair of p is "" and eyes of p is "":
@@ -49,8 +49,7 @@ To say base character description of (p - a person):
 
 Instead of examining a person: 
 	if the description of the noun is "", say "A young [regarding the noun][man] ";
-	otherwise:
-		say description of the noun;
+	otherwise say description of the noun;
 	say base character description of the noun.
 	
 Book Dressing
@@ -68,8 +67,7 @@ A cloth is a kind of thing.
 A cloth is always wearable.
 A cloth is usually unlisted when worn.
 
-Instead of taking off a cloth:
-	say "This is not the time to undress."
+Instead of taking off a cloth: say "This is not the time to undress."
 	
 Persuasion rule for asking someone to try getting off a cloth:
 	say "[/ss]Does this seem like something to ask?' [/se][regarding the actor][they] [ask] [us] angrily.";

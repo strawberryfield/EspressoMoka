@@ -23,14 +23,18 @@ Chapter Definitions
 A paper-item is a kind of thing.
 A paper-side is a kind of thing.
 A paper-side has a table name called arguments.
+The arguments property translates into Inter as "Paper_item_arguments".
+
 A front side is a kind of paper-side. A front side is part of every paper-item.
 A back side is a kind of paper-side. A back side is part of every paper-item.
 
 A paper-item can be folded or unfolded.
+The folded property translates into Inter as "Paper_item_folded".
 A paper-item is usually unfolded.
 Understand the folded property as describing a paper-item.
 
 A paper-item has some text called folded appearance.
+The folded appearance property translates into Inter as "Paper_item_folded_appear".
 
 Does the player mean doing something with a paper-item: it is likely.
 
@@ -39,6 +43,7 @@ Chapter Folding
 Section Folding
 
 Folding is an action applying to one thing.
+The folding action translates into Inter as "Fold".
 Understand "fold [something]" as folding.
 
 Check folding:
@@ -53,6 +58,7 @@ Report folding:
 Section Unfolding
 
 Unfolding is an action applying to one thing.
+The unfolding action translates into Inter as "Unfold".
 Understand "unfold [something]" as unfolding.
 
 Check unfolding:
@@ -67,6 +73,7 @@ Report unfolding:
 Chapter Sides
 
 A paper-item can be upside or turned. A paper-item is usually upside.
+The upside property translates into Inter as "Paper_item_upside".
 Instead of turning a paper-item:
 	say "[We] [turn] [the noun]: now [we] [see] the ";
 	if the noun is upside:
@@ -118,6 +125,7 @@ To say list of topics of (S - a paper-side):
 Section reading
 	
 Examining as a paper is an action applying to one topic.
+The examining as a paper action translates into Inter as "ReadPaper".
 Understand "examine [text]" as examining as a paper.
 Understand "read [text]" as examining as a paper.
 
