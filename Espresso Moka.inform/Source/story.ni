@@ -1067,16 +1067,54 @@ Volume Characters
 
 Book Player
 
+Chapter Description
+
 The description of the player is "A guy, about 30 years old, ".
 Hair of the player are "blond".
 Eyes of the player are "blue".
-Notes of the player are "You work as a software engineer, enjoy photography and love hiking in the mountains. [/n]In love with your girlfriend, very beautiful, but also shrewish when something doesn't go her way. In the end you always please her and she appreciates it. [/n]Monica sometimes calls you Ciccio".
+Sgudebla is some text that varies. Sgudebla is "shrewish".
+Notes of the player are "You work as a software engineer, enjoy photography and love hiking in the mountains. [/n]In love with your girlfriend, very beautiful, but also [sgudebla] when something doesn't go her way. In the end you always please her and she appreciates it. [/n]Monica sometimes calls you Ciccio".
 The player is male.
 The printed name of the player is "Francesco".
 The carrying capacity of the player is 10.
 The scent-description of the player is "the aftershave [/i]'for the man who never has to ask'[/r] that [Monica] gave [us]".
 Understand "Ciccio/Francesco/me/myself/you/yourself" or "the/-- player/protagonist" as yourself.
 
+Section First examining
+
+Before examining the player for the first time:
+	if the location is a street-room, Monica asks about shrewish in 0 turns from now;
+	continue the action.
+
+The previous context is a context that varies.	
+At the time when Monica asks about shrewish:
+	say "[/ss]Hey Ciccio!' [/se][Monica] [claim] [our] attention [/ss1]Do you think I'm shrewish too?'[/r][/n]";
+	if the player consents:
+		now the previous context is the current context;
+		now the current context is kiss-Monica-help;
+		say "[/ss]I would use the term «sgudebla», but the concept is practically the same.' [/se][we] [reply].";
+		say "[/ss][/f]An offensive word to describe a woman who is considered to be unpleasant and easily annoyed, and who argues a lot. [/i]This is the definition of «shrewish» in the Cambridge Dictionary' [/se][Monica] [remind] [us] then [add] bringing her lips close to [ours] [/ss1]If you really thought that, you would have left me long ago, but now make it up to me! ' [/r][/n]";
+	otherwise:
+		say "[heart][/ss]I knew you were nicer than that game's author.' [/se][Monica] [say].[/n]";
+		change sgudebla description.
+	
+Instead of doing anything other than kissing when the current context is kiss-Monica-help:
+	say "[/ss]Come on, do something to make it up to me!' [/se][Monica] [advise] [us]."
+	
+Before kissing Monica when the current context is kiss-Monica-help:	
+	now the current context is the previous context;
+	say "[/ss]I may have exaggerated a bit, you can be a little too punctilious at times, but deep down, as I always say, you have a heart of cream.' [/se][we] [say] to [Monica], then [we] [kiss] her sweetly.";
+	author changes description in 0 turns from now;
+	continue the action.
+	
+At the time when author changes description:
+	change sgudebla description.
+To change sgudebla description:
+	now sgudebla is "quite fussy";
+	say "[Monica], I'm thrilled to let you know that the author has decided to tweak the description a bit to make it more gentle.";
+	say "[/ss]Narrator, please return my thanks to the author.' [/se][regarding Monica][they] [reply].";
+	say "Absolutely, Miss Monica, but now let's get back to the game."
+	
 Chapter Initial player dressing
 
 The black t-shirt is a cloth. The description is "A black T-shirt with a surfer design on the front.".
@@ -1149,6 +1187,8 @@ Instead of putting the wallet on something: say keep in pocket.
 Instead of dropping the wallet: say keep in pocket.
 	
 Book Girlfriend
+
+Chapter Description
 
 Monica is a woman. 
 The description is "Tall, slim ".
@@ -2068,6 +2108,7 @@ Moka-fill-help	"In order to make coffee, the moka needs to be filled with water 
 Moka-onfire-help	"The moka, filled and closed, must be placed on the hob for the coffee to come out."
 Coffee-wait-help	"Now, all we have to do is wait for the coffee to rise."
 Coffee-ready-help	"The coffee is ready! [/n]Just remember to turn off the heat to prevent it from acquiring a burnt taste. [/n]Enjoy!"
+Kiss-Monica-help	"You have got yourself into a lot of trouble, but you can get out of it with a loving gesture for your girlfriend."
 
 Book Credits
 
