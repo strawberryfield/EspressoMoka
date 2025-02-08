@@ -156,7 +156,7 @@ Before examining as a paper when the current paper is nothing (this is the readi
 	let np be the number of paper-items carried by the player;
 	if np is zero:
 		let nv be the number of visible paper-items;
-		if nv is zero, say "There seems to be nothing readable." instead;
+		if nv is zero, say "There seems to be nothing suitable." instead;
 		if nv is greater than one, say specify what to read instead;
 		now the current paper is a random visible paper-item;
 	if np is greater than one, say specify what to read instead;

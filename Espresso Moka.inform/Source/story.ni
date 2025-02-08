@@ -150,9 +150,13 @@ The Clothing-Store is a room.
 The Clothing-Store is inside from street-2.
 Understand "cloth/clothes/clothing/-- store/shop" as the clothing-store when the location is street-2.
 
-The clothes store entrance is in the street-2. It is scenery.
-The description is "On one side of the window is a glass door. [/n]Through the glass you can see men's clothing, including the baggy shorts you always wear on your mountain hikes."
+The clothes store entrance is a container in the street-2. It is scenery.
+It is closed, transparent, not lockable.
+The description is "On one side of the window is a glass door. [/n]Through the glass you can see men's clothing[if the pair of beige shorts is in the clothes store entrance], including the baggy shorts you always wear on your mountain hikes; a tag says 'on sale'[end if]."
 Understand "clothes/garments/dressing/-- store/shop window/door/entrance/--" or "garments/dressing/window/door" as the clothes store entrance.
+
+The men's clothing is a scenery in the clothes store entrance.
+The description is "A selection of jerseys, shirts and trousers."
 
 Does the player mean examining the clothes store entrance: it is likely.
 Does the player mean opening the clothes store entrance: it is likely.
@@ -174,16 +178,26 @@ The description is "A white paper shopper."
 
 Section Shorts
 
-The pair of beige shorts is a cloth. The description is "A pair of beige shorts with lots of pockets: two on the back, two on the front and two on the legs.".
+The pair of beige shorts is a cloth. It is scenery.
+The description is "A pair of beige shorts with lots of pockets: two on the back, two on the front and two on the legs.".
 Understand "pants" as the pair of beige shorts.
 A pocket is a kind of container.
 A pocket is always open. A pocket is always not openable.
 Instead of searching a pocket: try examining the noun.
-The left back pocket, the right back pocket, the left front pocket, the right front pocket, the left leg pocket, the right leg pocket are pockets.
+
+A shorts-pocket is a kind of pocket.
+The left back pocket, the right back pocket, the left front pocket, the right front pocket, the left leg pocket, the right leg pocket are shorts-pockets.
 The left back pocket, the right back pocket, the left front pocket, the right front pocket, the left leg pocket, the right leg pocket are parts of the pair of beige shorts.
+Does the player mean doing anything with a shorts-pocket: it is unlikely.
 
-The pair of beige shorts is in the white shopper.
+The pair of beige shorts is in the clothes store entrance.
 
+Instead of wearing the pair of beige shorts: say "[/ss]There you go, the usual IF player nonsense stuff.' [/se][Monica] [comment], smiling [/ss1]One pair of pants on top of the other: how stupid!' [/r][/n]".
+
+Instead of doing anything other than examining with the pair of beige shorts:
+	if the location is the street-2, continue the action instead;
+	say "Now is not the time."
+	
 Section Building door
 
 The wooden front door is in the street-2. It is scenery.
@@ -195,6 +209,8 @@ Instead of opening the wooden front door: say "([the noun])[/ccb]It is locked. [
 Section  Movements
 
 Instead of going west when the player is in the street-2: try opening the wooden front door.
+
+The recall for sale is a truth state that varies.
 Instead of going inside when the player is in the street-2:
 	unless the clothing-store is visited:
 		say "[heart][/ss]Oh dear, you know I love shopping!' [/se][Monica] [exclaim].";
@@ -202,12 +218,32 @@ Instead of going inside when the player is in the street-2:
 		say "[/p][note style]A few minutes later. [/r][/p]";
 		say "[We] and [Monica] exit from the shop. [/n]You are carrying a shopper.";
 		now the clothing-store is visited;
+		now the pair of beige shorts is in the white shopper;
+		now the pair of beige shorts is not scenery;
+		now the pair of beige shorts is not fixed in place;
+		now the recall for sale is true;
 		now the player carries the white shopper;
 	otherwise:
 		say "[/ss]We have already bought the shorts,' [/se][Monica] [say] [/ss1]let's go ahead, we have to buy coffee.' [/r][/n]".
 	
 Instead of going south when the player is in the street-2: say "[/ss]But where are you going?' [/se][Monica] [ask] [/ss1]The coffee shop is on the other direction.' [/r][/n]"
 
+Before going north when the player is in the street-2:
+	unless the pair of beige shorts is in the clothes store entrance:
+		unless the pair of beige shorts is in the white shopper:
+			say "[/ss]It's better to put the shorts in the shopper.' [/se][Monica] [suggest] and [we] [take] her advice.";
+			now the pair of beige shorts is in the white shopper;
+	otherwise:
+		if the recall for sale is false:
+			now the recall for sale is true;
+			say "[/ss]Ciccio, just a sec,' [/se][Monica] [draw] [our] attention [/ss1]the shorts are on sale. Yours are pretty worn out, so why not get a new pair?' [/r][/p]";
+			if the player consents:
+				say "[/ss]Well!' [/se][Monica] [exclaim] hopping [/ss1]Let's go inside!' [/r][/n]";
+			otherwise:
+				say "[/ss]If it were up to you, you'd buy everything on sale.' [/se][we] [reply] impatiently [/ss1]The ones I've got are still fine.' [/r][/n]";
+				say "[/ss]Ah, of course!' [/se][Monica] [comment] with a laugh [/ss1]The holes in the bum are useful for keeping cool.' [/r][/n]";
+			stop the action.
+					
 Chapter Street 3
 
 The street-3 is a street-room.
@@ -1070,6 +1106,7 @@ Instead of entering the coffee shop window when the player is in the street-3: t
 Instead of opening the coffee shop window when the player is in the coffee-shop: try going outside.
 Instead of entering the coffee shop window when the player is in the coffee-shop: try going outside.
 
+
 Volume Characters
 
 Book Player
@@ -1131,7 +1168,7 @@ The pair of beige pants is a cloth. The description is "A pair of cotton beige p
 Understand "beige/-- trousers/trouser/pant" as the pair of beige pants.
 The left pants pocket and the right pants pocket are pockets.
 The left pants pocket and the right pants pocket are parts of the pair of beige pants.
-
+Does the player mean doing anything with the left pants pocket: it is likely.
 The pair of blue sneakers is a cloth.
 
 The player wears the black t-shirt, the pair of beige pants and the pair of blue sneakers.

@@ -181,7 +181,7 @@ Understand the command "stole" or "rob" as "steal".
 Rule for supplying a missing noun while stealing (this is the indefinite stealing rule):
     now the noun is the location. 
 
-Chapter Scold
+Chapter Scolding
 
 Scolding is an action applying to one thing.
 The scolding action translates into Inter as "Scold".
@@ -190,6 +190,14 @@ Understand the command "rebuke" or "reprimand" or "reproach" as "scold".
 
 Check scolding: unless the noun is a person, say "It can't hear you anyway." instead.
 Report scolding: say "There [are] no reason to scold [regarding the noun][them]."
+
+Chapter Laughing
+
+Laughing is an action applying to nothing.
+The laughing action translates into Inter as "Laugh".
+Understand "laugh" as laughing.
+
+Report laughing: say "[one of]He who laughs last laughs loudest[or]Risus abundat in ore stultorum[at random].".
 	
 Chapter Special says
 
