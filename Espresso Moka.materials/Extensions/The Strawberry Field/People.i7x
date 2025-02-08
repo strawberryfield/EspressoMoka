@@ -73,4 +73,19 @@ Persuasion rule for asking someone to try getting off a cloth:
 	say "[/ss]Does this seem like something to ask?' [/se][regarding the actor][they] [ask] [us] angrily.";
 	persuasion fails.
 
+Book actions
+
+Chapter complimenting
+
+Complimenting is an action applying to one thing.
+The complimenting action translates into Inter as "Compliment"
+
+Understand "compliment [something]" as complimenting.
+Understand the command "congratulate" as "compliment".
+
+Check complimenting: 
+	unless the noun is a person, say "I don't think it can handle compliments." instead;
+	if the noun is the player, say "Megalomaniac." instead.
+Report complimenting: say "[regarding the noun][They] really [appreciate]."
+
 People ends here.

@@ -180,6 +180,16 @@ Report stealing: say "[one of]Naughty, don't do that[or]I call the security serv
 Understand the command "stole" or "rob" as "steal".
 Rule for supplying a missing noun while stealing (this is the indefinite stealing rule):
     now the noun is the location. 
+
+Chapter Scold
+
+Scolding is an action applying to one thing.
+The scolding action translates into Inter as "Scold".
+Understand "scold [something]" as scolding.
+Understand the command "rebuke" or "reprimand" or "reproach" as "scold".
+
+Check scolding: unless the noun is a person, say "It can't hear you anyway." instead.
+Report scolding: say "There [are] no reason to scold [regarding the noun][them]."
 	
 Chapter Special says
 
@@ -282,10 +292,23 @@ Carry out going by name:
 	
 Chapter Implicit taking
 
-To decide if the player cannot carry (X - a thing) :
+To decide if the player cannot carry (X - a thing):
 	unless the player carries X:
 		carry out the implicitly taking activity with X;
 		unless the player carries X, decide yes;
+	decide no.
+	
+Chapter Implicit exiting
+
+To implicitly exiting (X - an enterable thing):
+	if the player is enclosed by X:
+		say "(first leaving the [X])[/ccb]";
+		silently try the player exiting.
+		
+To decide if the player cannot leave (X - an enterable thing):
+	if the player is enclosed by X:
+		implicitly exiting X;
+		if the player is enclosed by X, decide yes;
 	decide no.
 	
 Chapter Concreteness

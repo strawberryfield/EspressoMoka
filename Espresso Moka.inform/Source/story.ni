@@ -220,7 +220,7 @@ After going to the street-3 for the first time:
 	now current context is street3-help;
 	continue the action.
 At the time when Monica likes mokas:
-	say "[heart][/ss]Those colourful mokas are really pretty.' [/se][Monica] [say] [us] sweetly.";
+	say "[heart][/ss]Those colourful mokas are really pretty.' [/se][Monica] [say] to [us] sweetly.";
 	say "[/ss]I just told you that Marco is clever.' [/se][we] [reply][if the location of the player is the coffee-shop] in [Monica]'s ear[end if]."
 	
 Section Movements
@@ -375,7 +375,8 @@ Before rubbing a moka-component:
 	if the number of things which are not moka-components carried by the player is greater than 0, say "[/ss]You can't wash the moka while also holding [the list of things which are not moka-components carried by the player].' [/se][Monica] [state]." instead;
 	if the player cannot carry the moka pot, stop the action instead;
 	if the player cannot carry the moka heater, stop the action instead;
-	if the player cannot carry the coffee funnel filter, stop the action.
+	if the player cannot carry the coffee funnel filter, stop the action;
+	if the player cannot leave the chair, stop the action.
 
 After rubbing a moka-component:
 	now the current moka is washed;
@@ -412,6 +413,11 @@ Chapter Cooking
 Instead of putting a moka-item on the hob when the moka heater is not filled: say "[heart][/ss]Oh my God!' [/se][Monica] [exclaim] visibly concerned [/ss1]It's really dangerous to put the moka on the stove without water: my mum used to tell me about a friend of hers who had it burst and even made a hole in the ceiling.' [/r][/n]".
 	
 Instead of putting a moka-item on the hob when the moka heater is filled and the coffee funnel filter is not filled: say "[/ss]Without the powder, it's really hard to get the coffee to taste anything at all.' [/se][Monica] [remind]."
+
+Before putting a moka-item on the hob: if the player cannot leave the chair, stop the action.
+
+Before switching on the hob-switch: if the player cannot leave the chair, stop the action.
+Before switching off the hob-switch: if the player cannot leave the chair, stop the action.
 	
 Chapter Guide
 
@@ -772,6 +778,7 @@ The chair is a supporter in the kitchen.
 It is scenery, enterable and mute.
 The description is "Metal-framed chair with yellow plastic seat and back."
 Understand "chairs" as the chair. 
+Does the player mean entering the chair: it is likely.
 
 Chapter Furniture
 
@@ -1345,6 +1352,8 @@ Chapter Welcome
 
 Welcome-completed is a truth state that varies.
 
+Instead of waving while the location is the coffee-shop: try saying hello to Marco.
+
 Instead of hailing while the location is the coffee-shop: try saying hello to Marco.
 Instead of saying hello to Marco:
 	greet-in Marco;
@@ -1360,7 +1369,7 @@ A choice-convnode is a kind of convnode.
 A choice-convnode is closed and not auto-suggesting.
 A coffee-choice-convnode is a kind of choice-convnode.
 
-Default response for a choice-convnode: say "[/ss]Don't change the topic.' [/se][Monica] [say] [us] [/ss1]All you have to do is choose between the alternatives suggested.' [/r][/n]".
+Default response for a choice-convnode: say "[/ss]Don't change the topic.' [/se][Monica] [say] to [us] [/ss1]All you have to do is choose between the alternatives suggested.' [/r][/n]".
 
 Understand the command "answer" as something new.
 Understand the command "say" as something new.
@@ -2029,7 +2038,7 @@ At the time when the director stops the action:
 	now the printed name of the kitchen is "On the stage";
 	say "[note style]Stop![/r][/n]";
 	say "This is the director's voice, stopping the action.";
-	say "[/ss]Oh my, just as this lovely coffee is ready.' [/se][Monica] [say] [us] in a whisper [/ss1]What do you say we just pretend nothing happened and enjoy it together?' [/r][heart][/p]";
+	say "[/ss]Oh my, just as this lovely coffee is ready.' [/se][Monica] [say] to [us] in a whisper [/ss1]What do you say we just pretend nothing happened and enjoy it together?' [/r][heart][/p]";
 	if the player consents:
 		say "[/ss]Oh, come on, we've put so much effort in, it would be such a shame to waste it now!' [/se][we] [reply].";
 		say Marco arrives;

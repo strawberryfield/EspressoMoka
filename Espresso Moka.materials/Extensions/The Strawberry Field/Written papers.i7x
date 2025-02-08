@@ -44,8 +44,8 @@ Section Folding
 
 Folding is an action applying to one thing.
 The folding action translates into Inter as "Fold".
-Understand "fold [something]" as folding.
-
+Understand "fold [something] again/--" as folding.
+Understand "close [a paper-item] again/--" as folding. 
 Check folding:
 	unless the noun is a paper-item, say "[We] [can't fold] [the noun]." instead;
 	if the noun is folded, say "It's already folded." instead;
@@ -60,6 +60,7 @@ Section Unfolding
 Unfolding is an action applying to one thing.
 The unfolding action translates into Inter as "Unfold".
 Understand "unfold [something]" as unfolding.
+Understand "open [a paper-item]" as unfolding.
 
 Check unfolding:
 	unless the noun is a paper-item, say "[We] [can't unfold] [the noun]." instead;
