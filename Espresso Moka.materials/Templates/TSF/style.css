@@ -15,7 +15,23 @@ body
 	-webkit-text-size-adjust: none;
 }
 
-.bg {
+.bg 
+{
+  /* The image used */
+  background-image: url("interpreter/background.jpg");
+  background-color: #dbd9cd;
+
+  /* Full height */
+  height: 100%;
+ 
+  /* Center and scale the image nicely */
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bg1
+{
   /* The image used */
   background-image: url("interpreter/background.jpg");
   background-color: #dbd9cd;
@@ -186,7 +202,7 @@ side of the page.
 
 .links
 {
-	width: 13em;
+	width: 14em;
 	float: left;
 	clear: left;
 	text-align: right; 
@@ -197,9 +213,10 @@ side of the page.
 {
 	list-style-type: none;
 	list-style-position: default;
-	padding: .4 em;
+	padding: .2 em;
 }
 
+.links ul { padding-left: 1em; }
 /* 
 The filetype id applies only to the little (blorb), (pdf), and similar
 denotations found on the links. Here we make these appear smaller than the 
@@ -467,6 +484,11 @@ Styles for mobile browsers: change to a one-column layout.
 		text-align: left;
 	}
     
+	.bg1
+	{
+		background-image: none;
+	}
+	
 	.introduction, .links, .about, .playinfo
 	{
 		width: 90%;

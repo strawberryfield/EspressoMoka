@@ -230,7 +230,9 @@
 }
 
 .BufferWindow .Style_header {
-  font-size: 17px;
+  font-size: 20px;
+  color: #605000;
+  font-weight: bold;
 }
 
 .Style_subheader {
@@ -243,6 +245,8 @@
 
 .Style_note {
   font-style: italic;
+  color: #605000;
+  font-weight: bold;
 }
 
 .Style_blockquote {
@@ -255,6 +259,7 @@
 }
 
 .Style_user1 {
+	color: red;
 }
 
 .Style_user2 {
