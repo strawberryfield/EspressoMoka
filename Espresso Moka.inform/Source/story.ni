@@ -1790,7 +1790,7 @@ Carry out paying:
 	Monica takes the shopper in 1 turn from now.
 		
 Report paying:
-	say "You swipe your card at the POS and after a few moments a receipt will be printed out.";
+	say "[We] [swipe] [our] card at the POS and after a few moments a receipt will be printed out.";
 	say "[/ss]All right, thank you.' [/se][Marco] [confirm], then [ask] [/ss1]Do I put the receipt in the shopper?' [/r][/p]";
 	if the player consents:
 		say "[Marco] [put] the receipt in the shopper.";
@@ -1798,6 +1798,12 @@ Report paying:
 	otherwise:
 		say "[Marco] [give] [us] the receipt.";
 		now the player carries the receipt.
+
+Does the player mean swiping the credit card: it is likely.
+Instead of swiping the credit card: try paying.
+
+Does the player mean swiping the credit card at something: it is likely.
+Instead of swiping the credit card at the POS terminal: try paying.
 	
 Section Post-pay activities
 
@@ -2146,7 +2152,7 @@ Table of help topics (continued)
 Context	Text
 Street3-help	"You pointed out to Monica that the coffee capsules are running out."
 Need-greet-help	"It is good manners to say hello when you enter someone else's home."
-Payment-help	"It's time to swipe your credit card."
+Payment-help	"It's time to swipe your credit card at POS to pay for your purchases."
 leave-shop-help	"There is no longer any reason to stay in the shop."
 Kitchen-help	"You are anxious to get your new moka up and running."
 Coffee-choice-help	"[Marco] is waiting for you to say which type of coffee you prefer."

@@ -198,6 +198,22 @@ The laughing action translates into Inter as "Laugh".
 Understand "laugh" as laughing.
 
 Report laughing: say "[one of]He who laughs last laughs loudest[or]Risus abundat in ore stultorum[at random].".
+
+Chapter Swiping
+
+Swiping is an action applying to one thing.
+The swiping action translates into Inter as "Swipe".
+Understand "swipe [something preferably held]" as swiping.
+
+Report swiping: say "[We] [swipe] [the noun]."
+
+Section Swiping at 
+
+Swiping it at is an action applying to two things.
+The swiping it at action translates into Inter as "SwipeAt".
+Understand "swipe [something preferably held] on/at/in [something]" as swiping it at.
+
+Report swiping it at: say "[We] [swipe] [the noun] at [the second noun]."
 	
 Chapter Special says
 
