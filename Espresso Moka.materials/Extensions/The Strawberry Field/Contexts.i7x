@@ -33,7 +33,9 @@ Understand "ask for [help]" as requesting help.
 Understand "get [help]" as requesting help.
 Understand "request [help]" as requesting help.
 Report requesting help:
-	say "[text corresponding to a context of current context in the table of help topics][/p]";
+	if there is a text corresponding to a context of current context in the table of help topics, say text corresponding to a context of current context in the table of help topics;
+	otherwise say generic help;
+	say /p;
 	say verbs command.
 	
 Section Narrator
@@ -64,6 +66,20 @@ Table of help topics
 Context	Text
 Generic-help	"[generic help]"
 
+Volume Thinking
+
+The block thinking rule is not listed in any rulebook.
+
+Report thinking:
+	if there is a text corresponding to a context of current context in the table of thoughts, say text corresponding to a context of current context in the table of thoughts;
+	otherwise say generic thought;
+	say /n.
+	
+To say generic thought: say "[one of]Hang in there[or]Cogito ergo sum[or]So far so good[at random]. ".
+
+Table of thoughts
+Context	Text
+generic-help	"[generic thought]"
 
 Volume Magic
 

@@ -251,7 +251,7 @@ The description is "On the west side of the street the large building continues,
 The street-3 is north of the street-2.
 The street-3 is in the street.
 
-After going to the street-3 for the first time: 
+After going to the street-3: 
 	Monica likes mokas in 1 turn from now;
 	now current context is street3-help;
 	continue the action.
@@ -691,7 +691,9 @@ Chapter Movements
 
 After going to the coffee-shop for the first time: 
 	Marco welcomes you in 0 turns from now;
+	now the current context is need-greet-help;
 	continue the action.
+	
 At the time when Marco welcomes you:	
 	say "[/ss]Good evening [Monica] and Francesco!' [/se][Marco] [welcome] you.";
 	say "[/ss]Hi [Marco]!' [/se][Monica] [answer] [regarding Marco][them].";
@@ -2143,6 +2145,7 @@ Section Contexts
 Table of help topics (continued)
 Context	Text
 Street3-help	"You pointed out to Monica that the coffee capsules are running out."
+Need-greet-help	"It is good manners to say hello when you enter someone else's home."
 Payment-help	"It's time to swipe your credit card."
 leave-shop-help	"There is no longer any reason to stay in the shop."
 Kitchen-help	"You are anxious to get your new moka up and running."
@@ -2155,6 +2158,23 @@ Moka-onfire-help	"The moka, filled and closed, must be placed on the hob for the
 Coffee-wait-help	"Now, all we have to do is wait for the coffee to rise."
 Coffee-ready-help	"The coffee is ready! [/n]Just remember to turn off the heat to prevent it from acquiring a burnt taste. [/n]Enjoy!"
 Kiss-Monica-help	"You have got yourself into a lot of trouble, but you can get out of it with a loving gesture for your girlfriend."
+
+Book Thoughts
+
+Table of thoughts (continued)
+Context	Text
+Street3-help	"The coffee capsules are running out."
+Need-greet-help	"As usual she will fall in love with something and I will have to buy it for her. She has already started with the colored mokas..."
+Payment-help	"And I am always the payer in the end."
+leave-shop-help	"I can finally go home."
+Kitchen-help	"Fortune favours the bold."
+Coffee-choice-help	"I'm sure [Marco] would be able to give me a helpful hint."
+Moka-choice-help	"The art director, all excuses and then blaming me."
+Moka-open-help	"Let's look on the bright side: I've always liked opening things to see what's inside."
+Moka-wash-help	"Yeah, yeah, nice, nice, and then it's always my turn at the end."
+Moka-fill-help	"But how practical are the capsules: everything ready to use, in measured doses..."
+Coffee-wait-help	"Hopefully the result will be worth the effort."
+Coffee-ready-help	"I must admit that it smells great."
 
 Book Credits
 
