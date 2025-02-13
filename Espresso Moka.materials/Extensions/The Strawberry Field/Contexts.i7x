@@ -16,8 +16,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 See the license for more details.
 ]
 
-Include Lexicography by Zed Lopez.
 Include Commons by The Strawberry Field.
+Include Reflection by The Strawberry Field.
 
 Volume Help
 
@@ -93,23 +93,5 @@ Casting xyzzy is an action applying to nothing.
 The casting xyzzy action translates into Inter as "DoMagic".
 
 Report casting xyzzy: say "Nothing happens."
-
-Volume Reflection
-
-Listing verbs is an action out of world.
-The listing verbs action translates into Inter as "VerbsList".
-Understand "verbs" or "commands" as listing verbs.
-
-Report listing verbs:
-	repeat with v running through the dictionary entries:
-		unless v is verb-entry, next;
-		if v is meta-entry, next;
-		let cmd-alias be the command verb of v;
-		let cte be the command table entry for cmd-alias;
-		let cmd-action be the action name for cte;
-		if "[cmd-action]" exactly matches the text "", next;
-		say "[v] [/i]";
-		unless "[v]" exactly matches the text "[cmd-alias]", say "(same as [/r][cmd-alias][/i]) ";
-		say "- [cmd-action][/r][/n]".
 
 Contexts ends here.
