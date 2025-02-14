@@ -56,6 +56,7 @@ Release along with the library card.
 Release along with a "TSF" website and an interpreter.
 Release along with a file of "Quickstart guide" called "quickstart.pdf".
 Release along with a file of "User manual" called "booklet.pdf".
+Release along with a file of "Walkthrough" called "walkthrough.pdf".
 
 Book Styles
 
@@ -797,6 +798,7 @@ The Kitchen is a room.
 The description is "The room is painted light yellow with the furniture and the appliances on one side. [/n]A photograph hangs on the opposite wall and a window lights up the room."
 The printed name is "In the kitchen".
 The scent-description is "a freshly cleaned room with a floral scented detergent".
+Instead of smelling the kitchen when the current moka is with coffee: say "An  inviting scent of coffee.".
 
 The photograph is a scenery in the kitchen. It is mute.
 The description is "The photo shows [us] and [Monica] standing close together on a sandy beach beside a scenic lake surrounded by tall trees and mountains. The lake's clear blue water extends into the distance, reflecting the surrounding landscape and sky. [/n][We] took this photo on one of your mountain walks."
@@ -878,7 +880,11 @@ Section Hob
 
 The hob is a supporter. It is part of the furniture.
 The description is "A stainless steel gas powered hob."
-Understand "burner/flame/flames/fire" as the hob.
+Understand "burner/flame/flames/fire/stove" as the hob.
+
+Does the player mean putting something on the hob: it is likely.
+Does the player mean switching on the hob: it is likely.
+Does the player mean switching off the hob: it is likely.
 
 The hob-switch is a device. It is part of the hob.
 Report switching on the hob-switch: say "[We] [light] the flame." instead.
@@ -955,6 +961,7 @@ A coffeecup is a kind of thing.
 It is mute.
 Two coffeecups are in the left cabinet. 
 The description is "A white coffeecup with three coffee grains drawed on it."
+Understand "cup/cups/coffeecups" as a coffeecup.
 
 To say avoid taking coffeecups: say "It would be better to leave it there."
 Instead of taking a coffeecup: say avoid taking coffeecups.
@@ -1978,7 +1985,7 @@ At the time when Monica congrats:
 	otherwise:
 		say "[/ss]You always fool me.' [/se][we] [reply].";
 		say "[/ss]It may not have been as exciting as being at the controls of a spaceship, but there will be plenty of satisfaction in the end.' [/se][regarding Monica][they] [try] to encourage [us].";
-		say "[/ss]Won't it end up like that game where we had breakfast and everyone was waiting to go for a walk in the mountains with us?' [/r][/n]";
+		say "[/ss]Won't it end up like that game where we had breakfast and everyone was waiting to go for a walk in the mountains with us?' [/se][we] [comment] wryly.";
 		say "[heart][/ss]Instead, we screwed them all.' [/se][Monica] [start] laughing [/ss1]There are a few things that need tidying up, shall I do it?' [/r][/p]";
 		if the player consents:
 			say "[/ss]Okay, okay, you have already done a lot for me.' [/se][regarding Monica][they] [reply]."; 
@@ -2162,7 +2169,7 @@ Moka-wash-help	"All food and drink preparation utensils must be washed before us
 Moka-fill-help	"In order to make coffee, the moka needs to be filled with water and coffee powder."
 Moka-onfire-help	"The moka, filled and closed, must be placed on the hob for the coffee to come out."
 Coffee-wait-help	"Now, all we have to do is wait for the coffee to rise."
-Coffee-ready-help	"The coffee is ready! [/n]Just remember to turn off the heat to prevent it from acquiring a burnt taste. [/n]Enjoy!"
+Coffee-ready-help	"The coffee is ready! [/n][if the hob-switch is switched on]Just remember to turn off the heat to prevent it from acquiring a burnt taste. [/n][end if]Enjoy!"
 Kiss-Monica-help	"You have got yourself into a lot of trouble, but you can get out of it with a loving gesture for your girlfriend."
 
 Book Thoughts
