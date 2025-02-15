@@ -418,6 +418,7 @@ Before rubbing a moka-component:
 After rubbing a moka-component:
 	now the current moka is washed;
 	set pronouns from the moka heater;
+	now the current context is moka-fill-help;
 	say "[We] [go] to the sink and thoroughly wash all the parts of the moka."
 	
 Chapter Filling
@@ -489,7 +490,9 @@ Section Back
 To say tips-eng:
 	say "WARNINGS[/n]Read the instructions carefully as they contain important information about safety, use and maintenance of the product. [/n]IMPORTANT: READ THIS MANUAL THOROUGHLY AND KEEP IT WITH CARE FOR FUTURE REFERENCE.";
 	say "These instructions are an integral part of the product and, throughout the entire life of the product, must be kept and be available. The documentation should be given to the subsequent owners of the product.";
+	say /r;
 	wait space key;
+	say /f;
 	say "When using the coffee maker for the first time, wash thoroughly with water. [/n]Hand wash only without using detergents and abrasive sponges to preserve its features over the time.";
 	say "Never use the coffee maker without water in the heater. [/n]Never use other liquids in the heater, the coffee maker is intended to be used with water only. [/n]The coffee maker is designed to be used only with water
 and ground coffee for moka for household use.";
@@ -500,7 +503,9 @@ as they are necessary for enhancing the aroma of coffee at best."
 To say tips-ita:
 	say "AVVERTENZE D’USO[/n]Leggere attentamente le avvertenze contenute nelle presenti istruzioni in quanto forniscono importanti indicazioni riguardanti la sicurezza, l’uso e la manutenzione del prodotto. [/n]IMPORTANTE: LEGGERE ATTENTAMENTE PRIMA DI OGNI UTILIZZO, CONSERVARE CON CURA QUESTO LIBRETTO PER OGNI ULTERIORE CONSULTAZIONE.";
 	say "Le presenti istruzioni vanno considerate come parte integrante del prodotto e, per l’intera durata del prodotto, devono essere conservate ed essere disponibili. La documentazione deve essere consegnata a tutti i successivi proprietari del prodotto.";
+	say /r;
 	wait space key;
+	say /f;
 	say "La prima volta che usate la caffettiera, lavare bene, solo con acqua. [/n]Lavare solo a mano, senza utilizzo di detergenti e spugne abrasive, per mantenere inalterate le sue qualità nel tempo.";
 	say "Non utilizzare la caffettiera senza acqua nella caldaia. [/n]Non utilizzare altri liquidi nella caldaia: la
 caffettiera deve funzionare solo con acqua. [/n]La presente caffettiera è destinata a essere utilizzata esclusivamente
@@ -769,6 +774,7 @@ The price is 16.90.
 
 The tricolor moka is a moka-item on the moka pots open shelf.
 The color is "green-white-red (as the italian flag)".
+Understand "italian flag/-- moka/--" or "italian/-- flag moka/--" or "green-white-red moka/--" as the tricolor moka.
 
 The black moka is a moka-item on the moka pots open shelf.
 The color is "black".
@@ -782,7 +788,7 @@ The pink moka is a moka-item on the moka pots open shelf.
 The color is "pink".
 
 The stylish moka is a moka-item on the moka pots open shelf.
-Understand "stylish/-- multi-colored/multicolor/multicoloed/multi-color checkered/-- moka/--" or "stylish/-- checkered moka/--" as the stylish moka.
+Understand "stylish/-- multi-colored/multicolor/multicolored/multi-color checkered/-- moka/--" or "stylish/-- checkered moka/--" as the stylish moka.
 The color is "stylish multi-colored checkered".
 The price is 20.90.
 
