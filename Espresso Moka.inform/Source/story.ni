@@ -298,6 +298,9 @@ The scent-description of the coffee powder is "the irresistible aroma of roasted
 Instead of eating the coffee powder: say "[We] should not eat it, the most [we] can do is to try to taste it."
 Instead of tasting the coffee powder: say "It is definitely bitter."
 
+Understand "ground/roasted coffee powder/--" as the coffee powder.
+
+
 Chapter Components 
 
 A moka-component is a kind of container.
@@ -435,6 +438,8 @@ Check filling:
 	if the noun is filled, say "[The noun] already [contain] the [if the noun is the moka heater]water[otherwise]coffee powder[end if]." instead;
 	unless the noun is empty, say "It is best to remove [the list of things in the noun] first.";
 	if the player cannot carry the moka heater, stop the action;
+	if the noun is the moka heater:
+		if the player cannot leave the chair, stop the action;
 	if the noun is the coffee funnel filter:
 		unless the moka heater is filled, say "[/ss]You might want to put the water in first.' [/se][Monica] [suggest]." instead;
 		unless the noun is in the moka heater, say "[/ss]I would put the filter in the heater before filling it,' [/se][Monica] [advise] [/ss1]because when it is full it is difficult to handle without spilling all the powder.' [/r][/n]" instead;
@@ -444,8 +449,44 @@ Check filling:
 
 Carry out filling: now the noun is filled.
 	
-Report filling: say "Now [the noun] is filled with [if the noun is the moka heater]some water[otherwise]the coffee powder[end if]."		
+Report filling: 
+	if the noun is the moka heater, say "[We] [pour] some water from the sink into the heater.";
+	otherwise say "[We] [put] a couple of teaspoons of powder into the funnel."		
 	
+Section Heater filling
+
+Heater-filling is an action applying to one thing.
+Understand "fill [something] with some/the/-- water" as heater-filling.
+Understand "pour the/some/-- water in/into [something]" as heater-filling.
+Understand "put the/some/-- water in/into [something]" as heater-filling.
+
+Does the player mean filling the moka pot: it is unlikely.
+Does the player mean heater-filling the moka heater: it is very likely.
+
+Check heater-filling:
+	if the noun is a moka-item, say "It [are] closed." instead;
+	unless the noun is the moka heater, say "Pouring water into [the noun] is pointless." instead.
+	
+Instead of heater-filling: try filling the noun.
+
+Section Funnel filling
+
+Funnel-filling is an action applying to one thing.
+Understand "fill [something] with some/the/-- roasted/ground/-- coffee/-- powder" as funnel-filling.
+Understand "fill [something] with some/the/-- roasted/ground/-- coffee" as funnel-filling.
+
+Does the player mean funnel-filling the coffee funnel filter: it is very likely.
+
+Check funnel-filling:
+	if the noun is a moka-item, say "It [are] closed." instead;
+	unless the noun is the coffee funnel filter, say "Putting the coffee powder into [the noun] is pointless." instead.
+	
+Instead of funnel-filling: try filling the noun.
+
+Instead of inserting the coffee powder into the coffee funnel filter: try filling the coffee funnel filter.
+Does the player mean inserting the coffee powder into something: it is likely. 
+
+
 Chapter Cooking
 
 Instead of putting a moka-item on the hob when the moka heater is not filled: say "[heart][/ss]Oh my God!' [/se][Monica] [exclaim] visibly concerned [/ss1]It's really dangerous to put the moka on the stove without water: my mum used to tell me about a friend of hers who had it burst and even made a hole in the ceiling.' [/r][/n]".
