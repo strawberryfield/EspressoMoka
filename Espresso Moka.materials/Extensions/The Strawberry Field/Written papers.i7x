@@ -46,14 +46,13 @@ Folding is an action applying to one thing.
 The folding action translates into Inter as "Fold".
 Understand "fold [something] again/--" as folding.
 Understand "close [a paper-item] again/--" as folding. 
-Check folding:
-	unless the noun is a paper-item, say "[We] [can't fold] [the noun]." instead;
-	if the noun is folded, say "It's already folded." instead;
+
+Check folding (this is the check folding rule):
+	unless the noun is a paper-item, say "[We] [can't fold] [the noun]." (A) instead;
+	if the noun is folded, say "It's already folded." (B) instead;
 	if the player cannot carry the noun, stop the action.
-Carry out folding:
-	now the noun is folded.
-Report folding:
-	say "Folded."
+Carry out folding: now the noun is folded.
+Report folding (this is the report folding rule): say "Folded."
 	
 Section Unfolding
 
@@ -62,14 +61,12 @@ The unfolding action translates into Inter as "Unfold".
 Understand "unfold [something]" as unfolding.
 Understand "open [a paper-item]" as unfolding.
 
-Check unfolding:
-	unless the noun is a paper-item, say "[We] [can't unfold] [the noun]." instead;
-	if the noun is unfolded, say "It's already unfolded." instead;
+Check unfolding (this is the check unfolding rule):
+	unless the noun is a paper-item, say "[We] [can't unfold] [the noun]." (A) instead;
+	if the noun is unfolded, say "It's already unfolded." (B) instead;
 	if the player cannot carry the noun, stop the action.
-Carry out unfolding:
-	now the noun is unfolded.
-Report unfolding:
-	say "Unfolded."
+Carry out unfolding: now the noun is unfolded.
+Report unfolding (this is the report unfolding rule): say "Unfolded."
 	
 Chapter Sides
 
@@ -87,17 +84,14 @@ Instead of turning a paper-item:
 Understand the command "flip" as "turn".
 Understand the command "revert" as "turn".
 
-Instead of looking under a paper-item:
-	try turning the noun.
+Instead of looking under a paper-item: try turning the noun.
 
 Does the player mean examining a paper-item: it is likely.
 
 To decide which paper-side is the current side of (P - a paper-item):
 	let S be a paper-side;
-	if P is upside:
-		let S be a random front side which is part of P;
-	otherwise:
-		let S be a random back side which is part of P;
+	if P is upside, let S be a random front side which is part of P;
+	otherwise let S be a random back side which is part of P;
 	decide on S.
 		
 Instead of examining a paper-item:
@@ -130,19 +124,18 @@ The examining as a paper action translates into Inter as "ReadPaper".
 Understand "examine [text]" as examining as a paper.
 Understand "read [text]" as examining as a paper.
 
-Check examining as a paper:
-	if the current paper is nothing, say "I don't know where you want to read from." instead.
+Check examining as a paper (this is the check examining as a paper rule):
+	if the current paper is nothing, say "I don't know where you want to read from." (A) instead.
 
 Carry out examining as a paper:
-	if the topic understood is a paper-topic listed in the arguments of the current side of the current paper:
-		now the read entry is true. 
+	if the topic understood is a paper-topic listed in the arguments of the current side of the current paper, now the read entry is true. 
 	
-Report examining as a paper:
+Report examining as a paper (this is the report examining as a paper rule):
 	if the topic understood is a paper-topic listed in the arguments of the current side of the current paper:
 		say "[/n][/b][title entry][/r][/n]";
 		say "[/f][text entry][/r][/n]";
 	otherwise:
-		say "I can't find anything about [topic understood]."
+		say "I can't find anything about [topic understood]." (A).
 
 Instead of consulting something about:
 	if the noun is paper-item:
@@ -156,7 +149,7 @@ Before examining as a paper when the current paper is nothing (this is the readi
 	let np be the number of paper-items carried by the player;
 	if np is zero:
 		let nv be the number of visible paper-items;
-		if nv is zero, say "There seems to be nothing suitable." instead;
+		if nv is zero, say "There seems to be nothing suitable." (A) instead;
 		if nv is greater than one, say specify what to read instead;
 		now the current paper is a random visible paper-item;
 	if np is greater than one, say specify what to read instead;

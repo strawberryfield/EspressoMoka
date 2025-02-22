@@ -882,12 +882,12 @@ Locking keylessly is an action applying to one thing.
 Understand "unlock [something]" as unlocking keylessly.
 Unlocking keylessly is an action applying to one thing.
 
-An unuseful-appliance is a kind of container.
+An pointless appliance is a kind of container.
 It is closed and mute.
-Instead of opening an unuseful-appliance: say "There is nothing to take or put in [the noun]."
-Instead of closing an unuseful-appliance: say "It's already closed."
-Instead of locking keylessly an unuseful-appliance: say "There is no way to lock it."
-Instead of unlocking keylessly an unuseful-appliance: say "It doesn't have a lock."
+Instead of opening an pointless appliance: say "There is nothing to take or put in [the noun]."
+Instead of closing an pointless appliance: say "It's already closed."
+Instead of locking keylessly an pointless appliance: say "There is no way to lock it."
+Instead of unlocking keylessly an pointless appliance: say "It doesn't have a lock."
 
 Section Worktop
 
@@ -898,7 +898,7 @@ Understand "plane/marble/countertop" as the worktop.
 
 Section Oven
 
-The oven is an unuseful-appliance. It is part of the furniture.
+The oven is an pointless appliance. It is part of the furniture.
 The description is "A classic electric oven with a satin inox steel door and a large glass window in the centre.".
 Understand "stove" as the oven.
 Instead of switching on the oven: say "You don't have to cook anything in the oven."
@@ -906,7 +906,7 @@ Instead of switching off the oven: say "It's already off."
 
 Section Fridge
 
-The fridge is an unuseful-appliance. It is part of the furniture.
+The fridge is an pointless appliance. It is part of the furniture.
 It is sounding. The sound-description is "a slight hum coming from the engine".
 The description is "A spacious fridge with a rounded shape, painted light grey with metallic highlights. [/n]There are some magnets on the door."
 Understand "refrigerator" as the fridge.
@@ -968,13 +968,13 @@ The sound-description is "nothing because it's off".
 
 Section Furniture content
 
-An unuseful-item is a kind of thing.
+An pointless item is a kind of thing.
 It is mute.
-Instead of taking an unuseful-item: say "You don't need it."
+Instead of taking an pointless item: say "You don't need it."
 
-Some cookware is an unuseful-item. The description is "Miscellaneous pots, pans and lids."
-Some dishcloths are an unuseful-item.
-Some cutlery are unuseful-item. The description is "Miscellaneous knives, forks, spoons and kitchenware."
+Some cookware is an pointless item. The description is "Miscellaneous pots, pans and lids."
+Some dishcloths are an pointless item.
+Some cutlery are pointless item. The description is "Miscellaneous knives, forks, spoons and kitchenware."
 
 An useful-item is a kind of thing.
 It is mute.
@@ -1000,7 +1000,7 @@ Instead of cutting:
 	if the noun is the roasted coffee jar, try opening the noun instead;
 	continue the action.
 	
-Some crockery are an unuseful-item. 
+Some crockery are an pointless item. 
 Crockery is in the left cabinet.
 The description is "Miscellaneous plates, glasses and other tableware."
 Understand "tableware/glasses/glass/plate/plates/dish/dishes" as crockery.
@@ -1014,7 +1014,7 @@ To say avoid taking coffeecups: say "It would be better to leave it there."
 Instead of taking a coffeecup: say avoid taking coffeecups.
 Instead of removing a coffeecup from something: say avoid taking coffeecups.	
 
-Some food is an unuseful-item.
+Some food is an pointless item.
 Food is in the right cabinet.
 The description is "Boxes of macaroni, jars of preserves, spices and other foodstuffs."
 The scent-description is "only the odor of the packaging".
@@ -1240,11 +1240,11 @@ Instead of folding the wallet: try closing the noun.
 
 Section Content
 			
-An unuseful card is a kind of thing.	
-The driving license, the identity card and  the supermarket fidelity card are unuseful cards.
+An pointless card is a kind of thing.	
+The driving license, the identity card and  the supermarket fidelity card are pointless cards.
 Instead of examining the driving license, say "Your pink driving license.".
-Instead of taking an unuseful card, say "Right now [the noun] is of no use to you.".
-Instead of examining an unuseful card, say "Examining [the noun] now is a waste of time.".
+Instead of taking an pointless card, say "Right now [the noun] is of no use to you.".
+Instead of examining an pointless card, say "Examining [the noun] now is a waste of time.".
 
 The driving license, the credit card, the identity card, the supermarket fidelity card, the photo are in the wallet.
 The description of the photo is "A photo of [Monica] you took last year at Lake Misurina with the Three Peaks of Lavaredo in the background.".		

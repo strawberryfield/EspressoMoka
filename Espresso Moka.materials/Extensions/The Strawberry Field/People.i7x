@@ -83,9 +83,9 @@ The complimenting action translates into Inter as "Compliment"
 Understand "compliment [something]" as complimenting.
 Understand the command "congratulate" as "compliment".
 
-Check complimenting: 
-	unless the noun is a person, say "I don't think it can handle compliments." instead;
-	if the noun is the player, say "Megalomaniac." instead.
-Report complimenting: say "[regarding the noun][They] really [appreciate]."
+Check complimenting (this is the check complimenting rule): 
+	unless the noun is a person, say "I don't think it can handle compliments." (A) instead;
+	if the noun is the player, say "Megalomaniac." (B) instead.
+Report complimenting (this is the report complimentig rule): say "[regarding the noun][They] really [appreciate]."
 
 People ends here.

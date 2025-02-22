@@ -134,7 +134,7 @@ Understand "use [a switched off device]" as switching on.
 
 Understand "use [something]" as using. 
 Using is an action applying to one thing. 
-Carry out using: say "[We] will have to be more specific about your intentions with [the noun]."
+Carry out using (this is the generic using rule): say "[We] will have to be more specific about your intentions with [the noun]."
 
 Understand "use [a door]" as opening. 
 Understand "use [an open door]" as entering.
@@ -152,14 +152,14 @@ Chapter Blocking take all
 Rule for deciding whether all includes a thing when taking: it does not.
 Rule for deciding whether all includes a thing when removing from: it does not.
 Rule for printing a parser error when the latest parser error is the nothing to do error:
-	say “Don't be a hoarder, just take what you plan to use.”.
+	say "Don't be a hoarder, just take what you plan to use.".
 	
 Chapter Dancing and singing
 
 Dancing is an action applying to nothing.
 The dancing action translates into Inter as "Dance".
 Understand "Dance" as dancing.
-Report dancing: say "[We] [aren't] a dancer.".
+Report dancing (this is the report dancing rule): say "[We] [aren't] a dancer.".
 Check an actor dancing:
 	if the actor is enclosed by something (called the seat):
 		say "(first leaving [the seat])";
@@ -168,9 +168,11 @@ Check an actor dancing:
 Singing is an action applying to nothing.
 The singing action translates into Inter as "Sing".
 Understand "Sing" as singing.
-Report singing: say "[We] [are] not particularly in tune.".
-Check singing:
-	if the location of the player contains people which are not the player, say "Someone could not like it." instead.
+Report singing (this is the report singing rule): say "[We] [are] not particularly in tune.".
+Check singing (this is the check singing rule):
+	if the location of the player contains people which are not the player:
+		say "Someone could not like it." (A);
+		stop the action.
 
 Chapter Stealing
 
@@ -178,7 +180,9 @@ Stealing is an action applying to one thing.
 The stealing action translates into Inter as "Steal".
 Understand "steal all/every/any/-- [something]" as stealing.
 Understand "steal all/everything/anything/--" as stealing.
-Report stealing: say "[one of]Naughty, don't do that[or]I call the security service[at random]!".
+
+Report stealing (this is the report stealing rule): say "[one of]Naughty, don't do that[or]I call the security service[at random]!".
+
 Understand the command "stole" or "rob" as "steal".
 Rule for supplying a missing noun while stealing (this is the indefinite stealing rule):
     now the noun is the location. 
@@ -190,8 +194,12 @@ The scolding action translates into Inter as "Scold".
 Understand "scold [something]" as scolding.
 Understand the command "rebuke" or "reprimand" or "reproach" as "scold".
 
-Check scolding: unless the noun is a person, say "It can't hear you anyway." instead.
-Report scolding: say "There [are] no reason to scold [regarding the noun][them]."
+Check scolding (this is the check scolding rule): 
+	unless the noun is a person:
+		say "It can't hear you anyway." (A);
+		stop the action.
+		
+Report scolding (this is the report scolding rule): say "There [are] no reason to scold [regarding the noun][them]."
 
 Chapter Laughing
 
@@ -199,7 +207,7 @@ Laughing is an action applying to nothing.
 The laughing action translates into Inter as "Laugh".
 Understand "laugh" as laughing.
 
-Report laughing: say "[one of]He who laughs last laughs loudest[or]Risus abundat in ore stultorum[at random].".
+Report laughing (this is the report laughing rule): say "[one of]He who laughs last laughs loudest[or]Risus abundat in ore stultorum[at random].".
 
 Chapter Swiping
 
@@ -207,7 +215,7 @@ Swiping is an action applying to one thing.
 The swiping action translates into Inter as "Swipe".
 Understand "swipe [something preferably held]" as swiping.
 
-Report swiping: say "[We] [swipe] [the noun]."
+Report swiping (this is the report swiping rule): say "[We] [swipe] [the noun]."
 
 Section Swiping at 
 
@@ -215,7 +223,7 @@ Swiping it at is an action applying to two things.
 The swiping it at action translates into Inter as "SwipeAt".
 Understand "swipe [something preferably held] on/at/in [something]" as swiping it at.
 
-Report swiping it at: say "[We] [swipe] [the noun] at [the second noun]."
+Report swiping it at (this is the report swiping a thing at rule): say "[We] [swipe] [the noun] at [the second noun]."
 	
 Chapter Special says
 
@@ -272,8 +280,7 @@ Understand "back" or "return" or "retreat" as retreating.
 
 The former direction is a direction that varies.
 
-Carry out going:
-	if the noun is a direction, now the former direction is the noun.
+Carry out going: if the noun is a direction, now the former direction is the noun.
 
 Carry out retreating:
 	let new direction be the opposite of the former direction;
@@ -305,16 +312,16 @@ Understand "[any room]" as going by name.
 Understand "go to/into/-- [any room]" as going by name.
 Understand "enter in/into/-- [any room]" as going by name.
 
-Check going by name:
-    if the noun is the location, say "You're already in [the location]." instead;
-    if the noun is not adjacent and the noun is unvisited, say "There isn't any [noun] nearby." instead. 
+Check going by name (this is the check going by name rule):
+    if the noun is the location, say "You're already in [the location]." (A) instead;
+    if the noun is not adjacent and the noun is unvisited, say "There isn't any [noun] nearby." (B) instead. 
 
-Carry out going by name:
+Carry out going by name (this is the carry out going by name rule):
     let aim be the best route from the location to the noun, using doors;
-    if aim is not a direction, say "You can't think how to get there from here." instead;
+    if aim is not a direction, say "You can't think how to get there from here." (A) instead;
     say "(heading [aim])[/ccb]";
     try going aim;
-    if the location is not the noun, say "You'll have to stop here."
+    if the location is not the noun, say "You'll have to stop here." (B).
 	
 Chapter Implicit taking
 

@@ -92,6 +92,6 @@ Understand "alakazam" or "say alakazam" or "cast alakazam" as casting xyzzy.
 Casting xyzzy is an action applying to nothing.
 The casting xyzzy action translates into Inter as "DoMagic".
 
-Report casting xyzzy: say "Nothing happens."
+Report casting xyzzy (this is the report magic rule): say "Nothing happens."
 
 Contexts ends here.
