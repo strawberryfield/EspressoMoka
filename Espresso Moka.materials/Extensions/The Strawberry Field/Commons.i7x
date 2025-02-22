@@ -147,6 +147,9 @@ Understand "girl" or "gal" or "woman" or "lady" as a woman.
 
 Understand the command "place" as "put".
 
+Understand "drop [something] in/into/down [something]" as inserting it into.
+Understand "drop [other things] on/onto [something]" as putting it on.
+
 Chapter Blocking take all
 
 Rule for deciding whether all includes a thing when taking: it does not.
@@ -387,6 +390,12 @@ To wait space key:
 	wait for the SPACE key;
 	say /n.
 
+Chapter Banner
+
+Story license is a text that varies.
+
+After printing the banner text: unless the story license is empty, say "Released under [story license] license[/n]".
+	
 Chapter Info
 
 Requesting info is an action out of world.
