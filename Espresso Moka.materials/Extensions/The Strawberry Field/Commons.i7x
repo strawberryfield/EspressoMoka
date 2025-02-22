@@ -145,6 +145,8 @@ Understand "vomit" or "throw up" or "puke" or "barf" as a mistake ("[We] may fee
 Understand "man" or "gentleman" or "guy" or "dude" or "boy" as a man. 
 Understand "girl" or "gal" or "woman" or "lady" as a woman.
 
+Understand the command "place" as "put".
+
 Chapter Blocking take all
 
 Rule for deciding whether all includes a thing when taking: it does not.

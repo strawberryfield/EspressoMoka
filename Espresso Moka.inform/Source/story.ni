@@ -845,7 +845,7 @@ The Kitchen is a room.
 The description is "The room is painted light yellow with the furniture and the appliances on one side. [/n]A photograph hangs on the opposite wall and a window lights up the room."
 The printed name is "In the kitchen".
 The scent-description is "a freshly cleaned room with a floral scented detergent".
-Instead of smelling the kitchen when the current moka is with coffee: say "An  inviting scent of coffee.".
+Instead of smelling the kitchen when the current moka is with coffee: say "An inviting scent of coffee.".
 
 The photograph is a scenery in the kitchen. It is mute.
 The description is "The photo shows [us] and [Monica] standing close together on a sandy beach beside a scenic lake surrounded by tall trees and mountains. The lake's clear blue water extends into the distance, reflecting the surrounding landscape and sky. [/n][We] took this photo on one of your mountain walks."
@@ -2042,9 +2042,12 @@ At the time when Monica congrats:
 
 Section rearranging
 
+Taken from player is a list of things that varies.
+Taken from elsewhere is a list of things that varies.
+
 To Monica gets (T - a thing):
-	if the player carries T, say "[Monica] [get] the [T] from your hands.";
-	otherwise	say "[Monica] [take] the [T]."
+	if the player carries T, add T to taken from player;
+	otherwise	add T to taken from elsewhere.
 		
 To Monica rearranges the kitchen, annoyed:
 	let L be a list of things;
@@ -2056,6 +2059,11 @@ To Monica rearranges the kitchen, annoyed:
 		add the teaspoon to L;
 	unless the roasted coffee jar is in the right cabinet: 
 		Monica gets the roasted coffee jar;
+	unless taken from player is empty:
+		say "[Monica] [get] [taken from player with definite articles] from your hands.";
+	unless taken from elsewhere is empty:
+		say "[if taken from player is empty][Monica] [take][otherwise][regarding Monica][They] also [take][end if] [taken from elsewhere with definite articles].";	
+	unless the roasted coffee jar is in the right cabinet: 
 		try Monica closing the roasted coffee jar;
 		say "Then [regarding Monica][they] [put] it in the right cabinet.";
 		now the roasted coffee jar is in the right cabinet;
@@ -2113,6 +2121,50 @@ At the time when Monica switches off the hob:
 		try Monica switching off the hob-switch;
 		say "[/ss]Ciccio, we have to switch off the fire,' [/se][Monica] [remind] [us] [/ss1]otherwise the coffee takes on a burnt taste.' [/r][/n]".
 
+Chapter Drinking
+
+The block drinking rule response (A) is "It [are] not something to drink."
+	
+Section Drinking coffee
+
+Drinking coffee is an action applying to nothing.
+Understand "drink the/some/-- coffee/espresso" as drinking coffee.
+Check drinking coffee:
+	unless the location of the player is the kitchen, say "There [are] no coffee to drink here." instead;
+	unless the current moka is with coffee, say "Coffee is not ready yet." instead; 
+	say "[/warning][/ss]How rude you are,' [/se][Monica] [scold] [us] [/ss1]and also you will burn your lips.' [/r][/n]" ;
+	stop the action.
+	
+Section Drinking water
+
+Drinking water is an action applying to nothing.
+Understand "drink the/some/-- water" as drinking water.
+Check drinking water:
+	unless the location of the player is the kitchen, say "There [are] no water to drink here." instead;
+	if the player cannot leave the chair, stop the action;
+	say "(drinking some water from the sink)[/ccb]";
+	say "Refreshing.";
+	stop the action.
+
+Understand "drink" as drinking water.
+	
+Section Drinking from
+
+Drinking from is an action applying to one thing.
+Understand "drink from [something]" as drinking from.
+Check drinking from:
+	if the noun is a person, say "Be serious." instead;
+	if the noun is a coffeecup or the noun is the moka pot, say "It's empty." instead;
+	if the noun is the moka heater:
+		unless the noun is filled, say "There is no water inside." instead;
+		say "[We] [drink] the water that was in it.";
+		now the noun is not filled;
+		stop the action;
+	if the noun is a moka-item, try drinking coffee instead;
+	if the noun is the sink, try drinking water instead;
+	say "It [are] not something [we] [can] drink from.";
+	stop the action.
+	
 Chapter Pouring
 
 Pouring is an action applying to one thing.
