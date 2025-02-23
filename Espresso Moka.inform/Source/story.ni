@@ -2239,8 +2239,8 @@ Book help
 
 Section Images
 
-Figure esploso is the file "esploso.jpg".
-
+Figure esploso is the file "esploso.jpg" ("Photo of the three parts of a moka pot").
+	
 Section Complex says
 
 To say Moka open help:

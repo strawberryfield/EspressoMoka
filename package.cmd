@@ -32,8 +32,9 @@ rem project home
 pushd "%HOME_PATH%"
 
 rem build project
-%Inform7% -release -no-progress -no-index -internal %INTERNAL% -external %EXTERNAL% -project "%PROJECT_PATH%" -format=Inform6/32d
-%Inform6% -E2w~S~DG "%BUILD_DIR%auto.inf" "%BUILD_DIR%output.ulx"
+cd %BUILD_DIR%
+%Inform7% -release -no-index -internal %INTERNAL% -external %EXTERNAL% -project "%PROJECT_PATH%" -format=Inform6/32
+%Inform6% -w~S~DG +include_path=..\Source,.\ auto.inf output.ulx
 
 rem integrate and process blurb
 type "%BLURBEXT%" >> %BLURB%
