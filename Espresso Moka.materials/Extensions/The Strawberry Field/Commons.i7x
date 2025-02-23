@@ -22,6 +22,8 @@ Book Typoghraphy
 
 Chapter Shortenings
 
+Section Breaks and styles
+
 To say /n: say line break.
 To say /nn: say no line break.
 To say /p: say paragraph break.
@@ -31,13 +33,18 @@ To say /b: say bold type.
 To say /i: say italic type.
 To say /r: say roman type.
 To say /f: say fixed letter spacing.
+
+Section Symbols
+
+To say /warning: say "[unicode 9888] ".
+To say /copyright: say "[unicode 169] ".
 To say --: say unicode 8212.
+
+Section Dialogs
 
 To say /ss: say "[/i]'".
 To say /ss1: say "[unicode 8212] [/i]'".
 To say /se: say "[/r][unicode 8212] ".
-
-To say /warning: say "[unicode 9888] ".
 
 Book Rules
 
@@ -394,7 +401,13 @@ Chapter Banner
 
 Story license is a text that varies.
 
-After printing the banner text: unless the story license is empty, say "Released under [story license] license[/n]".
+Rule for printing the banner text:
+    say "[header style][story title][/r][/n]";
+    say "[story headline][/n]";
+	say "Copyright [/copyright][story creation year] by [story author][/n]";
+	unless the story license is empty, say "Licensed under [story license][/n]";
+	say "Release [release number] / serial [story serial number] / Inform7 v[inform7 version] / Inform6 v[inform6 version][debug mode][/n]";
+    rule succeeds.	
 	
 Chapter Info
 

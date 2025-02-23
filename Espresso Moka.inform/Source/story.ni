@@ -36,7 +36,7 @@ Book Settings
 
 The release number is 1.
 The story creation year is 2025.
-The story license is "Creative Commons BY-NC-SA".
+The story license is "Creative Commons BY-NC-SA 4.0".
 The story genre is "Tutorial".
 The story headline is "An everyday life puzzle".
 The story description is "'Making good coffee seems easy!' So went the ad for a well-known brand of coffee maker.
@@ -44,7 +44,7 @@ The story description is "'Making good coffee seems easy!' So went the ad for a 
 Francesco and Monica are keen to try making coffee with a moka, just like their mums did. They admit that capsules are so much easier to use, but..."
 
 Use brief room descriptions.
-	
+
 Chapter release
 
 Release along with cover art ("Francesco and Monica prepare an espresso with a moka").
