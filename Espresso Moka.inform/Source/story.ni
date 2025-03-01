@@ -1377,7 +1377,17 @@ To say narrator love kissing:
 	say "Ok, Ok, I'll try to remain professional.".
 	
 To say no more kisses: say "[/ss]Ciccio, we have already kissed so many times.' [/se][Monica] [remind] [/ss1]I love kissing you, but now we have to get on with the game.' [/r][/n]".
-	
+
+Section Taking hand
+
+Persuasion rule for asking Monica to try taking hand an hand:
+	if the holder of the noun is the player:
+		say "[Monica] sweetly [take] [our] hand.";
+	persuasion fails.
+
+Before taking hand Monica's hand:
+	say "[We] gently [take] the [Monica]'s hand. [/n][They] [smile]." instead.
+			
 Section Singing and dancing
 
 Persuasion rule for asking Monica to try singing: 

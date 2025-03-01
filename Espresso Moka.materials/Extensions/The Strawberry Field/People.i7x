@@ -75,10 +75,10 @@ Persuasion rule for asking someone to try getting off a cloth:
 
 Book actions
 
-Chapter complimenting
+Chapter Complimenting
 
 Complimenting is an action applying to one thing.
-The complimenting action translates into Inter as "Compliment"
+The complimenting action translates into Inter as "Compliment".
 
 Understand "compliment [something]" as complimenting.
 Understand the command "congratulate" as "compliment".
@@ -87,5 +87,21 @@ Check complimenting (this is the check complimenting rule):
 	unless the noun is a person, say "I don't think it can handle compliments." (A) instead;
 	if the noun is the player, say "Megalomaniac." (B) instead.
 Report complimenting (this is the report complimentig rule): say "[regarding the noun][They] really [appreciate]."
+
+Chapter Taking hand
+
+An hand is a kind of thing.
+An hand is part of every person.
+
+Taking hand is an action applying to one thing.
+The taking hand action translates into Inter as "TakeHand".
+
+Understand "take [hand]" as taking hand.
+
+Sanity-check an actor taking hand an hand (called the target) which is part of the actor:
+	say "[if the actor is the player][We][otherwise][The actor][end if] can't take [if the actor is the player][our][otherwise][regarding the actor][their][end if] hand." instead.
+
+Check an actor taking hand (this is the blocking taking hand rule):
+	say "[The holder of the noun] [do] not let [if the actor is the player][us][otherwise][the actor][end if] take [regarding the holder of the noun][their] hand." 
 
 People ends here.
