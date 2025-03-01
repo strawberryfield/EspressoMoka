@@ -1,4 +1,4 @@
-Reflection by The Strawberry Field begins here.
+Version 1 of Reflection by The Strawberry Field begins here.
 
 [
 Reflection © 2025 by Roberto Ceccarelli - The Strawberry Field 
@@ -35,6 +35,102 @@ To decide if action of (a - command-table-entry) is reversed: (- ((ReadShortInt(
 
 To decide what command-table-entry is the next command table entry of (a - command-table-entry): (- UnpackGrammarLine({a}) -)
 
+Include (-
+[ PrintGrammarLines address lines;
+lines = address->0;
+address++;
+while (lines > 0) {
+  address = UnpackGrammarLine(address);
+  PrintGrammarLine();
+  print "^";
+  lines--;
+}
+];
+
+[ PrintGrammarLine pcount;
+	print " * ";
+	for (:((line_token-->(pcount)) ~= ENDIT_TOKEN):(pcount)++) {
+		if (((((line_token-->(pcount))->(0)))&(16))) {
+			print "/ ";
+		}
+		PrintToken((line_token-->(pcount)));
+		print " ";
+	}
+	print "-> ";
+	style underline;
+	SayActionName(action_to_be);
+	if (action_reversed) {
+		print " (with nouns reversed)";
+	}
+	style roman;
+];
+[ PrintToken token;
+	AnalyseToken(token);
+	switch (found_ttype) {
+		ILLEGAL_TT:
+			print "<illegal token number ";
+			print token;
+			print ">";
+			;
+		ELEMENTARY_TT:
+			switch (found_tdata) {
+				NOUN_TOKEN:
+					print "[something]";
+					;
+				HELD_TOKEN:
+					print "[something preferably held]";
+					;
+				MULTI_TOKEN:
+					print "[things]";
+					;
+				MULTIHELD_TOKEN:
+					print "[things preferably held]";
+					;
+				MULTIEXCEPT_TOKEN:
+					print "[other things]";
+					;
+				MULTIINSIDE_TOKEN:
+					print "[things inside]";
+					;
+				CREATURE_TOKEN:
+					print "[someone]";
+					;
+				SPECIAL_TOKEN:
+					print "[special]";
+					;
+				NUMBER_TOKEN:
+					print "[number]";
+					;
+				TOPIC_TOKEN:
+					print "[text]";
+					;
+				ENDIT_TOKEN:
+					print "END";
+					;
+			}
+			;
+		PREPOSITION_TT:
+			print (address) found_tdata;
+			;
+		ROUTINE_FILTER_TT:
+			print "[something specific]";
+			;
+		ATTR_FILTER_TT:
+			DebugAttribute(found_tdata);
+			;
+		SCOPE_TT:
+			print "[something in specific scope]";
+			;
+		GPR_TT:
+			print "[alternative words]";
+			;
+	}
+];
+-).
+
+To say grammar lines content of/for/-- (c - command-table-entry): (- PrintGrammarLines({c}-1); -)
+
+
 Chapter Listing verbs
 
 Listing verbs is an action out of world.
@@ -50,21 +146,14 @@ Report listing verbs (this is the report listing verbs rule):
 		let cte be the command table entry for cmd-alias;
 		let cmd-action be the action name for cte;
 		if "[cmd-action]" exactly matches the text "", next;
+		if "[v]" exactly matches the text "no.verb", next;
 		say "[bold type][v][roman type]";
 		unless "[v]" exactly matches the text "[cmd-alias]":
 			say " [italic type](same as [roman type][cmd-alias][italic type]) [roman type][line break]";
 		otherwise:
-			let num-actions be the number of grammar lines for cmd-alias;
 			say "[roman type]: [line break]";
-			let skip next be false;
-			repeat with x running from 1 to num-actions:
-				if skip next is false, say "- [italic type][action name for cte][roman type][line break]";
-				let O be action number of cte;
-				let cte be the next command table entry of cte;
-				let skip next be false;
-				let A be action number of cte;
-				if O is A, let skip next be true.
-
+			say "[grammar lines content for cte]".
+				
 Chapter Listing dictionary
 
 Listing dictionary is an action out of world.
@@ -118,6 +207,26 @@ Example: * Reflection - Listing verbs.
 	Include reflection by The Strawberry Field.
 	
 	Lab is a room.
+	
+	Chapter Special actions
+	
+	Section Requesting help
+	
+	Requesting help is an action out of world.
+	The requesting help action translates into Inter as "Help".
+
+	Understand "help me/-- please/--" as requesting help. 
+	Understand "help/hint/hints/suggestion/suggestions/advise/tip/tips" as "[help]".
+	Understand "ask for [help]" as requesting help.
+	Understand "get [help]" as requesting help.
+	
+	Section Coffee type
+	
+	Understand "classic/standard/normal/ordinary blend/coffee/--" as "[classic blend]".
+	Answering classic is an action applying to nothing.
+	Understand "[classic blend]" as answering classic.
+
+	Chapter Do test
 	
 	Test me with "verbs".
 	
