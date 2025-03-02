@@ -16,7 +16,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 See the license for more details.
 ]
 
-Include Commons by The Strawberry Field.
+"A framework to provide context-sensitive help, thinking and magic."
+
+Include Typography by The Strawberry Field.
 Include Reflection by The Strawberry Field.
 
 Volume Help
@@ -92,6 +94,6 @@ Understand "alakazam" or "say alakazam" or "cast alakazam" as casting xyzzy.
 Casting xyzzy is an action applying to nothing.
 The casting xyzzy action translates into Inter as "DoMagic".
 
-Report casting xyzzy (this is the report magic rule): say "Nothing happens."
+Report casting xyzzy (this is the report magic rule): say "[one of]Nothing happens[or][We] [aren't] a wizard[at random]."
 
 Contexts ends here.

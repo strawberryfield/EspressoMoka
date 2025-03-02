@@ -16,6 +16,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 See the license for more details.
 ]
 
+"Provides extensions to person-type objects, functions for their description and clothing management. New player-executable actions towards other characters are also present."
+
 Include Commons by The Strawberry Field.
 
 Volume Generic people

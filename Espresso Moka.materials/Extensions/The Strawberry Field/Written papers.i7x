@@ -16,7 +16,10 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 See the license for more details.
 ]
 
-Include Commons by The Strawberry Field
+"Provides topic search on tables for each side of the sheet. There are also actions for rotating the sheet as well as folding and unfolding it."
+
+Include Typography by The Strawberry Field.
+Include Verbs by The Strawberry Field.
 
 Chapter Definitions
 

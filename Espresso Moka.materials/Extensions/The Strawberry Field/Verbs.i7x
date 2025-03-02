@@ -1,4 +1,4 @@
-Version 250201 of Verbs by The Strawberry Field begins here.
+Version 250302 of Verbs by The Strawberry Field begins here.
 
 [
 Verbs © 2025 by Roberto Ceccarelli - The Strawberry Field 
@@ -15,6 +15,8 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
 See the license for more details.
 ]
+
+"Provides a long list of verbs to be used in say phrases."
 
 To add is a verb.
 To admit is a verb.
