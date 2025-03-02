@@ -24,12 +24,18 @@ Include Verbs by The Strawberry Field.
 Chapter Definitions
 
 A paper-item is a kind of thing.
+The specification of paper-item is "Defines an object that can contain text on both sides (represented by ‘paper-side’ objects). 
+The object can be rotated upside down or folded. In the latter case, an alternative text description may be provided."
+
 A paper-side is a kind of thing.
+The specification of paper-side is "This kind of object is never instantiated directly, but is an abstract class from which the ‘front side’ and ‘back side’ classes are derived."
 A paper-side has a table name called arguments.
 The arguments property translates into Inter as "Paper_item_arguments".
 
 A front side is a kind of paper-side. A front side is part of every paper-item.
+The specification of front side is "This kind of object is never instantiated directly, but it is part of every paper-item object."
 A back side is a kind of paper-side. A back side is part of every paper-item.
+The specification of back side is "This kind of object is never instantiated directly, but it is part of every paper-item object."
 
 A paper-item can be folded or unfolded.
 The folded property translates into Inter as "Paper_item_folded".

@@ -68,6 +68,7 @@ To say carrying of (p - a person):
 A cloth is a kind of thing. 
 A cloth is always wearable.
 A cloth is usually unlisted when worn.
+The specification of cloth is "A wearable thing. It is used to say the main dressing of a person."
 
 Instead of taking off a cloth: say "This is not the time to undress."
 	
@@ -81,6 +82,8 @@ Chapter Complimenting
 
 Complimenting is an action applying to one thing.
 The complimenting action translates into Inter as "Compliment".
+The specification of the complimenting action is "The People extension defines this action in only a minimal way, 
+reporting only a generic message or a blocking rule if the noun is not a person."
 
 Understand "compliment [something]" as complimenting.
 Understand the command "congratulate" as "compliment".
@@ -94,6 +97,9 @@ Chapter Scolding
 
 Scolding is an action applying to one thing.
 The scolding action translates into Inter as "Scold".
+The specification of the scolding action is "The People extension defines this action in only a minimal way, 
+reporting only a generic message or a blocking rule if the noun is not a person."
+
 Understand "scold [something]" as scolding.
 Understand the command "rebuke" or "reprimand" or "reproach" as "scold".
 
@@ -106,13 +112,15 @@ Report scolding (this is the report scolding rule): say "There [are] no reason t
 
 Chapter Taking hand
 
-Section Take someone's hand
-
 An hand is a kind of thing.
 An hand is part of every person.
 
+Section Take someone's hand
+
 Taking hand is an action applying to one thing.
 The taking hand action translates into Inter as "TakeHand".
+The specification of the taking hand action is "The People extension defines this action in only a minimal way, 
+blocking it with a check rule which stops it in all cases."
 
 Understand "take [hand]" as taking hand.
 
@@ -126,6 +134,8 @@ Section Take someone by the hand
 
 Taking by-hand is an action applying to one thing.
 The taking by-hand action translates into Inter as "TakeByHand".
+The specification of the taking by-hand action is "The People extension defines this action in only a minimal way, 
+blocking it with a check rule which stops it in all cases."
 
 Understand "take [someone] by/-- the/-- hand" as taking by-hand.
 Understand "take the/-- hand of [someone]" as taking by-hand.
