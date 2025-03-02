@@ -1380,13 +1380,18 @@ To say no more kisses: say "[/ss]Ciccio, we have already kissed so many times.' 
 
 Section Taking hand
 
-Persuasion rule for asking Monica to try taking hand an hand:
-	if the holder of the noun is the player:
-		say "[Monica] sweetly [take] [our] hand.";
-	persuasion fails.
+To say you take Monica hand: say "[We] gently [take] the [Monica]'s hand. [/n][They] [smile]."
+To say Monica takes your hand: say "[Monica] sweetly [take] [our] hand."
 
-Before taking hand Monica's hand:
-	say "[We] gently [take] the [Monica]'s hand. [/n][They] [smile]." instead.
+Persuasion rule for asking Monica to try taking hand an hand:
+	if the holder of the noun is the player, say Monica takes your hand;
+	persuasion fails.
+Before taking hand Monica's hand: say you take Monica hand instead.
+
+Persuasion rule for asking Monica to try taking by-hand the player:
+	say Monica takes your hand;
+	persuasion fails.
+Before taking by-hand Monica: say you take Monica hand instead.
 			
 Section Singing and dancing
 

@@ -90,6 +90,8 @@ Report complimenting (this is the report complimentig rule): say "[regarding the
 
 Chapter Taking hand
 
+Section Take someone's hand
+
 An hand is a kind of thing.
 An hand is part of every person.
 
@@ -103,5 +105,18 @@ Sanity-check an actor taking hand an hand (called the target) which is part of t
 
 Check an actor taking hand (this is the blocking taking hand rule):
 	say "[The holder of the noun] [do] not let [if the actor is the player][us][otherwise][the actor][end if] take [regarding the holder of the noun][their] hand." 
+
+Section Take someone by the hand
+
+Taking by-hand is an action applying to one thing.
+The taking by-hand action translates into Inter as "TakeByHand".
+
+Understand "take [someone] by/-- the/-- hand" as taking by-hand.
+
+Sanity-check an actor taking by-hand:
+	if the noun is the actor, say "[if the actor is the player][We][otherwise][The actor][end if] can't take [if the actor is the player][our][otherwise][regarding the actor][their][end if] hand." instead.
+
+Check an actor taking by-hand (this is the blocking taking by hand rule):
+	say "[The noun] [do] not let [if the actor is the player][us][otherwise][the actor][end if] take [regarding the noun][their] hand." 
 
 People ends here.
