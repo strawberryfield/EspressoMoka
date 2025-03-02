@@ -88,6 +88,20 @@ Check complimenting (this is the check complimenting rule):
 	if the noun is the player, say "Megalomaniac." (B) instead.
 Report complimenting (this is the report complimentig rule): say "[regarding the noun][They] really [appreciate]."
 
+Chapter Scolding
+
+Scolding is an action applying to one thing.
+The scolding action translates into Inter as "Scold".
+Understand "scold [something]" as scolding.
+Understand the command "rebuke" or "reprimand" or "reproach" as "scold".
+
+Check scolding (this is the check scolding rule): 
+	unless the noun is a person:
+		say "It can't hear you anyway." (A);
+		stop the action.
+		
+Report scolding (this is the report scolding rule): say "There [are] no reason to scold [regarding the noun][them]."
+
 Chapter Taking hand
 
 Section Take someone's hand
@@ -112,11 +126,20 @@ Taking by-hand is an action applying to one thing.
 The taking by-hand action translates into Inter as "TakeByHand".
 
 Understand "take [someone] by/-- the/-- hand" as taking by-hand.
+Understand "take the/-- hand of [someone]" as taking by-hand.
 
 Sanity-check an actor taking by-hand:
 	if the noun is the actor, say "[if the actor is the player][We][otherwise][The actor][end if] can't take [if the actor is the player][our][otherwise][regarding the actor][their][end if] hand." instead.
 
 Check an actor taking by-hand (this is the blocking taking by hand rule):
 	say "[The noun] [do] not let [if the actor is the player][us][otherwise][the actor][end if] take [regarding the noun][their] hand." 
+
+Book Responses
+
+The requested actions require persuasion rule response (A) is "[one of][The noun] [have] better things to do[or][The noun] [do] not seem to be interested[or][Our] request [have] been rejected[at random]."
+
+The can't remove from people rule response (A) is "[one of][regarding the noun][Those] [seem] to belong to [the owner][or][The owner] [do] not seem to want to give [regarding the noun][them] to [us][at random].".
+
+The report touching other people rule response (A) is "[one of][We] [don't need] to touch [the noun][or][The noun] [might not like] that[or]Better to avoid[at random]."
 
 People ends here.

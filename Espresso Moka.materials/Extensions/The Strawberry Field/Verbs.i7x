@@ -129,6 +129,7 @@ To strike is a verb.
 To suggest is a verb.
 To swipe is a verb.
 To thank is a verb.
+To think is a verb.
 To throw is a verb.
 To try is a verb.
 To type is a verb.

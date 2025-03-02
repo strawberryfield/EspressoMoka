@@ -1404,6 +1404,14 @@ Report Monica dancing:
 	say "[heart][The actor]  [do] a twirl. [/n]";
 	say "[We] [clap] and [kiss] [regarding the actor][them].".
 	
+Section Touching
+
+Before touching Monica: say "[one of][We] gently [caress] [the noun][or][We] [give] [the noun] a gentle caress[at random]. [/n][regarding the noun][They] [show] that [they] really [like] the gesture." instead.
+
+Persuasion rule for asking Monica to try touching the player:
+	say "[one of][Monica] gently [caress] [us][or][Monica] [give] [us] a gentle caress[at random]. [/n][/ss]How beautiful!' [/se][we] [think] and [smile] at [regarding Monica][them].";
+	persuasion fails.
+	
 Section Follow the player
 
 After going:

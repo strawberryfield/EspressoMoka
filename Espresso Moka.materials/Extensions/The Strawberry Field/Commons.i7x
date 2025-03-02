@@ -157,6 +157,8 @@ Understand the command "place" as "put".
 Understand "drop [something] in/into/down [something]" as inserting it into.
 Understand "drop [other things] on/onto [something]" as putting it on.
 
+Understand the command "caress" as "touch".
+
 Chapter Blocking take all
 
 Rule for deciding whether all includes a thing when taking: it does not.
@@ -196,20 +198,6 @@ Report stealing (this is the report stealing rule): say "[one of]Naughty, don't 
 Understand the command "stole" or "rob" as "steal".
 Rule for supplying a missing noun while stealing (this is the indefinite stealing rule):
     now the noun is the location. 
-
-Chapter Scolding
-
-Scolding is an action applying to one thing.
-The scolding action translates into Inter as "Scold".
-Understand "scold [something]" as scolding.
-Understand the command "rebuke" or "reprimand" or "reproach" as "scold".
-
-Check scolding (this is the check scolding rule): 
-	unless the noun is a person:
-		say "It can't hear you anyway." (A);
-		stop the action.
-		
-Report scolding (this is the report scolding rule): say "There [are] no reason to scold [regarding the noun][them]."
 
 Chapter Laughing
 
@@ -371,6 +359,14 @@ Sanity-check switching on or switching off an r-abstract thing:
 	if the noun is a device:
 		make no decision;
 	say "[The noun] [aren't] literally a projection; [they] [are] more of a concept created by the group mind of this language community. Sort of. [We] think. At any rate, [they] [don't] switch on and off." instead.
+
+Book Responses
+
+The standard report taking rule response (A) is "[one of]Taken[or][We] [take] [the noun][or]Now [we] [carry] [the noun][or][We] [hold] [regarding the noun][them][or]Now [we] [hold] [regarding the noun][them][at random].".
+
+The report touching yourself rule response (A) is "[one of][We] [feel] nothing unexpected[or][We] [achieve] nothing by this[at random].".
+The report touching things rule response (A) is "[one of][We] [feel] nothing unexpected[or][We] [achieve] nothing by this[at random].".
+
 
 Book Owner
 
