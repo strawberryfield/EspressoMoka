@@ -1194,10 +1194,10 @@ At the time when Monica asks about shrewish:
 		say "[heart][/ss]I knew you were nicer than that game's author.' [/se][Monica] [say].[/n]";
 		change sgudebla description.
 	
-Instead of doing anything other than kissing when the current context is kiss-Monica-help:
+Instead of doing anything other than doing sweetness when the current context is kiss-Monica-help:
 	say "[/ss]Come on, do something to make it up to me!' [/se][Monica] [advise] [us]."
 	
-Before kissing Monica when the current context is kiss-Monica-help:	
+Before doing sweetness when the current context is kiss-Monica-help:	
 	now the current context is the previous context;
 	say "[/ss]I may have exaggerated a bit, you can be a little too punctilious at times, but deep down, as I always say, you have a heart of cream.' [/se][we] [say] to [Monica], then [we] [kiss] her sweetly.";
 	author changes description in 0 turns from now;
@@ -1378,6 +1378,8 @@ To say narrator love kissing:
 	
 To say no more kisses: say "[/ss]Ciccio, we have already kissed so many times.' [/se][Monica] [remind] [/ss1]I love kissing you, but now we have to get on with the game.' [/r][/n]".
 
+Kissing Monica is doing sweetness.
+
 Section Taking hand
 
 To say you take Monica hand: say "[We] gently [take] the [Monica]'s hand. [/n][They] [smile]."
@@ -1386,13 +1388,19 @@ To say Monica takes your hand: say "[Monica] sweetly [take] [our] hand."
 Persuasion rule for asking Monica to try taking hand an hand:
 	if the holder of the noun is the player, say Monica takes your hand;
 	persuasion fails.
-Before taking hand Monica's hand: say you take Monica hand instead.
+Check taking  hand Monica's hand (this is the allow taking hand Monica's hand rule): say you take Monica hand instead.
+The allow taking  hand Monica's hand rule is listed first in the check taking hand rulebook.
+
+Taking hand Monica's hand is doing sweetness.
 
 Persuasion rule for asking Monica to try taking by-hand the player:
 	say Monica takes your hand;
 	persuasion fails.
-Before taking by-hand Monica: say you take Monica hand instead.
-			
+Check taking by-hand Monica (this is the allow taking by-hand Monica rule): say you take Monica hand instead.
+The allow taking by-hand Monica rule is listed first in the check taking by-hand rulebook.
+ 	
+Taking by-hand Monica is doing sweetness.	
+	
 Section Singing and dancing
 
 Persuasion rule for asking Monica to try singing: 
@@ -1406,7 +1414,10 @@ Report Monica dancing:
 	
 Section Touching
 
-Before touching Monica: say "[one of][We] gently [caress] [the noun][or][We] [give] [the noun] a gentle caress[at random]. [/n][regarding the noun][They] [show] that [they] really [like] the gesture." instead.
+Check touching Monica (this is the allow touching Monica rule): say "[one of][We] gently [caress] [the noun][or][We] [give] [the noun] a gentle caress[at random]. [/n][regarding the noun][They] [show] that [they] really [like] the gesture." instead.
+The allow touching Monica rule is listed first in the check touching rulebook.
+
+Touching Monica is doing sweetness.
 
 Persuasion rule for asking Monica to try touching the player:
 	say "[one of][Monica] gently [caress] [us][or][Monica] [give] [us] a gentle caress[at random]. [/n][/ss]How beautiful!' [/se][we] [think] and [smile] at [regarding Monica][them].";
