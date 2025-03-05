@@ -134,6 +134,10 @@ Instead of going south when the player is in the street-1:
 	say "[/ss]We've just arrived, so we're not going home yet.' [/se][Monica] [say] firmly.";
 	say "[/ss]Besides,' [/se][regarding Monica][they] [add] [/ss1]you said it yourself, we have to buy coffee capsules.' [/r][/n]".
 
+Section Square
+
+The central square is south of the street-1
+
 Chapter Street 2
 
 The street-2 is a street-room.
@@ -233,7 +237,7 @@ Before going north when the player is in the street-2:
 	otherwise:
 		if the recall for sale is false:
 			now the recall for sale is true;
-			say "[/ss]Ciccio, just a sec,' [/se][Monica] [draw] [our] attention [/ss1]the shorts are on sale. Yours are pretty worn out, so why not get a new pair?' [/r][/p]";
+			say "[/ss]Ciccio, just a moment,' [/se][Monica] [draw] [our] attention [/ss1]the shorts are on sale. Yours are pretty worn out, don't you think you should get a new pair?' [/r][/p]";
 			if the player consents:
 				say "[/ss]Well!' [/se][Monica] [exclaim] hopping [/ss1]Let's go inside!' [/r][/n]";
 			otherwise:
