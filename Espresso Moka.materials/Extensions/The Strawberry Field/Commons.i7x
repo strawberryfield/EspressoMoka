@@ -391,8 +391,9 @@ Understand the command "info" as "about".
 
 Report requesting info:
 	say "[banner text]";
+	say "IFID: [IFID code][/n]";
 	display the Figure cover;
-	say "[/i][story description][/r][/p]Type [/b]credits[/r] or [/b]license[/r] for more info.".
+	say "[/n][/i][story description][/r][/p]Type [/b]credits[/r] or [/b]license[/r] for more info.".
 	
 Chapter Credits
 
