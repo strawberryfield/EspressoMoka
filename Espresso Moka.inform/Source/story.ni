@@ -1698,7 +1698,23 @@ Response for Marco when asked for a moka-item:
 	Marco takes the second noun;
 	if the second noun is on the counter, initiate a conversation with Marco at roasted-coffee-node.
 	
-Default ask-for response for moka-request-node: say "[/ss]Actually, you have to choose a moka.' [/se][Monica] [remember] [us]."
+Default  response for moka-request-node: say "[/ss]Actually, you have to choose a moka.' [/se][Monica] [remember] [us]."
+
+Section About moka
+
+To say Marco explains (M - a thing): 
+	if M is the big old moka, say "[/ss]My grandmother's old moka,' [/se][Marco] [begin] to tell us [/ss1]she used to use it in the morning to make coffee for breakfast; my father used to tell me that he and his brothers used to compete to see who could take the most, but if one of them overdid it, he was punished.' [/r][/n]";
+	otherwise say "[/ss]They are all the same, made of aluminium, for two cups and guaranteed for five years. The colour is a matter of personal taste.' [/se][Marco] [explain] and [add] [/ss1]I have had one for years, I use it every morning and it has never given me any problems.' [/r][/n]".
+	
+Response for moka-request-node when asked about a moka-item: say Marco explains the second noun.
+Response for moka-request-node when told about a moka-item: say Marco explains the second noun.
+Response for Marco when asked about a moka-item: say Marco explains the second noun.
+Response for Marco when told about a moka-item: say Marco explains the second noun.
+
+Does the player mean quizzing someone about the natural aluminium moka: it is likely.
+Does the player mean informing someone about the natural aluminium moka: it is likely.
+Does the player mean implicit-quizzing the natural aluminium moka: it is likely.
+Does the player mean implicit-informing the natural aluminium moka: it is likely.
 
 Chapter Roasted coffee
 
