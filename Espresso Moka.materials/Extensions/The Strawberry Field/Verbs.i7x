@@ -1,4 +1,4 @@
-Version 250302 of Verbs by The Strawberry Field begins here.
+Version 250309 of Verbs by The Strawberry Field begins here.
 
 [
 Verbs © 2025 by Roberto Ceccarelli - The Strawberry Field 
@@ -88,6 +88,7 @@ To place is a verb.
 To point is a verb.
 To pour is a verb.
 To pull is a verb.
+To reassure is a verb.
 To rebuke is a verb.
 To recite is a verb. 
 To recoalesce is a verb. 
@@ -126,6 +127,7 @@ To stand is a verb.
 To stare is a verb. 
 To start is a verb.
 To state is a verb.
+To step is a verb.
 To stir is a verb.
 To strike is a verb. 
 To suggest is a verb.

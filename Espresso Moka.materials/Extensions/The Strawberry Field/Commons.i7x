@@ -27,12 +27,20 @@ Book Rules
 
 Rule for clarifying the parser's choice of something:
 	do nothing instead.
-	
+
 After reading a command:
+	if the player's command matches the regular expression "^\p|^<*+='>":
+		say "(Noted.)";
+		reject the player's command;
 	repeat with word running through {"sex","fuck","shag ","bang ","dick ","penis","pussy","cunt ","vagina"}:
 		if the player's command matches the text word:
 			say "The game does not include references to sex.";
-			reject the player's command. 
+			reject the player's command;
+	if the player's command includes "please":
+		say "(There is no need to say please.)";
+		cut the matched text.
+
+Understand "dir" and "dir [text]" and "cd [text]" and "copy" and "copy [text]" and "del" and "del [text]" and "edit" and "edit [text]" and "cls" and "ren" and "ren [text]" and "format" and "format [text]" and "ver" and "md [text]" and "rd [text]" as a mistake ("Typical DOS commands do not work in this story.").
 	
 Chapter Movements
 
@@ -101,6 +109,9 @@ Understand "bite [something]" as tasting.
 Chapter Aliases
 
 Understand "look around" as looking.  
+Understand the commands "see" and "view" as "look". 
+Understand the commands "observe" and "inspect" as "examine".
+
 Understand "climb on [something]" as climbing.
 Understand "check out [something]" as examining.
 Understand "sit down on/-- [something]" as entering.
@@ -115,6 +126,10 @@ Understand "use [something preferably held] on [a locked lockable thing]" as unl
 Understand "use [something preferably held] on [an unlocked lockable thing]" as locking it with (with nouns reversed).
 
 Understand "use [a switched off device]" as switching on.
+Understand "start [something]" as switching on. 
+Understand the command "activate" as "start".
+Understand "stop [something]" as switching off. 
+Understand the command "deactivate" as "stop".
 
 Understand "use [something]" as using. 
 Using is an action applying to one thing. 
@@ -123,6 +138,11 @@ Carry out using (this is the generic using rule): say "[We] will have to be more
 Understand "use [a door]" as opening. 
 Understand "use [an open door]" as entering.
 Understand "approach [a door]" as entering.
+
+Understand the commands "wander" and "proceed" and "stroll" and "stride" and "strut" and "sneak" and "creep" and "rush" as "walk".
+Understand the command "depart" as "leave". 
+
+Understand "lick [something]" as tasting.
 
 Understand "vomit" or "throw up" or "puke" or "barf" as a mistake ("[We] may feel a bit ill, but I don't think that's necessary.").
 
@@ -394,6 +414,8 @@ Report requesting info:
 	say "IFID: [IFID code][/n]";
 	display the Figure cover;
 	say "[/n][/i][story description][/r][/p]Type [/b]credits[/r] or [/b]license[/r] for more info.".
+
+Understand "about [text]" and "info [text]" and "information [text]" and "credits [text]" and "credit [text]" as a mistake ("Use [/b]about[/r] or [/b]credits[/r] with no additional text.").
 	
 Chapter Credits
 
@@ -407,9 +429,9 @@ Understand "credits list/--" as requesting credits.
 Understand the command "acknowledgment/acknowledgments/acknowledgement/acknowledgements/thanksgiving" as "credits".
 Report requesting credits:
 	say "This program make use of the following extensions: [/n][the complete list of extension credits][/n]";
-	say "Thanks are also due to the following people: [/n]";
+	say "Thanks are also due to: [/n]";
 	repeat through the Table of credited peoples:
-		unless name entry is empty, say "[name entry] [reason entry][/n]";
+		unless name entry is empty, say "- [name entry] [/i][reason entry].[/r]";
 	say "[/p]Type [/b]license[/r] or [/b]about[/r] for more info.".
 	
 Chapter License
@@ -440,10 +462,5 @@ either the product of the author’s imagination or used in a fictitious
 manner. Any resemblance to actual persons, living or dead, or actual
 events is purely coincidental.";
 	say "[/p]Type [/b]credits[/r] or [/b]about[/r] for more info.".
-
-Book Notes
-
-Understand "* [text]" as a mistake ("Noted.").		
-
 
 Commons ends here.

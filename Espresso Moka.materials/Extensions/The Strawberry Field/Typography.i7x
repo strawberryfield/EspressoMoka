@@ -31,6 +31,7 @@ To say /b: say bold type.
 To say /i: say italic type.
 To say /r: say roman type.
 To say /f: say fixed letter spacing.
+To say /t: say "[/f]    [/r]".
 
 Section Symbols
 

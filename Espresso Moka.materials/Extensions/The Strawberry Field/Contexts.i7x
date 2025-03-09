@@ -39,6 +39,8 @@ Report requesting help:
 	otherwise say generic help;
 	say /p;
 	say verbs command.
+
+Understand "help [text]" and "hint [text]" and "hints [text]" as a mistake ("Use [/b]help[/r] with no additional text.").
 	
 Section Narrator
 

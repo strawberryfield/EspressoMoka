@@ -45,7 +45,16 @@ Francesco and Monica are keen to try making coffee with a moka, just like their 
 
 Use brief room descriptions.
 
-Chapter release
+Chapter Score
+
+Check requesting the score: 
+	say "[/ss]Don't worry about the score, you've already won the most beautiful prize!' [/se][Monica] [step] in, looking at [us] with [regarding Monica][their] bright green eyes.";
+	say "[heart][/ss]When you look at me that way...' [/r][/n]";
+	stop the action.
+Check switching score notification on: try requesting the score instead;
+Check switching score notification off: try requesting the score instead;
+
+Chapter Release
 
 Release along with cover art ("Francesco and Monica prepare an espresso with a moka").
 Release along with the library card.
@@ -506,6 +515,7 @@ The scent-description of the written paper sheet is "a printed paper".
 Understand "readme/guide/booklet" as the written paper sheet.
 The written paper sheet is folded.
 The folded appearance is "A folded sheet of paper with the words ‘READ ME FIRST!’ clearly visible."
+Understand "leaflet" as the written paper sheet.
 
 Section Front
 
@@ -1716,6 +1726,15 @@ Does the player mean informing someone about the natural aluminium moka: it is l
 Does the player mean implicit-quizzing the natural aluminium moka: it is likely.
 Does the player mean implicit-informing the natural aluminium moka: it is likely.
 
+Section About making coffee
+
+Understand "how/-- to/-- make/extract/prepare/brew the/-- coffee/espresso" or "making/extracting/preparing/brewing the/-- coffee/espresso" or "how/-- to/-- use a/the/-- moka" or "using a/the/-- moka" as "[making coffee]".
+
+To say instructions enclosed: say "[/ss]Don't worry,' [/se][Marco] [reassure] [us] [/ss1]inside the moka you'll find a leaflet with useful tips.' [/r][/n]".
+
+Response for moka-request-node when asked-or-told about "[making coffee]": say instructions enclosed.
+Response for Marco when asked-or-told about "[making coffee]": say instructions enclosed.
+
 Chapter Roasted coffee
 
 The roasted-coffee-node is a coffee-choice-convnode.
@@ -1934,9 +1953,11 @@ Before going from the coffee-shop:
 	now the brown shopper is on the table;
 	now the current moka is a random moka-item in the brown shopper;
 	now the wallet is nowhere;
+	now the shiny black handbag is nowhere;
 	now Monica is in the kitchen;
 	now the player is in the kitchen;
 	now the current context is kitchen-help;
+	now the current interlocutor is Monica;
 	start the kitchen intro in 0 turns from now;
 	stop the action.
 		
@@ -1987,6 +2008,19 @@ At the time when start the kitchen intro:
 		try silently Monica closing the right cabinet;
 		Monica takes out the jar in 1 turn from now.
 
+Section Monica answers
+
+Response of Monica when asked-or-told about "[making coffee]":
+	if the location of the player is the kitchen:
+		if the coffee funnel filter is not filled:
+			say "[/ss]If I had known, I wouldn't have asked for your help.' [/se][Monica] [reply] [/ss1]I would have seen Mum put the water in the heater, then the funnel and the powder. She would close the moka and put it on the fire.' [/r][/n]";
+			if the player knows how to do is true, say "[/ss]Don't worry, it's not as hard as it looks!' [/se]";
+			otherwise say "[/ss]It seems doable, so let's give it a go!' [/se]";
+			say "[we] [reassure] [regarding Monica][them].";
+			say "[heart][/ss]My hero!' [/r][/n]";
+		otherwise:
+			say "[/ss]But you've already done everything!' [/se][regarding Monica][they] [exclaim].".
+	
 Chapter First opening
 
 To Monica takes (item - a thing) from the shopper:
@@ -2342,10 +2376,11 @@ Book Credits
 
 Table of credited peoples (continued)
 Name (text)	Reason (text)
-"Bing Image Creator"	"used to generate the cover art"
+"Mauro and Federico Casadei"	"for their patience in trying out the game and pointing out some problems to me"
 "Mike Russo"	"for inspiring the mad scientist gag"
 "The Bialetti website"	"for the informations about the coffee makers"
 "The Lavazza website"	"for the descriptions of the coffee qualities"
 "The Ikea website"	"for inspiring the kitchen furniture"
+"Bing Image Creator"	"used to generate the cover art"
 
 [----]
