@@ -123,6 +123,7 @@ To slip is a verb.
 To smile is a verb.
 To sound is a verb.
 To spread is a verb.
+To stay is a verb.
 To stand is a verb.
 To stare is a verb. 
 To start is a verb.

@@ -183,8 +183,20 @@ Instead of opening the shopper-item: say "It's already open."
 Scent-description of a shopper-item is "any other paper object".
 Sound-description of a shopper-item is "a creaking sound when you handle it".
 
+To say Monica takes (S - a shopper-item):
+	say "[/ss]You don't have a good relationship with shopping bags.' [/se][Monica] [state] [/ss1]Let me carry it.' [/r][/n]";
+	now Monica carries S.
+
+Response of Monica when shown a shopper-item: say Monica takes the noun.
+Response of Monica when given a shopper-item: say Monica takes the noun.
+
+Persuasion rule for asking Monica to try taking a shopper-item: 
+	say Monica takes the noun;
+	persuasion fails.
+
 The white shopper is a shopper-item.
 The description is "A white paper shopper."
+Understand "white/-- shopping/-- bag" as the white shopper.
 
 Section Shorts
 
@@ -1455,6 +1467,10 @@ To say should ask the narrator: say "[/ss]You should definitely ask the narrator
 Response of Monica when asked-or-told about "[help]": say should ask the narrator.
 Response of Monica when asked for "[help]": say should ask the narrator.
 
+Default ask-tell response for Monica:
+	say "[Monica] [one of][do] not seem to pay attention to [us][or][stay] silent[or][keep] quiet[or][don't] seem to be listening[at random].";
+	if the location of Monica is the coffee-shop, now the current interlocutor is Marco.
+	
 Book Marco
 
 Marco is a man in the coffee-shop.
@@ -2019,7 +2035,9 @@ Response of Monica when asked-or-told about "[making coffee]":
 			say "[we] [reassure] [regarding Monica][them].";
 			say "[heart][/ss]My hero!' [/r][/n]";
 		otherwise:
-			say "[/ss]But you've already done everything!' [/se][regarding Monica][they] [exclaim].".
+			say "[/ss]But you've already done everything!' [/se][regarding Monica][they] [exclaim].";
+	otherwise:
+		abide by the default ask response rules for Monica.
 	
 Chapter First opening
 
