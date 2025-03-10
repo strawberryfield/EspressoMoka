@@ -46,6 +46,7 @@ Chapter Movements
 
 Escaping is an action applying to nothing.
 The escaping action translates into Inter as "Escape".
+The specification of the escaping action is "A common alias for the exiting and going outside actions."
 Understand the command "out" as something new.
 Understand "escape" or "away" or "out" or "go away" as escaping.
 Carry out escaping:
@@ -163,10 +164,14 @@ Rule for deciding whether all includes a thing when removing from: it does not.
 Rule for printing a parser error when the latest parser error is the nothing to do error:
 	say "Don't be a hoarder, just take what you plan to use.".
 	
-Chapter Dancing and singing
+Chapter Dancing
 
 Dancing is an action applying to nothing.
 The dancing action translates into Inter as "Dance".
+The specification of the dancing action is "The Commons extension defines this action in only a minimal way, 
+reporting a generic message and doing nothing.
+Since it makes little sense to dance seated or inside a container before performing it, 
+the actor's exit is imposed.".
 Understand "Dance" as dancing.
 Report dancing (this is the report dancing rule): say "[We] [aren't] a dancer.".
 Check an actor dancing:
@@ -174,8 +179,12 @@ Check an actor dancing:
 		say "(first leaving [the seat])";
 		silently try getting off the seat.
  
+Chapter Singing
+ 
 Singing is an action applying to nothing.
 The singing action translates into Inter as "Sing".
+The specification of the singing action is "The Commons extension defines this action in only a minimal way, 
+reporting a generic message and doing nothing.".
 Understand "Sing" as singing.
 Report singing (this is the report singing rule): say "[We] [are] not particularly in tune.".
 Check singing (this is the check singing rule):
@@ -187,6 +196,8 @@ Chapter Stealing
 
 Stealing is an action applying to one thing.
 The stealing action translates into Inter as "Steal".
+The specification of the stealing action is "The Commons extension defines this action in only a minimal way, 
+reporting a generic message and not performing the malicious action.".
 Understand "steal all/every/any/-- [something]" as stealing.
 Understand "steal all/everything/anything/--" as stealing.
 
@@ -200,6 +211,8 @@ Chapter Laughing
 
 Laughing is an action applying to nothing.
 The laughing action translates into Inter as "Laugh".
+The specification of the laughing action is "The Commons extension defines this action in only a minimal way, 
+reporting a generic message and doing nothing.".
 Understand "laugh" as laughing.
 
 Report laughing (this is the report laughing rule): say "[one of]He who laughs last laughs loudest[or]Risus abundat in ore stultorum[at random].".
@@ -208,6 +221,8 @@ Chapter Swiping
 
 Swiping is an action applying to one thing.
 The swiping action translates into Inter as "Swipe".
+The specification of the swiping action is "The Commons extension defines this action in only a minimal way, 
+reporting a generic message and doing nothing.".
 Understand "swipe [something preferably held]" as swiping.
 
 Report swiping (this is the report swiping rule): say "[We] [swipe] [the noun]."
@@ -216,6 +231,8 @@ Section Swiping at
 
 Swiping it at is an action applying to two things.
 The swiping it at action translates into Inter as "SwipeAt".
+The specification of the swiping it at action is "The Commons extension defines this action in only a minimal way, 
+reporting a generic message and doing nothing.".
 Understand "swipe [something preferably held] on/at/in [something]" as swiping it at.
 
 Report swiping it at (this is the report swiping a thing at rule): say "[We] [swipe] [the noun] at [the second noun]."

@@ -53,6 +53,8 @@ Section Folding
 
 Folding is an action applying to one thing.
 The folding action translates into Inter as "Fold".
+The specification of the folding action is "Folding places the object in a state in which its contents cannot be read, 
+but a summary description of the object itself is shown."
 Understand "fold [something] again/--" as folding.
 Understand "close [a paper-item] again/--" as folding. 
 
@@ -67,6 +69,7 @@ Section Unfolding
 
 Unfolding is an action applying to one thing.
 The unfolding action translates into Inter as "Unfold".
+The specification of the unfolding action is "Unfolding make the object readable and flippable."
 Understand "unfold [something]" as unfolding.
 Understand "open [a paper-item]" as unfolding.
 
@@ -130,6 +133,7 @@ Section reading
 	
 Examining as a paper is an action applying to one topic.
 The examining as a paper action translates into Inter as "ReadPaper".
+The specification of examining as a paper action is "Examining as a paper allows the contents of a sheet to be read from a list of topics contained in a table."
 Understand "examine [text]" as examining as a paper.
 Understand "read [text]" as examining as a paper.
 
