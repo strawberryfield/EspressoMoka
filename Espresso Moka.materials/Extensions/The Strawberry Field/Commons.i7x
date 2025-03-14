@@ -287,6 +287,7 @@ Chapter Go back
 
 Retreating is an action applying to nothing.
 The retreating action translates into Inter as "Retreat".
+The specification of the retreating action is "This action allows the player to return to the previous visited location."
 Understand "go back" as retreating. 
 Understand "back" or "return" or "retreat" as retreating.
 
@@ -303,6 +304,7 @@ Chapter Go forward
 
 Going forward is an action applying to nothing.
 The going forward action translates into Inter as "GoForward".
+The specification of the going forward action is "This action allows the player to move in the same direction of the last room change."
 Understand "go forward/ahead/straight" as going forward.
 Understand "forward" or "ahead" or "straight" as going forward.
 Carry out going forward:
@@ -319,6 +321,7 @@ Chapter Go to named room
 
 Going by name is an action applying to one thing.
 The going by name action translates into Inter as "GoByName".
+The specification of the going by name action is "This action allows the player to go to an adjacent room specifying its name."
 
 Understand "[any room]" as going by name. 
 Understand "go to/into/-- [any room]" as going by name.
@@ -423,6 +426,8 @@ Chapter Info
 
 Requesting info is an action out of world.
 The requesting info action translates into Inter as "Info".
+The specification of the requesting info action is "This out of world action shows the banner, the cover image and the story description."
+
 Understand "about the/this/-- story/game/--" as requesting info.
 Understand the command "info" as "about".
 
@@ -442,6 +447,8 @@ Name (text)	Reason (text)
 
 Requesting credits is an action out of world.
 The requesting credits action translates into Inter as "CreditsList".
+The specification of the requesting credits action is "This out of world action shows the list of the included extensions and the content of the table of credited peoples."
+
 Understand "credits list/--" as requesting credits.
 Understand the command "acknowledgment/acknowledgments/acknowledgement/acknowledgements/thanksgiving" as "credits".
 Report requesting credits:
@@ -455,6 +462,8 @@ Chapter License
 
 Requesting license is an action out of world.
 The requesting license action translates into Inter as "LicenseInfo".
+The specification of the requesting license action is "This out of world action shows the license deed and the disclaimers."
+
 Understand "license note/--" as requesting license.
 Understand the command "copyright/legal/licence" as "license".
 Report requesting license:

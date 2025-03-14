@@ -27,6 +27,8 @@ To say verbs command: say "Type [/b]verbs[/r] or [/b]commands[/r] for a list of 
 	 
 Requesting help is an action out of world.
 The requesting help action translates into Inter as "Help".
+The specification of the requesting help action is "This out of world action show a message taken from the table of help topics.
+A 'current context' variable hold the topic to be shown."
 
 Understand "help me/-- please/--" as requesting help. 
 Understand the command "hint/advise/suggest/tip" as "help".
@@ -95,6 +97,7 @@ Understand "alakazam" or "say alakazam" or "cast alakazam" as casting xyzzy.
 
 Casting xyzzy is an action applying to nothing.
 The casting xyzzy action translates into Inter as "DoMagic".
+The specification of the casting xyzzy action is "Actually the Contexts extension defines this action as a generic message." 
 
 Report casting xyzzy (this is the report magic rule): say "[one of]Nothing happens[or][We] [aren't] a wizard[at random]."
 
