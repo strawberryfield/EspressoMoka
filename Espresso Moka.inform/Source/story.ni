@@ -42,6 +42,7 @@ The story headline is "An everyday life puzzle".
 The story description is "'Making good coffee seems easy!' So went the ad for a well-known brand of coffee maker.
 
 Francesco and Monica are keen to try making coffee with a moka, just like their mums did. They admit that capsules are so much easier to use, but..."
+Figure cover is the file "Cover.jpg" ("Francesco and Monica prepare an espresso with a moka").
 
 Use brief room descriptions.
 

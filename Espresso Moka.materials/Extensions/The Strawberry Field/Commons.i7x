@@ -403,8 +403,6 @@ Does the player mean drinking an owned thing: it is unlikely.
 
 Book Administrivia
 
-Figure cover is the file "Cover.jpg".
-
 To wait space key:
 	say "[/p]Please press SPACE to continue.";
 	wait for the SPACE key;
