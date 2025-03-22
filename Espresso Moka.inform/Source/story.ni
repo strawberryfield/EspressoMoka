@@ -2025,6 +2025,46 @@ At the time when start the kitchen intro:
 		try silently Monica closing the right cabinet;
 		Monica takes out the jar in 1 turn from now.
 
+Section Singing
+
+Instead of singing when the location of the player is the kitchen:
+	say "[note style][musical note] 'Il caffè della Peppina[/n]
+Non si beve alla mattina[/n]
+Né col latte, né col tè[/n]
+Ma perché, perché, perché...' [/r][/p]
+[/ss]Wonderful song!' [/se][Monica] [say] [/ss1]But maybe we should translate it into English for our friends who don't speak Italian.' [/se] so [they] [start] to sing the verse:[/n]
+[note style][musical note] 'Peppina makes coffee,[/n]
+makes coffee with chocolate,[/n]
+Then she adds marmalade,[/n]
+Half a kilogram of onions,[/n]
+Four or five candies,[/n]
+Seven butterfly wings,[/n]
+And then she says: «What a coffee[exclamation mark]»' [/r][/p]
+And at the end, they repeat the refrain together: [/n]
+[note style][musical note] 'Peppina's coffee[/n]
+You don't drink it in the morning[/n]
+Neither with milk nor with tea,[/n]
+But why, why, why?' [/r][/p] 
+[/ss]But do you know it all?' [/se][Monica] [ask][/p]";
+	if the player consents, say "[note style][musical note] 'Peppina makes coffee,[/n]
+Makes coffee with rosemary,[/n]
+She adds some cheese,[/n]
+A turkey's leg,[/n]
+A chick's feather,[/n]
+Five bags of flour,[/n]
+And then she says: «What a coffee[exclamation mark]» [/p]
+Peppina's coffee[/n]
+You don't drink it in the morning[/n]
+Neither with milk nor with tea,[/n]
+But why, why, why?[/n]
+Peppina makes coffee,[/n]
+Makes coffee with pepper and salt,[/n]
+Garlic - no, because it hurts[/n]
+Water - yes, but with petroleum,[/n]
+Salad without oil,[/n]
+When you try it with TNT[/n]
+You jump in the air, with coffee!' [/r][/n]".
+
 Section Monica answers
 
 Response of Monica when asked-or-told about "[making coffee]":
@@ -2397,9 +2437,14 @@ Table of credited peoples (continued)
 Name (text)	Reason (text)
 "Mauro and Federico Casadei"	"for their patience in trying out the game and pointing out some problems to me"
 "Mike Russo"	"for inspiring the mad scientist gag"
+"Tony Martucci, Walter Valdi and Alberto Anelli"	"authors of the song 'Il caffè della Peppina'"
 "The Bialetti website"	"for the informations about the coffee makers"
 "The Lavazza website"	"for the descriptions of the coffee qualities"
 "The Ikea website"	"for inspiring the kitchen furniture"
 "Bing Image Creator"	"used to generate the cover art"
 
+Book Quitting
+
+The quit the game rule response (A) is  "[/ss]But do you really want to stop playing?' [/se][Monica] [ask] [us], sounding a little disappointed.[/p]".
+		
 [----]

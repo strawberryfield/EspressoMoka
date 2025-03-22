@@ -38,6 +38,8 @@ Section Symbols
 To say /warning: say "[unicode 9888] ".
 To say /copyright: say "[unicode 169] ".
 To say --: say unicode 8212.
+To say exclamation mark: say unicode 33.
+To say musical note: say unicode 9835.
 
 Section Dialogs
 

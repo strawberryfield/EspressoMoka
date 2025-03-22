@@ -420,6 +420,16 @@ Rule for printing the banner text:
 	say "Release [release number] / serial [story serial number] / Inform7 v[inform7 version] / Inform6 v[inform6 version][debug mode][/n]";
     rule succeeds.	
 	
+Chapter Version
+
+This is the custom announce the story file version rule:
+	say "[banner text]";
+	say "IFID: [IFID code][/n]";
+	say "Interpreter version [interpreter version] / VM [VM version][/n]";
+	say the list of extension credits.
+	
+The custom announce the story file version rule is listed instead of the announce the story file version rule in the carry out requesting the story file version rulebook.
+	
 Chapter Info
 
 Requesting info is an action out of world.
