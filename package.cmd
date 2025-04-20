@@ -44,5 +44,5 @@ echo auxiliary "%HOME_PATH%\LICENSE.txt" "LICENSE" "--" >> %BLURB%
 rem packaging
 cd "%MATERIALS_PATH%\release"
 magick Cover.jpg -resize 600x600 cover_small.jpg
-%RAREXE% a -afzip -r -m5 -z..\%COMMENT% "%BIN%" *.*
+%RAREXE% a -afzip -r -m5 -z..\%COMMENT% "%HOME_PATH%\bin\EspressoMoka" *.*
 popd

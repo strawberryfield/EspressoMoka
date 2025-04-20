@@ -7,6 +7,9 @@
 [Bb]in/
 [Rr]eserved/
 
+# Miscellanea
+other/
+
 # Temporary files
 *.plist
 *.glksave

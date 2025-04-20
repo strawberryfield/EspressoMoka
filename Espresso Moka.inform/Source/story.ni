@@ -620,6 +620,7 @@ Instead of smelling the coffee-shop: say "[the scent-description of the coffee-s
 
 Instead of taking something not paid when the player is in the coffee-shop:
 	if the noun is enclosed by the player, continue the action;
+	if the noun is the credit card, continue the action;
 	if the noun is a shelf-item, say "It is well secured." instead;
 	say "Perhaps it would be best to ask [Marco] for it."
 
@@ -1274,6 +1275,7 @@ The description of the photo is "A photo of [Monica] you took last year at Lake 
 
 The description of the credit card is "A red plastic card."
 Understand "payment card" as the credit card.
+
 Some money are in the wallet. The description of money is "It's only banknotes, coins annoy you.".
 Instead of taking money, say "It's better to use a payment card.".
 
@@ -1811,8 +1813,8 @@ Response for roasted-coffee-node when asked-or-told about "[strong blend]":
 	Marco explains flavour of strong;
 	Marco state the coffee price of strong.
 	
-Response for capsules-offer-node when asked for "[strong blend]": Marco takes the package of strong.
-Response for capsules-offer-node when answered that "[strong blend]": Marco takes the package of strong.
+Response for roasted-coffee-node when asked for "[strong blend]": Marco takes the package of strong.
+Response for roasted-coffee-node when answered that "[strong blend]": Marco takes the package of strong.
 
 Section Soft 
 
@@ -1944,7 +1946,13 @@ Instead of swiping the credit card: try paying.
 
 Does the player mean swiping the credit card at something: it is likely.
 Instead of swiping the credit card at the POS terminal: try paying.
-	
+
+Instead of putting the credit card on the pos: try paying.
+To say swipe it yourself: say "[/ss]Please swipe it at the POS.' [/se][Marco] [say]."
+Instead of putting the credit card on the POS terminal: try paying.
+Instead of giving the credit card to Marco when the current node is payment-node: say swipe it yourself.
+Instead of showing the credit card to Marco when the current node is payment-node: say swipe it yourself.
+
 Section Post-pay activities
 
 At the time when Monica takes the shopper:
